@@ -1,0 +1,136 @@
+﻿@model HRCMS.ViewModels.HRCaseModel
+
+@{
+    if (String.IsNullOrEmpty(Model.CaseNumber))
+    {
+        ViewData["Title"] = "Create New Case";
+    }
+    else
+    {
+        ViewData["Title"] = "HR Case:" + Model.CaseNumber;
+    }
+}
+    <h1>@ViewData["Title"]</h1>
+    
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Save">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            @Html.HiddenFor(m => m.CaseId)
+            <div class="form-group">
+                <span class="font-weight-bolder">
+                    @Html.LabelFor(m => m.PRI, new { @class = "control-label " }):
+                </span>
+                @Html.TextBoxFor(m => m.PRI, new { @class = "form-control", @maxlength = "250", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.PRI, "", htmlAttributes: new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <span class="font-weight-bolder">
+                    @Html.LabelFor(m => m.LastName, new { @class = "control-label " }):
+                </span>
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @maxlength = "250", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.LastName, "", htmlAttributes: new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <span class="font-weight-bolder">
+                    @Html.LabelFor(m => m.FirstName, new { @class = "control-label " }):
+                </span>
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @maxlength = "250", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.FirstName, "", htmlAttributes: new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <span class="font-weight-bolder">
+                    @Html.LabelFor(m => m.Email, new { @class = "control-label required" }):
+                </span>
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @maxlength = "250" })
+                @Html.ValidationMessageFor(m => m.Email, "", htmlAttributes: new { @class = "text-danger" })
+            </div>
+            @*<div class="form-group">
+            <span class="font-weight-bolder">@Html.Label("", "Case Status", new { @class = "control-label" }):</span>
+            @Html.ValidationMessageFor(m => m.CaseStatusId, "", htmlAttributes: new { @class = "text-danger col-md-12" })
+            @Html.DropDownListFor(m => m.CaseStatusId, Model.CaseStatuses, htmlAttributes: new { @class = "form-control", @readonly = "readonly", @disabled = "disabled" })
+            @Html.HiddenFor(m => m.CaseStatusId)
+        </div>*@
+            <div class="form-group">
+                <span class="font-weight-bolder">@Html.Label("", "Case Type", new { @class = "control-label" }):</span>
+                @Html.ValidationMessageFor(m => m.CaseTypeId, "", htmlAttributes: new { @class = "text-danger col-md-12" })
+                @Html.DropDownListFor(m => m.CaseTypeId, Model.CaseTypes, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <span class="font-weight-bolder">@Html.Label("", "Case SubType", new { @class = "control-label" }):</span>
+                @Html.ValidationMessageFor(m => m.CaseSubTypeId, "", htmlAttributes: new { @class = "text-danger col-md-12" })
+                @Html.DropDownListFor(m => m.CaseSubTypeId, Model.CaseSubTypes, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <span class="font-weight-bolder">
+                    @Html.LabelFor(m => m.Description, new { @class = "control-label " }):
+                </span>
+                @Html.TextAreaFor(m => m.Description, 5, 200, new { @class = "form-control", @maxlength = "4000" })
+                @Html.ValidationMessageFor(m => m.Description, "", htmlAttributes: new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="List" class="btn btn-default">Cancel</a>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="List">Back to List</a>
+</div>
+@section CustomScripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script type="text/javascript">
+    $(document).ready(function () {
+        var textarea = $('textarea[maxlength]');
+        var text = ' characters remaining.';
+
+        $.fn.getCharactersRemaining = function () {
+            var length = $(this).val().length;
+            var maxLength = parseInt($(this).attr('maxlength'));
+            var remaining = maxLength - length;
+
+            return remaining;
+        };
+
+        textarea.each(function () {
+            var html = '<span class="counter">' + $(this).getCharactersRemaining() + '</span>' + text;
+
+            //display the character count below the textarea when the page loads.
+            $(this).after(html);
+
+            $(this).on("input keyup keydown focus", function () {
+                //update character count as you type.
+                $(this).next('.counter').text($(this).getCharactersRemaining());
+            });
+        });
+
+        $('#CaseTypeId').change(function () {
+                var selectedCaseTypeId = $("#CaseTypeId").val();
+                var CaseSubTypeIdsSelect = $('#CaseSubTypeId');
+                CaseSubTypeIdsSelect.empty();
+                if (selectedCaseTypeId != null && selectedCaseTypeId != '') {
+                    $.getJSON('@Url.Action("GetCaseSubTypes")', { caseTypeId: selectedCaseTypeId }, function (CaseSubTypeIds) {
+                        if (CaseSubTypeIds != null && !jQuery.isEmptyObject(CaseSubTypeIds))
+                        {
+                            CaseSubTypeIdsSelect.append($('<option/>', {
+                                value: null,
+                                text: "--"
+                            }));
+                            $.each(CaseSubTypeIds, function (index, subtype) {
+                                CaseSubTypeIdsSelect.append($('<option/>', {
+                                    value: subtype.value,
+                                    text: subtype.text
+                                }));
+                            });
+                        };
+                    });
+                }
+            });
+    });
+
+</script>
+}
+

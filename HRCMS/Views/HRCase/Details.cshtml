@@ -1,0 +1,198 @@
+﻿@model HRCMS.ViewModels.HRCaseModel
+
+@{
+    ViewData["Title"] = "HR Case:" + Model.CaseNumber;
+}
+
+<h1>HR Case: @Model.CaseNumber</h1>
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Withdraw">
+            <div class="wb-tabs">
+                <div class="tabpanels">
+                    <details id="tabGeneral">
+                        <summary>General</summary>
+
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        @Html.HiddenFor(m => m.CaseId)
+                        <div class="form-group">
+                            <span class="font-weight-bolder">
+                                @Html.LabelFor(m => m.PRI, new { @class = "control-label " }):
+                            </span>
+                            <p>@Model.PRI</p>
+                        </div>
+                        <div class="form-group">
+                            <span class="font-weight-bolder">
+                                @Html.LabelFor(m => m.LastName, new { @class = "control-label " }):
+                            </span>
+                            <p>@Model.LastName</p>
+                        </div>
+                        <div class="form-group">
+                            <span class="font-weight-bolder">
+                                @Html.LabelFor(m => m.FirstName, new { @class = "control-label " }):
+                            </span>
+                            <p>@Model.FirstName</p>
+                        </div>
+                        <div class="form-group">
+                            <span class="font-weight-bolder">
+                                @Html.LabelFor(m => m.Email, new { @class = "control-label " }):
+                            </span>
+                            <p><a href="mailto:@Model.Email">@Model.Email</a></p>
+                        </div>
+                        <div class="form-group">
+                            <span class="font-weight-bolder">@Html.Label("", "Case Status", new { @class = "control-label" }):</span>
+                            @if (Model.CaseStatusId == "315840001")
+                            {
+                                <p>
+                                    Received by Pay
+                                </p>
+                            }
+                            else
+                            {
+                                <p>
+                                    @Model.CaseStatusText
+                                </p>
+                            }
+                        </div>
+                        <div class="form-group">
+                            <span class="font-weight-bolder">@Html.Label("", "Case Type", new { @class = "control-label" }):</span>
+                            <p>@Model.CaseTypeText</p>
+                        </div>
+                        <div class="form-group">
+                            <span class="font-weight-bolder">@Html.Label("", "Case Sub-Type", new { @class = "control-label" }):</span>
+                            <p>@Model.CaseSubTypeText</p>
+                        </div>
+                        <div class="form-group">
+                            <span class="font-weight-bolder">
+                                @Html.LabelFor(m => m.Description, new { @class = "control-label " }):
+                            </span>
+                            <p>@Model.Description</p>
+                        </div>
+                        @if (Model.CaseStatusId == "315840002") //withdraw only if the case is new
+                        {
+                            <div id="divAlert" class="alert alert-warning hidden">
+                                <p>Are you sure?</p>
+                                <div class="form-group">
+                                    <input type="submit" id="btnConfirm" asp-action="Delete" value="Confirm" class="btn btn-danger" />
+                                    <input type="button" id="btnCancel" value="Cancel" class="btn btn-default" />
+                                </div>
+                            </div>
+                            <div class="form-group" id="divButtons">
+                                <input type="submit" asp-action="Submit" value="Submit" class="btn btn-primary" />
+                                <a asp-action="Update" asp-route-id="@Model.CaseId" class="btn btn-default">Update</a>
+                                <input type="button" id="btnDelete" value="Delete" class="btn btn-warning" />
+                            </div>
+                        }
+                        @if (Model.CaseStatusId == "315840001" || Model.CaseStatusId == "315840000" || Model.CaseStatusId == "315840003") //withdraw
+                        {
+                            <div id="divAlert" class="alert alert-warning hidden">
+                                <p>Are you sure?</p>
+                                <div class="form-group">
+                                    <input type="submit" id="btnConfirm" asp-action="Withdraw" value="Confirm" class="btn btn-danger" />
+                                    <input type="button" id="btnCancel" value="Cancel" class="btn btn-default" />
+                                </div>
+                            </div>
+                            <div class="form-group" id="divButtons">
+                                <input type="button" id="btnWithdraw" value="Withdraw" class="btn btn-primary" />
+                            </div>
+                        }
+
+                    </details>
+                    @if (Model.Questions.Count>0)
+                    {
+                <details id="tabQuestions">
+                    <summary>Questions and Answers</summary>
+
+
+                    @for (int i = 0; i < Model.Questions.Count; i++)
+                    {
+                <section class="panel panel-default hght-inhrt">
+                    @Html.HiddenFor(m => m.Questions[i].QuestionId)
+                    @if (string.IsNullOrEmpty(Model.Questions[i].AnswerText))
+                    {
+                        <div class="alert alert-danger mrgn-bttm-0">
+                            <label class="font-weight-bolder" for="Questions_@(i)__AnswerText">
+                                @Model.Questions[i].QuestionText [@Model.Questions[i].DateCreated.ToString("yyyy-MM-dd")]
+                            </label>
+                        </div>
+                        <div class="panel-body">
+                            @Html.TextAreaFor(m => m.Questions[i].AnswerText, 5, 200, new { @class = "form-control", @maxlength = "4000" })
+                            @Html.ValidationMessageFor(m => m.Questions[i].AnswerText, "", htmlAttributes: new { @class = "text-danger" })
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="panel-heading">
+                            <label class="font-weight-bolder">
+                                @Model.Questions[i].QuestionText [@Model.Questions[i].DateCreated.ToString("yyyy-MM-dd")]
+                            </label>
+                        </div>
+                        <div class="panel-body">
+                            <p>
+                                @Model.Questions[i].AnswerText
+                            </p>
+                        </div>
+                    }
+
+                </section>
+                      
+                    }
+
+
+                    <input type="submit" id="btnUpdateAnswers" class="btn btn-default hidden" asp-action="UpdateAnswers" value="Submit Answers" />
+                </details>
+                    }
+                    </div>
+            </div>
+        </form>
+    </div>
+</div>
+    
+
+    <div>
+        <a asp-action="List">Back to List</a>
+    </div>
+    @section CustomScripts {
+        <script type="text/javascript">
+            $(document).ready(function () {
+                
+            });
+
+            $(document).on("wb-ready.wb-tabs", ".wb-tabs", function (event) {
+                var textarea = $('textarea[maxlength]');
+                var text = ' characters remaining.';
+
+                $.fn.getCharactersRemaining = function () {
+                    var length = $(this).val().length;
+                    var maxLength = parseInt($(this).attr('maxlength'));
+                    var remaining = maxLength - length;
+
+                    return remaining;
+                };
+
+                if (textarea.length > 0) {
+                    $('#btnUpdateAnswers').removeClass("hidden");
+                }
+
+                textarea.each(function () {
+                    var html = '<span class="counter">' + $(this).getCharactersRemaining() + '</span>' + text;
+
+                    //display the character count below the textarea when the page loads.
+                    $(this).after(html);
+
+                    $(this).on("input keyup keydown focus", function () {
+                        //update character count as you type.
+                        $(this).next('.counter').text($(this).getCharactersRemaining());
+                    });
+                });
+
+                $('#btnWithdraw,#btnCancel, #btnDelete').click(function () {
+                    $('#divButtons, #divAlert').toggleClass("hidden");
+                });
+            });
+
+            
+
+        </script>
+    }
+

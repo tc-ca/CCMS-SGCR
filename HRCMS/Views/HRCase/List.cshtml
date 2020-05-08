@@ -1,0 +1,95 @@
+﻿@model List<HRCMS.ViewModels.HRCaseModel>
+
+@{
+    ViewData["Title"] = "View My Cases";
+}
+
+<h1>View My Cases</h1>
+<div>
+    <a asp-action="Create">Add a new case</a>
+</div>
+    <table class="wb-tables table table-striped" data-wb-tables='{ "ordering" : true }'>
+        @*<table class="table table-striped">*@
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">
+                        Case Number
+                    </th>
+                    <th scope="col">
+                        Case Type
+                    </th>
+                    <th scope="col">
+                        Case Sub-Type
+                    </th>
+                    <th scope="col">
+                        Case Status
+                    </th>
+                    @*<th scope="col">
+                        First Name
+                    </th>
+                    <th scope="col">
+                        Last Name
+                    </th>*@
+                    <th scope="col">
+                        Created On
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model?.Count > 0)
+                {
+                    @foreach (HRCaseModel hrCase in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.ActionLink(hrCase.CaseNumber, "details", "hrcase", new { id= hrCase.CaseId })
+                            </td>
+                            <td>
+                                @hrCase.CaseTypeText
+                            </td>
+                            <td>
+                                @hrCase.CaseSubTypeText
+                            </td>
+                            <td>
+                                @if (hrCase.CaseStatusId == "315840001")
+                                {
+                                    <p>
+                                        Received by Pay
+                                    </p>
+                                }
+                                else
+                                {
+                                    <p>
+                                        @hrCase.CaseStatusText
+                                    </p>
+                                }
+                            </td>
+                            @*<td>
+                                @hrCase.FirstName
+                            </td>
+                            <td>
+                                @hrCase.LastName
+                            </td>*@
+                            <td>
+                                @hrCase.DateCreated.ToString("yyyy-MM-dd")
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="7">
+                            N/A
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+<div>
+    <a asp-action="Create">Add a new case</a>
+</div>
+
+@*@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@
