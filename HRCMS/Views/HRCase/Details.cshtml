@@ -112,7 +112,7 @@
                     {
                         <div class="alert alert-danger mrgn-bttm-0">
                             <label class="font-weight-bolder" for="Questions_@(i)__AnswerText">
-                                @Model.Questions[i].QuestionText [@Model.Questions[i].DateCreated.ToString("yyyy-MM-dd")]
+                                @Model.Questions[i].QuestionText <span class="localDateTime">@Model.Questions[i].DateCreated</span>
                             </label>
                         </div>
                         <div class="panel-body">
@@ -124,11 +124,11 @@
                     {
                         <div class="panel-heading">
                             <label class="font-weight-bolder">
-                                @Model.Questions[i].QuestionText [@Model.Questions[i].DateCreated.ToString("yyyy-MM-dd")]
+                                @Model.Questions[i].QuestionText <span class="localDateTime">@Model.Questions[i].DateCreated</span>
                             </label>
                         </div>
                         <div class="panel-body">
-                            <p>[@Model.Questions[i].DateModified.ToString("yyyy-MM-dd")]</p>
+                            <p><span class="localDateTime">@Model.Questions[i].DateModified</span></p>
                             <p>
                                 @Model.Questions[i].AnswerText
                             </p>
@@ -191,14 +191,14 @@
                     $('#divButtons, #divAlert').toggleClass("hidden");
                 });
 
-                //var localDateTimes = $('.localDateTime');
-                //localDateTimes.each(function () {
-                //    var utcTime = this.innerHTML;
-                //    if (utcTime != null) {
-                //        var localDateTime = new Date(utcTime);
-                //        this.innerHTML ="[" + localDateTime.toString() + "]";
-                //    }
-                //});              
+                var localDateTimes = $('.localDateTime');
+                localDateTimes.each(function () {
+                    var utcTime = this.innerHTML;
+                    if (utcTime != null) {
+                        var d = new Date(utcTime);
+                        this.innerHTML = "[" + utcTime.substring(0,10) + " " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2) + "]";
+                    }
+                });              
             });
 
             
