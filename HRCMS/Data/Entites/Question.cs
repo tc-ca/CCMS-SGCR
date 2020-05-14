@@ -13,5 +13,6 @@ namespace HRCMS.Data
         public string hr_answer { get; set; }
         public string _hr_hrcase_value { get; set; }
         public DateTime createdon { get; set; }
+        public DateTime modifiedon { get; set; }
     }
 }

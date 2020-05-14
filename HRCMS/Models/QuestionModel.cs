@@ -16,5 +16,6 @@ namespace HRCMS.ViewModels
         public String AnswerText { get; set; }
         public string HRCaseId { get; set; }
         public DateTime DateCreated { get; set; }
+        public DateTime DateModified { get; set; }
     }
 }
