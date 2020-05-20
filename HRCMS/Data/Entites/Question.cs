@@ -12,7 +12,12 @@ namespace HRCMS.Data
         public string hr_question { get; set; }
         public string hr_answer { get; set; }
         public string _hr_hrcase_value { get; set; }
-        public string createdon { get; set; }
-        public string modifiedon { get; set; }
+        public DateTime createdon { get; set; }
+        public DateTime modifiedon { get; set; }
+        //Date set in string format for convert to local time.
+        public string hr_answeredon { get; set; }
+        //Date set in string format for convert to local time.
+        public string hr_askedon { get; set; }
+
     }
 }

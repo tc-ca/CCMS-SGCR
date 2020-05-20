@@ -20,6 +20,8 @@ namespace HRCMS.Data
               .ForMember(dest => dest.AnswerText, act => act.MapFrom(src => src.hr_answer))
               .ForMember(dest => dest.DateCreated, act => act.MapFrom(src => src.createdon))
               .ForMember(dest => dest.DateModified, act => act.MapFrom(src => src.modifiedon))
+              .ForMember(dest => dest.DateAsked, act => act.MapFrom(src => src.hr_askedon))
+              .ForMember(dest => dest.DateAnswered, act => act.MapFrom(src => src.hr_answeredon))
               .ReverseMap();           
         }
     }

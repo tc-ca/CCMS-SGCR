@@ -31,8 +31,9 @@ namespace HRCMS.Data
             using (var client = DynamicsApiHelper.GetHttpClient(_appSettings))
             {
                 var entityName = "hr_questionandanswerses";
+                var orderby = $"$orderby=createdon%20desc";
                 var filter = $"$filter=_hr_hrcase_value%20eq%20{caseId}";
-                var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}?{filter}");
+                var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}?{filter}&{orderby}");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -78,6 +79,7 @@ namespace HRCMS.Data
                     var entityName = "hr_questionandanswerses";
                     dynamic jQuestion = new JObject();
                     jQuestion.hr_answer = ques.hr_answer;
+                    jQuestion.hr_answeredon = DateTime.UtcNow.ToString();
 
                     var caseContent = new StringContent(jQuestion.ToString(), Encoding.UTF8, "application/json");
 

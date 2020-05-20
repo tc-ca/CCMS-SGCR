@@ -112,7 +112,7 @@
                     {
                         <div class="alert alert-danger mrgn-bttm-0">
                             <label class="font-weight-bolder" for="Questions_@(i)__AnswerText">
-                                @Model.Questions[i].QuestionText <span class="localDateTime">@Model.Questions[i].DateCreated</span>
+                                @Model.Questions[i].QuestionText <span class="localDateTime">@Model.Questions[i].DateAsked</span>
                             </label>
                         </div>
                         <div class="panel-body">
@@ -124,11 +124,11 @@
                     {
                         <div class="panel-heading">
                             <label class="font-weight-bolder">
-                                @Model.Questions[i].QuestionText <span class="localDateTime">@Model.Questions[i].DateCreated</span>
+                                @Model.Questions[i].QuestionText <span class="localDateTime">@Model.Questions[i].DateAsked</span>
                             </label>
                         </div>
                         <div class="panel-body">
-                            <p><span class="localDateTime">@Model.Questions[i].DateModified</span></p>
+                            <p><span class="localDateTime">@Model.Questions[i].DateAnswered</span></p>
                             <p>
                                 @Model.Questions[i].AnswerText
                             </p>
