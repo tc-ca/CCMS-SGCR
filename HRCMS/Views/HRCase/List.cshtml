@@ -121,7 +121,12 @@
 
                 $('#btnRefreshList').click(function () {
                     var selectStatus = $("#ddlCaseStatus").val();
-                    document.cookie = "caseList=" + encodeURI(selectStatus);
+
+                    var d = new Date();
+                    d.setTime(d.getTime() + (1 * 24 * 60 * 60 * 1000));
+                    var expires = "expires=" + d.toUTCString();
+
+                    document.cookie = "caseList=" + encodeURI(selectStatus) + ";" + expires + ";";
                     location.reload();
                 });
             });
