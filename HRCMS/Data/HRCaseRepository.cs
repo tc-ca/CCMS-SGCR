@@ -39,9 +39,10 @@ namespace HRCMS.Data
             {
                 var entityName = "hr_hrcases";
                 var statusList = statuses.Split("|");
+                var orderby = $"$orderby=createdon%20desc";
                 var statusFilter = "[%27" + string.Join("%27,%27", statusList) + "%27]";
                 var filter = $"$select=hr_lastname,hr_name,hr_casestatus,hr_firstname,hr_hrcaseid,createdon&$expand=hr_CaseType($select=hr_name),hr_CaseSubType($select=hr_name)&$filter=hr_pri%20eq%20{pri}%20and%20Microsoft.Dynamics.CRM.In(PropertyName=%27hr_casestatus%27,PropertyValues={statusFilter})%20and%20hr_CaseType/hr_casetypeid%20ne%20null%20and%20hr_CaseSubType/hr_casesubtypeid%20ne%20null";
-                var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}?{filter}");
+                var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}?{filter}&{orderby}");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -50,41 +51,13 @@ namespace HRCMS.Data
                     {
                         var hrCases = JsonConvert.DeserializeObject<List<HRCase>>(JObject.Parse(results)["value"].ToString(), new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-dd" });
                         var hrCaseModels = _mapper.Map<List<HRCaseModel>>(hrCases);
-                        //for (int i = 0; i < hrCaseModels.Count; i++)
-                        //{
-                        //    hrCaseModels[i].CaseTypeText = JObject.Parse(results)["value"][i]["hr_CaseType"]["hr_name"].ToString();
-                        //    hrCaseModels[i].CaseSubTypeText = JObject.Parse(results)["value"][i]["hr_CaseSubType"]["hr_name"].ToString();
-                        //}
                         return hrCaseModels;
                     }
                 }
             }
             return null;
         }
-
-        public async Task<List<HRCaseModel>> GetAllCasesWithUnansweredQuestionAsync(string pri)
-        {
-            using (var client = DynamicsApiHelper.GetHttpClient(_appSettings))
-            {
-                var entityName = "hr_hrcases";
-                var select = $"$select=hr_lastname,hr_name,hr_casestatus,hr_firstname,hr_hrcaseid,createdon&$expand=hr_CaseType($select=hr_name),hr_CaseSubType($select=hr_name)";
-                var filter = $"$filter=hr_pri%20eq%20{pri}%20and%20hr_HRCase_hr_HRCase_hr_QuestionandAnswers/any(o:o/hr_answer%20eq%20null)";
-                var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}?{select}&{filter}");
-
-                if (response.IsSuccessStatusCode)
-                {
-                    var results = await response.Content.ReadAsStringAsync();
-                    if (results != null)
-                    {
-                        var hrCases = JsonConvert.DeserializeObject<List<HRCase>>(JObject.Parse(results)["value"].ToString(), new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-dd" });
-                        var hrCaseModels = _mapper.Map<List<HRCaseModel>>(hrCases);                        
-                        return hrCaseModels;
-                    }
-                }
-            }
-            return null;
-        }
-
+        
         public async Task<HRCaseModel> GetCaseAsync(string caseId)
         {
             using (var client = DynamicsApiHelper.GetHttpClient(_appSettings))

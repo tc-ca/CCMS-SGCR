@@ -11,7 +11,7 @@ namespace HRCMS.Data
         public string hr_questionnumber { get; set; }
         public string hr_question { get; set; }
         public string hr_answer { get; set; }
-        public string _hr_hrcase_value { get; set; }
+        public HRCase hr_HRCase { get; set; }
         public DateTime createdon { get; set; }
         public DateTime modifiedon { get; set; }
         //Date set in string format for convert to local time.

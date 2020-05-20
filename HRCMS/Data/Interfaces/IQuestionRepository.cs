@@ -8,7 +8,7 @@ namespace HRCMS.Data
 {
     public interface IQuestionRepository
     {
-        //Task<List<Question>> GetAllQuestionsAsync(string caseId);
+        Task<List<QuestionModel>> GetAllUnAnsweredQuestionsAsync(string pri);
         //Task<Question> GetQuestionAsync(string questionId);
         Task<string> UpdateAnswerAsync(Question ques);
     }

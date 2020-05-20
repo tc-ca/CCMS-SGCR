@@ -26,28 +26,30 @@ namespace HRCMS.Data
             _appSettings = settings.Value;
         }
 
-        //public async Task<List<Question>> GetAllQuestionsAsync(string caseId)
-        //{
-        //    using (var client = DynamicsApiHelper.GetHttpClient(_appSettings))
-        //    {
-        //        var entityName = "hr_questionandanswerses";
-        //        var orderby = $"$orderby=createdon%20desc";
-        //        var filter = $"$filter=_hr_hrcase_value%20eq%20{caseId}";
-        //        var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}?{filter}&{orderby}");
+        public async Task<List<QuestionModel>> GetAllUnAnsweredQuestionsAsync(string pri)
+        {
+            using (var client = DynamicsApiHelper.GetHttpClient(_appSettings))
+            {
+                var entityName = "hr_questionandanswerses";
+                var orderby = $"$orderby=createdon%20desc";
+                var select = $"$select=hr_questionandanswersid,hr_question&$expand=hr_HRCase($select=hr_hrcaseid,hr_name)";
+                var filter = $"$filter=hr_answer%20eq%20null%20and%20hr_HRCase/hr_pri%20eq%20{pri}";
+                var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}?{select}&{filter}&{orderby}");
 
-        //        if (response.IsSuccessStatusCode)
-        //        {
-        //            var results = await response.Content.ReadAsStringAsync();
-        //            if (results != null)
-        //            {
-        //                var questions = JsonConvert.DeserializeObject<List<Question>>(JObject.Parse(results)["value"].ToString(), new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-dd" });
-        //                return questions;
-        //            }
-        //        }
-        //    }
-        //    return null;
-        //}
-      
+                if (response.IsSuccessStatusCode)
+                {
+                    var results = await response.Content.ReadAsStringAsync();
+                    if (results != null)
+                    {
+                        var questions = JsonConvert.DeserializeObject<List<Question>>(JObject.Parse(results)["value"].ToString(), new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-dd" });
+                        var questionModels = _mapper.Map<List<QuestionModel>>(questions);
+                        return questionModels;
+                    }
+                }
+            }
+            return null;
+        }
+
         //public async Task<Question> GetQuestionAsync(string questionId)
         //{
         //    using (var client = DynamicsApiHelper.GetHttpClient(_appSettings))
@@ -67,7 +69,7 @@ namespace HRCMS.Data
         //    }
         //    return null;
         //}
-              
+
 
         public async Task<string> UpdateAnswerAsync(Question ques)
         {

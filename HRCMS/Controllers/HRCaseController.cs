@@ -77,6 +77,9 @@ namespace HRCMS.Controllers
                     hrcase.CaseStatusText = caseStatuses.FirstOrDefault(t => t.Value == hrcase.CaseStatusId)?.Text; ;
                 }
 
+                var questionModels = await _questionRepository.GetAllUnAnsweredQuestionsAsync(pri);
+                ViewBag.Questions = questionModels;
+
                 return View(hrCases);
             }
             catch (Exception e)

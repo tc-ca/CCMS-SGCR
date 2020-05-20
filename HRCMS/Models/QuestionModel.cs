@@ -10,11 +10,10 @@ namespace HRCMS.ViewModels
     public class QuestionModel
     {
         public string QuestionId { get; set; }
-        public String QuestionNumber { get; set; }
         
         public String QuestionText { get; set; }
         public String AnswerText { get; set; }
-        public string HRCaseId { get; set; }
+        public HRCaseModel HRCase { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
         //Date set in string format for convert to local time.
