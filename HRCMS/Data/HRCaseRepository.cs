@@ -50,24 +50,48 @@ namespace HRCMS.Data
                     {
                         var hrCases = JsonConvert.DeserializeObject<List<HRCase>>(JObject.Parse(results)["value"].ToString(), new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-dd" });
                         var hrCaseModels = _mapper.Map<List<HRCaseModel>>(hrCases);
-                        for (int i = 0; i < hrCaseModels.Count; i++)
-                        {
-                            hrCaseModels[i].CaseTypeText = JObject.Parse(results)["value"][i]["hr_CaseType"]["hr_name"].ToString();
-                            hrCaseModels[i].CaseSubTypeText = JObject.Parse(results)["value"][i]["hr_CaseSubType"]["hr_name"].ToString();
-                        }
+                        //for (int i = 0; i < hrCaseModels.Count; i++)
+                        //{
+                        //    hrCaseModels[i].CaseTypeText = JObject.Parse(results)["value"][i]["hr_CaseType"]["hr_name"].ToString();
+                        //    hrCaseModels[i].CaseSubTypeText = JObject.Parse(results)["value"][i]["hr_CaseSubType"]["hr_name"].ToString();
+                        //}
                         return hrCaseModels;
                     }
                 }
             }
             return null;
         }
-      
-        public async Task<HRCase> GetCaseAsync(string caseId)
+
+        public async Task<List<HRCaseModel>> GetAllCasesWithUnansweredQuestionAsync(string pri)
         {
             using (var client = DynamicsApiHelper.GetHttpClient(_appSettings))
             {
                 var entityName = "hr_hrcases";
-                var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}({caseId})");
+                var select = $"$select=hr_lastname,hr_name,hr_casestatus,hr_firstname,hr_hrcaseid,createdon&$expand=hr_CaseType($select=hr_name),hr_CaseSubType($select=hr_name)";
+                var filter = $"$filter=hr_pri%20eq%20{pri}%20and%20hr_HRCase_hr_HRCase_hr_QuestionandAnswers/any(o:o/hr_answer%20eq%20null)";
+                var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}?{select}&{filter}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var results = await response.Content.ReadAsStringAsync();
+                    if (results != null)
+                    {
+                        var hrCases = JsonConvert.DeserializeObject<List<HRCase>>(JObject.Parse(results)["value"].ToString(), new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-dd" });
+                        var hrCaseModels = _mapper.Map<List<HRCaseModel>>(hrCases);                        
+                        return hrCaseModels;
+                    }
+                }
+            }
+            return null;
+        }
+
+        public async Task<HRCaseModel> GetCaseAsync(string caseId)
+        {
+            using (var client = DynamicsApiHelper.GetHttpClient(_appSettings))
+            {
+                var entityName = "hr_hrcases";
+                var select = $"$expand=hr_CaseType($select=hr_name),hr_CaseSubType($select=hr_name),hr_HRCase_hr_HRCase_hr_QuestionandAnswers($select=hr_questionandanswersid,hr_question,hr_answer,hr_read,hr_askedon,hr_answeredon)";
+                var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}({caseId})?{select}");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -75,7 +99,10 @@ namespace HRCMS.Data
                     if (result != null)
                     {
                         var hrCase = JsonConvert.DeserializeObject<HRCase>(result, new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-dd" });
-                        return hrCase;
+                        var hrCaseMode = _mapper.Map<HRCaseModel>(hrCase);
+
+                        //hrCaseMode.Questions = _mapper.Map<List<QuestionModel>>(JObject.Parse(result)["hr_HRCase_hr_HRCase_hr_QuestionandAnswers"].ToArray());
+                        return hrCaseMode;
                     }
                 }
             }
@@ -98,8 +125,8 @@ namespace HRCMS.Data
                     jCase.hr_casestatus = hrCase.hr_casestatus; 
                     jCase.hr_description = hrCase.hr_description;
                     jCase.hr_datereceived = DateTime.Now;
-                    jCase["hr_CaseType@odata.bind"] = $"/hr_casetypes({hrCase._hr_casetype_value})";
-                    jCase["hr_CaseSubType@odata.bind"] = $"/hr_casesubtypes({hrCase._hr_casesubtype_value})";
+                    jCase["hr_CaseType@odata.bind"] = $"/hr_casetypes({hrCase.hr_CaseType.hr_casetypeid})";
+                    jCase["hr_CaseSubType@odata.bind"] = $"/hr_casesubtypes({hrCase.hr_CaseSubType.hr_casesubtypeid})";
 
                     var caseContent = new StringContent(jCase.ToString(), Encoding.UTF8, "application/json");
                     
@@ -148,8 +175,8 @@ namespace HRCMS.Data
                     if (hrCase.hr_email != null) jCase.hr_email = hrCase.hr_email;
                     if (hrCase.hr_casestatus != null) jCase.hr_casestatus = hrCase.hr_casestatus;
                     if (hrCase.hr_description != null) jCase.hr_description = hrCase.hr_description;
-                    if (hrCase._hr_casetype_value != null) jCase["hr_CaseType@odata.bind"] = $"/hr_casetypes({hrCase._hr_casetype_value})";
-                    if (hrCase._hr_casesubtype_value != null) jCase["hr_CaseSubType@odata.bind"] = $"/hr_casesubtypes({hrCase._hr_casesubtype_value})";
+                    if (hrCase.hr_CaseType != null) jCase["hr_CaseType@odata.bind"] = $"/hr_casetypes({hrCase.hr_CaseType.hr_casetypeid})";
+                    if (hrCase.hr_CaseSubType != null) jCase["hr_CaseSubType@odata.bind"] = $"/hr_casesubtypes({hrCase.hr_CaseSubType.hr_casesubtypeid})";
 
                     var caseContent = new StringContent(jCase.ToString(), Encoding.UTF8, "application/json");
 

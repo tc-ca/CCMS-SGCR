@@ -26,47 +26,47 @@ namespace HRCMS.Data
             _appSettings = settings.Value;
         }
 
-        public async Task<List<Question>> GetAllQuestionsAsync(string caseId)
-        {
-            using (var client = DynamicsApiHelper.GetHttpClient(_appSettings))
-            {
-                var entityName = "hr_questionandanswerses";
-                var orderby = $"$orderby=createdon%20desc";
-                var filter = $"$filter=_hr_hrcase_value%20eq%20{caseId}";
-                var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}?{filter}&{orderby}");
+        //public async Task<List<Question>> GetAllQuestionsAsync(string caseId)
+        //{
+        //    using (var client = DynamicsApiHelper.GetHttpClient(_appSettings))
+        //    {
+        //        var entityName = "hr_questionandanswerses";
+        //        var orderby = $"$orderby=createdon%20desc";
+        //        var filter = $"$filter=_hr_hrcase_value%20eq%20{caseId}";
+        //        var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}?{filter}&{orderby}");
 
-                if (response.IsSuccessStatusCode)
-                {
-                    var results = await response.Content.ReadAsStringAsync();
-                    if (results != null)
-                    {
-                        var questions = JsonConvert.DeserializeObject<List<Question>>(JObject.Parse(results)["value"].ToString(), new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-dd" });
-                        return questions;
-                    }
-                }
-            }
-            return null;
-        }
+        //        if (response.IsSuccessStatusCode)
+        //        {
+        //            var results = await response.Content.ReadAsStringAsync();
+        //            if (results != null)
+        //            {
+        //                var questions = JsonConvert.DeserializeObject<List<Question>>(JObject.Parse(results)["value"].ToString(), new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-dd" });
+        //                return questions;
+        //            }
+        //        }
+        //    }
+        //    return null;
+        //}
       
-        public async Task<Question> GetQuestionAsync(string questionId)
-        {
-            using (var client = DynamicsApiHelper.GetHttpClient(_appSettings))
-            {
-                var entityName = "hr_questionandanswerses";
-                var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}({questionId})");
+        //public async Task<Question> GetQuestionAsync(string questionId)
+        //{
+        //    using (var client = DynamicsApiHelper.GetHttpClient(_appSettings))
+        //    {
+        //        var entityName = "hr_questionandanswerses";
+        //        var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}({questionId})");
 
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = await response.Content.ReadAsStringAsync();
-                    if (result != null)
-                    {
-                        var question = JsonConvert.DeserializeObject<Question>(result, new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-dd" });
-                        return question;
-                    }
-                }
-            }
-            return null;
-        }
+        //        if (response.IsSuccessStatusCode)
+        //        {
+        //            var result = await response.Content.ReadAsStringAsync();
+        //            if (result != null)
+        //            {
+        //                var question = JsonConvert.DeserializeObject<Question>(result, new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-dd" });
+        //                return question;
+        //            }
+        //        }
+        //    }
+        //    return null;
+        //}
               
 
         public async Task<string> UpdateAnswerAsync(Question ques)

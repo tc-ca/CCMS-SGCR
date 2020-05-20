@@ -19,19 +19,26 @@ namespace HRCMS.Data
               .ForMember(dest => dest.LastName, act => act.MapFrom(src => src.hr_lastname))
               .ForMember(dest => dest.Email, act => act.MapFrom(src => src.hr_email))
               .ForMember(dest => dest.PRI, act => act.MapFrom(src => src.hr_pri))
-              .ForMember(dest => dest.CaseTypeId, act => act.MapFrom(src => src._hr_casetype_value))
-              .ForMember(dest => dest.CaseSubTypeId, act => act.MapFrom(src => src._hr_casesubtype_value))
+              .ForMember(dest => dest.CaseType, act => act.MapFrom(src => src.hr_CaseType))
+              .ForMember(dest => dest.CaseSubType, act => act.MapFrom(src => src.hr_CaseSubType))
               .ForMember(dest => dest.CaseStatusId, act => act.MapFrom(src => src.hr_casestatus))
               .ForMember(dest => dest.DateCreated, act => act.MapFrom(src => src.createdon))
               .ForMember(dest => dest.DateReceived, act => act.MapFrom(src => src.hr_datereceived))
               .ForMember(dest => dest.Description, act => act.MapFrom(src => src.hr_description))
+              .ForMember(dest => dest.Questions, act => act.MapFrom(src => src.hr_HRCase_hr_HRCase_hr_QuestionandAnswers))
               .ReverseMap();
 
-            //this.CreateMap<RatingType, RatingTypeModel>()
-            //  .ReverseMap();
+            this.CreateMap<CaseType, CaseTypeModel>()
+              .ForMember(dest => dest.TypeId, act => act.MapFrom(src => src.hr_casetypeid))
+              .ForMember(dest => dest.TypeName, act => act.MapFrom(src => src.hr_name))
+              .ReverseMap();
 
-            //this.CreateMap<Service, ServiceModel>()
-            //  .ReverseMap();
+            this.CreateMap<CaseSubType, CaseSubtypeModel>()
+              .ForMember(dest => dest.SubTypeId, act => act.MapFrom(src => src.hr_casesubtypeid))
+              .ForMember(dest => dest.SubTypeName, act => act.MapFrom(src => src.hr_name))
+              .ReverseMap();
         }
+
+       
     }
 }

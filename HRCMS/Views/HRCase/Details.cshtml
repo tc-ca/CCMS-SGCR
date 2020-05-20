@@ -56,11 +56,11 @@
                         </div>
                         <div class="form-group">
                             <span class="font-weight-bolder">@Html.Label("", "Case Type", new { @class = "control-label" }):</span>
-                            <p>@Model.CaseTypeText</p>
+                            <p>@Model.CaseType.TypeName</p>
                         </div>
                         <div class="form-group">
                             <span class="font-weight-bolder">@Html.Label("", "Case Sub-Type", new { @class = "control-label" }):</span>
-                            <p>@Model.CaseSubTypeText</p>
+                            <p>@Model.CaseSubType.SubTypeName</p>
                         </div>
                         <div class="form-group">
                             <span class="font-weight-bolder">

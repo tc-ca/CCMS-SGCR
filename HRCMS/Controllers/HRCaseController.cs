@@ -56,33 +56,24 @@ namespace HRCMS.Controllers
             try            
             {
                 var pri = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.PrimarySid)?.Value;
-
-                //if (Request.Cookies["caseList"] == null)
-                //{
-                //    Response.Cookies.Append("caseList", "315840000, 315840001, 315840002, 315840003");
-                //}
-
+                
                 var statuses = Request.Cookies["caseList"];
 
                 if(statuses == null)
                 {
-                    statuses = "315840000|315840001|315840002|315840003";
+                    statuses = "315840000|315840001|315840002|315840003"; //Default list to Open cases
                 }
                 else
                 {
                     statuses = HttpUtility.UrlDecode(statuses);
-                }
-               
+                }               
 
                 var hrCases = await _repository.GetAllCasesAsync(pri, statuses);
 
-                //var caseTypes = await _caseTypeRepository.GetAllCaseTypesAsync();
-                //var caseSubTypes = await _caseTypeRepository.GetAllCaseSubTypesAsync();
+                //Get case status because 'Received by HR' here eq 'New Cases' in Dynamics
                 var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync();
                 foreach (var hrcase in hrCases)
                 {
-                    //hrcase.CaseTypeText = caseTypes.FirstOrDefault(t => t.Value == hrcase.CaseTypeId)?.Text;
-                    //hrcase.CaseSubTypeText = caseSubTypes.FirstOrDefault(t => t.Value == hrcase.CaseSubTypeId)?.Text; ;
                     hrcase.CaseStatusText = caseStatuses.FirstOrDefault(t => t.Value == hrcase.CaseStatusId)?.Text; ;
                 }
 
@@ -98,9 +89,9 @@ namespace HRCMS.Controllers
         {
             try
             {
-                var result = await _repository.GetCaseAsync(id);
+                var hrCaseModel = await _repository.GetCaseAsync(id);
 
-                var hrCaseModel = _mapper.Map<HRCaseModel>(result);
+                //var hrCaseModel = _mapper.Map<HRCaseModel>(result);
 
                 if(Int32.Parse(hrCaseModel.PRI)!= Int32.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.PrimarySid)?.Value))
                 {
@@ -108,18 +99,10 @@ namespace HRCMS.Controllers
                     return RedirectToAction("List");
                 }
 
-                var caseTypes = await _caseTypeRepository.GetAllCaseTypesAsync();
-                var caseSubTypes = await _caseTypeRepository.GetAllCaseSubTypesAsync();
+                //Get case status because 'Received by HR' here eq 'New Cases' in Dynamics
                 var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync();
-                var questions = await _questionRepository.GetAllQuestionsAsync(hrCaseModel.CaseId);
-                hrCaseModel.CaseTypeText = caseTypes.FirstOrDefault(t => t.Value == hrCaseModel.CaseTypeId)?.Text;
-                hrCaseModel.CaseSubTypeText = caseSubTypes.FirstOrDefault(t => t.Value == hrCaseModel.CaseSubTypeId)?.Text; 
                 hrCaseModel.CaseStatusText = caseStatuses.FirstOrDefault(t => t.Value == hrCaseModel.CaseStatusId)?.Text;
-                if (questions != null)
-                {
-                    hrCaseModel.Questions = _mapper.Map<List<QuestionModel>>(questions);
-                }
-
+                
                 return View(hrCaseModel);
             }
             catch (Exception e)
@@ -164,9 +147,10 @@ namespace HRCMS.Controllers
                 var hrCaseModel = _mapper.Map<HRCaseModel>(result);
 
                 hrCaseModel.CaseTypes = await _caseTypeRepository.GetAllCaseTypesAsync();
-                if (!string.IsNullOrEmpty(hrCaseModel.CaseTypeId))
+                //Set Case subtype according to case type
+                if (!string.IsNullOrEmpty(hrCaseModel.CaseType.TypeId))
                 {
-                    hrCaseModel.CaseSubTypes = await _caseTypeRepository.GetCaseSubTypesAsync(hrCaseModel.CaseTypeId);
+                    hrCaseModel.CaseSubTypes = await _caseTypeRepository.GetCaseSubTypesAsync(hrCaseModel.CaseType.TypeId);
                 }
                 else
                 {
@@ -178,9 +162,7 @@ namespace HRCMS.Controllers
                 {
                     ModelState.AddModelError(string.Empty, "Unauthorized");
                     return RedirectToAction("List");
-                }
-
-                
+                }                
 
                 return View("Create", hrCaseModel);
             }
@@ -220,7 +202,7 @@ namespace HRCMS.Controllers
             hrCaseModel.CaseStatuses = caseStatuses;
 
             ModelState.AddModelError(string.Empty, "Not a valid model");
-            return View(hrCaseModel);
+            return View("Create", hrCaseModel);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

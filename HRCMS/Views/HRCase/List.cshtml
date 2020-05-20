@@ -49,10 +49,10 @@
                             @Html.ActionLink(hrCase.CaseNumber, "details", "hrcase", new { id = hrCase.CaseId })
                         </td>
                         <td>
-                            @hrCase.CaseTypeText
+                            @hrCase.CaseType.TypeName
                         </td>
                         <td>
-                            @hrCase.CaseSubTypeText
+                            @hrCase.CaseSubType.SubTypeName
                         </td>
                         <td>
                             @if (hrCase.CaseStatusId == "315840001")

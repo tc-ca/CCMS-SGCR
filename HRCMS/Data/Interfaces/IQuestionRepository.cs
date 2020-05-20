@@ -8,8 +8,8 @@ namespace HRCMS.Data
 {
     public interface IQuestionRepository
     {
-        Task<List<Question>> GetAllQuestionsAsync(string caseId);
-        Task<Question> GetQuestionAsync(string questionId);
+        //Task<List<Question>> GetAllQuestionsAsync(string caseId);
+        //Task<Question> GetQuestionAsync(string questionId);
         Task<string> UpdateAnswerAsync(Question ques);
     }
 }

@@ -13,7 +13,8 @@ namespace HRCMS.Data
 
         // HR Cases
         Task<List<HRCaseModel>> GetAllCasesAsync(string pri, string statuses);
-        Task<HRCase> GetCaseAsync(string caseId);
+        Task<List<HRCaseModel>> GetAllCasesWithUnansweredQuestionAsync(string pri);
+        Task<HRCaseModel> GetCaseAsync(string caseId);
         Task<string> CreateHRCaseAsync(HRCase hrCase);
         Task<string> UpdateHRCaseAsync(HRCase hrCase);
         Task<bool> DeleteHRCaseAsync(string caseId);

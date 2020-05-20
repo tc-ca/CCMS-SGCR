@@ -12,10 +12,8 @@ namespace HRCMS.Data
     {
         public QuestionProfile()
         {
-            this.CreateMap<Question, QuestionModel>()
-              .ForMember(dest => dest.HRCaseId, act => act.MapFrom(src => src._hr_hrcase_value))
+            this.CreateMap<Question, QuestionModel>()              
               .ForMember(dest => dest.QuestionId, act => act.MapFrom(src => src.hr_questionandanswersid))
-              .ForMember(dest => dest.QuestionNumber, act=>act.MapFrom(src => src.hr_questionnumber))
               .ForMember(dest => dest.QuestionText, act => act.MapFrom(src => src.hr_question))
               .ForMember(dest => dest.AnswerText, act => act.MapFrom(src => src.hr_answer))
               .ForMember(dest => dest.DateCreated, act => act.MapFrom(src => src.createdon))

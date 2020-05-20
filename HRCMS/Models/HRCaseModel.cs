@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using HRCMS.Data;
 namespace HRCMS.ViewModels
 {
     public class HRCaseModel
     {
+        public HRCaseModel()
+        {
+            CaseType = new CaseTypeModel();
+            CaseSubType = new CaseSubtypeModel();
+            Questions = new List<QuestionModel>();
+        }
         public string CaseId { get; set; }
         public String CaseNumber { get; set; }
         [Required]
@@ -27,10 +30,12 @@ namespace HRCMS.ViewModels
 
         public string CaseStatusId { get; set; }
         public string CaseStatusText { get; set; }
-        public string CaseTypeId { get; set; }
-        public string CaseTypeText { get; set; }
-        public string CaseSubTypeId { get; set; }
-        public string CaseSubTypeText { get; set; }
+        public CaseTypeModel CaseType { get; set; }
+        public CaseSubtypeModel CaseSubType { get; set; }
+        //public string CaseTypeId { get; set; }
+        //public string CaseTypeText { get; set; }
+        //public string CaseSubTypeId { get; set; }
+        //public string CaseSubTypeText { get; set; }
         [StringLength(4000)]
         public String Description { get; set; }
         public DateTime DateReceived { get; set; }
