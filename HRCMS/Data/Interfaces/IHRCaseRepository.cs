@@ -12,7 +12,7 @@ namespace HRCMS.Data
         void Add<T>(T entity) where T : class;
 
         // HR Cases
-        Task<List<HRCase>> GetAllCasesAsync(string pri);
+        Task<List<HRCaseModel>> GetAllCasesAsync(string pri, string statuses);
         Task<HRCase> GetCaseAsync(string caseId);
         Task<string> CreateHRCaseAsync(HRCase hrCase);
         Task<string> UpdateHRCaseAsync(HRCase hrCase);

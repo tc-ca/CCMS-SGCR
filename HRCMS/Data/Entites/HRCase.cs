@@ -8,7 +8,7 @@ namespace HRCMS.Data
     public class HRCase
     {
         public string hr_hrcaseid { get; set; }
-        public string hr_casenumber { get; set; }
+        public string hr_name { get; set; }
         public string hr_lastname { get; set; }
         public string hr_firstname { get; set; }
         public string hr_pri { get; set; }

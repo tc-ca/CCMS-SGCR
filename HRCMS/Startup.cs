@@ -33,8 +33,16 @@ namespace HRCMS
             });
             services.Configure<CookiePolicyOptions>(options =>
             {
-                options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                //options.CheckConsentNeeded = context => true;
+                //options.MinimumSameSitePolicy = SameSiteMode.None;
+                var cookieOptions = new Microsoft.AspNetCore.Http.CookieOptions()
+                {
+                    Path = "/",
+                    HttpOnly = false,
+                    IsEssential = true, 
+                    Expires = DateTime.Now.AddMonths(1),
+                };
             });
             services.AddDistributedMemoryCache();
             services.AddSession(options =>

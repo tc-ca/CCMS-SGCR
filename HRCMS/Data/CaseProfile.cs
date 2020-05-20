@@ -14,7 +14,7 @@ namespace HRCMS.Data
         {
             this.CreateMap<HRCase, HRCaseModel>()
               .ForMember(dest => dest.CaseId, act => act.MapFrom(src => src.hr_hrcaseid))
-              .ForMember(dest =>dest.CaseNumber, act=>act.MapFrom(src=>src.hr_casenumber))
+              .ForMember(dest =>dest.CaseNumber, act=>act.MapFrom(src=>src.hr_name))
               .ForMember(dest => dest.FirstName, act => act.MapFrom(src => src.hr_firstname))
               .ForMember(dest => dest.LastName, act => act.MapFrom(src => src.hr_lastname))
               .ForMember(dest => dest.Email, act => act.MapFrom(src => src.hr_email))

@@ -16,6 +16,10 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using GoC.WebTemplate.Components.Entities;
 using GoC.WebTemplate.CoreMVC.Controllers;
+using System.Net;
+using System.Reflection.Metadata;
+using System.Text.Encodings.Web;
+using System.Web;
 
 namespace HRCMS.Controllers
 {
@@ -51,19 +55,34 @@ namespace HRCMS.Controllers
         {
             try            
             {
-                var pri = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.PrimarySid)?.Value;                
+                var pri = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.PrimarySid)?.Value;
 
-                var results = await _repository.GetAllCasesAsync(pri);
+                //if (Request.Cookies["caseList"] == null)
+                //{
+                //    Response.Cookies.Append("caseList", "315840000, 315840001, 315840002, 315840003");
+                //}
 
-                var hrCases = _mapper.Map<List<HRCaseModel>>(results).OrderByDescending(m => m.CaseNumber).ToList<HRCaseModel>();
+                var statuses = Request.Cookies["caseList"];
 
-                var caseTypes = await _caseTypeRepository.GetAllCaseTypesAsync();
-                var caseSubTypes = await _caseTypeRepository.GetAllCaseSubTypesAsync();
+                if(statuses == null)
+                {
+                    statuses = "315840000|315840001|315840002|315840003";
+                }
+                else
+                {
+                    statuses = HttpUtility.UrlDecode(statuses);
+                }
+               
+
+                var hrCases = await _repository.GetAllCasesAsync(pri, statuses);
+
+                //var caseTypes = await _caseTypeRepository.GetAllCaseTypesAsync();
+                //var caseSubTypes = await _caseTypeRepository.GetAllCaseSubTypesAsync();
                 var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync();
                 foreach (var hrcase in hrCases)
                 {
-                    hrcase.CaseTypeText = caseTypes.FirstOrDefault(t => t.Value == hrcase.CaseTypeId)?.Text;
-                    hrcase.CaseSubTypeText = caseSubTypes.FirstOrDefault(t => t.Value == hrcase.CaseSubTypeId)?.Text; ;
+                    //hrcase.CaseTypeText = caseTypes.FirstOrDefault(t => t.Value == hrcase.CaseTypeId)?.Text;
+                    //hrcase.CaseSubTypeText = caseSubTypes.FirstOrDefault(t => t.Value == hrcase.CaseSubTypeId)?.Text; ;
                     hrcase.CaseStatusText = caseStatuses.FirstOrDefault(t => t.Value == hrcase.CaseStatusId)?.Text; ;
                 }
 
@@ -281,7 +300,7 @@ namespace HRCMS.Controllers
                 return Json(caseSubTypes);
             }
             return null;
-        }
+        }      
 
     }
 }
