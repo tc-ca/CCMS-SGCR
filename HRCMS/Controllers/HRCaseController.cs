@@ -105,7 +105,9 @@ namespace HRCMS.Controllers
                 //Get case status because 'Received by HR' here eq 'New Cases' in Dynamics
                 var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync();
                 hrCaseModel.CaseStatusText = caseStatuses.FirstOrDefault(t => t.Value == hrCaseModel.CaseStatusId)?.Text;
-                
+                hrCaseModel.Questions.Sort((x, y) => string.Compare(y.DateAsked, x.DateAsked));
+
+
                 return View(hrCaseModel);
             }
             catch (Exception e)
