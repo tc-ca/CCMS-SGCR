@@ -6,8 +6,16 @@
 @if (ViewBag.Questions.Count > 0)
 {
     <div class="col-md-12">
-        <div class="pull-right col-sm-2 nowrap">
-            <p><a href="#centred-popup" aria-controls="centred-popup" class="wb-lbx" role="button" title="View Questions"><strong><span class="fa fa-envelope mrgn-rght-sm" aria-hidden="true"></span>You have @ViewBag.Questions.Count Questions</strong></a></p>
+        <div class="pull-right col-sm-3 nowrap">
+                <a href="#centred-popup" aria-controls="centred-popup" class="wb-lbx" role="button" title="View Questions">
+                    <span class="fa fa-envelope mrgn-rght-sm" aria-hidden="true"></span>
+                    @if(ViewBag.Questions.Count==1){
+                        <strong>You have 1 question</strong>
+                    }
+                    else{
+                        <strong>You have @ViewBag.Questions.Count questions</strong>
+                    }
+                </a>
         </div>
     </div>
     <section id="centred-popup" class="mfp-hide modal-dialog modal-content overlay-def">
@@ -18,7 +26,10 @@
             @foreach (QuestionModel q in ViewBag.Questions)
             {
                 <ul>
-                    <li>@Html.ActionLink($"[{q.HRCase.CaseNumber}] {q.QuestionText}", "details", "hrcase", null, null, "tabQuestions", new { id = q.HRCase.CaseId }, null)</li>
+                    <li>
+                        @Html.ActionLink($"[{q.HRCase.CaseNumber}] {q.QuestionText}", "details", "hrcase", null, null, "tabQuestions", new { id = q.HRCase.CaseId }, null)
+                        @Html.ActionLink($"Reply", "details", "hrcase", null, null, "tabQuestions", new { id = q.HRCase.CaseId }, new { @class = "btn btn-default btn-xs"})
+                    </li>
                 </ul>
             }
         </div>
