@@ -11,6 +11,7 @@ namespace HRCMS.ViewModels
             CaseType = new CaseTypeModel();
             CaseSubType = new CaseSubtypeModel();
             Questions = new List<QuestionModel>();
+            Attachments = new List<AnnotationModel>();
         }
         public string CaseId { get; set; }
         public String CaseNumber { get; set; }
@@ -45,6 +46,8 @@ namespace HRCMS.ViewModels
         public IEnumerable<SelectListItem> CaseStatuses { get; set; } 
         public IEnumerable<SelectListItem> CaseTypes { get; set; }
         public IEnumerable<SelectListItem> CaseSubTypes { get; set; }
+
+        public List<AnnotationModel> Attachments { get; set; }
 
     }
 }

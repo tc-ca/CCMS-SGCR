@@ -16,7 +16,7 @@ namespace HRCMS.Data
 {
     public class QuestionRepository : IQuestionRepository
     {
-        private readonly ILogger<HRCaseRepository> _logger;
+        private readonly ILogger<QuestionRepository> _logger;
         private readonly Dynamics _appSettings;
         private readonly IMapper _mapper;
 

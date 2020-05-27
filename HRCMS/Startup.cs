@@ -58,6 +58,7 @@ namespace HRCMS
             services.AddScoped<ICaseTypeRepository, CaseTypeRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IQuestionRepository, QuestionRepository>();
+            services.AddScoped<IAnnotationRepository, AnnotationRepository>();
 
 
             services.AddControllersWithViews();

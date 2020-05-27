@@ -22,5 +22,6 @@ namespace HRCMS.Data
         public DateTime createdon { get; set; }
         public DateTime? hr_datereceived { get; set; }
         public List<Question> hr_HRCase_hr_HRCase_hr_QuestionandAnswers { get; set; }
+        public List<Annotation> hr_hrcase_Annotations { get; set; }
     }
 }

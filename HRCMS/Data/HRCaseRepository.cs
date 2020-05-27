@@ -41,8 +41,9 @@ namespace HRCMS.Data
                 var statusList = statuses.Split("|");
                 var orderby = $"$orderby=createdon%20desc";
                 var statusFilter = "[%27" + string.Join("%27,%27", statusList) + "%27]";
-                var filter = $"$select=hr_lastname,hr_name,hr_casestatus,hr_firstname,hr_hrcaseid,createdon&$expand=hr_CaseType($select=hr_name),hr_CaseSubType($select=hr_name)&$filter=hr_pri%20eq%20{pri}%20and%20Microsoft.Dynamics.CRM.In(PropertyName=%27hr_casestatus%27,PropertyValues={statusFilter})%20and%20hr_CaseType/hr_casetypeid%20ne%20null%20and%20hr_CaseSubType/hr_casesubtypeid%20ne%20null";
-                var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}?{filter}&{orderby}");
+                var select = $"$select=hr_lastname,hr_name,hr_casestatus,hr_firstname,hr_hrcaseid,createdon&$expand=hr_CaseType($select=hr_name),hr_CaseSubType($select=hr_name)";
+                var filter = $"$filter=hr_pri%20eq%20{pri}%20and%20Microsoft.Dynamics.CRM.In(PropertyName=%27hr_casestatus%27,PropertyValues={statusFilter})";
+                var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}?{select}&{filter}&{orderby}");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -63,7 +64,8 @@ namespace HRCMS.Data
             using (var client = DynamicsApiHelper.GetHttpClient(_appSettings))
             {
                 var entityName = "hr_hrcases";
-                var select = $"$expand=hr_CaseType($select=hr_name),hr_CaseSubType($select=hr_name),hr_HRCase_hr_HRCase_hr_QuestionandAnswers($select=hr_questionandanswersid,hr_question,hr_answer,hr_read,hr_askedon,hr_answeredon)";
+                var select = $"$expand=hr_CaseType($select=hr_name),hr_CaseSubType($select=hr_name),hr_HRCase_hr_HRCase_hr_QuestionandAnswers($select=hr_questionandanswersid,hr_question,hr_answer,hr_read,hr_askedon,hr_answeredon)," +
+                    $"hr_hrcase_Annotations($select=_objectid_value,filename,subject,notetext,createdon,mimetype;$filter=isdocument%20eq%20true)";
                 var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}({caseId})?{select}");
 
                 if (response.IsSuccessStatusCode)

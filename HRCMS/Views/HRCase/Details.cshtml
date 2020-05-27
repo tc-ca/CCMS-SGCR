@@ -98,52 +98,86 @@
                         }
 
                     </details>
-                    @if (Model.Questions.Count>0)
+                    @if (Model.Questions.Count > 0)
                     {
-                <details id="tabQuestions">
-                    <summary>Questions and Answers</summary>
+                        <details id="tabQuestions">
+                            <summary>Questions and Answers</summary>
 
 
-                    @for (int i = 0; i < Model.Questions.Count; i++)
-                    {
-                <section class="panel panel-default hght-inhrt">
-                    @Html.HiddenFor(m => m.Questions[i].QuestionId)
-                    @if (string.IsNullOrEmpty(Model.Questions[i].AnswerText))
-                    {
-                        <div class="alert alert-danger mrgn-bttm-0">
-                            <label class="font-weight-bolder" for="Questions_@(i)__AnswerText">
-                                @Model.Questions[i].QuestionText <span class="localDateTime">@Model.Questions[i].DateAsked</span>
-                            </label>
-                        </div>
-                        <div class="panel-body">
-                            @Html.TextAreaFor(m => m.Questions[i].AnswerText, 5, 200, new { @class = "form-control", @maxlength = "4000" })
-                            @Html.ValidationMessageFor(m => m.Questions[i].AnswerText, "", htmlAttributes: new { @class = "text-danger" })
-                        </div>
+                            @for (int i = 0; i < Model.Questions.Count; i++)
+                            {
+                                <section class="panel panel-default hght-inhrt">
+                                    @Html.HiddenFor(m => m.Questions[i].QuestionId)
+                                    @if (string.IsNullOrEmpty(Model.Questions[i].AnswerText))
+                                    {
+                                        <div class="alert alert-danger mrgn-bttm-0">
+                                            <label class="font-weight-bolder" for="Questions_@(i)__AnswerText">
+                                                @Model.Questions[i].QuestionText <span class="localDateTime">@Model.Questions[i].DateAsked</span>
+                                            </label>
+                                        </div>
+                                        <div class="panel-body">
+                                            @Html.TextAreaFor(m => m.Questions[i].AnswerText, 5, 200, new { @class = "form-control", @maxlength = "4000" })
+                                            @Html.ValidationMessageFor(m => m.Questions[i].AnswerText, "", htmlAttributes: new { @class = "text-danger" })
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="panel-heading">
+                                            <label class="font-weight-bolder">
+                                                @Model.Questions[i].QuestionText <span class="localDateTime">@Model.Questions[i].DateAsked</span>
+                                            </label>
+                                        </div>
+                                        <div class="panel-body">
+                                            <p><span class="localDateTime">@Model.Questions[i].DateAnswered</span></p>
+                                            <p>
+                                                @Model.Questions[i].AnswerText
+                                            </p>
+                                        </div>
+                                    }
+
+                                </section>
+
+                            }
+
+
+                            <input type="submit" id="btnUpdateAnswers" class="btn btn-default hidden" asp-action="UpdateAnswers" value="Submit Answers" />
+                        </details>
                     }
-                    else
-                    {
-                        <div class="panel-heading">
-                            <label class="font-weight-bolder">
-                                @Model.Questions[i].QuestionText <span class="localDateTime">@Model.Questions[i].DateAsked</span>
-                            </label>
-                        </div>
-                        <div class="panel-body">
-                            <p><span class="localDateTime">@Model.Questions[i].DateAnswered</span></p>
-                            <p>
-                                @Model.Questions[i].AnswerText
-                            </p>
-                        </div>
-                    }
 
-                </section>
-                      
-                    }
-
-
-                    <input type="submit" id="btnUpdateAnswers" class="btn btn-default hidden" asp-action="UpdateAnswers" value="Submit Answers" />
-                </details>
-                    }
+                <details id="tbAttachments">
+                    <summary>Attachments</summary>
+                    <div class="panel-heading">
+                        <label class="font-weight-bolder">
+                            Upload Attachment
+                        </label>
                     </div>
+                    <section class="panel panel-default hght-inhrt">
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <input type="file" name="file" id="file" />
+                            </div>
+
+                            <input type="submit" id="btnUploadAttachment" asp-action="UploadAttachment" value="Upload File" class="btn btn-default" />
+                        </div>
+                    </section>
+                    @for (int i = 0; i < Model.Attachments.Count; i++)
+                    {
+                        <section class="panel panel-default hght-inhrt">
+                            <div class="panel-heading">
+                                <label class="font-weight-bolder">
+                                    @Model.Attachments[i].Subject
+                                </label>
+                            </div>
+                            <div class="panel-body">
+                                <p><span class="localDateTime">@Model.Attachments[i].DateCreated</span></p>
+                                <p>
+                                    @Html.ActionLink(Model.Attachments[i].FileName, "DownloadAttachment", "hrcase", new { attachmentId = Model.Attachments[i].Annotationid })
+                                </p>
+                            </div>
+                        </section>
+                    }
+                    </details>
+                </div>
             </div>
         </form>
     </div>

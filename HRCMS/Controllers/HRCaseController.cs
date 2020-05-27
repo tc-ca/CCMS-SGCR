@@ -20,6 +20,8 @@ using System.Net;
 using System.Reflection.Metadata;
 using System.Text.Encodings.Web;
 using System.Web;
+using System.IO;
+using System.Text;
 
 namespace HRCMS.Controllers
 {
@@ -29,13 +31,14 @@ namespace HRCMS.Controllers
         private readonly IHRCaseRepository _repository;
         private readonly ICaseTypeRepository _caseTypeRepository;
         private readonly IQuestionRepository _questionRepository;
+        private readonly IAnnotationRepository _annotationRepository;
         private readonly IUserRepository _userRepository;
         private readonly LinkGenerator _linkGenerator;
         private readonly Dynamics _appSettings;
         private readonly ILogger<HomeController> _logger;
         private readonly IMapper _mapper;
 
-        public HRCaseController(IHRCaseRepository repository, ICaseTypeRepository caseTypeRepository, IUserRepository userRepository, IQuestionRepository questionRepository
+        public HRCaseController(IHRCaseRepository repository, ICaseTypeRepository caseTypeRepository, IUserRepository userRepository, IQuestionRepository questionRepository, IAnnotationRepository annotationRepository
             , IMapper mapper
             , LinkGenerator linkGenerator,  IOptions<Dynamics> settings, ModelAccessor modelAccessor) : base(modelAccessor)
         {
@@ -43,6 +46,7 @@ namespace HRCMS.Controllers
             _caseTypeRepository = caseTypeRepository;
             _userRepository = userRepository;
             _questionRepository = questionRepository;
+            _annotationRepository = annotationRepository;
             _linkGenerator = linkGenerator;
             _appSettings = settings.Value;
             _mapper = mapper;
@@ -289,5 +293,22 @@ namespace HRCMS.Controllers
             return null;
         }      
 
+        [HttpGet]
+        public async Task<FileResult> DownloadAttachment(string attachmentId)
+        {
+            var annotation = await _annotationRepository.GetAnnotationAsync(attachmentId);
+            byte[] fileBytes = Convert.FromBase64String(annotation.DocumentBody);
+            string fileName = annotation.FileName;
+
+            var cd = new System.Net.Mime.ContentDisposition
+            {
+                FileName = fileName,
+                Inline = false,
+                DispositionType = "Attachment"
+            };
+            Response.Headers.Add("Content-Disposition", cd.ToString());
+
+            return File(fileBytes, annotation.Mimetype, fileName);
+        }
     }
 }

@@ -26,6 +26,7 @@ namespace HRCMS.Data
               .ForMember(dest => dest.DateReceived, act => act.MapFrom(src => src.hr_datereceived))
               .ForMember(dest => dest.Description, act => act.MapFrom(src => src.hr_description))
               .ForMember(dest => dest.Questions, act => act.MapFrom(src => src.hr_HRCase_hr_HRCase_hr_QuestionandAnswers))
+              .ForMember(dest => dest.Attachments, act => act.MapFrom(src => src.hr_hrcase_Annotations))
               .ReverseMap();
 
             this.CreateMap<CaseType, CaseTypeModel>()
