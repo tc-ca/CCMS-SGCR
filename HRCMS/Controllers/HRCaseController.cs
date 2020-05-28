@@ -22,6 +22,8 @@ using System.Text.Encodings.Web;
 using System.Web;
 using System.IO;
 using System.Text;
+using System.Net.Mime;
+using HRCMS.Utility;
 
 namespace HRCMS.Controllers
 {
@@ -294,21 +296,29 @@ namespace HRCMS.Controllers
         }      
 
         [HttpGet]
-        public async Task<FileResult> DownloadAttachment(string attachmentId)
+        public async Task<IActionResult> DownloadAttachment(string attachmentId)
         {
             var annotation = await _annotationRepository.GetAnnotationAsync(attachmentId);
             byte[] fileBytes = Convert.FromBase64String(annotation.DocumentBody);
             string fileName = annotation.FileName;
 
-            var cd = new System.Net.Mime.ContentDisposition
-            {
-                FileName = fileName,
-                Inline = false,
-                DispositionType = "Attachment"
-            };
-            Response.Headers.Add("Content-Disposition", cd.ToString());
-
-            return File(fileBytes, annotation.Mimetype, fileName);
+            return File(fileBytes, MediaTypeNames.Application.Octet, WebUtility.HtmlEncode(fileName));
         }
+
+        [HttpPost]
+        public async Task<IActionResult> UploadAttachment(HRCaseModel hrCase)
+        {
+
+            var attachment = _mapper.Map<Annotation>(hrCase.NewAttachment);
+            attachment._objectid_value = hrCase.CaseId;
+            attachment.filename = hrCase.NewAttachment.File.FileName;
+            attachment.mimetype = hrCase.NewAttachment.File.ContentType;
+            attachment.documentbody = await hrCase.NewAttachment.File.ReadAsBase64StringAsync();
+            await _annotationRepository.UploadAttatchmentAsync(attachment);
+            return RedirectToAction("Details", "HRCase", new { id = hrCase.CaseId }, "tbAttachments");
+
+        }
+
+
     }
 }

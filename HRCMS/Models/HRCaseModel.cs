@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 namespace HRCMS.ViewModels
 {
@@ -48,6 +49,7 @@ namespace HRCMS.ViewModels
         public IEnumerable<SelectListItem> CaseSubTypes { get; set; }
 
         public List<AnnotationModel> Attachments { get; set; }
-
+        
+        public AnnotationModel NewAttachment { get; set; }
     }
 }

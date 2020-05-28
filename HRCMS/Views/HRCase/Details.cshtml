@@ -7,7 +7,7 @@
 <h1>HR Case: @Model.CaseNumber</h1>
 <div class="row">
     <div class="col-md-12">
-        <form asp-action="Withdraw">
+        <form asp-action="" enctype="multipart/form-data" method="post" >
             <div class="wb-tabs">
                 <div class="tabpanels">
                     <details id="tabGeneral">
@@ -146,15 +146,25 @@
 
                 <details id="tbAttachments">
                     <summary>Attachments</summary>
-                    <div class="panel-heading">
-                        <label class="font-weight-bolder">
-                            Upload Attachment
-                        </label>
-                    </div>
+                    
                     <section class="panel panel-default hght-inhrt">
+                        <div class="panel-heading">
+                            <label class="font-weight-bolder">
+                                Upload Attachment
+                            </label>
+                        </div>
                         <div class="panel-body">
                             <div class="form-group">
-                                <input type="file" name="file" id="file" />
+                                @Html.LabelFor(m => m.NewAttachment.Subject, new { @class = "control-label required" }):
+                                @Html.TextBoxFor(m => m.NewAttachment.Subject, new { @class = "form-control", @maxlength = "250" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.NewAttachment.NoteText, new { @class = "control-label required" }):
+                                @Html.TextAreaFor(m => m.NewAttachment.NoteText, 3, 50, new { @class = "form-control", @maxlength = "1000" })
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(m => m.NewAttachment.File, new { @type = "file" })
+                                
                             </div>
 
                             <input type="submit" id="btnUploadAttachment" asp-action="UploadAttachment" value="Upload File" class="btn btn-default" />

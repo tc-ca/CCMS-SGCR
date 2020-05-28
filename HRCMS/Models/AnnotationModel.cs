@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using HRCMS.Data;
+using Microsoft.AspNetCore.Http;
+
 namespace HRCMS.ViewModels
 {
     public class AnnotationModel
@@ -19,5 +21,6 @@ namespace HRCMS.ViewModels
         public String DocumentBody { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
+        public IFormFile File { get; set; }
     }
 }
