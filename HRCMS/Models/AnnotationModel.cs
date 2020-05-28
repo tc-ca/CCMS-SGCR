@@ -11,7 +11,8 @@ namespace HRCMS.ViewModels
 {
     public class AnnotationModel
     {
-        public string Annotationid { get; set; }        
+        public string Annotationid { get; set; }
+        [Required]
         public String Subject { get; set; }
         public String NoteText { get; set; }
         public String FileName { get; set; }
@@ -21,6 +22,7 @@ namespace HRCMS.ViewModels
         public String DocumentBody { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
+        [Required]
         public IFormFile File { get; set; }
     }
 }

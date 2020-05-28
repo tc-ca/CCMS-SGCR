@@ -8,12 +8,13 @@
 <div class="row">
     <div class="col-md-12">
         <form asp-action="" enctype="multipart/form-data" method="post" >
+            <div asp-validation-summary="All" class="text-danger"></div>
             <div class="wb-tabs">
                 <div class="tabpanels">
                     <details id="tabGeneral">
                         <summary>General</summary>
 
-                        <div asp-validation-summary="All" class="text-danger"></div>
+                        
                         @Html.HiddenFor(m => m.CaseId)
                         <div class="form-group">
                             <span class="font-weight-bolder">
@@ -159,7 +160,7 @@
                                 @Html.TextBoxFor(m => m.NewAttachment.Subject, new { @class = "form-control", @maxlength = "250" })
                             </div>
                             <div class="form-group">
-                                @Html.LabelFor(m => m.NewAttachment.NoteText, new { @class = "control-label required" }):
+                                @Html.LabelFor(m => m.NewAttachment.NoteText, new { @class = "control-label" }):
                                 @Html.TextAreaFor(m => m.NewAttachment.NoteText, 3, 50, new { @class = "form-control", @maxlength = "1000" })
                             </div>
                             <div class="form-group">

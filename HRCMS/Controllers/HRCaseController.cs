@@ -24,6 +24,7 @@ using System.IO;
 using System.Text;
 using System.Net.Mime;
 using HRCMS.Utility;
+using Microsoft.Extensions.Configuration;
 
 namespace HRCMS.Controllers
 {
@@ -39,10 +40,11 @@ namespace HRCMS.Controllers
         private readonly Dynamics _appSettings;
         private readonly ILogger<HomeController> _logger;
         private readonly IMapper _mapper;
+        private readonly long _fileSizeLimit;
 
         public HRCaseController(IHRCaseRepository repository, ICaseTypeRepository caseTypeRepository, IUserRepository userRepository, IQuestionRepository questionRepository, IAnnotationRepository annotationRepository
             , IMapper mapper
-            , LinkGenerator linkGenerator,  IOptions<Dynamics> settings, ModelAccessor modelAccessor) : base(modelAccessor)
+            , LinkGenerator linkGenerator,  IOptions<Dynamics> settings, ModelAccessor modelAccessor, IConfiguration config) : base(modelAccessor)
         {
             _repository = repository;
             _caseTypeRepository = caseTypeRepository;
@@ -55,6 +57,7 @@ namespace HRCMS.Controllers
             WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "/Home/Logout", Title = "Home" });
             WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "/hrcase/List", Title = "Cases" });
 
+            _fileSizeLimit = config.GetValue<long>("FileSizeLimit");
         }
         [HttpGet]
         public async Task<IActionResult> List()
@@ -308,15 +311,18 @@ namespace HRCMS.Controllers
         [HttpPost]
         public async Task<IActionResult> UploadAttachment(HRCaseModel hrCase)
         {
-
-            var attachment = _mapper.Map<Annotation>(hrCase.NewAttachment);
-            attachment._objectid_value = hrCase.CaseId;
-            attachment.filename = hrCase.NewAttachment.File.FileName;
-            attachment.mimetype = hrCase.NewAttachment.File.ContentType;
-            attachment.documentbody = await hrCase.NewAttachment.File.ReadAsBase64StringAsync();
-            await _annotationRepository.UploadAttatchmentAsync(attachment);
-            return RedirectToAction("Details", "HRCase", new { id = hrCase.CaseId }, "tbAttachments");
-
+            if (ModelState.IsValid)
+            {
+                var attachment = _mapper.Map<Annotation>(hrCase.NewAttachment);
+                attachment._objectid_value = hrCase.CaseId;
+                attachment.filename = hrCase.NewAttachment.File.FileName;
+                attachment.mimetype = hrCase.NewAttachment.File.ContentType;
+                attachment.documentbody = await hrCase.NewAttachment.File.ReadAsBase64StringAsync(ModelState, _fileSizeLimit);
+           
+                await _annotationRepository.UploadAttatchmentAsync(attachment);
+                return RedirectToAction("Details", "HRCase", new { id = hrCase.CaseId }, "tbAttachments");
+            }
+            return View("details", hrCase);
         }
 
 
