@@ -31,7 +31,7 @@ namespace HRCMS.Data
                     if (results != null)
                     {
                         List<CaseType> caseTypeList = JsonConvert.DeserializeObject<List<CaseType>>(JObject.Parse(results)["value"].ToString(), new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-dd" });
-                        return caseTypeList.Select(n => new SelectListItem { Value = n.hr_casetypeid, Text = n.hr_name }).Append<SelectListItem>(new SelectListItem("--", "")).OrderBy(m => m.Text);
+                        return caseTypeList.Select(n => new SelectListItem { Value = n.hr_casetypeid, Text = n.hr_name }).OrderBy(m => m.Text);
                     }
                 }
             }
@@ -51,7 +51,7 @@ namespace HRCMS.Data
                     if (results != null)
                     {
                         var subTypeList = JsonConvert.DeserializeObject<List<CaseSubType>>(JObject.Parse(results)["value"].ToString(), new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-dd" });
-                        return subTypeList.Select(n => new SelectListItem { Value = n.hr_casesubtypeid, Text = n.hr_name }).Append<SelectListItem>(new SelectListItem("--", "")).OrderBy(m => m.Text);
+                        return subTypeList.Select(n => new SelectListItem { Value = n.hr_casesubtypeid, Text = n.hr_name }).OrderBy(m => m.Text);
                     }
                 }
             }

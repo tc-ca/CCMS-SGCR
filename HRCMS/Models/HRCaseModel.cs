@@ -9,10 +9,10 @@ namespace HRCMS.ViewModels
     {
         public HRCaseModel()
         {
-            CaseType = new CaseTypeModel();
-            CaseSubType = new CaseSubtypeModel();
-            Questions = new List<QuestionModel>();
-            Attachments = new List<AnnotationModel>();
+            //CaseType = new CaseTypeModel();
+            //CaseSubType = new CaseSubtypeModel();
+            //Questions = new List<QuestionModel>();
+            //Attachments = new List<AnnotationModel>();
         }
         public string CaseId { get; set; }
         public String CaseNumber { get; set; }
@@ -21,7 +21,6 @@ namespace HRCMS.ViewModels
         public String PRI { get; set; }
         [Required]
         [StringLength(100)]
-
         public String LastName { get; set; }
         [Required]
         [StringLength(100)]
@@ -34,22 +33,18 @@ namespace HRCMS.ViewModels
         public string CaseStatusText { get; set; }
         public CaseTypeModel CaseType { get; set; }
         public CaseSubtypeModel CaseSubType { get; set; }
-        //public string CaseTypeId { get; set; }
-        //public string CaseTypeText { get; set; }
-        //public string CaseSubTypeId { get; set; }
-        //public string CaseSubTypeText { get; set; }
         [StringLength(4000)]
         public String Description { get; set; }
         public DateTime DateReceived { get; set; }
         public DateTime DateCreated { get; set; }
         public List<QuestionModel> Questions { get; set; }
 
-        public IEnumerable<SelectListItem> CaseStatuses { get; set; } 
+        public IEnumerable<SelectListItem> CaseStatuses { get; set; }
         public IEnumerable<SelectListItem> CaseTypes { get; set; }
         public IEnumerable<SelectListItem> CaseSubTypes { get; set; }
 
         public List<AnnotationModel> Attachments { get; set; }
-        
+
         public AnnotationModel NewAttachment { get; set; }
     }
 }

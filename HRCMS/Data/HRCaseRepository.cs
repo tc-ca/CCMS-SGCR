@@ -100,8 +100,14 @@ namespace HRCMS.Data
                     jCase.hr_casestatus = hrCase.hr_casestatus; 
                     jCase.hr_description = hrCase.hr_description;
                     jCase.hr_datereceived = DateTime.Now;
-                    jCase["hr_CaseType@odata.bind"] = $"/hr_casetypes({hrCase.hr_CaseType.hr_casetypeid})";
-                    jCase["hr_CaseSubType@odata.bind"] = $"/hr_casesubtypes({hrCase.hr_CaseSubType.hr_casesubtypeid})";
+                    if (hrCase.hr_CaseType.hr_casetypeid != null)
+                    {
+                        jCase["hr_CaseType@odata.bind"] = $"/hr_casetypes({hrCase.hr_CaseType.hr_casetypeid})";
+                    }
+                    if (hrCase.hr_CaseSubType.hr_casesubtypeid != null)
+                    {
+                        jCase["hr_CaseSubType@odata.bind"] = $"/hr_casesubtypes({hrCase.hr_CaseSubType.hr_casesubtypeid})";
+                    }
 
                     var caseContent = new StringContent(jCase.ToString(), Encoding.UTF8, "application/json");
                     

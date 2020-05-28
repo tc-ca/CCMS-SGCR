@@ -196,7 +196,7 @@ namespace HRCMS.Controllers
                 var hrCase = _mapper.Map<HRCase>(hrCaseModel);
                 string caseId;
                 if (string.IsNullOrEmpty(hrCaseModel.CaseId))
-                {                    
+                {
                     caseId = await _repository.CreateHRCaseAsync(hrCase);
                 }
                 else
@@ -207,6 +207,10 @@ namespace HRCMS.Controllers
                 {
                     return RedirectToAction("Details", "HRCase", new { id = caseId });
                 }
+                else
+                {
+                    ModelState.AddModelError("Error", "Not able to connect to the database.");
+                }
             }
             var caseTypes = await _caseTypeRepository.GetAllCaseTypesAsync();
             var caseSubTypes = await _caseTypeRepository.GetAllCaseSubTypesAsync();
@@ -214,8 +218,6 @@ namespace HRCMS.Controllers
             hrCaseModel.CaseTypes = caseTypes;
             hrCaseModel.CaseSubTypes = caseSubTypes;
             hrCaseModel.CaseStatuses = caseStatuses;
-
-            ModelState.AddModelError(string.Empty, "Not a valid model");
             return View("Create", hrCaseModel);
         }
         [HttpPost]
@@ -309,20 +311,24 @@ namespace HRCMS.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UploadAttachment(HRCaseModel hrCase)
+        public async Task<IActionResult> UploadAttachment(AnnotationModel newAttachment)
         {
             if (ModelState.IsValid)
             {
-                var attachment = _mapper.Map<Annotation>(hrCase.NewAttachment);
-                attachment._objectid_value = hrCase.CaseId;
-                attachment.filename = hrCase.NewAttachment.File.FileName;
-                attachment.mimetype = hrCase.NewAttachment.File.ContentType;
-                attachment.documentbody = await hrCase.NewAttachment.File.ReadAsBase64StringAsync(ModelState, _fileSizeLimit);
-           
+                var attachment = _mapper.Map<Annotation>(newAttachment);
+                attachment._objectid_value = newAttachment.CaseId;
+                attachment.filename = newAttachment.File.FileName;
+                attachment.mimetype = newAttachment.File.ContentType;
+                attachment.documentbody = await newAttachment.File.ReadAsBase64StringAsync(ModelState, _fileSizeLimit);
+
                 await _annotationRepository.UploadAttatchmentAsync(attachment);
-                return RedirectToAction("Details", "HRCase", new { id = hrCase.CaseId }, "tbAttachments");
+                return RedirectToAction("Details", "HRCase", new { id = newAttachment.CaseId }, "tbAttachments");
             }
-            return View("details", hrCase);
+            else
+            {
+
+            }
+            return RedirectToAction("Details", "HRCase", new { id = newAttachment.CaseId }, "tbAttachments");
         }
 
 

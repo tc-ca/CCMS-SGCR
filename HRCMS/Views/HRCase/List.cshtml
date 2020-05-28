@@ -81,10 +81,10 @@
                             @Html.ActionLink(hrCase.CaseNumber, "details", "hrcase", new { id = hrCase.CaseId })
                         </td>
                         <td>
-                            @hrCase.CaseType.TypeName
+                            @if (hrCase.CaseType != null) { @hrCase.CaseType.TypeName }
                         </td>
                         <td>
-                            @hrCase.CaseSubType.SubTypeName
+                            @if (hrCase.CaseSubType != null) { @hrCase.CaseSubType.SubTypeName }
                         </td>
                         <td>
                             @if (hrCase.CaseStatusId == "315840001")
