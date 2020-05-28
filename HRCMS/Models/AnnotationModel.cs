@@ -20,7 +20,7 @@ namespace HRCMS.ViewModels
         public String CaseId { get; set; }
         public bool IsDocument { get; set; }
         public String DocumentBody { get; set; }
-        public DateTime DateCreated { get; set; }
+        public string DateCreated { get; set; }
         public DateTime DateModified { get; set; }
         [Required]
         public IFormFile File { get; set; }

@@ -1,0 +1,15 @@
+﻿ 
+<div class="@(Html.ViewData.ModelState.IsValid ? "validation-summary-valid" : "validation-summary-errors panel panel-danger") "
+     data-valmsg-summary="true">
+    <div class="panel-heading">
+        Please, correct the following errors:
+    </div>
+    <div class="panel-body">
+        <ul>
+            @foreach (var error in ViewData.ModelState.SelectMany(x => x.Value.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+</div>

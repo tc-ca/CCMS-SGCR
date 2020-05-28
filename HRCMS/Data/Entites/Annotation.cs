@@ -16,7 +16,7 @@ namespace HRCMS.Data
         //HR Case Id
         public string _objectid_value { get; set; }
         public string notetext { get; set; }
-        public DateTime createdon { get; set; }
+        public string createdon { get; set; }
         public DateTime modifiedon { get; set; }
     }
 }

@@ -3,29 +3,34 @@
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @model AnnotationModel
-    <form asp-action="UploadAttachment" method="post">
-        <div asp-validation-summary="All" class="text-danger"></div>
-        <section class="panel panel-default hght-inhrt">
-            <div class="panel-heading">
-                <label class="font-weight-bolder">
-                    Upload Attachment
-                </label>
-            </div>
-            <div class="panel-body">
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Subject, new { @class = "control-label required" }):
-                    @Html.TextBoxFor(m => m.Subject, new { @class = "form-control", @maxlength = "250" })
+    <div class="wb-frmvld">
+        <form asp-action="UploadAttachment" enctype="multipart/form-data" method="post">
+            <section class="panel panel-primary hght-inhrt">
+                <div class="panel-heading">
+                    <label class="font-weight-bolder">
+                        Upload Attachment
+                    </label>
                 </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.NoteText, new { @class = "control-label" }):
-                    @Html.TextAreaFor(m => m.NoteText, 3, 50, new { @class = "form-control", @maxlength = "1000" })
-                </div>
-                <div class="form-group">
-                    @Html.TextBoxFor(m => m.File, new { @type = "file" })
+                <div class="panel-body">
+                    <div class="form-group">
+                        @Html.Hidden("caseId", Url.ActionContext.RouteData.Values["id"])
+                        <label asp-for="@Model.Subject" class="required"><span class="field-name">Subject</span> <strong class="required">(required)</strong></label>
+                        @Html.ValidationMessageFor(m => m.Subject, "", htmlAttributes: new { @class = "label label-danger" })
+                        @Html.TextBoxFor(m => m.Subject, new { @class = "form-control", @maxlength = "250", @required = "required" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.NoteText, "Note Text", new { @class = "field-name" })
+                        @Html.TextAreaFor(m => m.NoteText, 3, 50, new { @class = "form-control", @maxlength = "1000" })
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.File" class="required"><span class="field-name">Input File</span> <strong class="required">(required)</strong></label>
+                        @Html.ValidationMessageFor(m => m.File, "", htmlAttributes: new { @class = "label label-danger" })
+                        @Html.TextBoxFor(m => m.File, new { @type = "file", @required = "required" })
 
-                </div>
+                    </div>
 
-                <input type="submit" id="btnUploadAttachment" asp-action="UploadAttachment" value="Upload File" class="btn btn-default" />
-            </div>
-        </section>
-    </form>
+                    <input type="submit" id="btnUploadAttachment" asp-action="UploadAttachment" value="Upload File" class="btn btn-default" />
+                </div>
+            </section>
+        </form>
+    </div>
