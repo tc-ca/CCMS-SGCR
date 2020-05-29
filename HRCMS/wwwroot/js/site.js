@@ -2,7 +2,7 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
-var defTop = document.getElementById("def-top");
+//var defTop = document.getElementById("def-top");
 //defTop.outerHTML = wet.builder.appTop({
 //	"cdnEnv": "prod",
 //	"appName": [{

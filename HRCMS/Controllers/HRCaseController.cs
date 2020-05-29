@@ -25,6 +25,8 @@ using System.Text;
 using System.Net.Mime;
 using HRCMS.Utility;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Localization;
+using Microsoft.AspNetCore.Mvc.Localization;
 
 namespace HRCMS.Controllers
 {
@@ -41,10 +43,11 @@ namespace HRCMS.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IMapper _mapper;
         private readonly long _fileSizeLimit;
+        private readonly IStringLocalizer<HRCaseController> _localizer;
 
         public HRCaseController(IHRCaseRepository repository, ICaseTypeRepository caseTypeRepository, IUserRepository userRepository, IQuestionRepository questionRepository, IAnnotationRepository annotationRepository
             , IMapper mapper
-            , LinkGenerator linkGenerator,  IOptions<Dynamics> settings, ModelAccessor modelAccessor, IConfiguration config) : base(modelAccessor)
+            , LinkGenerator linkGenerator,  IOptions<Dynamics> settings, ModelAccessor modelAccessor, IConfiguration config, IStringLocalizer<HRCaseController> localizer) : base(modelAccessor)
         {
             _repository = repository;
             _caseTypeRepository = caseTypeRepository;
@@ -54,10 +57,11 @@ namespace HRCMS.Controllers
             _linkGenerator = linkGenerator;
             _appSettings = settings.Value;
             _mapper = mapper;
-            WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "/Home/Logout", Title = "Home" });
-            WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "/hrcase/List", Title = "Cases" });
+            WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = "Home" });
+            WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = "Cases" });
 
             _fileSizeLimit = config.GetValue<long>("FileSizeLimit");
+            _localizer = localizer;
         }
         [HttpGet]
         public async Task<IActionResult> List()

@@ -10,6 +10,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using GoC.WebTemplate.Components.Core.Services;
 using System;
+using Microsoft.AspNetCore.Localization;
+using HRCMS.ViewModels;
+using Microsoft.AspNetCore.Mvc.Razor;
+using System.Globalization;
+using System.Collections.Generic;
 
 namespace HRCMS
 {
@@ -40,7 +45,7 @@ namespace HRCMS
                 {
                     Path = "/",
                     HttpOnly = false,
-                    IsEssential = true, 
+                    IsEssential = true,
                     Expires = DateTime.Now.AddMonths(1),
                 };
             });
@@ -60,13 +65,34 @@ namespace HRCMS
             services.AddScoped<IQuestionRepository, QuestionRepository>();
             services.AddScoped<IAnnotationRepository, AnnotationRepository>();
 
+            #region snippet1
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
+
+            services.AddMvc()
+                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+                .AddDataAnnotationsLocalization();
+
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                var supportedCultures = new List<CultureInfo>
+                    {
+                        new CultureInfo("en-CA"),
+                        new CultureInfo("fr")
+                    };
+
+                options.DefaultRequestCulture = new RequestCulture("en-CA");
+                options.SupportedCultures = supportedCultures;
+                options.SupportedUICultures = supportedCultures;
+            });
+            #endregion
+
 
             services.AddControllersWithViews();
             services.AddAutoMapper(typeof(Startup));
 
             services.Configure<Dynamics>(Configuration.GetSection("Dynamics"));
             services.Configure<HrApi>(Configuration.GetSection("HrApi"));
-            
+
             services.AddModelAccessor();
             services.ConfigureGoCTemplateRequestLocalization(); // >= v2.1.1
 
@@ -85,7 +111,6 @@ namespace HRCMS
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            //app.UseRequestLocalization(); // >= v2.1.1
             //app.UseStatusCodePagesWithRedirects("/Home/Error?code={0}");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -97,13 +122,35 @@ namespace HRCMS
             app.UseAuthentication();
             app.UseAuthorization();
 
+            #region snippet2
+            var supportedCultures = new[]
+            {
+                new CultureInfo("en-US"),
+                new CultureInfo("fr"),
+            };
+
+            app.UseRequestLocalization(new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture("en-CA"),
+                // Formatting numbers, dates, etc.
+                SupportedCultures = supportedCultures,
+                // UI strings that we have localized.
+                SupportedUICultures = supportedCultures
+            });
+
+            app.UseStaticFiles();
+            #endregion
+
+            app.UseRequestLocalization(); // >= v2.1.1
+
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-            
+
 
         }
     }

@@ -35,14 +35,18 @@ namespace HRCMS.Controllers
 
             //WebTemplateModel.Settings.Environment = "PROD_SSL";
 
+            WebTemplateModel.ApplicationTitle.Text = "HRCMS";
+            WebTemplateModel.ApplicationTitle.Href = "../hrcase/list";
+
+
             //custom intranet title
-            WebTemplateModel.IntranetTitle = new IntranetTitle
-            {
-                Href = "http://mytc",
-                BoldText = "HR",
-                Acronym = "Human Resource",
-                Text = " CMS"
-            };
+            //WebTemplateModel.IntranetTitle = new IntranetTitle
+            //{
+            //    Href = "http://mytc",
+            //    BoldText = "HR",
+            //    Acronym = "Human Resource",
+            //    Text = " CMS"
+            //};
 
             WebTemplateModel.Settings.ShowPreContent = false;
             WebTemplateModel.HTMLBodyElements.Add("<script src='/js/site.js'></script>");

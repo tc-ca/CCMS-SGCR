@@ -1,4 +1,10 @@
-﻿@model List<HRCMS.ViewModels.HRCaseModel>
+﻿@*@using Microsoft.AspNetCore.Mvc.Localization
+@using Localization.Services
+
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer*@
+@model List<HRCMS.ViewModels.HRCaseModel>
+
 
 @{
     ViewData["Title"] = "View My Cases";
@@ -6,16 +12,18 @@
 @if (ViewBag.Questions.Count > 0)
 {
     <div class="col-md-12">
-        <div class="pull-right col-sm-3 nowrap">
-                <a href="#centred-popup" aria-controls="centred-popup" class="wb-lbx" role="button" title="View Questions">
-                    <span class="fa fa-envelope mrgn-rght-sm" aria-hidden="true"></span>
-                    @if(ViewBag.Questions.Count==1){
-                        <strong>You have 1 question</strong>
-                    }
-                    else{
-                        <strong>You have @ViewBag.Questions.Count questions</strong>
-                    }
-                </a>
+        <div class="pull-right nowrap">
+            <a href="#centred-popup" aria-controls="centred-popup" class="wb-lbx" role="button" title="View Questions">
+                <span class="fa fa-envelope mrgn-rght-sm" aria-hidden="true"></span>
+                @if (ViewBag.Questions.Count == 1)
+                {
+                    <strong>You have 1 question</strong>
+                }
+                else
+                {
+                    <strong>You have @ViewBag.Questions.Count questions</strong>
+                }
+            </a>
         </div>
     </div>
     <section id="centred-popup" class="mfp-hide modal-dialog modal-content overlay-def">
@@ -28,144 +36,146 @@
                 <ul>
                     <li>
                         @Html.ActionLink($"[{q.HRCase.CaseNumber}] {q.QuestionText}", "details", "hrcase", null, null, "tabQuestions", new { id = q.HRCase.CaseId }, null)
-                        @Html.ActionLink($"Reply", "details", "hrcase", null, null, "tabQuestions", new { id = q.HRCase.CaseId }, new { @class = "btn btn-default btn-xs"})
+                        @Html.ActionLink($"Reply", "details", "hrcase", null, null, "tabQuestions", new { id = q.HRCase.CaseId }, new { @class = "btn btn-default btn-xs" })
                     </li>
                 </ul>
             }
         </div>
     </section>
 }
-    <h1>View My Cases</h1>
+<h1>View My Cases</h1>
 
-    <div class="row mrgn-bttm-md">
-        <div class="col-md-2">
-            <label for="ddlCaseStatus" class="wb-inv">Select Case List</label>
-            <select id="ddlCaseStatus" class="form-control">
-                <option value="315840000|315840001|315840002|315840003">Open Cases</option>
-                <option value="315840004|315840005|315840006">Closed Cases</option>
-            </select>
-        </div>
-        <div class="col-md-2">
-            <input id="btnRefreshList" type="button" class="btn btn-default" value="Refresh List" />
-        </div>
+<div class="row mrgn-bttm-md">
+    <div class="col-md-2">
+        <label for="ddlCaseStatus" class="wb-inv">Select Case List</label>
+        <select id="ddlCaseStatus" class="form-control">
+            <option value="315840000|315840001|315840002|315840003">Open Cases</option>
+            <option value="315840004|315840005|315840006">Closed Cases</option>
+        </select>
     </div>
-    <div class="mrgn-bttm-md">
-        <a asp-action="Create">Add a new case</a>
+    <div class="col-md-2">
+        <input id="btnRefreshList" type="button" class="btn btn-default" value="Refresh List" />
     </div>
-    <table class="wb-tables table table-striped" data-wb-tables='{ "ordering" : true, "aaSorting": [[4, "desc"]] }' id="tblCases">
-        <thead class="thead-light">
-            <tr>
-                <th scope="col">
-                    Case Number
-                </th>
-                <th scope="col">
-                    Case Type
-                </th>
-                <th scope="col">
-                    Case Sub-Type
-                </th>
-                <th scope="col">
-                    Case Status
-                </th>
-                <th scope="col">
-                    Created On
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (Model?.Count > 0)
-            {
-                @foreach (HRCaseModel hrCase in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.ActionLink(hrCase.CaseNumber, "details", "hrcase", new { id = hrCase.CaseId })
-                        </td>
-                        <td>
-                            @if (hrCase.CaseType != null) { @hrCase.CaseType.TypeName }
-                        </td>
-                        <td>
-                            @if (hrCase.CaseSubType != null) { @hrCase.CaseSubType.SubTypeName }
-                        </td>
-                        <td>
-                            @if (hrCase.CaseStatusId == "315840001")
-                            {
-                                <p>
-                                    Received by Pay
-                                </p>
-                            }
-                            else
-                            {
-                                <p>
-                                    @hrCase.CaseStatusText
-                                </p>
-                            }
-                        </td>
-                        @*<td>
-                                @hrCase.FirstName
-                            </td>
-                            <td>
-                                @hrCase.LastName
-                            </td>*@
-                        <td>
-                            @hrCase.DateCreated.ToString("yyyy-MM-dd")
-                        </td>
-                    </tr>
-                }
-            }
-            else
+</div>
+<div class="mrgn-bttm-md">
+    <a asp-action="Create">Add a new case</a>
+</div>
+<table class="wb-tables table table-striped" data-wb-tables='{ "ordering" : true, "aaSorting": [[4, "desc"]] }' id="tblCases">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">
+                Case Number
+            </th>
+            <th scope="col">
+                Case Type
+            </th>
+            <th scope="col">
+                Case Sub-Type
+            </th>
+            <th scope="col">
+                Case Status
+            </th>
+            <th scope="col">
+                Created On
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model?.Count > 0)
+        {
+            @foreach (HRCaseModel hrCase in Model)
             {
                 <tr>
-                    <td colspan="7">
-                        N/A
+                    <td>
+                        @Html.ActionLink(hrCase.CaseNumber, "details", "hrcase", new { id = hrCase.CaseId })
+                    </td>
+                    <td>
+                        @if (hrCase.CaseType != null)
+                        {@hrCase.CaseType.TypeName}
+                    </td>
+                    <td>
+                        @if (hrCase.CaseSubType != null)
+                        {@hrCase.CaseSubType.SubTypeName}
+                    </td>
+                    <td>
+                        @if (hrCase.CaseStatusId == "315840001")
+                        {
+                            <p>
+                                Received by Pay
+                            </p>
+                        }
+                        else
+                        {
+                            <p>
+                                @hrCase.CaseStatusText
+                            </p>
+                        }
+                    </td>
+                    @*<td>
+                            @hrCase.FirstName
+                        </td>
+                        <td>
+                            @hrCase.LastName
+                        </td>*@
+                    <td>
+                        @hrCase.DateCreated.ToString("yyyy-MM-dd")
                     </td>
                 </tr>
             }
-        </tbody>
-    </table>
-    <div class="mrgn-tp-md">
-        <a asp-action="Create">Add a new case</a>
-    </div>
+        }
+        else
+        {
+            <tr>
+                <td colspan="7">
+                    N/A
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="mrgn-tp-md">
+    <a asp-action="Create">Add a new case</a>
+</div>
 
-    @section CustomScripts {
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-        <script type="text/javascript">
-            function getCookie(name) {
-                var nameEQ = name + "=";
-                //alert(document.cookie);
-                var ca = document.cookie.split(';');
-                for (var i = 0; i < ca.length; i++) {
-                    var c = ca[i];
-                    while (c.charAt(0) == ' ') c = c.substring(1);
-                    if (c.indexOf(nameEQ) != -1) return c.substring(nameEQ.length, c.length);
+@section CustomScripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            //alert(document.cookie);
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(nameEQ) != -1) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        $(document).ready(function () {
+            var caseListCookie = getCookie("caseList");
+
+            if (caseListCookie != null) {
+                var ddlCaseStatus = $("#ddlCaseStatus");
+                if (ddlCaseStatus != "") {
+                    ddlCaseStatus.val(decodeURI(caseListCookie));
                 }
-                return null;
             }
 
-            $(document).ready(function () {
-                var caseListCookie = getCookie("caseList");
+            $('#btnRefreshList').click(function () {
+                var selectStatus = $("#ddlCaseStatus").val();
 
-                if (caseListCookie != null) {
-                    var ddlCaseStatus = $("#ddlCaseStatus");
-                    if (ddlCaseStatus != "") {
-                        ddlCaseStatus.val(decodeURI(caseListCookie));
-                    }
-                }
+                var d = new Date();
+                d.setTime(d.getTime() + (1 * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toUTCString();
 
-                $('#btnRefreshList').click(function () {
-                    var selectStatus = $("#ddlCaseStatus").val();
-
-                    var d = new Date();
-                    d.setTime(d.getTime() + (1 * 24 * 60 * 60 * 1000));
-                    var expires = "expires=" + d.toUTCString();
-
-                    document.cookie = "caseList=" + encodeURI(selectStatus) + ";" + expires + ";";
-                    location.reload();
-                });
+                document.cookie = "caseList=" + encodeURI(selectStatus) + ";" + expires + ";";
+                location.reload();
             });
+        });
 
 
 
-        </script>
-    }
+    </script>
+}
 
