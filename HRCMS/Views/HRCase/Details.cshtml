@@ -70,7 +70,7 @@
                                 </span>
                                 <p>@Model.Description</p>
                             </div>
-                            @if (Model.CaseStatusId == "315840002") //withdraw only if the case is new
+                            @if (Model.CaseStatusId == "315840002") //the case is new
                             {
                                 <div id="divAlert" class="alert alert-warning hidden">
                                     <p>Are you sure?</p>
@@ -85,7 +85,7 @@
                                     <input type="button" id="btnDelete" value="Delete" class="btn btn-warning" />
                                 </div>
                             }
-                            @if (Model.CaseStatusId == "315840001" || Model.CaseStatusId == "315840000" || Model.CaseStatusId == "315840003") //withdraw
+                            else if (Model.CaseStatusId == "315840001" || Model.CaseStatusId == "315840000" || Model.CaseStatusId == "315840003") //withdraw
                             {
                                 <div id="divAlert" class="alert alert-warning hidden">
                                     <p>Are you sure?</p>
@@ -105,7 +105,7 @@
                 <details id="tabQuestions">
                     <summary>Questions and Answers</summary>
 
-                    <form asp-action="" method="post">
+                    <form id="formQuestionAnswers" asp-action="" method="post">
 
                         @for (int i = 0; i < Model.Questions.Count; i++)
                         {
@@ -150,7 +150,7 @@
 
                     <details id="tbAttachments">
                         <summary>Attachments</summary>
-                        @await Html.PartialAsync("../Shared/_AttachmentPartial.cshtml", Model.NewAttachment)
+                        @await Html.PartialAsync("_AttachmentPartial", Model.NewAttachment)
                         @for (int i = 0; i < Model.Attachments.Count; i++)
                         {
                             <section class="panel panel-default hght-inhrt">
@@ -198,7 +198,7 @@
                 return remaining;
             };
 
-            if (textarea.length > 0) {
+            if ($('#formQuestionAnswers').find($("textarea")).length > 0) {
                 $('#btnUpdateAnswers').removeClass("hidden");
             }
 
