@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,26 +9,44 @@ using System.Threading.Tasks;
 
 namespace HRCMS.Utility
 {
-    public static class LinqExt
+    public static class FileUploadHelper
     {
-        public static string MyValidationSummary(this HtmlHelper helper, string validationMessage = "")
+        public static async Task<string> ReadAsBase64StringAsync(this IFormFile file, ModelStateDictionary modelState, long sizeLimit)
         {
-            string retVal = "";
-            if (helper.ViewData.ModelState.IsValid)
-                return "";
-
-            retVal += "<div class='notification-warnings'><span>";
-            if (!String.IsNullOrEmpty(validationMessage))
-                retVal += helper.Encode(validationMessage);
-            retVal += "</span>";
-            retVal += "<div class='text'>";
-            foreach (var key in helper.ViewData.ModelState.Keys)
+            
+            if (file.Length > 0)
             {
-                foreach (var err in helper.ViewData.ModelState[key].Errors)
-                    retVal += "<p>" + helper.Encode(err.ErrorMessage) + "</p>";
+                using (var ms = new MemoryStream())
+                {
+                    await file.CopyToAsync(ms);
+
+                    if (ms.Length == 0)
+                    {
+                        modelState.AddModelError("File", "The file is empty.");
+                    }
+                    else if (ms.Length > sizeLimit)
+                    {
+                        var megabyteSizeLimit = sizeLimit / 1048576;
+                        modelState.AddModelError("File",
+                        $"The file exceeds {megabyteSizeLimit:N1} MB.");
+                    }
+                    //else if (!IsValidFileExtensionAndSignature(
+                    //    contentDisposition.FileName.Value, memoryStream,
+                    //    permittedExtensions))
+                    //{
+                    //    modelState.AddModelError("File",
+                    //        "The file type isn't permitted or the file's " +
+                    //        "signature doesn't match the file's extension.");
+                    //}
+                    else
+                    {
+                        var fileBytes = ms.ToArray();
+                        string s = Convert.ToBase64String(fileBytes);
+                        return s;
+                    }
+                }
             }
-            retVal += "</div></div>";
-            return retVal.ToString();
+            return null;
         }
     }
 }
