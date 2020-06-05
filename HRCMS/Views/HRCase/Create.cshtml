@@ -25,43 +25,36 @@
             <form asp-action="Save">
                 @Html.HiddenFor(m => m.CaseId)
                 <div class="form-group">
-                    @Html.LabelFor(m => m.PRI, Localizer["Personal Record Identifier"].Value, new { @class = "control-label " })
+                    <label asp-for="@Model.PRI"><span class="field-name">@Localizer["<acronym title='Personal Record Identifier'>PRI</acronym>"]</span></label>
                     @Html.TextBoxFor(m => m.PRI, new { @class = "form-control", @maxlength = "250", @readonly = "readonly", @required = "required" })
                 </div>
                 <div class="form-group">
-
-                    @Html.LabelFor(m => m.LastName, new { @class = "control-label " })
+                    <label asp-for="@Model.LastName"><span class="field-name">@Localizer["Last Name"]</span></label>
                     @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @maxlength = "250", @readonly = "readonly", @required = "required" })
                 </div>
                 <div class="form-group">
-
-                    @Html.LabelFor(m => m.FirstName, new { @class = "control-label " })
+                    <label asp-for="@Model.LastName"><span class="field-name">@Localizer["First Name"]</span></label>
                     @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @maxlength = "250", @readonly = "readonly", @required = "required" })
                 </div>
                 <div class="form-group">
-                    <label asp-for="@Model.Email" class="required"><span class="field-name">Email</span> <strong class="required">(@SharedLocalizer["required"])</strong></label>
-                    @Html.ValidationMessageFor(m => m.Email, "", htmlAttributes: new { @class = "text-danger" })
+                    <label asp-for="@Model.Email" class="required"><span class="field-name">@Localizer["Email"].Value</span> <strong class="required">(@SharedLocalizer["required"])</strong></label>
                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @maxlength = "250", @required = "required" })
                 </div>
                 <div class="form-group">
-                    <label asp-for="@Model.CaseType.TypeId" class="required"><span class="field-name">@Localizer["Case Type"]</span> <strong class="required">(required)</strong></label>
-                    @Html.ValidationMessageFor(m => m.CaseType.TypeId, "", htmlAttributes: new { @class = "text-danger col-md-12" })
+                    <label asp-for="@Model.CaseType.TypeId" class="required"><span class="field-name">@Localizer["Case Type"]</span> <strong class="required">(@SharedLocalizer["required"])</strong></label>
                     @Html.DropDownListFor(m => m.CaseType.TypeId, Model.CaseTypes, "--", htmlAttributes: new { @class = "form-control", @required = "required" })
                 </div>
                 <div class="form-group">
-                    <label asp-for="@Model.CaseSubType.SubTypeId" class="required"><span class="field-name">Case Sub Type</span> <strong class="required">(required)</strong></label>
-                    @Html.ValidationMessageFor(m => m.CaseSubType.SubTypeId, "", htmlAttributes: new { @class = "text-danger col-md-12" })
+                    <label asp-for="@Model.CaseSubType.SubTypeId" class="required"><span class="field-name">@Localizer["Case Sub Type"]</span> <strong class="required">(@SharedLocalizer["required"])</strong></label>
                     @Html.DropDownListFor(m => m.CaseSubType.SubTypeId, Model.CaseSubTypes, "--", htmlAttributes: new { @class = "form-control", @required = "required" })
                 </div>
                 <div class="form-group">
-
-                    @Html.LabelFor(m => m.Description, new { @class = "control-label " })
-                    @Html.ValidationMessageFor(m => m.Description, "", htmlAttributes: new { @class = "text-danger" })
+                    <label asp-for="@Model.LastName"><span class="field-name">@Localizer["Description"]</span></label>
                     @Html.TextAreaFor(m => m.Description, 5, 200, new { @class = "form-control", @maxlength = "4000" })
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Save" class="btn btn-primary" />
-                    <a asp-action="List" class="btn btn-default">Cancel</a>
+                    <input type="submit" value="@SharedLocalizer["Save"]" class="btn btn-primary" />
+                    <a asp-action="List" class="btn btn-default">@SharedLocalizer["Cancel"]</a>
 
                 </div>
             </form>
@@ -70,7 +63,7 @@
 </div>
 
 <div>
-    <a asp-action="List">Back to List</a>
+    <a asp-action="List">@SharedLocalizer["Back to List"]</a>
 </div>
 @section CustomScripts {
     @*@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}*@
