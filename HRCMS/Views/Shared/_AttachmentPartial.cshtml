@@ -2,35 +2,130 @@
 @*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
+    <link rel="stylesheet" type="text/css" href="~/css/dragdrop.css">
 @model AnnotationModel
-    <div class="wb-frmvld">
-        <form asp-action="UploadAttachment" enctype="multipart/form-data" method="post">
-            <section class="panel panel-primary hght-inhrt">
-                <div class="panel-heading">
-                    <label class="font-weight-bolder">
-                        Upload Attachment
-                    </label>
+<div class="wb-frmvld">
+    <form asp-action="UploadAttachment" enctype="multipart/form-data" method="post" id="js-upload-form" class="box">
+        <section class="panel panel-primary hght-inhrt">
+            <div class="panel-heading">
+                <label class="font-weight-bolder">
+                    Upload Attachment
+                </label>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.Hidden("caseId", Url.ActionContext.RouteData.Values["id"])
+                    <label asp-for="@Model.Subject" class="required"><span class="field-name">Subject</span> <strong class="required">(required)</strong></label>
+                    @Html.TextBoxFor(m => m.Subject, new { @class = "form-control", @maxlength = "250", @required = "required" })
                 </div>
-                <div class="panel-body">
-                    <div class="form-group">
-                        @Html.Hidden("caseId", Url.ActionContext.RouteData.Values["id"])
-                        <label asp-for="@Model.Subject" class="required"><span class="field-name">Subject</span> <strong class="required">(required)</strong></label>
-                        @Html.ValidationMessageFor(m => m.Subject, "", htmlAttributes: new { @class = "label label-danger" })
-                        @Html.TextBoxFor(m => m.Subject, new { @class = "form-control", @maxlength = "250", @required = "required" })
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.NoteText, "Note Text", new { @class = "field-name" })
-                        @Html.TextAreaFor(m => m.NoteText, 3, 50, new { @class = "form-control", @maxlength = "1000" })
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="@Model.File" class="required"><span class="field-name">Input File</span> <strong class="required">(required)</strong></label>
-                        @Html.ValidationMessageFor(m => m.File, "", htmlAttributes: new { @class = "label label-danger" })
-                        @Html.TextBoxFor(m => m.File, new { @type = "file", @required = "required" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.NoteText, "Note Text", new { @class = "field-name" })
+                    @Html.TextAreaFor(m => m.NoteText, 3, 50, new { @class = "form-control", @maxlength = "1000" })
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.File" class="required"><span class="field-name">Input File</span> <strong class="required">(required)</strong></label>
+                    <div class="box has-advanced-upload js">
 
+                        <div class="box__input" id="drop-zone">
+                            <svg class="box__icon" xmlns="http://www.w3.org/2000/svg" width="50" height="43" viewBox="0 0 50 43">
+                                <path d="M48.4 26.5c-.9 0-1.7.7-1.7 1.7v11.6h-43.3v-11.6c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v13.2c0 .9.7 1.7 1.7 1.7h46.7c.9 0 1.7-.7 1.7-1.7v-13.2c0-1-.7-1.7-1.7-1.7zm-24.5 6.1c.3.3.8.5 1.2.5.4 0 .9-.2 1.2-.5l10-11.6c.7-.7.7-1.7 0-2.4s-1.7-.7-2.4 0l-7.1 8.3v-25.3c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v25.3l-7.1-8.3c-.7-.7-1.7-.7-2.4 0s-.7 1.7 0 2.4l10 11.6z"></path>
+                            </svg>
+                            @Html.TextBoxFor(m => m.File, new { @type = "file", @required = "required", @class = "box__file" })
+                            <label for="File"><span class="text-primary">Choose a file</span><span class="box__dragndrop"> or drag it here</span>.</label>
+                        </div>
                     </div>
-
+                </div>
+                <div class="form-group">
                     <input type="submit" id="btnUploadAttachment" asp-action="UploadAttachment" value="Upload File" class="btn btn-default" />
                 </div>
-            </section>
-        </form>
-    </div>
+            </div>
+        </section>
+    </form>
+</div>
+
+<script>
+    // UPLOAD CLASS DEFINITION
+    // ======================
+    function DragDropFile() {
+        var dropZone = $('#drop-zone');
+        var form = document.querySelectorAll('.box')[0];
+
+        const getBase64 = file => new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+        });
+
+        var startUpload = function (droppedFiles) {
+            var caseId = $("#CaseId").val();
+            var subject = $("#Subject").val();
+            var noteText = $("#NoteText").val();
+
+            var ajaxData = new FormData(form);
+            if (droppedFiles) {
+                ajaxData.append("File", droppedFiles[0]);
+                //Array.prototype.forEach.call(droppedFiles, function (file) {
+                //    ajaxData.append(input.getAttribute('name'), file);
+                //});
+            }
+
+            ajaxData.append("caseId", caseId);
+            ajaxData.append("subject", subject);
+            ajaxData.append("noteText", noteText);
+            debugger;
+            // ajax request
+            var ajax = new XMLHttpRequest();
+            ajax.open(form.getAttribute('method'), form.getAttribute('action'), true);
+
+            ajax.onload = function () {
+                //form.classList.remove('is-uploading');
+                if (ajax.status >= 200 && ajax.status < 400) {
+                    var data = JSON.parse(ajax.responseText);
+                    form.classList.add(data.success == true ? 'is-success' : 'is-error');
+                    if (!data.success) errorMsg.textContent = data.error;
+                }
+                else alert('Error. Please, contact the webmaster!');
+            };
+
+            ajax.onerror = function () {
+                form.classList.remove('is-uploading');
+                alert('Error. Please, try again!');
+            };
+
+            ajax.send(ajaxData);
+
+        }
+
+        form.addEventListener('submit', function (e) {
+            var caseId = $("#CaseId").val();
+            var subject = $("#Subject").val();
+            var uploadFiles = form.droppedFiles;
+            if (caseId && subject && form.droppedFiles) {
+                e.preventDefault();
+                startUpload(uploadFiles);
+            }
+        })
+
+        dropZone.on("drop", function (e) {
+            e.preventDefault();
+            var target = $(e.target);
+            target.removeClass('drop');
+            console.log("Uploading");
+            form.droppedFiles = e.originalEvent.dataTransfer.files;
+            //startUpload(e.originalEvent.dataTransfer.files)
+        });
+
+        dropZone.on("dragover", function (e) {
+            var target = $(e.target);
+            target.addClass('drop');
+            return false;
+        });
+
+        dropZone.on("dragleave", function (e) {
+            var target = $(e.target);
+            target.removeClass('drop');
+            return false;
+        });
+    }
+</script>

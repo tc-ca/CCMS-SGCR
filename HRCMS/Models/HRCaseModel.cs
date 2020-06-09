@@ -35,6 +35,7 @@ namespace HRCMS.ViewModels
         public CaseSubtypeModel CaseSubType { get; set; }
         [StringLength(4000)]
         public String Description { get; set; }
+        public String Resolution { get; set; }
         public DateTime DateReceived { get; set; }
         public DateTime DateCreated { get; set; }
         public List<QuestionModel> Questions { get; set; }

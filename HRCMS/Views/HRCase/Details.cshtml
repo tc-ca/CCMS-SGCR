@@ -7,11 +7,12 @@
 <h1>HR Case: @Model.CaseNumber</h1>
 <div class="row">
     <div class="col-md-12">
-        
-            @*<div asp-validation-summary="All"> </div>*@
-            <div class="wb-tabs ignore-session">
+
+        @*<div asp-validation-summary="All"> </div>*@
+        @*<div class="wb-tabs ignore-session">*@
+            <div class="wb-tabs">
                 <div class="tabpanels">
-                   
+
                     <details id="tabGeneral">
                         <summary>General</summary>
 
@@ -70,6 +71,13 @@
                                 </span>
                                 <p>@Model.Description</p>
                             </div>
+                            @if (Model.CaseStatusId == "315840004" || Model.CaseStatusId == "315840005") //the case is withdrew by Pay or closed
+                            {
+                                <span class="font-weight-bolder">
+                                    @Html.LabelFor(m => m.Resolution, new { @class = "field-name " })
+                                </span>
+                                <p>@Model.Resolution</p>
+                            }
                             @if (Model.CaseStatusId == "315840002") //the case is new
                             {
                                 <div id="divAlert" class="alert alert-warning hidden">
@@ -102,50 +110,50 @@
                     </details>
                     @if (Model.Questions.Count > 0)
                     {
-                <details id="tabQuestions">
-                    <summary>Questions and Answers</summary>
+                        <details id="tabQuestions">
+                            <summary>Questions and Answers</summary>
 
-                    <form id="formQuestionAnswers" asp-action="" method="post">
+                            <form id="formQuestionAnswers" asp-action="" method="post">
 
-                        @for (int i = 0; i < Model.Questions.Count; i++)
-                        {
-                            <section class="panel panel-default hght-inhrt">
-                                @Html.HiddenFor(m => m.Questions[i].QuestionId)
-                                @if (string.IsNullOrEmpty(Model.Questions[i].AnswerText))
+                                @for (int i = 0; i < Model.Questions.Count; i++)
                                 {
-                                    <div class="alert alert-danger mrgn-bttm-0">
-                                        <label class="font-weight-bolder" for="Questions_@(i)__AnswerText">
-                                            @Model.Questions[i].QuestionText <span class="localDateTime">@Model.Questions[i].DateAsked</span>
-                                        </label>
-                                    </div>
-                                    <div class="panel-body">
-                                        @Html.TextAreaFor(m => m.Questions[i].AnswerText, 5, 200, new { @class = "form-control", @maxlength = "4000" })
-                                        @Html.ValidationMessageFor(m => m.Questions[i].AnswerText, "", htmlAttributes: new { @class = "text-danger" })
-                                    </div>
+                                    <section class="panel panel-default hght-inhrt">
+                                        @Html.HiddenFor(m => m.Questions[i].QuestionId)
+                                        @if (string.IsNullOrEmpty(Model.Questions[i].AnswerText))
+                                        {
+                                            <div class="alert alert-danger mrgn-bttm-0">
+                                                <label class="font-weight-bolder" for="Questions_@(i)__AnswerText">
+                                                    @Model.Questions[i].QuestionText <span class="localDateTime">@Model.Questions[i].DateAsked</span>
+                                                </label>
+                                            </div>
+                                            <div class="panel-body">
+                                                @Html.TextAreaFor(m => m.Questions[i].AnswerText, 5, 200, new { @class = "form-control", @maxlength = "4000" })
+                                                @Html.ValidationMessageFor(m => m.Questions[i].AnswerText, "", htmlAttributes: new { @class = "text-danger" })
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="panel-heading">
+                                                <label class="font-weight-bolder">
+                                                    @Model.Questions[i].QuestionText <span class="localDateTime">@Model.Questions[i].DateAsked</span>
+                                                </label>
+                                            </div>
+                                            <div class="panel-body">
+                                                <p><span class="localDateTime">@Model.Questions[i].DateAnswered</span></p>
+                                                <p>
+                                                    @Model.Questions[i].AnswerText
+                                                </p>
+                                            </div>
+                                        }
+
+                                    </section>
+
                                 }
-                                else
-                                {
-                                    <div class="panel-heading">
-                                        <label class="font-weight-bolder">
-                                            @Model.Questions[i].QuestionText <span class="localDateTime">@Model.Questions[i].DateAsked</span>
-                                        </label>
-                                    </div>
-                                    <div class="panel-body">
-                                        <p><span class="localDateTime">@Model.Questions[i].DateAnswered</span></p>
-                                        <p>
-                                            @Model.Questions[i].AnswerText
-                                        </p>
-                                    </div>
-                                }
-
-                            </section>
-
-                        }
 
 
-                        <input type="submit" id="btnUpdateAnswers" class="btn btn-default hidden" asp-action="UpdateAnswers" value="Submit Answers" />
-                        </form>
-                </details>
+                                <input type="submit" id="btnUpdateAnswers" class="btn btn-default hidden" asp-action="UpdateAnswers" value="Submit Answers" />
+                            </form>
+                        </details>
                     }
 
                     <details id="tbAttachments">
@@ -171,8 +179,8 @@
                     </details>
                 </div>
             </div>
-        
-    </div>
+
+        </div>
 </div>
 
 
@@ -181,55 +189,59 @@
 </div>
 @section CustomScripts {
     @*@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}*@
-    <script type="text/javascript">
+<script type="text/javascript">
         $(document).ready(function () {
 
         });
 
-        $(document).on("wb-ready.wb-tabs", ".wb-tabs", function (event) {
-            var textarea = $('textarea[maxlength]');
-            var text = ' characters remaining.';
+    $(document).on("wb-ready.wb-tabs", ".wb-tabs", function (event) {
+        var textarea = $('textarea[maxlength]');
+        var text = ' characters remaining.';
 
-            $.fn.getCharactersRemaining = function () {
-                var length = $(this).val().length;
-                var maxLength = parseInt($(this).attr('maxlength'));
-                var remaining = maxLength - length;
+        $.fn.getCharactersRemaining = function () {
+            var length = $(this).val().length;
+            var maxLength = parseInt($(this).attr('maxlength'));
+            var remaining = maxLength - length;
 
-                return remaining;
-            };
+            return remaining;
+        };
 
-            if ($('#formQuestionAnswers').find($("textarea")).length > 0) {
-                $('#btnUpdateAnswers').removeClass("hidden");
-            }
+        if ($('#formQuestionAnswers').find($("textarea")).length > 0) {
+            $('#btnUpdateAnswers').removeClass("hidden");
+        }
 
-            textarea.each(function () {
-                var html = '<span class="counter">' + $(this).getCharactersRemaining() + '</span>' + text;
+        textarea.each(function () {
+            var html = '<span class="counter">' + $(this).getCharactersRemaining() + '</span>' + text;
 
-                //display the character count below the textarea when the page loads.
-                $(this).after(html);
+            //display the character count below the textarea when the page loads.
+            $(this).after(html);
 
-                $(this).on("input keyup keydown focus", function () {
-                    //update character count as you type.
-                    $(this).next('.counter').text($(this).getCharactersRemaining());
-                });
-            });
-
-            $('#btnWithdraw,#btnCancel, #btnDelete').click(function () {
-                $('#divButtons, #divAlert').toggleClass("hidden");
-            });
-
-            var localDateTimes = $('.localDateTime');
-            localDateTimes.each(function () {
-                var utcTime = this.innerHTML;
-                if (utcTime != null) {
-                    var d = new Date(utcTime);
-                    this.innerHTML = "[" + utcTime.substring(0, 10) + " " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2) + "]";
-                }
+            $(this).on("input keyup keydown focus", function () {
+                //update character count as you type.
+                $(this).next('.counter').text($(this).getCharactersRemaining());
             });
         });
 
+        $('#btnWithdraw,#btnCancel, #btnDelete').click(function () {
+            $('#divButtons, #divAlert').toggleClass("hidden");
+        });
+
+        var localDateTimes = $('.localDateTime');
+        localDateTimes.each(function () {
+            var utcTime = this.innerHTML;
+            if (utcTime != null) {
+                var d = new Date(utcTime);
+                this.innerHTML = "[" + utcTime.substring(0, 10) + " " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2) + "]";
+            }
+        });
+
+        DragDropFile();
+
+        
+    });
 
 
-    </script>
+
+</script>
 }
 

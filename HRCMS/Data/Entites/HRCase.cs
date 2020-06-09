@@ -18,6 +18,7 @@ namespace HRCMS.Data
         public string _hr_casesubtype_value { get; set; }
         public CaseSubType hr_CaseSubType { get; set; }
         public string hr_description { get; set; }
+        public string hr_resolution { get; set; }        
         public string hr_casestatus { get; set; }
         public DateTime createdon { get; set; }
         public DateTime? hr_datereceived { get; set; }

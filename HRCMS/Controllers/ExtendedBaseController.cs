@@ -35,6 +35,8 @@ namespace HRCMS.Controllers
 
             //WebTemplateModel.Settings.Environment = "PROD_SSL";
 
+            //WebTemplateModel.HTMLHeaderElements.Add("<link rel='stylesheet' type='text/css' href='/css/site.css'>");
+
             WebTemplateModel.ApplicationTitle.Text = "HRCMS";
             WebTemplateModel.ApplicationTitle.Href = "../hrcase/list";
 
