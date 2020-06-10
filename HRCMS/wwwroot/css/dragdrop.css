@@ -21,7 +21,11 @@
 
 /*Drag and drop*/
 .box {
-   
+    /*font-size: 1.25rem;*/
+    /* 20 */
+    /*background-color: #c8dadf;*/
+    position: relative;
+    padding: 100px 20px;
 }
 
     .box.has-advanced-upload {
@@ -60,8 +64,8 @@
     visibility: hidden;
 }
 
-.box__input{
-    text-align:center;
+.box__input {
+    text-align: center;
 }
 
 .box__uploading,
@@ -91,21 +95,42 @@
     animation: appear-from-inside .25s ease-in-out;
 }
 
-.box__button {
-    font-weight: 700;
-    color: #e5edf1;
-    background-color: #39bfd3;
-    display: block;
-    padding: 8px 16px;
-    margin: 40px auto 0;
-}
-
-    .box__button:hover,
-    .box__button:focus {
-        background-color: #0f3c4b;
+@-webkit-keyframes appear-from-inside {
+    from {
+        -webkit-transform: translateY(-50%) scale(0);
     }
 
+    75% {
+        -webkit-transform: translateY(-50%) scale(1.1);
+    }
 
+    to {
+        -webkit-transform: translateY(-50%) scale(1);
+    }
+}
+
+@keyframes appear-from-inside {
+    from {
+        transform: translateY(-50%) scale(0);
+    }
+
+    75% {
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    to {
+        transform: translateY(-50%) scale(1);
+    }
+}
+
+.box__restart {
+    font-weight: 700;
+}
+
+    .box__restart:focus,
+    .box__restart:hover {
+        color: #39bfd3;
+    }
 
 .js .box__file {
     width: 0.1px;
@@ -140,6 +165,28 @@
     .js .box__file + label * {
         /* pointer-events: none; */
         /* in case of FastClick lib use */
+    }
+
+.no-js .box__file + label {
+    display: none;
+}
+
+.no-js .box__button {
+    display: block;
+}
+
+.box__button {
+    font-weight: 700;
+    color: #e5edf1;
+    background-color: #39bfd3;
+    display: block;
+    padding: 8px 16px;
+    margin: 40px auto 0;
+}
+
+    .box__button:hover,
+    .box__button:focus {
+        background-color: #0f3c4b;
     }
 
 
