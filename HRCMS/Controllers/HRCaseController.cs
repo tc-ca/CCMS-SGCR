@@ -57,8 +57,6 @@ namespace HRCMS.Controllers
             _linkGenerator = linkGenerator;
             _appSettings = settings.Value;
             _mapper = mapper;
-            WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = "Home" });
-            WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = "Cases" });
 
             _fileSizeLimit = config.GetValue<long>("FileSizeLimit");
             _localizer = localizer;
@@ -68,6 +66,9 @@ namespace HRCMS.Controllers
         {
             try            
             {
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = "Home" });
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = "Cases" });
+
                 var pri = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.PrimarySid)?.Value;
                 
                 var statuses = Request.Cookies["caseList"];
@@ -105,6 +106,9 @@ namespace HRCMS.Controllers
         {
             try
             {
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../List", Title = "Home" });
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../List", Title = "Cases" });
+
                 var hrCaseModel = await _repository.GetCaseAsync(id);
 
                 //var hrCaseModel = _mapper.Map<HRCaseModel>(result);
@@ -119,6 +123,7 @@ namespace HRCMS.Controllers
                 var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync();
                 hrCaseModel.CaseStatusText = caseStatuses.FirstOrDefault(t => t.Value == hrCaseModel.CaseStatusId)?.Text;
                 hrCaseModel.Questions.Sort((x, y) => string.Compare(y.DateAsked, x.DateAsked));
+                hrCaseModel.Attachments.Sort((x, y) => string.Compare(y.DateCreated, x.DateCreated));
 
 
                 return View(hrCaseModel);
@@ -134,6 +139,9 @@ namespace HRCMS.Controllers
         {
             try
             {
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = "Home" });
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = "Cases" });
+
                 var caseTypes = await _caseTypeRepository.GetAllCaseTypesAsync();
                 var caseSubTypes = await _caseTypeRepository.GetAllCaseSubTypesAsync();
                 var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync();
