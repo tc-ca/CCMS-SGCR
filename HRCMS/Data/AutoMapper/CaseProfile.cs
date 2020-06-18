@@ -33,11 +33,15 @@ namespace HRCMS.Data
             this.CreateMap<CaseType, CaseTypeModel>()
               .ForMember(dest => dest.TypeId, act => act.MapFrom(src => src.hr_casetypeid))
               .ForMember(dest => dest.TypeName, act => act.MapFrom(src => src.hr_name))
+              .ForMember(dest => dest.TypeNameEn, act => act.MapFrom(src => src.hr_nameen))
+              .ForMember(dest => dest.TypeNameFr, act => act.MapFrom(src => src.hr_namefr))
               .ReverseMap();
 
             this.CreateMap<CaseSubType, CaseSubtypeModel>()
               .ForMember(dest => dest.SubTypeId, act => act.MapFrom(src => src.hr_casesubtypeid))
               .ForMember(dest => dest.SubTypeName, act => act.MapFrom(src => src.hr_name))
+              .ForMember(dest => dest.SubTypeNameEn, act => act.MapFrom(src => src.hr_nameen))
+              .ForMember(dest => dest.SubTypeNameFr, act => act.MapFrom(src => src.hr_namefr))
               .ReverseMap();
         }
 

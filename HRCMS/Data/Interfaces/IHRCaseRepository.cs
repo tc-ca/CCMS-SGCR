@@ -12,8 +12,8 @@ namespace HRCMS.Data
         void Add<T>(T entity) where T : class;
 
         // HR Cases
-        Task<List<HRCaseModel>> GetAllCasesAsync(string pri, string statuses);
-        Task<HRCaseModel> GetCaseAsync(string caseId);
+        Task<List<HRCaseModel>> GetAllCasesAsync(string pri, string statuses, string twoLetterCultureLanguage);
+        Task<HRCaseModel> GetCaseAsync(string caseId, string twoLetterCultureLanguage);
         Task<string> CreateHRCaseAsync(HRCase hrCase);
         Task<string> UpdateHRCaseAsync(HRCase hrCase);
         Task<bool> DeleteHRCaseAsync(string caseId);

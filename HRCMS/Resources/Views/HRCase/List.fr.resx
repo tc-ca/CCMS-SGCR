@@ -138,6 +138,9 @@
   <data name="Created On" xml:space="preserve">
     <value>Created On (fr)</value>
   </data>
+  <data name="N/A" xml:space="preserve">
+    <value>N/A (fr)</value>
+  </data>
   <data name="Open Cases" xml:space="preserve">
     <value>Open Cases (fr)</value>
   </data>

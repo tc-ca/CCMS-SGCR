@@ -33,7 +33,7 @@ namespace HRCMS.Data
             _appSettings = settings.Value;
         }
 
-        public async Task<List<HRCaseModel>> GetAllCasesAsync(string pri, string statuses)
+        public async Task<List<HRCaseModel>> GetAllCasesAsync(string pri, string statuses, string twoLetterCultureLanguage)
         {
             using (var client = DynamicsApiHelper.GetHttpClient(_appSettings))
             {
@@ -41,7 +41,7 @@ namespace HRCMS.Data
                 var statusList = statuses.Split("|");
                 var orderby = $"$orderby=createdon%20desc";
                 var statusFilter = "[%27" + string.Join("%27,%27", statusList) + "%27]";
-                var select = $"$select=hr_lastname,hr_name,hr_casestatus,hr_firstname,hr_hrcaseid,createdon&$expand=hr_CaseType($select=hr_name),hr_CaseSubType($select=hr_name)";
+                var select = $"$select=hr_lastname,hr_name,hr_casestatus,hr_firstname,hr_hrcaseid,createdon&$expand=hr_CaseType($select=hr_name,hr_nameen,hr_namefr),hr_CaseSubType($select=hr_name,hr_nameen,hr_namefr)";
                 var filter = $"$filter=hr_pri%20eq%20{pri}%20and%20Microsoft.Dynamics.CRM.In(PropertyName=%27hr_casestatus%27,PropertyValues={statusFilter})";
                 var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}?{select}&{filter}&{orderby}");
 
@@ -51,6 +51,17 @@ namespace HRCMS.Data
                     if (results != null)
                     {
                         var hrCases = JsonConvert.DeserializeObject<List<HRCase>>(JObject.Parse(results)["value"].ToString(), new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-dd" });
+                        if (twoLetterCultureLanguage == "en")
+                        {
+                            hrCases.Select(c => { if (c.hr_CaseType != null) { c.hr_CaseType.hr_name = c.hr_CaseType.hr_nameen; } return c; }).ToList();
+                            hrCases.Select(c => { if (c.hr_CaseSubType != null) { c.hr_CaseSubType.hr_name = c.hr_CaseSubType.hr_nameen; } return c; }).ToList();
+                        }
+                        else
+                        {
+                            hrCases.Select(c => { if (c.hr_CaseType != null) { c.hr_CaseType.hr_name = c.hr_CaseType.hr_namefr; } return c; }).ToList();
+                            hrCases.Select(c => { if (c.hr_CaseSubType != null) { c.hr_CaseSubType.hr_name = c.hr_CaseSubType.hr_namefr; } return c; }).ToList();
+
+                        }
                         var hrCaseModels = _mapper.Map<List<HRCaseModel>>(hrCases);
                         return hrCaseModels;
                     }
@@ -59,12 +70,12 @@ namespace HRCMS.Data
             return null;
         }
         
-        public async Task<HRCaseModel> GetCaseAsync(string caseId)
+        public async Task<HRCaseModel> GetCaseAsync(string caseId, string twoLetterCultureLanguage)
         {
             using (var client = DynamicsApiHelper.GetHttpClient(_appSettings))
             {
                 var entityName = "hr_hrcases";
-                var select = $"$expand=hr_CaseType($select=hr_name),hr_CaseSubType($select=hr_name),hr_HRCase_hr_HRCase_hr_QuestionandAnswers($select=hr_questionandanswersid,hr_question,hr_answer,hr_read,hr_askedon,hr_answeredon)," +
+                var select = $"$expand=hr_CaseType($select=hr_name,hr_nameen,hr_namefr),hr_CaseSubType($select=hr_name,hr_nameen,hr_namefr),hr_HRCase_hr_HRCase_hr_QuestionandAnswers($select=hr_questionandanswersid,hr_question,hr_answer,hr_read,hr_askedon,hr_answeredon)," +
                     $"hr_hrcase_Annotations($select=_objectid_value,filename,subject,notetext,createdon,mimetype;$filter=isdocument%20eq%20true)";
                 var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}({caseId})?{select}");
 
@@ -74,6 +85,16 @@ namespace HRCMS.Data
                     if (result != null)
                     {
                         var hrCase = JsonConvert.DeserializeObject<HRCase>(result, new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-dd" });
+                        if (twoLetterCultureLanguage == "en")
+                        {
+                            if (hrCase.hr_CaseType != null) { hrCase.hr_CaseType.hr_name = hrCase.hr_CaseType.hr_nameen; }
+                            if (hrCase.hr_CaseSubType != null) { hrCase.hr_CaseSubType.hr_name = hrCase.hr_CaseSubType.hr_nameen; }
+                        }
+                        else
+                        {
+                            if (hrCase.hr_CaseType != null) { hrCase.hr_CaseType.hr_name = hrCase.hr_CaseType.hr_namefr; }
+                            if (hrCase.hr_CaseSubType != null) { hrCase.hr_CaseSubType.hr_name = hrCase.hr_CaseSubType.hr_namefr; }
+                        }
                         var hrCaseMode = _mapper.Map<HRCaseModel>(hrCase);
 
                         //hrCaseMode.Questions = _mapper.Map<List<QuestionModel>>(JObject.Parse(result)["hr_HRCase_hr_HRCase_hr_QuestionandAnswers"].ToArray());

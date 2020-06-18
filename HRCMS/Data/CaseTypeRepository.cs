@@ -19,7 +19,7 @@ namespace HRCMS.Data
             _appSettings = settings.Value;
         }
         //[OutputCache(Duration = 60)]
-        public async Task<IEnumerable<SelectListItem>> GetAllCaseTypesAsync()
+        public async Task<IEnumerable<SelectListItem>> GetAllCaseTypesAsync(string twoLetterCultureLanguage)
         {
             using (var client = DynamicsApiHelper.GetHttpClient(_appSettings))
             {
@@ -31,14 +31,21 @@ namespace HRCMS.Data
                     if (results != null)
                     {
                         List<CaseType> caseTypeList = JsonConvert.DeserializeObject<List<CaseType>>(JObject.Parse(results)["value"].ToString(), new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-dd" });
-                        return caseTypeList.Select(n => new SelectListItem { Value = n.hr_casetypeid, Text = n.hr_name }).OrderBy(m => m.Text);
+                        if (twoLetterCultureLanguage == "en")
+                        {
+                            return caseTypeList.Select(n => new SelectListItem { Value = n.hr_casetypeid, Text = n.hr_nameen }).OrderBy(m => m.Text);
+                        }
+                        else
+                        {
+                            return caseTypeList.Select(n => new SelectListItem { Value = n.hr_casetypeid, Text = n.hr_namefr }).OrderBy(m => m.Text);
+                        }
                     }
                 }
             }
             return null;
         }
         //[OutputCache(Duration = 60)]
-        public async Task<IEnumerable<SelectListItem>> GetAllCaseSubTypesAsync()
+        public async Task<IEnumerable<SelectListItem>> GetAllCaseSubTypesAsync(string twoLetterCultureLanguage)
         {
             using (var client = DynamicsApiHelper.GetHttpClient(_appSettings))
             {
@@ -51,14 +58,21 @@ namespace HRCMS.Data
                     if (results != null)
                     {
                         var subTypeList = JsonConvert.DeserializeObject<List<CaseSubType>>(JObject.Parse(results)["value"].ToString(), new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-dd" });
-                        return subTypeList.Select(n => new SelectListItem { Value = n.hr_casesubtypeid, Text = n.hr_name }).OrderBy(m => m.Text);
+                        if (twoLetterCultureLanguage == "en")
+                        {
+                            return subTypeList.Select(n => new SelectListItem { Value = n.hr_casesubtypeid, Text = n.hr_nameen }).OrderBy(m => m.Text);
+                        }
+                        else
+                        {
+                            return subTypeList.Select(n => new SelectListItem { Value = n.hr_casesubtypeid, Text = n.hr_namefr }).OrderBy(m => m.Text);
+                        }
                     }
                 }
             }
             return null;
         }
                
-        public async Task<IEnumerable<SelectListItem>> GetCaseSubTypesAsync(string caseTypeId)
+        public async Task<IEnumerable<SelectListItem>> GetCaseSubTypesAsync(string caseTypeId, string twoLetterCultureLanguage)
         {
             using (var client = DynamicsApiHelper.GetHttpClient(_appSettings))
             {
@@ -73,7 +87,15 @@ namespace HRCMS.Data
                     if (results != null)
                     {
                         List<CaseSubType> caseSubTypeList = JsonConvert.DeserializeObject<List<CaseSubType>>(JObject.Parse(results)["value"][0]["hr_CaseType_hr_CaseSubType_hr_CaseSubType"].ToString());
-                        return caseSubTypeList.Select(n => new SelectListItem { Value = n.hr_casesubtypeid, Text = n.hr_name }).OrderBy(m => m.Text);
+                        if (twoLetterCultureLanguage == "en")
+                        {
+                            return caseSubTypeList.Select(n => new SelectListItem { Value = n.hr_casesubtypeid, Text = n.hr_nameen }).OrderBy(m => m.Text);
+                        }
+                        else
+                        {
+                            return caseSubTypeList.Select(n => new SelectListItem { Value = n.hr_casesubtypeid, Text = n.hr_namefr }).OrderBy(m => m.Text);
+                        }
+
                     }
                 }
             }
