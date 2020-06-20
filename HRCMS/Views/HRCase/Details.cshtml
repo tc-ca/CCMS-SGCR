@@ -8,7 +8,7 @@
 @model HRCMS.ViewModels.HRCaseModel
 
 @{
-    ViewData["Title"] = "HR Case:" + Model.CaseNumber;
+    ViewData["Title"] = Localizer["HR Case"] + " " + Model.CaseNumber;
 }
 
 <h1>HR Case: @Model.CaseNumber</h1>
@@ -20,7 +20,7 @@
             <div class="tabpanels">
 
                 <details id="tabGeneral">
-                    <summary>General</summary>
+                    <summary>@Localizer["General"]</summary>
 
                     <form asp-action="" method="post">
                         @Html.HiddenFor(m => m.CaseId)
@@ -70,37 +70,37 @@
                         </div>
                         @if (Model.CaseStatusId == "315840004" || Model.CaseStatusId == "315840005") //the case is withdrew by Pay or closed
                         {
-                            <span class="font-weight-bolder">
-                                @Html.LabelFor(m => m.Resolution, new { @class = "field-name " })
-                            </span>
+                    <span class="font-weight-bolder">
+                        <strong>@Localizer["Resolution"].Value</strong>
+                    </span>
                             <p>@Model.Resolution</p>
                         }
                         @if (Model.CaseStatusId == "315840002") //the case is new
                         {
                             <div id="divAlert" class="alert alert-warning hidden">
-                                <p>Are you sure?</p>
+                                <p>@Localizer["Are you sure?"]</p>
                                 <div class="form-group">
-                                    <input type="submit" id="btnConfirm" asp-action="Delete" value="Confirm" class="btn btn-danger" />
-                                    <input type="button" id="btnCancel" value="Cancel" class="btn btn-default" />
+                                    <input type="submit" id="btnConfirm" asp-action="Delete" value='@Localizer["Confirm"]' class="btn btn-danger" />
+                                    <input type="button" id="btnCancel" value='@Localizer["Cancel"]' class="btn btn-default" />
                                 </div>
                             </div>
                             <div class="form-group" id="divButtons">
-                                <input type="submit" asp-action="Submit" value="Submit" class="btn btn-primary" />
-                                <a asp-action="Update" asp-route-id="@Model.CaseId" class="btn btn-default">Update</a>
-                                <input type="button" id="btnDelete" value="Delete" class="btn btn-warning" />
+                                <input type="submit" asp-action="Submit" value='@Localizer["Submit"]' class="btn btn-primary" />
+                                <a asp-action="Update" asp-route-id="@Model.CaseId" class="btn btn-default">@Localizer["Update"]</a>
+                                <input type="button" id="btnDelete" value='@Localizer["Delete"]' class="btn btn-warning" />
                             </div>
                         }
                         else if (Model.CaseStatusId == "315840001" || Model.CaseStatusId == "315840000" || Model.CaseStatusId == "315840003") //withdraw
                         {
                             <div id="divAlert" class="alert alert-warning hidden">
-                                <p>Are you sure?</p>
+                                <p>@Localizer["Are you sure?"]</p>
                                 <div class="form-group">
-                                    <input type="submit" id="btnConfirm" asp-action="Withdraw" value="Confirm" class="btn btn-danger" />
-                                    <input type="button" id="btnCancel" value="Cancel" class="btn btn-default" />
+                                    <input type="submit" id="btnConfirm" asp-action="Withdraw" value="@Localizer["Confirm"]" class="btn btn-danger" />
+                                    <input type="button" id="btnCancel" value="@Localizer["Cancel"]" class="btn btn-default" />
                                 </div>
                             </div>
                             <div class="form-group" id="divButtons">
-                                <input type="button" id="btnWithdraw" value="Withdraw" class="btn btn-primary" />
+                                <input type="button" id="btnWithdraw" value="@Localizer["Withdraw"]" class="btn btn-primary" />
                             </div>
                         }
                     </form>
@@ -108,7 +108,7 @@
                 @if (Model.Questions.Count > 0)
                 {
                     <details id="tabQuestions">
-                        <summary>Questions and Answers</summary>
+                        <summary>@Localizer["Questions and Answers"]</summary>
 
                         <form id="formQuestionAnswers" asp-action="" method="post">
 
@@ -148,13 +148,13 @@
                             }
 
 
-                            <input type="submit" id="btnUpdateAnswers" class="btn btn-default hidden" asp-action="UpdateAnswers" value="Submit Answers" />
+                            <input type="submit" id="btnUpdateAnswers" class="btn btn-default hidden" asp-action="UpdateAnswers" value="@Localizer["Submit Answers"]" />
                         </form>
                     </details>
                 }
 
                 <details id="tbAttachments">
-                    <summary>Attachments</summary>
+                    <summary>@Localizer["Attachments"]</summary>
                     @await Html.PartialAsync("_AttachmentPartial", Model.NewAttachment)
                     <table class="table table-striped" data-wb-tables='{ "ordering" : true, "aaSorting": [[3, "desc"]] }' id="tblAttachments">
                         <thead class="thead-light">
@@ -199,7 +199,7 @@
                             {
                                 <tr>
                                     <td colspan="7">
-                                        N/A
+                                        @Localizer["N/A"]
                                     </td>
                                 </tr>
                             }
@@ -215,7 +215,7 @@
 
 
 <div>
-    <a asp-action="List">Back to List</a>
+    <a asp-action="List">@Localizer["Back to List"]</a>
 </div>
 @section CustomScripts {
     @*@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}*@

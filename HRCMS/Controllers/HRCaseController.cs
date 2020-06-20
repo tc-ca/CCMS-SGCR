@@ -66,8 +66,8 @@ namespace HRCMS.Controllers
         {
             try            
             {
-                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = "Home" });
-                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = "Cases" });
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["Home"] });
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["Cases"] });
 
                 var pri = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.PrimarySid)?.Value;
                 
@@ -106,8 +106,9 @@ namespace HRCMS.Controllers
         {
             try
             {
-                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../List", Title = "Home" });
-                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../List", Title = "Cases" });
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../List", Title = _localizer["Home"] });
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../List", Title = _localizer["Cases"] });
+
 
                 var hrCaseModel = await _repository.GetCaseAsync(id, WebTemplateModel.TwoLetterCultureLanguage);
 
