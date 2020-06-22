@@ -77,7 +77,7 @@ namespace HRCMS.Data
             using (var client = DynamicsApiHelper.GetHttpClient(_appSettings))
             {
                 var entityName = "hr_casetypes";
-                var query = $"$top=50&$expand=hr_CaseType_hr_CaseSubType_hr_CaseSubType($select=hr_name,hr_casesubtypeid)&$filter=hr_casetypeid%20eq%20{caseTypeId}";
+                var query = $"$top=50&$expand=hr_CaseType_hr_CaseSubType_hr_CaseSubType($select=hr_name,hr_nameen,hr_namefr,hr_casesubtypeid)&$filter=hr_casetypeid%20eq%20{caseTypeId}";
                 var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}?{query}");
                 
                 //var response = await client.GetAsync($"https://hrcms-dev-tcd365.crm3.dynamics.com/api/data/v9.1/hr_casetypes?$top=50&$expand=hr_CaseType_hr_CaseSubType_hr_CaseSubType($select=hr_name,hr_casesubtypeid)&$filter=hr_casetypeid%20eq%20{caseTypeId}");

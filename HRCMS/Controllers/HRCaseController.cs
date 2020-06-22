@@ -140,8 +140,10 @@ namespace HRCMS.Controllers
         {
             try
             {
-                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = "Home" });
-                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = "Cases" });
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["Home"] });
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["Cases"] });
+
+
 
                 var caseTypes = await _caseTypeRepository.GetAllCaseTypesAsync( WebTemplateModel.TwoLetterCultureLanguage);
                 var caseSubTypes = await _caseTypeRepository.GetAllCaseSubTypesAsync( WebTemplateModel.TwoLetterCultureLanguage);
@@ -170,6 +172,9 @@ namespace HRCMS.Controllers
         {
             try
             {
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["Home"] });
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["Cases"] });
+
                 var result = await _repository.GetCaseAsync(id, WebTemplateModel.TwoLetterCultureLanguage);
                 var hrCaseModel = _mapper.Map<HRCaseModel>(result);
 

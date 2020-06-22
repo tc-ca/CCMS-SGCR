@@ -1,5 +1,5 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
-@using System.Globalization
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@using System.Globalization;
 @using Microsoft.AspNetCore.Localization;
 
 @inject IViewLocalizer Localizer
@@ -14,7 +14,8 @@
     }
     else
     {
-        ViewData["Title"] = "HR Case:" + Model.CaseNumber;
+        ViewData["Title"] = Localizer["HR Case"].Value + ": " + Model.CaseNumber;
+
     }
 }
 <h1>@ViewData["Title"]</h1>
@@ -97,8 +98,10 @@
                 CaseSubTypeIdsSelect.empty();
                 if (selectedCaseTypeId != null && selectedCaseTypeId != '') {
                     $.getJSON('@Url.Action("GetCaseSubTypes")', { caseTypeId: selectedCaseTypeId }, function (CaseSubTypeIds) {
+                        debugger;
                         if (CaseSubTypeIds != null && !jQuery.isEmptyObject(CaseSubTypeIds))
                         {
+                            
                             CaseSubTypeIdsSelect.append($('<option/>', {
                                 value: "",
                                 text: "--"
