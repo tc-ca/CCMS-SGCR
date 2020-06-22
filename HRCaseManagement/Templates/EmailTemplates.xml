@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EmailTemplates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <emailtemplate>
+    <IsCustomizable>1</IsCustomizable>
+    <templateid>{7a2f9c81-54aa-ea11-a812-000d3af357bf}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <templatetypecode>8</templatetypecode>
+    <body></body>
+    <title>HR Case Basic Template</title>
+    <description>HR Case Details</description>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>0</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+  </emailtemplate>
+</EmailTemplates>

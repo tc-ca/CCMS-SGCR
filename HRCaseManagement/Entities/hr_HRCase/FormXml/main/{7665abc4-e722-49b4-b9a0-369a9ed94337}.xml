@@ -147,35 +147,34 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{e3172ed5-7925-855d-e361-b5111a37e4d5}" showlabel="false">
+                      <cell id="{9073079a-371c-7454-754e-059c8c624eb4}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
                       </cell>
-                      <cell id="{7e375b85-cca0-7249-e378-d3365a66dcee}" showlabel="true" locklevel="0" rowspan="4">
+                      <cell id="{ee1157ba-b4bc-c148-483e-52e3b813d696}" showlabel="true" locklevel="0" rowspan="4">
                         <labels>
                           <label description="Resolution" languagecode="1033" />
-                          <label description="Resolution (fr)" languagecode="1036" />
                         </labels>
-                        <control id="hr_resolution" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="hr_resolution" disabled="false" uniqueid="{e34ca514-a01d-7357-5873-c747a2ab8be7}" />
+                        <control id="hr_resolution" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="hr_resolution" disabled="false" uniqueid="{b8dd6393-c533-99b4-6ee2-e0d65ec1a89c}" />
                       </cell>
                     </row>
                     <row>
-                      <cell id="{0ee9cde5-ee90-3c13-cc07-251ce45e6ed0}" showlabel="false">
+                      <cell id="{42056a9d-996a-3645-a1aa-36597a1a8516}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
                       </cell>
                     </row>
                     <row>
-                      <cell id="{650dc432-8711-6aa0-bc6d-4b9a25472913}" showlabel="false">
+                      <cell id="{5e4e3c56-9834-8e22-4a08-0e3359ea467e}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
                       </cell>
                     </row>
                     <row>
-                      <cell id="{073c6a64-3c3a-e80b-8856-c139a866358c}" showlabel="false">
+                      <cell id="{647b87e7-5913-27e9-1d58-76e591089cbb}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -477,7 +476,30 @@
           </NavBarArea>
         </NavBarAreas>
       </Navigation>
-      <controlDescriptions />
+      <controlDescriptions>
+        <controlDescription forControl="{b8dd6393-c533-99b4-6ee2-e0d65ec1a89c}">
+          <customControl id="{E0DECE4B-6FC8-4a8f-A065-082708572369}">
+            <parameters>
+              <datafieldname>hr_resolution</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="andz_Andz.TinyMCEComponent">
+            <parameters>
+              <textField>hr_resolution</textField>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="andz_Andz.TinyMCEComponent">
+            <parameters>
+              <textField>hr_resolution</textField>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="andz_Andz.TinyMCEComponent">
+            <parameters>
+              <textField>hr_resolution</textField>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
       <footer id="{e7eb1c53-5ae6-48b5-bef3-a4695b0a4f0b}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
         <rows>
           <row>
