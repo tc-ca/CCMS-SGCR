@@ -20,8 +20,8 @@ steps:
 
 - task: PowerPlatformExportSolution@0
   inputs:
-    authenticationType: 'PowerPlatformEnvironment'
-    PowerPlatformEnvironment: 'HRCMS Dev'
+    authenticationType: 'PowerPlatformSPN'
+    PowerPlatformSPN: 'HRCMS development'
     SolutionName: '$(SolutionName)'
     SolutionOutputFile: '$(Build.ArtifactStagingDirectory)\$(SolutionName).zip'
     ExportRelationshipRoles: true
