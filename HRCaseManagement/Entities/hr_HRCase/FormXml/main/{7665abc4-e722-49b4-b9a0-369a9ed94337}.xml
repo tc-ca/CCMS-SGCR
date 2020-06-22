@@ -129,7 +129,7 @@
                           <label description="Show BPF" languagecode="1033" />
                           <label description="Show BPF (fr)" languagecode="1036" />
                         </labels>
-                        <control id="hr_showbpf" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="hr_showbpf" disabled="false" />
+                        <control id="hr_showbpf" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="hr_showbpf" disabled="false" uniqueid="{29262680-b463-0b38-9220-c19566880844}" />
                       </cell>
                     </row>
                     <row>
@@ -514,7 +514,7 @@
         </event>
         <event name="onchange" application="false" active="false" attribute="hr_showbpf">
           <Handlers>
-            <Handler functionName="showHideBusinessProcessFlow" libraryName="hr_scripts/FilterHRStatus.js" handlerUniqueId="{36e8ee83-b09e-64bc-4b0e-c42aa31576a9}" enabled="true" parameters="&quot;hr_showbpf&quot;" passExecutionContext="true" />
+            <Handler functionName="showHideBusinessProcessFlow" libraryName="hr_scripts/ToggleDisplayBPF.js" handlerUniqueId="{36e8ee83-b09e-64bc-4b0e-c42aa31576a9}" enabled="true" parameters="&quot;hr_showbpf&quot;" passExecutionContext="true" />
           </Handlers>
         </event>
       </events>

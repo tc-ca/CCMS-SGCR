@@ -1,3 +1,4 @@
+'use strict';
 function addStageOnChange(eContext) {
     var formContext = eContext.getFormContext();
     //Whenever the stage changes trigger an onchange function
