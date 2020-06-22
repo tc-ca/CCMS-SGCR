@@ -1,0 +1,33 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- none
+
+pool:
+  vmImage: 'vs2017-win2016'
+
+steps:
+- checkout: self
+  persistCredentials: true
+  clean: false
+
+- task: PowerPlatformToolInstaller@0
+  inputs:
+    DefaultVersion: true
+
+- task: PowerPlatformPackSolution@0
+  inputs:
+    SolutionSourceFolder: '$(Build.SourcesDirectory)\$(SolutionName)'
+    SolutionOutputFile: '$(Build.ArtifactStagingDirectory)\$(SolutionName).zip'
+
+- task: PowerPlatformImportSolution@0
+  inputs:
+    authenticationType: 'PowerPlatformEnvironment'
+    PowerPlatformEnvironment: 'TSIS Dev 8'
+    SolutionInputFile: '$(Build.ArtifactStagingDirectory)\$(SolutionName).zip'
+    AsyncOperation: true
+    MaxAsyncWaitTime: '240'
+  
