@@ -138,6 +138,9 @@
   <data name="First Name" xml:space="preserve">
     <value>First Name (fr)</value>
   </data>
+  <data name="HR Case" xml:space="preserve">
+    <value>HR Case (fr)</value>
+  </data>
   <data name="Last Name" xml:space="preserve">
     <value>Last Name (fr)</value>
   </data>

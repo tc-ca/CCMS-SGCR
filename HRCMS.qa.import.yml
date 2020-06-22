@@ -30,4 +30,10 @@ steps:
     SolutionInputFile: '$(Build.ArtifactStagingDirectory)\$(SolutionName).zip'
     AsyncOperation: true
     MaxAsyncWaitTime: '240'
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)\$(SolutionName).zip'
+    artifact: 'Publish Pipeline Artifact'
+    publishLocation: 'pipeline'
   

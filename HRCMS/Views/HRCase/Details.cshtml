@@ -1,5 +1,5 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
-@using System.Globalization
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@using System.Globalization;
 @using Microsoft.AspNetCore.Localization;
 
 @inject IViewLocalizer Localizer
@@ -11,7 +11,7 @@
     ViewData["Title"] = Localizer["HR Case"] + " " + Model.CaseNumber;
 }
 
-<h1>HR Case: @Model.CaseNumber</h1>
+    <h1>@Localizer["HR Case"]: @Model.CaseNumber</h1>
 <div class="row">
     <div class="col-md-12">
 
@@ -73,7 +73,7 @@
                     <span class="font-weight-bolder">
                         <strong>@Localizer["Resolution"].Value</strong>
                     </span>
-                            <p>@Model.Resolution</p>
+                    <p>@Html.Raw(@Model.Resolution)</p>
                         }
                         @if (Model.CaseStatusId == "315840002") //the case is new
                         {
