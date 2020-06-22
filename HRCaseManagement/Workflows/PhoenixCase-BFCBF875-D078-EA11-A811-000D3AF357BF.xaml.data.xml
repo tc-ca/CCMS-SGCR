@@ -49,10 +49,6 @@
       <label languagecode="1033" description="Complete" />
       <label languagecode="1036" description="Complete (fr)" />
     </steplabels>
-    <steplabels id="{b79491b0-ef99-484e-a2dc-0a40f3e02c9d}">
-      <label languagecode="1033" description="Resolution" />
-      <label languagecode="1036" description="Resolution (fr)" />
-    </steplabels>
     <steplabels id="{de745504-dc5a-4b07-bb79-5e6b481d7a06}">
       <label languagecode="1033" description="Case Status" />
       <label languagecode="1036" description="Case Status (fr)" />

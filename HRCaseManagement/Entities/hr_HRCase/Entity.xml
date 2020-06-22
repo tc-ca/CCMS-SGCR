@@ -625,7 +625,7 @@
           </Descriptions>
         </attribute>
         <attribute PhysicalName="hr_Resolution">
-          <Type>nvarchar</Type>
+          <Type>ntext</Type>
           <Name>hr_resolution</Name>
           <LogicalName>hr_resolution</LogicalName>
           <RequiredLevel>none</RequiredLevel>
@@ -635,9 +635,9 @@
           <ValidForReadApi>1</ValidForReadApi>
           <ValidForCreateApi>1</ValidForCreateApi>
           <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>0</IsAuditEnabled>
+          <IsAuditEnabled>1</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+          <IntroducedVersion>1.0.0.1</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -654,12 +654,10 @@
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
-          <Format>textarea</Format>
-          <MaxLength>4000</MaxLength>
-          <Length>8000</Length>
+          <Format></Format>
+          <MaxLength>2000</MaxLength>
           <displaynames>
             <displayname description="Resolution" languagecode="1033" />
-            <displayname description="Resolution (fr)" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />

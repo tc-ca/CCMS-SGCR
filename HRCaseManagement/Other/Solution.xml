@@ -102,6 +102,7 @@
       <RootComponent type="29" id="{ddd26e68-118b-ea11-a811-000d3af3b5be}" behavior="0" />
       <RootComponent type="29" id="{f531fc06-354e-4ccd-a19b-cba151a417d2}" behavior="0" />
       <RootComponent type="29" id="{f83ba787-d778-ea11-a811-000d3af3b5be}" behavior="0" />
+      <RootComponent type="36" id="{7a2f9c81-54aa-ea11-a812-000d3af357bf}" behavior="0" />
       <RootComponent type="60" id="{18860761-8b68-4cbc-9561-7c2848c409b1}" behavior="0" />
       <RootComponent type="60" id="{273d6e68-b5d6-4fbd-b7a3-ddf6443d4b42}" behavior="0" />
       <RootComponent type="60" id="{3187fe83-2a71-47de-b158-e17b59725102}" behavior="0" />
@@ -178,16 +179,20 @@
         <Dependent key="14" type="60" displayName="Information" parentDisplayName="User" id="{c0d7d7dd-afd0-4675-85fe-1cc5a48be6df}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="16" type="61" schemaName="msdyn_/RecordWall.htm" displayName="msdyn_/RecordWall.htm" solution="ActivityFeedsCore (9.0.0.0)" />
+        <Required key="16" type="61" schemaName="msdyn_/ActivityFeeds.Form.js" displayName="msdyn_/ActivityFeeds.Form.js" solution="ActivityFeedsCore (9.0.0.0)" />
         <Dependent key="14" type="60" displayName="Information" parentDisplayName="User" id="{c0d7d7dd-afd0-4675-85fe-1cc5a48be6df}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="17" type="61" schemaName="msdyn_/ActivityFeeds.Form.js" displayName="msdyn_/ActivityFeeds.Form.js" solution="ActivityFeedsCore (9.0.0.0)" />
+        <Required key="17" type="61" schemaName="msdyn_/RecordWall.htm" displayName="msdyn_/RecordWall.htm" solution="ActivityFeedsCore (9.0.0.0)" />
         <Dependent key="14" type="60" displayName="Information" parentDisplayName="User" id="{c0d7d7dd-afd0-4675-85fe-1cc5a48be6df}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="18" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.19227)" />
         <Dependent key="19" type="60" displayName="Information" parentDisplayName="Question and Answers" id="{b33dd054-3c00-4a8c-888f-56061917c135}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="20" type="66" schemaName="andz_Andz.TinyMCEComponent" displayName="andz_Andz.TinyMCEComponent" solution="TinyMCEComponent (1.0)" />
+        <Dependent key="21" type="60" displayName="Information" parentDisplayName="HR Case" id="{7665abc4-e722-49b4-b9a0-369a9ed94337}" />
       </MissingDependency>
     </MissingDependencies>
   </SolutionManifest>
