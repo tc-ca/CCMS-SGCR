@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{b33dd054-3c00-4a8c-888f-56061917c135}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{7d4460e6-cab3-4730-aefc-babe4140f509}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+            <label description="General (fr)" languagecode="1036" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{93f43248-f177-4c63-8eb9-f23e05415ff8}" name="{93f43248-f177-4c63-8eb9-f23e05415ff8}" columns="1" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                    <label description="General (fr)" languagecode="1036" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{3a881b4f-10f0-4507-94c2-a03aba11847a}" showlabel="true" locklevel="0" rowspan="5">
+                        <labels>
+                          <label description="Question" languagecode="1033" />
+                          <label description="Question (fr)" languagecode="1036" />
+                        </labels>
+                        <control id="hr_question" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="hr_question" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{ca01c6c4-f1a6-4d5d-be51-63349b54c0df}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Asked On" languagecode="1033" />
+                          <label description="Asked On (fr)" languagecode="1036" />
+                        </labels>
+                        <control id="hr_askedon" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="hr_askedon" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9e6bb650-da4b-b477-b258-ecca151a08dd}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Created By" languagecode="1033" />
+                          <label description="Created By (fr)" languagecode="1036" />
+                        </labels>
+                        <control id="createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdby" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d52ee54a-3c52-47cc-b43f-0e7d9a5aa7fd}" showlabel="true" locklevel="0" rowspan="5">
+                        <labels>
+                          <label description="Answer" languagecode="1033" />
+                          <label description="Answer (fr)" languagecode="1036" />
+                        </labels>
+                        <control id="hr_answer" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="hr_answer" disabled="true" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{8a944638-d55c-4ed6-a432-7a60798b0b6a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Answered On" languagecode="1033" />
+                          <label description="Answered On (fr)" languagecode="1036" />
+                        </labels>
+                        <control id="hr_answeredon" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="hr_answeredon" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell showlabel="true" locklevel="0" id="{27e78ca0-f7c8-4bba-89a3-694c42438c5c}">
+                        <labels>
+                          <label description="Read" languagecode="1033" />
+                          <label description="Read (fr)" languagecode="1036" />
+                        </labels>
+                        <control id="hr_read" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="hr_read" disabled="false" uniqueid="{0a679014-20d4-4fb7-8c1f-a88d8f090f74}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{0a7aa164-a5d5-468a-8009-92d93de9cb7d}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{a7c2b79a-57cf-4913-a24c-c1afa80fa547}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{c05a249e-34b7-40e8-b498-2dd56eb31cc6}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{0fbb1017-8afa-4cb0-a6e7-4bfcd50fb5e0}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{2839aaf5-30e0-46a0-a0fd-888dc06e5996}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{99c0bcc2-d7e4-47ea-bb14-90f2b29cd6ed}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{168a20d9-16b3-46c5-a332-9cd66498779e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{6f6a0ba4-134d-49d5-8943-f51afa13bcff}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <Navigation>
+        <NavBar />
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <DisplayConditions Order="0" FallbackForm="true" />
+      <controlDescriptions>
+        <controlDescription forControl="{0a679014-20d4-4fb7-8c1f-a88d8f090f74}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>hr_read</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>hr_read</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>hr_read</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>hr_read</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+      <LocalizedName description="Information (fr)" languagecode="1036" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+      <Description description="A form for this entity. (fr)" languagecode="1036" />
+    </Descriptions>
+  </systemform>
+</forms>

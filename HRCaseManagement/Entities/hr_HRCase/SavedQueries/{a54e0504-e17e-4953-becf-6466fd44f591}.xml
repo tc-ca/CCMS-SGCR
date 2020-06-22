@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{a54e0504-e17e-4953-becf-6466fd44f591}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="hr_name" select="1" icon="1" preview="1">
+        <row name="result" id="hr_hrcaseid">
+          <cell name="hr_name" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="ownerid" width="100" />
+          <cell name="hr_casetype" width="100" />
+          <cell name="hr_casesubtype" width="100" />
+          <cell name="hr_firstname" width="100" />
+          <cell name="hr_lastname" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="hr_hrcase">
+          <attribute name="hr_name" />
+          <order attribute="hr_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="hr_pri" operator="eq" value="{1}" />
+            <condition attribute="hr_lastname" operator="like" value="{0}" />
+            <condition attribute="hr_firstname" operator="like" value="{0}" />
+            <condition attribute="hr_name" operator="like" value="{0}" />
+          </filter>
+          <attribute name="ownerid" />
+          <attribute name="hr_lastname" />
+          <attribute name="hr_firstname" />
+          <attribute name="hr_casetype" />
+          <attribute name="hr_casesubtype" />
+          <attribute name="hr_hrcaseid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active HR Cases" languagecode="1033" />
+      <LocalizedName description="Quick Find Active HR Cases (fr)" languagecode="1036" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{ee45e164-efa0-ea11-a812-000d3af3b5be}</WebResourceId>
+  <Name>hr_scripts/ToggleDisplayBPF.js</Name>
+  <DisplayName>ToggleDisplayBPF</DisplayName>
+  <Description>Functions for Hiding and Showing the BPF</Description>
+  <LanguageCode>1033</LanguageCode>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <DependencyXml>&lt;Dependencies&gt;&lt;Dependency componentType="WebResource"/&gt;&lt;/Dependencies&gt;</DependencyXml>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/hr_scriptsToggleDisplayBPFjsEE45E164-EFA0-EA11-A812-000D3AF3B5BE</FileName>
+</WebResource>
