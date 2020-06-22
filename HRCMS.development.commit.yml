@@ -18,16 +18,27 @@ steps:
   inputs:
     DefaultVersion: true
 
-- task: PowerPlatformPackSolution@0
+- task: PowerPlatformExportSolution@0
   inputs:
-    SolutionSourceFolder: '$(Build.SourcesDirectory)\$(SolutionName)'
+    authenticationType: 'PowerPlatformSPN'
+    PowerPlatformSPN: 'HRCMS development'
+    SolutionName: '$(SolutionName)'
     SolutionOutputFile: '$(Build.ArtifactStagingDirectory)\$(SolutionName).zip'
+    ExportRelationshipRoles: true
 
-- task: PowerPlatformImportSolution@0
+- task: PowerPlatformUnpackSolution@0
   inputs:
-    authenticationType: 'PowerPlatformEnvironment'
-    PowerPlatformEnvironment: 'TSIS Dev 8'
     SolutionInputFile: '$(Build.ArtifactStagingDirectory)\$(SolutionName).zip'
-    AsyncOperation: true
-    MaxAsyncWaitTime: '240'
-  
+    SolutionTargetFolder: '$(Build.SourcesDirectory)\$(SolutionName)'
+
+- powershell: |
+   echo "Committing all CDS solution changes"
+   git config user.email "nepasrepondre-noreply@tc.gc.ca"
+   git config user.name "tc-buildbot"
+   git checkout development
+   git add --all
+   git commit -m "Update Solution - $env:SOLUTIONNAME: $env:COMMITMESSAGE"
+   
+   echo "Push solution changes to the remote repository"
+   git -c http.extraheader="AUTHORIZATION: basic $(System.AccessToken)" push --force origin development
+     
