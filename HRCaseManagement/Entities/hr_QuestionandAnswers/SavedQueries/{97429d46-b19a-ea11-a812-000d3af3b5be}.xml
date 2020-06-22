@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{97429d46-b19a-ea11-a812-000d3af3b5be}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="hr_questionnumber" select="1" icon="1" preview="1">
+        <row name="result" id="hr_questionandanswersid">
+          <cell name="hr_hrcase" width="100" />
+          <cell name="hr_question" width="100" />
+          <cell name="hr_askedon" width="100" />
+          <cell name="hr_answer" width="100" />
+          <cell name="hr_answeredon" width="100" />
+          <cell name="hr_read" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="hr_questionandanswers">
+          <attribute name="hr_questionandanswersid" />
+          <attribute name="hr_question" />
+          <attribute name="hr_answer" />
+          <attribute name="hr_askedon" />
+          <attribute name="hr_answeredon" />
+          <attribute name="hr_read" />
+          <attribute name="hr_hrcase" />
+          <filter type="and">
+            <condition attribute="hr_read" operator="eq" value="0" />
+            <condition attribute="hr_answeredon" operator="not-null" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Unread Answers" languagecode="1033" />
+      <LocalizedName description="Unread Answers (fr)" languagecode="1036" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{bfcbf875-d078-ea11-a811-000d3af357bf}" Name="Phoenix Case" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/PhoenixCase-BFCBF875-D078-EA11-A811-000D3AF357BF.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>4</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <processorder>100</processorder>
+  <processroleassignment>&lt;DisplayConditions&gt;&lt;Role Id="{627090ff-40a3-4053-8790-584edc5be201}" /&gt;&lt;Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" /&gt;&lt;/DisplayConditions&gt;</processroleassignment>
+  <RunAs>1</RunAs>
+  <UniqueName>new_phoenixcase</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <ProcessTriggerScope>1</ProcessTriggerScope>
+  <PrimaryEntity>hr_HRCase</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Phoenix Case" />
+    <LocalizedName languagecode="1036" description="Phoenix Case (fr)" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{698056a8-0a9a-9d52-cd74-866264faf3ad}">
+      <label languagecode="1033" description="Assign" />
+      <label languagecode="1036" description="Assign (fr)" />
+    </steplabels>
+    <steplabels id="{9731a5f8-dfd5-2500-86ab-7d4caad3738f}">
+      <label languagecode="1033" description="Assigned to" />
+      <label languagecode="1036" description="Assigned to (fr)" />
+    </steplabels>
+    <steplabels id="{125e41d0-51ed-4883-a3ab-8ffff1d0a862}">
+      <label languagecode="1033" description="In-Progress" />
+      <label languagecode="1036" description="In-Progress (fr)" />
+    </steplabels>
+    <steplabels id="{afb43b83-1450-428f-aeed-7dd7581ebf0a}">
+      <label languagecode="1033" description="Case Status" />
+      <label languagecode="1036" description="Case Status (fr)" />
+    </steplabels>
+    <steplabels id="{275ced14-bab7-4ec6-958d-081b7ea19547}">
+      <label languagecode="1033" description="Complete" />
+      <label languagecode="1036" description="Complete (fr)" />
+    </steplabels>
+    <steplabels id="{b79491b0-ef99-484e-a2dc-0a40f3e02c9d}">
+      <label languagecode="1033" description="Resolution" />
+      <label languagecode="1036" description="Resolution (fr)" />
+    </steplabels>
+    <steplabels id="{de745504-dc5a-4b07-bb79-5e6b481d7a06}">
+      <label languagecode="1033" description="Case Status" />
+      <label languagecode="1036" description="Case Status (fr)" />
+    </steplabels>
+  </labels>
+</Workflow>

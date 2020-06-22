@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <LocalizedNames>
+    <LocalizedName description="HR Dashboard" languagecode="1033" />
+    <LocalizedName description="HR Dashboard (fr)" languagecode="1036" />
+  </LocalizedNames>
+  <FormId>{e934c16b-617a-ea11-a811-000d3af3b5be}</FormId>
+  <IsCustomizable>1</IsCustomizable>
+  <IsDefault>0</IsDefault>
+  <FormXml>
+    <forms type="dashboard">
+      <form>
+        <tabs>
+          <tab showlabel="false" verticallayout="true" id="{e236d2f8-5e08-45cc-9013-fd832f73a809}">
+            <labels>
+              <label description="Tab" languagecode="1033" />
+              <label description="Tab (fr)" languagecode="1036" />
+            </labels>
+            <columns>
+              <column width="100%">
+                <sections>
+                  <section showlabel="false" showbar="false" columns="1111" id="{33dae92b-da1c-491f-8800-5ff20fba58b5}">
+                    <labels>
+                      <label description="Section" languagecode="1033" />
+                      <label description="Section (fr)" languagecode="1036" />
+                    </labels>
+                    <rows>
+                      <row>
+                        <cell colspan="2" rowspan="9" showlabel="false" id="{9937e6db-de5a-4891-9916-2d8996be57d7}" auto="false">
+                          <labels>
+                            <label description="My Cases" languagecode="1033" />
+                            <label description="My Cases (fr)" languagecode="1036" />
+                          </labels>
+                          <control id="Componentd1eb27b" uniqueid="{19233a6d-1e58-d083-21e6-037e0a5a5e79}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>hr_hrcase</TargetEntityType>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <EnableQuickFind>true</EnableQuickFind>
+                              <EnableViewPicker>true</EnableViewPicker>
+                              <EnableJumpBar>true</EnableJumpBar>
+                              <RecordsPerPage>5</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                              <ViewId>{6B80E992-DE78-EA11-A811-000D3AF357BF}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds />
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId />
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell colspan="2" rowspan="9" showlabel="false" id="{43437ea7-4767-472b-a75e-f6e53dce1e5c}" auto="false">
+                          <labels>
+                            <label description="Cases with Unread Answers" languagecode="1033" />
+                            <label description="Cases with Unread Answers (fr)" languagecode="1036" />
+                          </labels>
+                          <control id="Componentc198053" uniqueid="{477174db-d24d-cb04-bc03-28c4ce39bbab}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>hr_questionandanswers</TargetEntityType>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <EnableQuickFind>true</EnableQuickFind>
+                              <EnableViewPicker>true</EnableViewPicker>
+                              <EnableJumpBar>true</EnableJumpBar>
+                              <RecordsPerPage>5</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                              <ViewId>{97429D46-B19A-EA11-A812-000D3AF3B5BE}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds>{97429D46-B19A-EA11-A812-000D3AF3B5BE}</ViewIds>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId />
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row>
+                        <cell colspan="2" rowspan="9" showlabel="false" id="{79146695-d771-496c-8eb4-faae1f465e5b}" auto="false">
+                          <labels>
+                            <label description="HR Cases" languagecode="1033" />
+                            <label description="HR Cases (fr)" languagecode="1036" />
+                          </labels>
+                          <control id="Componentede7350" uniqueid="{b20102c3-008b-1262-612b-c1514c947b73}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>hr_hrcase</TargetEntityType>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>7</RecordsPerPage>
+                              <HeaderColorCode />
+                              <ViewId>{C631DB7E-707B-464A-843E-4121F8DAF5DF}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds />
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{602904A2-617A-EA11-A811-000D3AF3B5BE}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell colspan="2" rowspan="9" showlabel="false" id="{2aed49a4-5249-4709-b633-bf9130c02ab6}" auto="false">
+                          <labels>
+                            <label description="HR Cases" languagecode="1033" />
+                            <label description="HR Cases (fr)" languagecode="1036" />
+                          </labels>
+                          <control id="Componenta47f730" uniqueid="{ba70355d-b3dc-cb79-0d8e-cdd14add23be}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>hr_hrcase</TargetEntityType>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>7</RecordsPerPage>
+                              <HeaderColorCode />
+                              <ViewId>{C631DB7E-707B-464A-843E-4121F8DAF5DF}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds />
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{BDE02EB6-617A-EA11-A811-000D3AF3B5BE}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                    </rows>
+                  </section>
+                </sections>
+              </column>
+            </columns>
+          </tab>
+        </tabs>
+        <controlDescriptions />
+      </form>
+    </forms>
+  </FormXml>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsTabletEnabled>0</IsTabletEnabled>
+</Dashboard>

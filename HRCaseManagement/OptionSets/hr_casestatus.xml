@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="hr_casestatus" localizedName="Case Status" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <ExternalTypeName></ExternalTypeName>
+  <displaynames>
+    <displayname description="Case Status" languagecode="1033" />
+    <displayname description="Case Status (fr)" languagecode="1036" />
+  </displaynames>
+  <Descriptions>
+    <Description description="" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="315840000" ExternalValue="" Color="">
+      <labels>
+        <label description="Assigned" languagecode="1033" />
+        <label description="Assigned (fr)" languagecode="1036" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="315840004" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Completed/closed" languagecode="1033" />
+        <label description="Completed/closed (fr)" languagecode="1036" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="315840003" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="In-Progress" languagecode="1033" />
+        <label description="In-Progress (fr)" languagecode="1036" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="315840001" ExternalValue="" Color="">
+      <labels>
+        <label description="New Case" languagecode="1033" />
+        <label description="New Case (fr)" languagecode="1036" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="315840002" ExternalValue="" Color="">
+      <labels>
+        <label description="Saved" languagecode="1033" />
+        <label description="Saved (fr)" languagecode="1036" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="315840006" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Withdrawn - by client" languagecode="1033" />
+        <label description="Withdrawn - by client (fr)" languagecode="1036" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="315840005" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Withdrawn - by HR" languagecode="1033" />
+        <label description="Withdrawn - by HR (fr)" languagecode="1036" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+  </options>
+</optionset>

@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{5c3994c0-118d-4332-b119-a0dd814c1e88}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab id="{950ca979-b5d3-4904-a50d-5a9fcd7102a1}" name="tab_1" showlabel="false">
+          <labels>
+            <label description="Tab" languagecode="1033" />
+            <label description="Tab (fr)" languagecode="1036" />
+          </labels>
+          <columns>
+            <column width="33%">
+              <sections>
+                <section id="{bd1a213f-87fd-4fdb-bd87-43710f248d27}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                    <label description="section (fr)" languagecode="1036" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell showlabel="false" locklevel="0" id="{a0c717bc-94e2-4da4-8927-ceac4cc4760f}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{06cee14a-484d-4b82-9a09-c6d2a2e8621f}" name="tab_1_column_2_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                    <label description="section (fr)" languagecode="1036" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{6e61344c-3eac-5757-2b49-62217dd90963}" showlabel="true" locklevel="0" rowspan="5">
+                        <labels>
+                          <label description="Question" languagecode="1033" />
+                          <label description="Question (fr)" languagecode="1036" />
+                        </labels>
+                        <control id="hr_question" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="hr_question" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell showlabel="true" locklevel="0" id="{1410ff54-fc99-420a-8a64-e6f16334f5f6}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{5e9728c7-b438-4e85-aa3e-cd51da4591f9}" name="tab_1_column_3_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                    <label description="section (fr)" languagecode="1036" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{54e68ce8-a4e0-477c-b573-fee05ef6cfe3}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="1">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="New Form" languagecode="1033" />
+      <LocalizedName description="New Form (fr)" languagecode="1036" />
+    </LocalizedNames>
+  </systemform>
+</forms>

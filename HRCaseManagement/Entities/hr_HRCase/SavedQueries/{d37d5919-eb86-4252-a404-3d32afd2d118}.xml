@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{d37d5919-eb86-4252-a404-3d32afd2d118}</savedqueryid>
+    <layoutxml>
+      <grid name="hr_hrcases" jump="hr_name" select="1" icon="1" preview="1">
+        <row name="hr_hrcase" id="hr_hrcaseid">
+          <cell name="hr_name" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="hr_hrcase">
+          <attribute name="hr_hrcaseid" />
+          <attribute name="hr_name" />
+          <attribute name="createdon" />
+          <order attribute="hr_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="HR Case Associated View" languagecode="1033" />
+      <LocalizedName description="HR Case Associated View (fr)" languagecode="1036" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>
