@@ -20,7 +20,6 @@ steps:
 
 - task: PowerPlatformPackSolution@0
   inputs:
-    SolutionSourceFolder: '$(Build.SourcesDirectory)\$(SolutionName)'
     SolutionOutputFile: '$(Build.ArtifactStagingDirectory)\$(SolutionName).zip'
 
 - task: PowerPlatformImportSolution@0
