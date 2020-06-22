@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <EntityRelationship Name="bpf_hr_hrcase_new_phoenixcase" />
+  <EntityRelationship Name="business_unit_hr_casesubtype" />
+  <EntityRelationship Name="business_unit_hr_casetype" />
+  <EntityRelationship Name="business_unit_hr_hrcase" />
+  <EntityRelationship Name="business_unit_hr_questionandanswers" />
+  <EntityRelationship Name="hr_CaseType_hr_CaseSubType_hr_CaseSubType" />
+  <EntityRelationship Name="hr_HRCase_CaseSubType_hr_CaseSubType" />
+  <EntityRelationship Name="hr_HRCase_hr_CaseType_hr_CaseType" />
+  <EntityRelationship Name="hr_HRCase_hr_HRCase_hr_QuestionandAnswers" />
+  <EntityRelationship Name="lk_hr_casesubtype_createdby" />
+  <EntityRelationship Name="lk_hr_casesubtype_modifiedby" />
+  <EntityRelationship Name="lk_hr_casetype_createdby" />
+  <EntityRelationship Name="lk_hr_casetype_modifiedby" />
+  <EntityRelationship Name="lk_hr_hrcase_createdby" />
+  <EntityRelationship Name="lk_hr_hrcase_modifiedby" />
+  <EntityRelationship Name="lk_hr_questionandanswers_createdby" />
+  <EntityRelationship Name="lk_hr_questionandanswers_modifiedby" />
+  <EntityRelationship Name="lk_new_phoenixcase_activestageid" />
+  <EntityRelationship Name="lk_new_phoenixcase_createdby" />
+  <EntityRelationship Name="lk_new_phoenixcase_modifiedby" />
+  <EntityRelationship Name="lk_new_phoenixcase_processid" />
+  <EntityRelationship Name="organization_new_phoenixcase" />
+  <EntityRelationship Name="owner_hr_casesubtype" />
+  <EntityRelationship Name="owner_hr_casetype" />
+  <EntityRelationship Name="owner_hr_hrcase" />
+  <EntityRelationship Name="owner_hr_questionandanswers" />
+  <EntityRelationship Name="team_hr_casesubtype" />
+  <EntityRelationship Name="team_hr_casetype" />
+  <EntityRelationship Name="team_hr_hrcase" />
+  <EntityRelationship Name="team_hr_questionandanswers" />
+  <EntityRelationship Name="user_hr_casesubtype" />
+  <EntityRelationship Name="user_hr_casetype" />
+  <EntityRelationship Name="user_hr_hrcase" />
+  <EntityRelationship Name="user_hr_questionandanswers" />
+</EntityRelationships>

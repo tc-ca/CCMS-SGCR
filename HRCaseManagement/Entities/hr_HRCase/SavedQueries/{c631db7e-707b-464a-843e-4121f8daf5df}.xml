@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{c631db7e-707b-464a-843e-4121f8daf5df}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="hr_name" select="1" icon="1" preview="1">
+        <row name="result" id="hr_hrcaseid">
+          <cell name="hr_name" width="128" />
+          <cell name="ownerid" width="148" />
+          <cell name="hr_casetype" width="155" />
+          <cell name="hr_casesubtype" width="155" />
+          <cell name="hr_casestatus" width="100" />
+          <cell name="hr_firstname" width="100" />
+          <cell name="hr_lastname" width="100" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="hr_hrcase">
+          <attribute name="hr_hrcaseid" />
+          <attribute name="hr_name" />
+          <attribute name="createdon" />
+          <attribute name="hr_casestatus" />
+          <attribute name="hr_firstname" />
+          <attribute name="hr_lastname" />
+          <attribute name="hr_casetype" />
+          <attribute name="ownerid" />
+          <attribute name="hr_casesubtype" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+            <condition attribute="hr_casestatus" operator="in">
+              <value>315840000</value>
+              <value>315840003</value>
+              <value>315840001</value>
+            </condition>
+          </filter>
+          <order attribute="createdon" descending="true" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="All Active HR Cases" languagecode="1033" />
+      <LocalizedName description="All Active HR Cases (fr)" languagecode="1036" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{4202282d-7735-4ae0-adb5-4e6fd3ac9af6}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="hr_name" select="1" icon="1" preview="1">
+        <row name="result" id="hr_hrcaseid">
+          <cell name="hr_name" width="133" />
+          <cell name="ownerid" width="100" />
+          <cell name="hr_casetype" width="100" />
+          <cell name="hr_casesubtype" width="135" />
+          <cell name="hr_casestatus" width="135" />
+          <cell name="hr_firstname" width="112" />
+          <cell name="hr_lastname" width="112" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="hr_hrcase">
+          <attribute name="hr_name" />
+          <attribute name="createdon" />
+          <attribute name="hr_casetype" />
+          <attribute name="hr_casesubtype" />
+          <attribute name="hr_casestatus" />
+          <attribute name="hr_firstname" />
+          <attribute name="hr_lastname" />
+          <filter type="and">
+            <condition attribute="hr_casestatus" operator="in">
+              <value>315840004</value>
+              <value>315840006</value>
+              <value>315840005</value>
+            </condition>
+          </filter>
+          <attribute name="ownerid" />
+          <attribute name="hr_hrcaseid" />
+          <order attribute="createdon" descending="true" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Inactive HR Cases" languagecode="1033" />
+      <LocalizedName description="Inactive HR Cases (fr)" languagecode="1036" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

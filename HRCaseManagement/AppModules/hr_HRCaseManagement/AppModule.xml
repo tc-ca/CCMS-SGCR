@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppModule>
+  <UniqueName>hr_HRCaseManagement</UniqueName>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <WebResourceId>953b9fac-1e5e-e611-80d6-00155ded156f</WebResourceId>
+  <OptimizedFor></OptimizedFor>
+  <FormFactor>1</FormFactor>
+  <ClientType>4</ClientType>
+  <NavigationType>0</NavigationType>
+  <AppModuleComponents>
+    <AppModuleComponent type="62" schemaName="hr_HRCaseManagement" />
+    <AppModuleComponent type="60" id="{65e050d3-8b71-4b53-acb5-bb9af83bf384}" />
+    <AppModuleComponent type="60" id="{e934c16b-617a-ea11-a811-000d3af3b5be}" />
+    <AppModuleComponent type="1" schemaName="incident" />
+    <AppModuleComponent type="1" schemaName="hr_casesubtype" />
+    <AppModuleComponent type="1" schemaName="hr_casetype" />
+    <AppModuleComponent type="1" schemaName="template" />
+    <AppModuleComponent type="26" id="{40c2bf58-128d-4280-b972-dc3928372dc7}" />
+    <AppModuleComponent type="1" schemaName="entitlement" />
+    <AppModuleComponent type="1" schemaName="hr_hrcase" />
+    <AppModuleComponent type="1" schemaName="hr_questionandanswers" />
+    <AppModuleComponent type="1" schemaName="queueitem" />
+  </AppModuleComponents>
+  <AppModuleRoleMaps>
+    <Role id="{5545ac97-25af-ea11-a812-000d3af357bf}" />
+    <Role id="{058d6621-2daf-ea11-a812-000d3af3b5be}" />
+    <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
+    <Role id="{a30b54d9-ddac-ea11-a812-000d3af357bf}" />
+    <Role id="{692b9cd4-25af-ea11-a812-000d3af357bf}" />
+    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+  </AppModuleRoleMaps>
+  <LocalizedNames>
+    <LocalizedName description="HR Case Management" languagecode="1033" />
+    <LocalizedName description="HR Case Management (fr)" languagecode="1036" />
+  </LocalizedNames>
+</AppModule>
