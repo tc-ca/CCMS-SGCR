@@ -348,34 +348,6 @@ namespace HRCMS.Controllers
             }
             return RedirectToAction("Details", "HRCase", new { id = newAttachment.CaseId }, "tbAttachments");
         }
-
-        [HttpGet]
-        public async Task<JsonResult> UploadAttachmentJS(string fileName, string fileType, string fileContent, string caseId, string subject, string noteText)
-        {
-            if (subject == null)
-            {
-                return null;
-            }
-            if (subject == noteText)
-            {
-                return null;
-            }
-            if (fileContent == null)
-            {
-                return null;
-            }
-
-
-            //var attachment = new Annotation();
-            //attachment._objectid_value = caseId;
-            //attachment.filename = file.;
-            //attachment.mimetype = newAttachment.File.ContentType;
-            //attachment.documentbody = await newAttachment.File.ReadAsBase64StringAsync(ModelState, _fileSizeLimit);
-
-            //await _annotationRepository.UploadAttatchmentAsync(attachment);
-            return null;
-        }
-
-
+     
     }
 }
