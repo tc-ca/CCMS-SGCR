@@ -82,6 +82,7 @@
     top: 50%;
     right: 0;
     left: 0;
+    text-align: center;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
 }
@@ -143,8 +144,8 @@
 
     .js .box__file + label {
         max-width: 80%;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        /*text-overflow: ellipsis;
+        white-space: nowrap;*/
         cursor: pointer;
         display: inline-block;
         overflow: hidden;

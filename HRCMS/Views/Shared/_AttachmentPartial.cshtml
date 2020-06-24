@@ -40,12 +40,13 @@
                             @Html.TextBoxFor(m => m.File, new { @type = "file", @class = "box__file", @required = "required" })
                             <label asp-for="@Model.File" id="lblForFile" class="required"><span class="text-primary">@Localizer["Choose a file"]</span>&nbsp;<span class="box__dragndrop">@Localizer["or drage it here"]</span>.</label>
                         </div>
+                        <div class="box__uploading">@Localizer["Uploading"]&hellip;</div>
                     </div>
 </div>
                 <div class="form-group">
                     <input type="submit" id="btnUploadAttachment" asp-action="UploadAttachment" value="@Localizer["Upload File"]" class="btn btn-default" />
                 </div>
-                <div class="box__uploading">@Localizer["Uploading"]&hellip;</div>
+                
             </div>
         </section>
     </form>
@@ -132,7 +133,6 @@
 
             // if the form was submitted
             form.addEventListener('submit', function (e) {
-                debugger;
 
                 //Required field
                 if (!subject.value || !droppedFiles) return false;
@@ -178,7 +178,9 @@
                     };
 
                     ajax.send(ajaxData);
-                    setTimeout(() => { location.reload(); }, 3000);
+
+                    setTimeout(function () { location.reload(); }, 1000);
+
 
                 }
                 else // fallback Ajax solution upload for older browsers
