@@ -4,179 +4,303 @@
 
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
-@model List<HRCMS.ViewModels.HRCaseModel>
+@model HRCMS.ViewModels.ListViewModel
 
 
 @{
     ViewData["Title"] = @Localizer["View My Cases"];
 }
-@if (ViewBag.Questions.Count > 0)
-{
-    <div class="col-md-12">
-        <div class="pull-right nowrap">
-            <a href="#centred-popup" aria-controls="centred-popup" class="wb-lbx" role="button" title="View Questions">
-                <span class="fa fa-envelope mrgn-rght-sm" aria-hidden="true"></span>
-                @if (ViewBag.Questions.Count == 1)
-                {
-                    <strong>@Localizer["You have 1 question"]</strong>
-                }
-                else
-                {
-                    <strong>@string.Format(Localizer["You have {0} questions"].Value, ViewBag.Questions.Count)</strong>
-                }
-            </a>
-        </div>
-    </div>
-    <section id="centred-popup" class="mfp-hide modal-dialog modal-content overlay-def">
-        <header class="modal-header">
-            <h2 class="modal-title">@Localizer["Please click the case number to view questions."]</h2>
-        </header>
-        <div class="modal-body">
-            @foreach (QuestionModel q in ViewBag.Questions)
-            {
-                <ul>
-                    <li>
-                        @Html.ActionLink($"[{q.HRCase.CaseNumber}] {q.QuestionText}", "details", "hrcase", null, null, "tabQuestions", new { id = q.HRCase.CaseId }, null)
-                        @Html.ActionLink(Localizer["Reply"].Value, "details", "hrcase", null, null, "tabQuestions", new { id = q.HRCase.CaseId }, new { @class = "btn btn-default btn-xs" })
-                    </li>
-                </ul>
-            }
-        </div>
-    </section>
-}
+
 <h1>View My Cases</h1>
+@if (Model.Questions.Count > 0)
+{
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary brdr-rds-0 mrgn-tp-md col-md-4 ">
+            <div class="panel-body">
+                <div class="form-inline">
+                    @if (Model.Questions.Count == 1)
+                    {
+                        <strong>@Localizer["You have 1 question"]</strong>
+                    }
+                    else
+                    {
+                        <strong>@string.Format(Localizer["You have {0} questions"].Value, Model.Questions.Count)</strong>
+                    }
 
-<div class="row mrgn-bttm-md">
-    <div class="col-md-2">
-        <label for="ddlCaseStatus" class="wb-inv">Select Case List</label>
-        <select id="ddlCaseStatus" class="form-control">
-            <option value="315840000|315840001|315840002|315840003">@Localizer["Open Cases"]</option>
-            <option value="315840004|315840005|315840006">@Localizer["Closed Cases"]</option>
-        </select>
+                    <button type="button" onclick="SwitchToQuestions()" class="btn btn-default mrgn-lft-md"><span class="fa fa-envelope mrgn-rght-sm" aria-hidden="true"></span>View</button>
+                </div>
+            </div>
+
+        </div>
     </div>
-    <div class="col-md-2">
-        <input id="btnRefreshList" type="button" class="btn btn-default" value='@Localizer["Refresh List"]' />
-    </div>
-</div>
-<div class="mrgn-bttm-md">
-    <a asp-action="Create">@Localizer["Add a new case"]</a>
-</div>
-<table class="wb-tables table table-striped" data-wb-tables='{ "ordering" : true, "aaSorting": [[4, "desc"]] }' id="tblCases">
-    <thead class="thead-light">
-        <tr>
-            <th scope="col">
-                @Localizer["Case Number"]
-            </th>
-            <th scope="col">
-                @Localizer["Case Type"]
-            </th>
-            <th scope="col">
-                @Localizer["Case Sub-Type"]
-            </th>
-            <th scope="col">
-                @Localizer["Case Status"]
-            </th>
-            <th scope="col">
-                @Localizer["Created On"]
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (Model?.Count > 0)
-        {
-            @foreach (HRCaseModel hrCase in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.ActionLink(hrCase.CaseNumber, "details", "hrcase", new { id = hrCase.CaseId })
-                    </td>
-                    <td>
-                        @if (hrCase.CaseType != null)
-                        {@hrCase.CaseType.TypeName}
-                    </td>
-                    <td>
-                        @if (hrCase.CaseSubType != null)
-                        {@hrCase.CaseSubType.SubTypeName}
-                    </td>
-                    <td>
-                        @if (hrCase.CaseStatusId == "315840001")
-                        {
-                            <p>
-                                Received by Pay
-                            </p>
-                        }
-                        else
-                        {
-                            <p>
-                                @hrCase.CaseStatusText
-                            </p>
-                        }
-                    </td>
-                    @*<td>
-                            @hrCase.FirstName
-                        </td>
-                        <td>
-                            @hrCase.LastName
-                        </td>*@
-                    <td>
-                        @hrCase.DateCreated.ToString("yyyy-MM-dd")
-                    </td>
-                </tr>
-            }
-        }
-        else
-        {
-            <tr>
-                <td colspan="7">
-                    @Localizer["N/A"]
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-<div class="mrgn-tp-md">
-    <a asp-action="Create">@Localizer["Add a new case"]</a>
-</div>
-
-@section CustomScripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script type="text/javascript">
-        function getCookie(name) {
-            var nameEQ = name + "=";
-            //alert(document.cookie);
-            var ca = document.cookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == ' ') c = c.substring(1);
-                if (c.indexOf(nameEQ) != -1) return c.substring(nameEQ.length, c.length);
-            }
-            return null;
-        }
-
-        $(document).ready(function () {
-            var caseListCookie = getCookie("caseList");
-
-            if (caseListCookie != null) {
-                var ddlCaseStatus = $("#ddlCaseStatus");
-                if (ddlCaseStatus != "") {
-                    ddlCaseStatus.val(decodeURI(caseListCookie));
-                }
-            }
-
-            $('#btnRefreshList').click(function () {
-                var selectStatus = $("#ddlCaseStatus").val();
-
-                var d = new Date();
-                d.setTime(d.getTime() + (1 * 24 * 60 * 60 * 1000));
-                var expires = "expires=" + d.toUTCString();
-
-                document.cookie = "caseList=" + encodeURI(selectStatus) + ";" + expires + ";";
-                location.reload();
-            });
-        });
-
-
-
-    </script>
+   
+</div>    
 }
+<div class="wb-tabs ignore-session">
+    <div class="tabpanels">
+        <details id="tabOpenCases">
+            <summary>@Localizer["Open Cases"]</summary>
+
+            <div class="mrgn-bttm-md">
+                <a asp-action="Create" class="btn btn-default"><span class="fa fa-plus mrgn-rght-sm"></span>@Localizer["Add a new case"]</a>
+            </div>
+            <table class="wb-tables table table-striped table-bordered" data-wb-tables='{ "ordering" : true, "aaSorting": [[0, "desc"]] }' id="tblOpenCases">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col" class="col-sm-2">
+                            @Localizer["Case Number"]
+                        </th>
+                        <th scope="col" class="col-sm-2">
+                            @Localizer["Case Type"]
+                        </th>
+                        <th scope="col" class="col-sm-3">
+                            @Localizer["Case Sub-Type"]
+                        </th>
+                        <th scope="col" class="col-sm-2">
+                            @Localizer["Case Status"]
+                        </th>
+                        <th scope="col" class="col-sm-2">
+                            @Localizer["Created On"]
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.OpenCases.Count > 0)
+                    {
+                        @foreach (HRCaseModel hrCase in Model.OpenCases)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.ActionLink(hrCase.CaseNumber, "details", "hrcase", new { id = hrCase.CaseId })
+                                </td>
+                                <td>
+                                    @if (hrCase.CaseType != null)
+                                    {@hrCase.CaseType.TypeName}
+                                </td>
+                                <td>
+                                    @if (hrCase.CaseSubType != null)
+                                    {@hrCase.CaseSubType.SubTypeName}
+                                </td>
+                                <td>
+                                    @if (hrCase.CaseStatusId == "315840001")
+                                    {
+                                        <p>
+                                            Received by Pay
+                                        </p>
+                                    }
+                                    else
+                                    {
+                                        <p>
+                                            @hrCase.CaseStatusText
+                                        </p>
+                                    }
+                                </td>
+                                <td>
+                                    @hrCase.DateCreated.ToString("yyyy-MM-dd")
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="7">
+                                @Localizer["N/A"]
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </details>
+
+        <details id="tabClosedCases">
+            <summary>@Localizer["Closed Cases"]</summary>
+            <div class="mrgn-bttm-md">
+                <a asp-action="Create" class="btn btn-default"><span class="fa fa-plus mrgn-rght-sm"></span>@Localizer["Add a new case"]</a>
+            </div>
+            <table class="wb-tables table table-striped table-bordered" data-wb-tables='{ "ordering" : true, "aaSorting": [[0, "desc"]] }' id="tblClosedCases">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col" class="col-sm-2">
+                            @Localizer["Case Number"]
+                        </th>
+                        <th scope="col" class="col-sm-2">
+                            @Localizer["Case Type"]
+                        </th>
+                        <th scope="col" class="col-sm-3">
+                            @Localizer["Case Sub-Type"]
+                        </th>
+                        <th scope="col" class="col-sm-2">
+                            @Localizer["Case Status"]
+                        </th>
+                        <th scope="col" class="col-sm-2">
+                            @Localizer["Created On"]
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.ClosedCases.Count > 0)
+                    {
+                        @foreach (HRCaseModel hrCase in Model.ClosedCases)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.ActionLink(hrCase.CaseNumber, "details", "hrcase", new { id = hrCase.CaseId })
+                                </td>
+                                <td>
+                                    @if (hrCase.CaseType != null)
+                                    {@hrCase.CaseType.TypeName}
+                                </td>
+                                <td>
+                                    @if (hrCase.CaseSubType != null)
+                                    {@hrCase.CaseSubType.SubTypeName}
+                                </td>
+                                <td>
+                                    @if (hrCase.CaseStatusId == "315840001")
+                                    {
+                                        <p>
+                                            Received by Pay
+                                        </p>
+                                    }
+                                    else
+                                    {
+                                        <p>
+                                            @hrCase.CaseStatusText
+                                        </p>
+                                    }
+                                </td>
+                                @*<td>
+                                @hrCase.FirstName
+                            </td>
+                            <td>
+                                @hrCase.LastName
+                            </td>*@
+                                <td>
+                                    @hrCase.DateCreated.ToString("yyyy-MM-dd")
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="7">
+                                @Localizer["N/A"]
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </details>
+        <details id="tabQuestions">
+            <summary>@Localizer["All Questions"]</summary>
+            <table class="table table-striped table-bordered" data-wb-tables='{ "ordering" : true, "aaSorting": [[1, "desc"]] }' id="tblQuestions">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col" class="col-sm-2">
+                            @Localizer["Case Number"]
+                        </th>
+                        <th scope="col" class="col-sm-3">
+                            @Localizer["Question posted on"]
+                        </th>
+                        <th scope="col" class="col-sm-6">
+                            @Localizer["Question"]
+                        </th>
+                        <th scope="col" class="col-sm-1">
+                            @Localizer["Action"]
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Questions.Count > 0)
+                    {
+
+                        @foreach (QuestionModel q in Model.Questions)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.ActionLink(q.HRCase.CaseNumber, "details", "hrcase", null, null, "tabQuestions", new { id = q.HRCase.CaseId }, null)
+                                </td>
+                                <td>
+                                    <span class="localDateTime">@q.DateAsked</span>
+                                </td>
+                                <td>
+                                    @q.QuestionText
+                                </td>
+                                <td>
+                                    @Html.ActionLink(Localizer["Reply"].Value, "details", "hrcase", null, null, "tabQuestions", new { id = q.HRCase.CaseId }, null)
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="4">
+                                @Localizer["N/A"]
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </details>
+
+    </div>
+
+</div>
+
+            @section CustomScripts {
+                @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+                <script type="text/javascript">
+                    function getCookie(name) {
+                        var nameEQ = name + "=";
+                        //alert(document.cookie);
+                        var ca = document.cookie.split(';');
+                        for (var i = 0; i < ca.length; i++) {
+                            var c = ca[i];
+                            while (c.charAt(0) == ' ') c = c.substring(1);
+                            if (c.indexOf(nameEQ) != -1) return c.substring(nameEQ.length, c.length);
+                        }
+                        return null;
+                    }
+
+                    $(document).ready(function () {
+                        var caseListCookie = getCookie("caseList");
+
+                        if (caseListCookie != null) {
+                            var ddlCaseStatus = $("#ddlCaseStatus");
+                            if (ddlCaseStatus != "") {
+                                ddlCaseStatus.val(decodeURI(caseListCookie));
+                            }
+                        }
+
+                        $('#btnRefreshList').click(function () {
+                            var selectStatus = $("#ddlCaseStatus").val();
+
+                            var d = new Date();
+                            d.setTime(d.getTime() + (1 * 24 * 60 * 60 * 1000));
+                            var expires = "expires=" + d.toUTCString();
+
+                            document.cookie = "caseList=" + encodeURI(selectStatus) + ";" + expires + ";";
+                            location.reload();
+                        });
+                    });
+
+                    var localDateTimes = $('.localDateTime');
+                    localDateTimes.each(function () {
+                        var utcTime = this.innerHTML;
+                        if (utcTime != null) {
+                            var d = new Date(utcTime);
+                            this.innerHTML = utcTime.substring(0, 10) + " " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
+                        }
+                    });
+
+                    function SwitchToQuestions() {
+                        $(".wb-tabs").trigger({ type: "wb-select.wb-tabs", id:"tabQuestions" });
+                    }
+
+                </script>
+            }
 

@@ -67,34 +67,43 @@ namespace HRCMS.Controllers
             try            
             {
                 WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["Home"] });
-                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["Cases"] });
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["View My Cases"] });
+                
+                var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync();
 
                 var pri = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.PrimarySid)?.Value;
-                
-                var statuses = Request.Cookies["caseList"];
 
-                if(statuses == null)
-                {
-                    statuses = "315840000|315840001|315840002|315840003"; //Default list to Open cases
-                }
-                else
-                {
-                    statuses = HttpUtility.UrlDecode(statuses);
-                }               
+                //var statuses = Request.Cookies["caseList"];
 
-                var hrCases = await _repository.GetAllCasesAsync(pri, statuses, WebTemplateModel.TwoLetterCultureLanguage);
+                //if(statuses == null)
+                //{
+                //    statuses = "315840000|315840001|315840002|315840003"; //Default list to Open cases
+                //}
+                //else
+                //{
+                //    statuses = HttpUtility.UrlDecode(statuses);
+                //}           
+
+                var openStatus = "315840000|315840001|315840002|315840003";
+                var closedStatus = "315840004|315840005|315840006";
+
+                var openCases = await _repository.GetAllCasesAsync(pri, openStatus, WebTemplateModel.TwoLetterCultureLanguage);
+                var closedCases = await _repository.GetAllCasesAsync(pri, closedStatus, WebTemplateModel.TwoLetterCultureLanguage);
+                var questions = await _questionRepository.GetAllUnAnsweredQuestionsAsync(pri);
 
                 //Get case status because 'Received by HR' here eq 'New Cases' in Dynamics
-                var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync();
-                foreach (var hrcase in hrCases)
+                foreach (var hrcase in openCases)
+                {
+                    hrcase.CaseStatusText = caseStatuses.FirstOrDefault(t => t.Value == hrcase.CaseStatusId)?.Text;
+                }
+                foreach (var hrcase in closedCases)
                 {
                     hrcase.CaseStatusText = caseStatuses.FirstOrDefault(t => t.Value == hrcase.CaseStatusId)?.Text;
                 }
 
-                var questionModels = await _questionRepository.GetAllUnAnsweredQuestionsAsync(pri);
-                ViewBag.Questions = questionModels;
+                var listModel = new ListViewModel() { OpenCases = openCases, ClosedCases = closedCases, Questions = questions };
 
-                return View(hrCases);
+                return View(listModel);
             }
             catch (Exception e)
             {

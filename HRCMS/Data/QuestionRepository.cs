@@ -32,7 +32,7 @@ namespace HRCMS.Data
             {
                 var entityName = "hr_questionandanswerses";
                 var orderby = $"$orderby=createdon%20desc";
-                var select = $"$select=hr_questionandanswersid,hr_question&$expand=hr_HRCase($select=hr_hrcaseid,hr_name)";
+                var select = $"$select=hr_questionandanswersid,hr_question,hr_askedon&$expand=hr_HRCase($select=hr_hrcaseid,hr_name)";
                 var filter = $"$filter=hr_answer%20eq%20null%20and%20hr_HRCase/hr_pri%20eq%20{pri}";
                 var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}?{select}&{filter}&{orderby}");
 

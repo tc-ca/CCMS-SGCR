@@ -153,6 +153,9 @@
   <data name="Reply" xml:space="preserve">
     <value>Reply (fr)</value>
   </data>
+  <data name="View My Caes" xml:space="preserve">
+    <value>View My Caes (fr)</value>
+  </data>
   <data name="View My Cases" xml:space="preserve">
     <value>View My Cases (fr)</value>
   </data>
