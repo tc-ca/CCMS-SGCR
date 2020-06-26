@@ -9,29 +9,26 @@
 @model AnnotationModel
 <div class="wb-frmvld">
     <form asp-action="UploadAttachment" enctype="multipart/form-data" method="post" id="js-upload-form" class="js-upload-form">
-        <section class="panel panel-primary hght-inhrt">
-            <div class="panel-heading">
+        <h2>
 
-                @Localizer["Upload Attachment"]
+            @Localizer["Upload Attachment"]
 
-            </div>
-            <div class="panel-body">
-                <div class="form-group">
+        </h2>
+        
+                <div class="form-group col-md-6">
                     @Html.Hidden("caseId", Url.ActionContext.RouteData.Values["id"])
                     <label asp-for="@Model.Subject" class="required"><span class="field-name">@Localizer["Subject"]</span> <strong class="required">(@SharedLocalizer["required"])</strong></label>
                     @*@Html.ValidationMessageFor(m => m.Subject, "", htmlAttributes: new { @class = "label label-danger wb-server-error" })*@
-                    @Html.TextBoxFor(m => m.Subject, new { @class = "form-control", @maxlength = "250", @required = "required" })
+                    @Html.TextBoxFor(m => m.Subject, new { @class = "form-control full-width", @maxlength = "250", @required = "required" })
 
                 </div>
-                <div class="form-group">
-                    <label asp-for="@Model.NoteText" class="required"><span class="field-name">@Localizer["Note Text"]</span></label>
-                    @Html.TextAreaFor(m => m.NoteText, 3, 50, new { @class = "form-control", @maxlength = "1000" })
+                <div class="form-group col-md-12">
+                    <label asp-for="@Model.NoteText" class="required"><span class="field-name">@Localizer["Attachment Description"]</span></label>
+                    @Html.TextAreaFor(m => m.NoteText, 3, 200, new { @class = "form-control", @maxlength = "1000" })
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-12">
 
-                    <label class="required"><span class="field-name">@Localizer["Input File"]</span> <strong class="required">
-    (@SharedLocalizer["required"])
-</strong></label>
+                    @Localizer["Please select an upload method below. You may only attach one file."]
                     <div class="box">
                         <div class="box__input">
                             <svg class="box__icon" xmlns="http://www.w3.org/2000/svg" width="50" height="43" viewBox="0 0 50 43">
@@ -42,13 +39,12 @@
                         </div>
                         <div class="box__uploading">@Localizer["Uploading"]&hellip;</div>
                     </div>
-</div>
-                <div class="form-group">
+                </div>
+                <div class="form-group col-md-12">
                     <input type="submit" id="btnUploadAttachment" asp-action="UploadAttachment" value="@Localizer["Upload File"]" class="btn btn-default" />
                 </div>
                 
-            </div>
-        </section>
+           
     </form>
 </div>
 
