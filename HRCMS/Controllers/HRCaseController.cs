@@ -116,14 +116,21 @@ namespace HRCMS.Controllers
             try
             {
                 WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../List", Title = _localizer["Home"] });
-                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../List", Title = _localizer["Cases"] });
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../List", Title = _localizer["View My Cases"] });
+
 
 
                 var hrCaseModel = await _repository.GetCaseAsync(id, WebTemplateModel.TwoLetterCultureLanguage);
 
+                //Match breakcrumb with title
+                string pageTitle = _localizer["HR Case"].Value + ": " + hrCaseModel.CaseNumber;
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "", Title = pageTitle });
+                ViewBag.pageTitle = pageTitle;
+
+
                 //var hrCaseModel = _mapper.Map<HRCaseModel>(result);
 
-                if(Int32.Parse(hrCaseModel.PRI)!= Int32.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.PrimarySid)?.Value))
+                if (Int32.Parse(hrCaseModel.PRI)!= Int32.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.PrimarySid)?.Value))
                 {
                     ModelState.AddModelError(string.Empty, "Unauthorized");
                     return RedirectToAction("List");
@@ -177,14 +184,20 @@ namespace HRCMS.Controllers
         {
             try
             {
-                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["Home"] });
-                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["View My Cases"] });
-                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "", Title = _localizer["Update a case"] });
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../List", Title = _localizer["Home"] });
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../List", Title = _localizer["View My Cases"] });
 
                 var result = await _repository.GetCaseAsync(id, WebTemplateModel.TwoLetterCultureLanguage);
                 var hrCaseModel = _mapper.Map<HRCaseModel>(result);
 
                 hrCaseModel.CaseTypes = await _caseTypeRepository.GetAllCaseTypesAsync( WebTemplateModel.TwoLetterCultureLanguage);
+
+                //Match breakcrumb with title
+                string pageTitle = _localizer["HR Case"].Value + ": " + hrCaseModel.CaseNumber;
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "", Title = pageTitle });
+                ViewBag.pageTitle = pageTitle;
+
+
                 //Set Case subtype according to case type
                 if (!string.IsNullOrEmpty(hrCaseModel.CaseType.TypeId))
                 {
@@ -251,24 +264,33 @@ namespace HRCMS.Controllers
         public async Task<IActionResult> Submit(HRCaseModel hrCaseModel)
         {
             hrCaseModel.CaseStatusId = "315840001";
-            hrCaseModel.PRI = hrCaseModel.PRI.Replace("-", "");
-            if (ModelState.IsValid)
+
+            var hrCase = _mapper.Map<HRCase>(hrCaseModel);
+            string result=null;
+
+            if (string.IsNullOrEmpty(hrCaseModel.CaseId))
             {
-                var hrCase = _mapper.Map<HRCase>(hrCaseModel);
-                string caseId;
-                if (string.IsNullOrEmpty(hrCaseModel.CaseId))
+                if (ModelState.IsValid)
                 {
-                    caseId = await _repository.CreateHRCaseAsync(hrCase);
+                    hrCase.hr_pri = hrCaseModel.PRI.Replace("-", "");
+                    result = await _repository.CreateHRCaseAsync(hrCase);
                 }
                 else
                 {
-                    caseId = await _repository.UpdateHRCaseAsync(hrCase);
-                }
-                if (caseId == null)
-                {
                     ModelState.AddModelError("Error", "Error: Not able to submit.");
+                    return View();
                 }
             }
+            else
+            {
+                result = await _repository.UpdateHRCaseAsync(hrCase);
+            }
+
+            if (result == null)
+            {
+                ModelState.AddModelError("Error", "Error: Not able to submit.");
+            }
+
             return RedirectToAction("List");
         }
         [HttpPost]

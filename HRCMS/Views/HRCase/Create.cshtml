@@ -14,7 +14,7 @@
     }
     else
     {
-        ViewData["Title"] = Localizer["HR Case"].Value + ": " + Model.CaseNumber;
+        ViewData["Title"] = ViewBag.pageTitle;
 
     }
 }
@@ -102,7 +102,7 @@
                             <button type="submit" class="btn btn-primary"><span class="fa fa-save mrgn-rght-sm"></span>@SharedLocalizer["Save"]</button>
                             <a asp-action="List" class="btn btn-default"><span class="fa fa-times mrgn-rght-sm"></span>@SharedLocalizer["Cancel"]</a>
                             <div class="pull-right">
-                                <button id="btnSubmitCase" type="button" action="Submit" class="btn btn-success">@SharedLocalizer["Submit case"]</button>
+                                <button id="btnSubmitCase" type="button" class="btn btn-success">@SharedLocalizer["Submit case"]</button>
                             </div>
                         </div>
                     </div>

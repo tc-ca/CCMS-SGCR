@@ -11,7 +11,7 @@
     border-style: dashed;
     border-color: #ccc;
     line-height: 200px;
-    text-align: center
+    text-align: center;
 }
 
 .upload-drop-zone.drop {
@@ -41,12 +41,12 @@
         background-color: #fff;
     }
 
-.box__dragndrop,
+.box__dragendrop,
 .box__icon {
     display: none;
 }
 
-.box.has-advanced-upload .box__dragndrop {
+.box.has-advanced-upload .box__dragendrop {
     display: inline;
 }
 
