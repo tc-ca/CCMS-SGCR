@@ -17,7 +17,7 @@ namespace HRCMS.ViewModels
         public string CaseId { get; set; }
         public String CaseNumber { get; set; }
         [Required]
-        [StringLength(9)]
+        [StringLength(11)]
         public String PRI { get; set; }
         [Required]
         [StringLength(100)]

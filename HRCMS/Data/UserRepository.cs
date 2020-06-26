@@ -33,7 +33,7 @@ namespace HRCMS.Data
         public async Task<User> GetUserAsync(string userId)
         {
 #if DEBUG
-            return new User { userId = "xiaowe", pri = "123465789", firstName = "Test", lastName = "Account", email = "test.account@tc.gc.ca", appToken = "PhoenixForm" };
+            return new User { userId = "xiaowe", pri = "3465789", firstName = "Weiguang", lastName = "Xiao", email = "weiguang.xiao@034gc.onmicrosoft.com", appToken = "PhoenixForm" };
 #else
             using (var client = new HttpClient())
             {

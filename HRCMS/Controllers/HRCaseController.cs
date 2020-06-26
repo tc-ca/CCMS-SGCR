@@ -132,9 +132,6 @@ namespace HRCMS.Controllers
                 //Get case status because 'Received by HR' here eq 'New Cases' in Dynamics
                 var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync();
                 hrCaseModel.CaseStatusText = caseStatuses.FirstOrDefault(t => t.Value == hrCaseModel.CaseStatusId)?.Text;
-                hrCaseModel.Questions.Sort((x, y) => string.Compare(y.DateAsked, x.DateAsked));
-                hrCaseModel.Attachments.Sort((x, y) => string.Compare(y.DateCreated, x.DateCreated));
-
 
                 return View(hrCaseModel);
             }
@@ -150,9 +147,8 @@ namespace HRCMS.Controllers
             try
             {
                 WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["Home"] });
-                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["Cases"] });
-
-
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["View My Cases"] });
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "", Title = _localizer["Add a new case"] });
 
                 var caseTypes = await _caseTypeRepository.GetAllCaseTypesAsync( WebTemplateModel.TwoLetterCultureLanguage);
                 var caseSubTypes = await _caseTypeRepository.GetAllCaseSubTypesAsync( WebTemplateModel.TwoLetterCultureLanguage);
@@ -182,7 +178,8 @@ namespace HRCMS.Controllers
             try
             {
                 WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["Home"] });
-                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["Cases"] });
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["View My Cases"] });
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "", Title = _localizer["Update a case"] });
 
                 var result = await _repository.GetCaseAsync(id, WebTemplateModel.TwoLetterCultureLanguage);
                 var hrCaseModel = _mapper.Map<HRCaseModel>(result);
@@ -216,6 +213,8 @@ namespace HRCMS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Save(HRCaseModel hrCaseModel)
         {
+            hrCaseModel.PRI = hrCaseModel.PRI.Replace("-", "");
+
             if (ModelState.IsValid)
             {
                 //Call the API to save case
@@ -232,11 +231,11 @@ namespace HRCMS.Controllers
                 }
                 if (caseId != null)
                 {
-                    return RedirectToAction("Details", "HRCase", new { id = caseId });
+                    return RedirectToAction("Update", new { id = caseId });
                 }
                 else
                 {
-                    ModelState.AddModelError("Error", "Not able to connect to the database.");
+                    ModelState.AddModelError("Error", "Error: Not able to connect to the database.");
                 }
             }
             var caseTypes = await _caseTypeRepository.GetAllCaseTypesAsync( WebTemplateModel.TwoLetterCultureLanguage);
@@ -245,17 +244,30 @@ namespace HRCMS.Controllers
             hrCaseModel.CaseTypes = caseTypes;
             hrCaseModel.CaseSubTypes = caseSubTypes;
             hrCaseModel.CaseStatuses = caseStatuses;
-            return View("Create", hrCaseModel);
+            return View(hrCaseModel);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Submit(HRCaseModel hrCaseModel)
         {
-            var hrCase = new HRCase { hr_hrcaseid = hrCaseModel.CaseId, hr_casestatus = "315840001" }; //Withdrown by client
-            var result = await _repository.UpdateHRCaseAsync(hrCase);
-            if (result == null)
+            hrCaseModel.CaseStatusId = "315840001";
+            hrCaseModel.PRI = hrCaseModel.PRI.Replace("-", "");
+            if (ModelState.IsValid)
             {
-                ModelState.AddModelError(string.Empty, "Error: Not able to update.");
+                var hrCase = _mapper.Map<HRCase>(hrCaseModel);
+                string caseId;
+                if (string.IsNullOrEmpty(hrCaseModel.CaseId))
+                {
+                    caseId = await _repository.CreateHRCaseAsync(hrCase);
+                }
+                else
+                {
+                    caseId = await _repository.UpdateHRCaseAsync(hrCase);
+                }
+                if (caseId == null)
+                {
+                    ModelState.AddModelError("Error", "Error: Not able to submit.");
+                }
             }
             return RedirectToAction("List");
         }

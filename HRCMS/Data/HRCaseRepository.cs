@@ -95,10 +95,10 @@ namespace HRCMS.Data
                             if (hrCase.hr_CaseType != null) { hrCase.hr_CaseType.hr_name = hrCase.hr_CaseType.hr_namefr; }
                             if (hrCase.hr_CaseSubType != null) { hrCase.hr_CaseSubType.hr_name = hrCase.hr_CaseSubType.hr_namefr; }
                         }
-                        var hrCaseMode = _mapper.Map<HRCaseModel>(hrCase);
-
-                        //hrCaseMode.Questions = _mapper.Map<List<QuestionModel>>(JObject.Parse(result)["hr_HRCase_hr_HRCase_hr_QuestionandAnswers"].ToArray());
-                        return hrCaseMode;
+                        var hrCaseModel = _mapper.Map<HRCaseModel>(hrCase);
+                        hrCaseModel.Questions.Sort((x, y) => string.Compare(y.DateAsked, x.DateAsked));
+                        hrCaseModel.Attachments.Sort((x, y) => string.Compare(y.DateCreated, x.DateCreated));
+                        return hrCaseModel;
                     }
                 }
             }

@@ -254,28 +254,9 @@
             @section CustomScripts {
                 @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
                 <script type="text/javascript">
-                    function getCookie(name) {
-                        var nameEQ = name + "=";
-                        //alert(document.cookie);
-                        var ca = document.cookie.split(';');
-                        for (var i = 0; i < ca.length; i++) {
-                            var c = ca[i];
-                            while (c.charAt(0) == ' ') c = c.substring(1);
-                            if (c.indexOf(nameEQ) != -1) return c.substring(nameEQ.length, c.length);
-                        }
-                        return null;
-                    }
+                    
 
-                    $(document).ready(function () {
-                        var caseListCookie = getCookie("caseList");
-
-                        if (caseListCookie != null) {
-                            var ddlCaseStatus = $("#ddlCaseStatus");
-                            if (ddlCaseStatus != "") {
-                                ddlCaseStatus.val(decodeURI(caseListCookie));
-                            }
-                        }
-
+                    $(document).on("wb-ready.wb-tabs", ".wb-tabs", function (event) {
                         $('#btnRefreshList').click(function () {
                             var selectStatus = $("#ddlCaseStatus").val();
 
@@ -286,16 +267,16 @@
                             document.cookie = "caseList=" + encodeURI(selectStatus) + ";" + expires + ";";
                             location.reload();
                         });
-                    });
 
-                    var localDateTimes = $('.localDateTime');
-                    localDateTimes.each(function () {
-                        var utcTime = this.innerHTML;
-                        if (utcTime != null) {
-                            var d = new Date(utcTime);
-                            this.innerHTML = utcTime.substring(0, 10) + " " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
-                        }
-                    });
+                        var localDateTimes = $('.localDateTime');
+                        localDateTimes.each(function () {
+                            var utcTime = this.innerHTML;
+                            if (utcTime != null) {
+                                var d = new Date(utcTime);
+                                this.innerHTML = utcTime.substring(0, 10) + " " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
+                            }
+                        });
+                    });                    
 
                     function SwitchToQuestions() {
                         $(".wb-tabs").trigger({ type: "wb-select.wb-tabs", id:"tabQuestions" });
