@@ -20,7 +20,7 @@
                 <details id="tabGeneral">
                     <summary>@Localizer["Case Summary"]</summary>
                     <h2>@Localizer["Employee Information"]</h2>
-                    @Html.HiddenFor(m => m.CaseId)
+                    
                     <table class=" table table-striped table-bordered">
                         <thead>
                             <tr>
@@ -83,43 +83,44 @@
                         <h2>@Localizer["Resolution"]</h2>
                         <p>@Html.Raw(@Model.Resolution)</p>
                     }
-                    <form asp-action="" method="post">
-                        @if (Model.CaseStatusId == "315840002") //the case is new
-                        {
-                            <div id="divAlert" class="alert alert-warning hidden">
-                                <p>@Localizer["Are you sure?"]</p>
-                                <div class="form-group">
-                                    <input type="submit" id="btnConfirm" asp-action="Delete" value='@Localizer["Confirm"]' class="btn btn-danger" />
-                                    <input type="button" id="btnCancel" value='@Localizer["Cancel"]' class="btn btn-default" />
-                                </div>
+                <form asp-action="" method="post">
+                    @Html.HiddenFor(m => m.CaseId)
+                    @if (Model.CaseStatusId == "315840002") //the case is new
+                    {
+                        <div id="divDeleteAlert" class="alert alert-warning hidden">
+                            <p>@Localizer["Are you sure?"]</p>
+                            <div class="form-group">
+                                <input type="submit" id="btnConfirmDelete" asp-action="Delete" value='@Localizer["Confirm"]' class="btn btn-danger" />
+                                <input type="button" id="btnCancelDelete" value='@Localizer["Cancel"]' class="btn btn-default" />
                             </div>
-                            <div id="divSubmitAlert" class="alert alert-warning hidden">
-                                <p>@Localizer["Are you sure?"]</p>
-                                <div class="form-group">
-                                    <input type="submit" id="btnConfirm" asp-action="Submit" value='@Localizer["Confirm"]' class="btn btn-danger" />
-                                    <input type="button" id="btnCancel" value='@Localizer["Cancel"]' class="btn btn-default" />
-                                </div>
+                        </div>
+                        <div id="divSubmitAlert" class="alert alert-warning hidden">
+                            <p>@Localizer["Are you sure?"]</p>
+                            <div class="form-group">
+                                <input type="submit" id="btnConfirmSubmit" asp-action="Submit" value='@Localizer["Confirm"]' class="btn btn-danger" />
+                                <input type="button" id="btnCancelSubmit" value='@Localizer["Cancel"]' class="btn btn-default" />
                             </div>
-                            <div class="form-group" id="divButtons">
-                                <a asp-action="Update" asp-route-id="@Model.CaseId" class="btn btn-primary">@Localizer["Update"]</a>
-                                <a id="btnDelete" class="btn btn-link">@Localizer["Delete"]</a>
-                                <div class="pull-right"><button id="btnSubmitCase" type="button" class="btn btn-success">@SharedLocalizer["Submit case"]</button></div>
+                        </div>
+                        <div class="form-group" id="divButtons">
+                            <a asp-action="Update" asp-route-id="@Model.CaseId" class="btn btn-primary">@Localizer["Update"]</a>
+                            <a id="btnDelete" class="btn btn-link">@Localizer["Delete"]</a>
+                            <div class="pull-right"><button id="btnSubmitCase" type="button" class="btn btn-success">@SharedLocalizer["Submit case"]</button></div>
+                        </div>
+                    }
+                    else if (Model.CaseStatusId == "315840001" || Model.CaseStatusId == "315840000" || Model.CaseStatusId == "315840003") //withdraw
+                    {
+                        <div id="divWithdrawAlert" class="alert alert-warning hidden">
+                            <p>@Localizer["Are you sure?"]</p>
+                            <div class="form-group">
+                                <input type="submit" id="btnConfirmWithdraw" asp-action="Withdraw" value="@Localizer["Confirm"]" class="btn btn-danger" />
+                                <input type="button" id="btnCancelWithdraw" value="@Localizer["Cancel"]" class="btn btn-default" />
                             </div>
-                        }
-                        else if (Model.CaseStatusId == "315840001" || Model.CaseStatusId == "315840000" || Model.CaseStatusId == "315840003") //withdraw
-                        {
-                            <div id="divAlert" class="alert alert-warning hidden">
-                                <p>@Localizer["Are you sure?"]</p>
-                                <div class="form-group">
-                                    <input type="submit" id="btnConfirm" asp-action="Withdraw" value="@Localizer["Confirm"]" class="btn btn-danger" />
-                                    <input type="button" id="btnCancel" value="@Localizer["Cancel"]" class="btn btn-default" />
-                                </div>
-                            </div>
-                            <div class="form-group" id="divButtons">
-                                <input type="button" id="btnWithdraw" value="@Localizer["Withdraw"]" class="btn btn-primary" />
-                            </div>
-                        }
-                    </form>
+                        </div>
+                        <div class="form-group" id="divButtons">
+                            <input type="button" id="btnWithdraw" value="@Localizer["Withdraw"]" class="btn btn-primary" />
+                        </div>
+                    }
+                </form>
                 </details>
                 @if (Model.Questions.Count > 0)
                 {
@@ -269,11 +270,15 @@
                 });
             });
 
-            $('#btnWithdraw,#btnCancel, #btnDelete').click(function () {
-                $('#divButtons, #divAlert').toggleClass("hidden");
+            $('#btnWithdraw,#btnCancelWithdraw').click(function () {
+                $('#divButtons, #divWithdrawAlert').toggleClass("hidden");
             });
 
-            $('#btnCancel,#btnSubmitCase').click(function () {
+            $('#btnDelete,#btnCancelDelete').click(function () {
+                $('#divButtons, #divDeleteAlert').toggleClass("hidden");
+            });
+
+            $('#btnSubmitCase, #btnCancelSubmit').click(function () {
                 $('#divButtons, #divSubmitAlert').toggleClass("hidden");
             });
 
