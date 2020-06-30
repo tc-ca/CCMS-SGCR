@@ -39,6 +39,8 @@ namespace HRCMS.ViewModels
         public DateTime DateReceived { get; set; }
         public DateTime DateCreated { get; set; }
         public List<QuestionModel> Questions { get; set; }
+        public List<QuestionModel> AnsweredQuestions { get; set; }
+        public List<QuestionModel> UnAnsweredQuestions { get; set; }
 
         public IEnumerable<SelectListItem> CaseStatuses { get; set; }
         public IEnumerable<SelectListItem> CaseTypes { get; set; }

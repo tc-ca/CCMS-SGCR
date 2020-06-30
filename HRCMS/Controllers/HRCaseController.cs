@@ -324,23 +324,22 @@ namespace HRCMS.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> UpdateAnswers(HRCaseModel hrCaseModel)
+        public async Task<IActionResult> AnswerQuestion(QuestionModel questionModel, string caseId)
         {
 
             //Call the API to save case
-            var questions = hrCaseModel.Questions;
-            if (questions != null)
+            //var questions = hrCaseModel.Questions;
+            if (ModelState.IsValid)
             {
-                for (int i = 0; i < questions.Count; i++)
+                var ques = _mapper.Map<Question>(questionModel);
+                var result = await _questionRepository.UpdateAnswerAsync(ques);
+                if (result != null)
                 {
-                    if (!string.IsNullOrEmpty(questions[i].AnswerText))
-                    {
-                        var ques = _mapper.Map<Question>(questions[i]);
-                        await _questionRepository.UpdateAnswerAsync(ques);
-                    }
+                    TempData["QuestionAnswered"] = "true";
+                    return RedirectToAction("Details", "HRCase", new { id = caseId }, "tabQuestions");
                 }
+
             }
-            //return View(hrCaseModel);
 
             return RedirectToAction("List");
         }
@@ -383,13 +382,13 @@ namespace HRCMS.Controllers
                 attachment.documentbody = await newAttachment.File.ReadAsBase64StringAsync(ModelState, _fileSizeLimit);
 
                 await _annotationRepository.UploadAttatchmentAsync(attachment);
-                return RedirectToAction("Details", "HRCase", new { id = newAttachment.CaseId }, "tbAttachments");
+                return RedirectToAction("Details", "HRCase", new { id = newAttachment.CaseId }, "tabAttachments");
             }
             else
             {
 
             }
-            return RedirectToAction("Details", "HRCase", new { id = newAttachment.CaseId }, "tbAttachments");
+            return RedirectToAction("Details", "HRCase", new { id = newAttachment.CaseId }, "tabAttachments");
         }
      
     }

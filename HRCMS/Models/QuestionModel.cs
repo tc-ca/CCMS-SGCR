@@ -9,8 +9,9 @@ namespace HRCMS.ViewModels
 {
     public class QuestionModel
     {
+
         public string QuestionId { get; set; }
-        
+        public string QuestionSequenceNumber { get; set; }
         public String QuestionText { get; set; }
         public String AnswerText { get; set; }
         public HRCaseModel HRCase { get; set; }
@@ -20,5 +21,6 @@ namespace HRCMS.ViewModels
         public string DateAsked { get; set; }
         //Date set in string format for convert to local time.
         public string DateAnswered { get; set; }
+        public AnnotationModel NewAttachment { get; set; }
     }
 }

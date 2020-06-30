@@ -1,0 +1,85 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using System.Globalization
+@using Microsoft.AspNetCore.Localization;
+
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+@model QuestionModel
+
+@if (String.IsNullOrEmpty(@Model.DateAnswered))
+{
+    <div class="wb-frmvld">
+        <form asp-action="AnswerQuestion" method="post" id="js-question-form">
+            <section class="panel panel-primary">
+                <div class="panel-heading">
+                    <h2 class="panel-title"> @Localizer["Question"]&nbsp;@Model.QuestionSequenceNumber</h2>
+                </div>
+                <div class="panel-body">
+                    <strong>Question posted on <span class="localDateTime">@Model.DateAsked</span></strong>
+                    <p>
+                        @Model.QuestionText
+                    </p>
+                    <button type="button" class="btn btn-primary btnRespond">@Localizer["Respond"]</button>
+                    <div class="editForm hidden">
+                        <div class="form-group">
+                            <label asp-for="AnswerText" class="required"><span class="field-name">@Localizer["Please provide a resposne:"]</span><strong class="required">(@SharedLocalizer["required"])</strong></label>
+                            @Html.TextAreaFor(m => m.AnswerText, 5, 200, new { @class = "form-control", @maxlength = "4000", required = "required" })
+                            @Html.ValidationMessageFor(m => m.AnswerText, "", htmlAttributes: new { @class = "text-danger" })
+                        </div>
+                        @*<fieldset class="chkbxrdio-grp form-inline">
+                    <legend class="required"><span class="field-name">@Localizer["Does your response include attachment(s)?"]</span> <strong class="required">(@SharedLocalizer["required"])</strong></legend>
+                    <div class="radio-inline">
+                        <label for="IncludeAttachment"><input type="radio" name="attachment" value="1" id="IncludeAttachment" required="required" />@Localizer["Yes"]</label>
+                    </div>
+                    <div class="radio-inline">
+                        <label for="NoAttachment"><input type="radio" name="attachment" value="2" id="NoAttachment" />@Localizer["No"]</label>
+                    </div>
+
+                </fieldset>*@
+                        <div class="btn-group row col-md-12">
+                            <button type="button" id="btnCancel" class="btn btn-default btnCancelQuestionUpdate">@SharedLocalizer["Cancel"]</button>
+                            <div class="pull-right">
+                                <button id="btnSubmit" class="btn btn-success btnSubmitQuestionUpdate">@SharedLocalizer["Submit"]</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                @Html.HiddenFor(m => m.QuestionId)
+                @Html.Hidden("caseId", ViewContext.RouteData.Values["id"])
+            </section>
+
+
+
+        </form>
+        @*<div class="divQuestionAttachment">
+            @await Html.PartialAsync("_AttachmentPartial", Model.NewAttachment)
+        </div>*@
+    </div>
+
+}
+else
+{
+    <section class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title"> @Localizer["Question"]&nbsp;@Model.QuestionSequenceNumber</h2>
+        </div>
+        <div class="panel-body">
+            <strong>Question posted on <span class="localDateTime">@Model.DateAsked</span></strong>
+            <p>
+                @Model.QuestionText
+            </p>
+            <strong>Question posted on <span class="localDateTime">@Model.DateAnswered</span></strong>
+            <p>
+                @Model.AnswerText
+            </p>
+        </div>
+    </section>
+}
+
+
+    <script>
+       
+    </script>
+

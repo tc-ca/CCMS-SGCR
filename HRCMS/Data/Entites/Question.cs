@@ -9,6 +9,8 @@ namespace HRCMS.Data
     {
         public string hr_questionandanswersid { get; set; }
         public string hr_questionnumber { get; set; }
+        public string hr_questionsequencenumber { get; set; }
+        
         public string hr_question { get; set; }
         public string hr_answer { get; set; }
         public HRCase hr_HRCase { get; set; }

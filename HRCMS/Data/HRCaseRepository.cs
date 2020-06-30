@@ -75,7 +75,8 @@ namespace HRCMS.Data
             using (var client = DynamicsApiHelper.GetHttpClient(_appSettings))
             {
                 var entityName = "hr_hrcases";
-                var select = $"$expand=hr_CaseType($select=hr_name,hr_nameen,hr_namefr),hr_CaseSubType($select=hr_name,hr_nameen,hr_namefr),hr_HRCase_hr_HRCase_hr_QuestionandAnswers($select=hr_questionandanswersid,hr_question,hr_answer,hr_read,hr_askedon,hr_answeredon)," +
+                var select = $"$expand=hr_CaseType($select=hr_name,hr_nameen,hr_namefr),hr_CaseSubType($select=hr_name,hr_nameen,hr_namefr)," +
+                    $"hr_HRCase_hr_HRCase_hr_QuestionandAnswers($select=hr_questionandanswersid,hr_question,hr_answer,hr_read,hr_askedon,hr_answeredon,hr_questionsequencenumber)," +
                     $"hr_hrcase_Annotations($select=_objectid_value,filename,subject,notetext,createdon,mimetype;$filter=isdocument%20eq%20true)";
                 var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}({caseId})?{select}");
 
@@ -96,7 +97,10 @@ namespace HRCMS.Data
                             if (hrCase.hr_CaseSubType != null) { hrCase.hr_CaseSubType.hr_name = hrCase.hr_CaseSubType.hr_namefr; }
                         }
                         var hrCaseModel = _mapper.Map<HRCaseModel>(hrCase);
-                        hrCaseModel.Questions.Sort((x, y) => string.Compare(y.DateAsked, x.DateAsked));
+
+                        hrCaseModel.UnAnsweredQuestions = hrCaseModel.Questions.Where(q => string.IsNullOrEmpty(q.DateAnswered)).OrderBy(q => q.DateAsked).ToList();
+                        hrCaseModel.AnsweredQuestions = hrCaseModel.Questions.Where(q => !string.IsNullOrEmpty(q.DateAnswered)).OrderBy(q => q.DateAsked).ToList();
+
                         hrCaseModel.Attachments.Sort((x, y) => string.Compare(y.DateCreated, x.DateCreated));
                         return hrCaseModel;
                     }

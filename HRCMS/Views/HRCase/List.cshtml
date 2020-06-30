@@ -37,13 +37,14 @@
    
 </div>    
 }
-<div class="wb-tabs ignore-session">
+<div class="wb-tabs">
     <div class="tabpanels">
         <details id="tabOpenCases">
             <summary>@Localizer["Open Cases"]</summary>
 
             <div class="mrgn-bttm-md">
                 <a asp-action="Create" class="btn btn-default"><span class="fa fa-plus mrgn-rght-sm"></span>@Localizer["Add a new case"]</a>
+                <div class="pull-right"><button type="button" class="btn btn-default" onclick="location.reload()"><span class="fa fa-sync mrgn-rght-sm"></span>Refresh list</button></div>
             </div>
             <table class="wb-tables table table-striped table-bordered" data-wb-tables='{ "ordering" : true, "aaSorting": [[0, "desc"]] }' id="tblOpenCases">
                 <thead class="thead-light">
@@ -119,6 +120,7 @@
             <summary>@Localizer["Closed Cases"]</summary>
             <div class="mrgn-bttm-md">
                 <a asp-action="Create" class="btn btn-default"><span class="fa fa-plus mrgn-rght-sm"></span>@Localizer["Add a new case"]</a>
+                <div class="pull-right"><button type="button" class="btn btn-default" onclick="location.reload()"><span class="fa fa-sync mrgn-rght-sm"></span>Refresh list</button></div>
             </div>
             <table class="wb-tables table table-striped table-bordered" data-wb-tables='{ "ordering" : true, "aaSorting": [[0, "desc"]] }' id="tblClosedCases">
                 <thead class="thead-light">
@@ -196,6 +198,9 @@
         </details>
         <details id="tabQuestions">
             <summary>@Localizer["All Questions"]</summary>
+            <div class="mrgn-bttm-md pull-right">
+                <button type="button" class="btn btn-default" onclick="location.reload()"><span class="fa fa-sync mrgn-rght-sm"></span>Refresh list</button>
+            </div>
             <table class="table table-striped table-bordered" data-wb-tables='{ "ordering" : true, "aaSorting": [[1, "desc"]] }' id="tblQuestions">
                 <thead class="thead-light">
                     <tr>
