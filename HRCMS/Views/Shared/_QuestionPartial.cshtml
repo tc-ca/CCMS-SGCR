@@ -24,7 +24,7 @@
                     <div class="editForm hidden">
                         <div class="form-group">
                             <label asp-for="AnswerText" class="required"><span class="field-name">@Localizer["Please provide a resposne:"]</span><strong class="required">(@SharedLocalizer["required"])</strong></label>
-                            @Html.TextAreaFor(m => m.AnswerText, 5, 200, new { @class = "form-control", @maxlength = "4000", required = "required" })
+                            @Html.TextAreaFor(m => m.AnswerText, 5, 200, new { @class = "form-control", @maxlength = "1000", required = "required" })
                             @Html.ValidationMessageFor(m => m.AnswerText, "", htmlAttributes: new { @class = "text-danger" })
                         </div>
                         @*<fieldset class="chkbxrdio-grp form-inline">

@@ -33,7 +33,8 @@ namespace HRCMS.ViewModels
         public string CaseStatusText { get; set; }
         public CaseTypeModel CaseType { get; set; }
         public CaseSubtypeModel CaseSubType { get; set; }
-        [StringLength(4000)]
+        [StringLength(1000)]
+        [Required]
         public String Description { get; set; }
         public String Resolution { get; set; }
         public DateTime DateReceived { get; set; }

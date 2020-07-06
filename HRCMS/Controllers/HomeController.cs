@@ -30,96 +30,99 @@ namespace HRCMS.Controllers
             _userRepository = userRepository;
         }
 
-        //public IActionResult Index()
+        public IActionResult Index()
+        {
+            if (HttpContext.User == null)
+                return Redirect("http://tcapps.tc.gc.ca/Corp-Serv-Gen/3/ess_lse/Portal/Home");
+            else
+                return RedirectToAction("list","hrcase");
+        }
+        //public async Task<IActionResult> Index(string id)
+        //{
+        //    try
+        //    {
+        //        var user = await _userRepository.GetUserAsync(id);
+        //        var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
+        //        identity.AddClaim(new Claim(ClaimTypes.PrimarySid, user.pri));
+        //        identity.AddClaim(new Claim(ClaimTypes.GivenName, user.firstName));
+        //        identity.AddClaim(new Claim(ClaimTypes.Surname, user.lastName));
+        //        identity.AddClaim(new Claim(ClaimTypes.Email, user.email));
+        //        identity.AddClaim(new Claim(ClaimTypes.Name, $"{user.firstName} {user.lastName}"));
+        //        identity.AddClaim(new Claim(ClaimTypes.Role, "User"));
+        //        var principal = new ClaimsPrincipal(identity);
+
+        //        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+        //        return RedirectToAction("List", "HRCase");
+        //    }
+        //    catch
+        //    {
+        //        ModelState.AddModelError(string.Empty, "Unable to authenticate. Please check your user name");
+        //    }
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //[AllowAnonymous]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Login(UserModel aUser)
+        //{
+        //    try
+        //    {
+        //        var user = await _userRepository.GetUserAsync(aUser.UserName);
+        //        var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
+        //        identity.AddClaim(new Claim(ClaimTypes.PrimarySid, user.pri));
+        //        identity.AddClaim(new Claim(ClaimTypes.GivenName, user.firstName));
+        //        identity.AddClaim(new Claim(ClaimTypes.Surname, user.lastName));
+        //        identity.AddClaim(new Claim(ClaimTypes.Email, user.email));
+        //        identity.AddClaim(new Claim(ClaimTypes.Name, $"{user.firstName} {user.lastName}"));
+        //        identity.AddClaim(new Claim(ClaimTypes.Role, "User"));
+        //        var principal = new ClaimsPrincipal(identity);
+
+        //        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+        //        return RedirectToAction("List", "HRCase");
+        //    }
+        //    catch
+        //    {
+        //        ModelState.AddModelError(string.Empty, "Unable to authenticate. Please check your user name");
+        //        return RedirectToAction("Index");
+        //    }
+        //}
+
+        //[AllowAnonymous]
+        //public async Task<IActionResult> Logout()
+        //{
+        //    _logger.LogInformation("User {Name} logged out at {Time}.",
+        //        User.Identity.Name, DateTime.UtcNow);
+
+        //    await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+        //    return RedirectToAction("Index");
+        //}
+
+        //public IActionResult Privacy()
         //{
         //    return View();
         //}
-        public async Task<IActionResult> Index(string id)
-        {
-            try
-            {
-                var user = await _userRepository.GetUserAsync(id);
-                var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
-                identity.AddClaim(new Claim(ClaimTypes.PrimarySid, user.pri));
-                identity.AddClaim(new Claim(ClaimTypes.GivenName, user.firstName));
-                identity.AddClaim(new Claim(ClaimTypes.Surname, user.lastName));
-                identity.AddClaim(new Claim(ClaimTypes.Email, user.email));
-                identity.AddClaim(new Claim(ClaimTypes.Name, $"{user.firstName} {user.lastName}"));
-                identity.AddClaim(new Claim(ClaimTypes.Role, "User"));
-                var principal = new ClaimsPrincipal(identity);
 
-                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        //public IActionResult Error()
+        //{
+        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        //}
 
-                return RedirectToAction("List", "HRCase");
-            }
-            catch
-            {
-                ModelState.AddModelError(string.Empty, "Unable to authenticate. Please check your user name");
-            }
-            return View();
-        }
+        //public ActionResult Default()
+        //{
+        //    WebTemplateModel.SplashPageInfo.EnglishHomeUrl = "/Home/index";
+        //    WebTemplateModel.SplashPageInfo.FrenchHomeUrl = "/Home/index";
+        //    WebTemplateModel.SplashPageInfo.EnglishTermsUrl = "http://www.canada.ca/en/transparency/terms.html";
+        //    WebTemplateModel.SplashPageInfo.FrenchTermsUrl = "http://www.canada.ca/fr/transparence/avis.html";
+        //    WebTemplateModel.SplashPageInfo.EnglishName = "HR Case Management System";
+        //    WebTemplateModel.SplashPageInfo.FrenchName = "HR Case Management System (fr)";
 
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(UserModel aUser)
-        {
-            try
-            {
-                var user = await _userRepository.GetUserAsync(aUser.UserName);
-                var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
-                identity.AddClaim(new Claim(ClaimTypes.PrimarySid, user.pri));
-                identity.AddClaim(new Claim(ClaimTypes.GivenName, user.firstName));
-                identity.AddClaim(new Claim(ClaimTypes.Surname, user.lastName));
-                identity.AddClaim(new Claim(ClaimTypes.Email, user.email));
-                identity.AddClaim(new Claim(ClaimTypes.Name, $"{user.firstName} {user.lastName}"));
-                identity.AddClaim(new Claim(ClaimTypes.Role, "User"));
-                var principal = new ClaimsPrincipal(identity);
-
-                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-
-                return RedirectToAction("List", "HRCase");
-            }
-            catch
-            {
-                ModelState.AddModelError(string.Empty, "Unable to authenticate. Please check your user name");
-                return RedirectToAction("Index");
-            }
-        }
-
-        [AllowAnonymous]
-        public async Task<IActionResult> Logout()
-        {
-            _logger.LogInformation("User {Name} logged out at {Time}.",
-                User.Identity.Name, DateTime.UtcNow);
-
-            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-
-            return RedirectToAction("Index");
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-        public ActionResult Default()
-        {
-            WebTemplateModel.SplashPageInfo.EnglishHomeUrl = "/Home/index";
-            WebTemplateModel.SplashPageInfo.FrenchHomeUrl = "/Home/index";
-            WebTemplateModel.SplashPageInfo.EnglishTermsUrl = "http://www.canada.ca/en/transparency/terms.html";
-            WebTemplateModel.SplashPageInfo.FrenchTermsUrl = "http://www.canada.ca/fr/transparence/avis.html";
-            WebTemplateModel.SplashPageInfo.EnglishName = "HR Case Management System";
-            WebTemplateModel.SplashPageInfo.FrenchName = "HR Case Management System (fr)";
-
-            return View();
-        }
+        //    return View();
+        //}
 
     }
 }
