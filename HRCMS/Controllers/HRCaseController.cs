@@ -92,13 +92,19 @@ namespace HRCMS.Controllers
                 var questions = await _questionRepository.GetAllUnAnsweredQuestionsAsync(pri);
 
                 //Get case status because 'Received by HR' here eq 'New Cases' in Dynamics
-                foreach (var hrcase in openCases)
+                if (openCases != null)
                 {
-                    hrcase.CaseStatusText = caseStatuses.FirstOrDefault(t => t.Value == hrcase.CaseStatusId)?.Text;
+                    foreach (var hrcase in openCases)
+                    {
+                        hrcase.CaseStatusText = caseStatuses.FirstOrDefault(t => t.Value == hrcase.CaseStatusId)?.Text;
+                    }
                 }
-                foreach (var hrcase in closedCases)
+                if (closedCases != null)
                 {
-                    hrcase.CaseStatusText = caseStatuses.FirstOrDefault(t => t.Value == hrcase.CaseStatusId)?.Text;
+                    foreach (var hrcase in closedCases)
+                    {
+                        hrcase.CaseStatusText = caseStatuses.FirstOrDefault(t => t.Value == hrcase.CaseStatusId)?.Text;
+                    }
                 }
 
                 var listModel = new ListViewModel() { OpenCases = openCases, ClosedCases = closedCases, Questions = questions };

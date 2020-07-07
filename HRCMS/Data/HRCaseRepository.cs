@@ -42,7 +42,7 @@ namespace HRCMS.Data
                 var orderby = $"$orderby=createdon%20desc";
                 var statusFilter = "[%27" + string.Join("%27,%27", statusList) + "%27]";
                 var select = $"$select=hr_lastname,hr_name,hr_casestatus,hr_firstname,hr_hrcaseid,createdon&$expand=hr_CaseType($select=hr_name,hr_nameen,hr_namefr),hr_CaseSubType($select=hr_name,hr_nameen,hr_namefr)";
-                var filter = $"$filter=hr_pri%20eq%20{pri}%20and%20Microsoft.Dynamics.CRM.In(PropertyName=%27hr_casestatus%27,PropertyValues={statusFilter})";
+                var filter = $"$filter=hr_pri%20eq%20%27{pri}%27%20and%20Microsoft.Dynamics.CRM.In(PropertyName=%27hr_casestatus%27,PropertyValues={statusFilter})";
                 var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}?{select}&{filter}&{orderby}");
 
                 if (response.IsSuccessStatusCode)
@@ -65,6 +65,10 @@ namespace HRCMS.Data
                         var hrCaseModels = _mapper.Map<List<HRCaseModel>>(hrCases);
                         return hrCaseModels;
                     }
+                }
+                else
+                {
+                    //ModelState.AddModelError(string.Empty, "Unable to authenticate. Please check your user name");
                 }
             }
             return null;
