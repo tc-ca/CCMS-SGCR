@@ -12,30 +12,46 @@
 }
 
 <h1>View My Cases</h1>
+@if ((string)TempData["CaseSubmitted"] == "true")
+{
+    <section class="alert alert-success">
+        <h2>@Localizer["Success"]</h2>
+        <p>@Localizer["Your case was submitted successfully."]</p>
+        <button type="button" class="btn btn-success" id="btnCaseSubmitted">@Localizer["OK"]</button>
+    </section>
+}
+@if ((string)TempData["CaseWithdrawn"] == "true")
+{
+    <section class="alert alert-success">
+        <h2>@Localizer["Success"]</h2>
+        <p>@Localizer["Your case withdrawn successfully."]</p>
+        <button type="button" class="btn btn-success" id="btnCaseWithdrawn">@Localizer["OK"]</button>
+    </section>
+}
 @if (Model.Questions?.Count > 0)
 {
-<div class="row">
-    <div class="col-md-12">
-        <div class="panel panel-primary brdr-rds-0 mrgn-tp-md col-md-4 ">
-            <div class="panel-body">
-                <div class="form-inline">
-                    @if (Model.Questions.Count == 1)
-                    {
-                        <strong>@Localizer["You have 1 question"]</strong>
-                    }
-                    else
-                    {
-                        <strong>@string.Format(Localizer["You have {0} questions"].Value, Model.Questions.Count)</strong>
-                    }
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary brdr-rds-0 mrgn-tp-md col-md-4 ">
+                <div class="panel-body">
+                    <div class="form-inline">
+                        @if (Model.Questions.Count == 1)
+                        {
+                            <strong>@Localizer["You have 1 question"]</strong>
+                        }
+                        else
+                        {
+                            <strong>@string.Format(Localizer["You have {0} questions"].Value, Model.Questions.Count)</strong>
+                        }
 
-                    <button type="button" onclick="SwitchToQuestions()" class="btn btn-default mrgn-lft-md"><span class="fa fa-envelope mrgn-rght-sm" aria-hidden="true"></span>View</button>
+                        <button type="button" onclick="SwitchToQuestions()" class="btn btn-default mrgn-lft-md"><span class="fa fa-envelope mrgn-rght-sm" aria-hidden="true"></span>View</button>
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
+
     </div>
-   
-</div>    
 }
 <div class="wb-tabs">
     <div class="tabpanels">
@@ -174,11 +190,11 @@
                                     }
                                 </td>
                                 @*<td>
-                                @hrCase.FirstName
-                            </td>
-                            <td>
-                                @hrCase.LastName
-                            </td>*@
+                                        @hrCase.FirstName
+                                    </td>
+                                    <td>
+                                        @hrCase.LastName
+                                    </td>*@
                                 <td>
                                     @hrCase.DateCreated.ToString("yyyy-MM-dd")
                                 </td>
@@ -256,37 +272,40 @@
 
 </div>
 
-            @section CustomScripts {
-                @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-                <script type="text/javascript">
-                    
+@section CustomScripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
 
-                    $(document).on("wb-ready.wb-tabs", ".wb-tabs", function (event) {
-                        $('#btnRefreshList').click(function () {
-                            var selectStatus = $("#ddlCaseStatus").val();
 
-                            var d = new Date();
-                            d.setTime(d.getTime() + (1 * 24 * 60 * 60 * 1000));
-                            var expires = "expires=" + d.toUTCString();
+        $(document).on("wb-ready.wb-tabs", ".wb-tabs", function (event) {
+            $('#btnRefreshList').click(function () {
+                var selectStatus = $("#ddlCaseStatus").val();
 
-                            document.cookie = "caseList=" + encodeURI(selectStatus) + ";" + expires + ";";
-                            location.reload();
-                        });
+                var d = new Date();
+                d.setTime(d.getTime() + (1 * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toUTCString();
 
-                        var localDateTimes = $('.localDateTime');
-                        localDateTimes.each(function () {
-                            var utcTime = this.innerHTML;
-                            if (utcTime != null) {
-                                var d = new Date(utcTime);
-                                this.innerHTML = utcTime.substring(0, 10) + " " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
-                            }
-                        });
-                    });                    
+                document.cookie = "caseList=" + encodeURI(selectStatus) + ";" + expires + ";";
+                location.reload();
+            });
 
-                    function SwitchToQuestions() {
-                        $(".wb-tabs").trigger({ type: "wb-select.wb-tabs", id:"tabQuestions" });
-                    }
+            var localDateTimes = $('.localDateTime');
+            localDateTimes.each(function () {
+                var utcTime = this.innerHTML;
+                if (utcTime != null) {
+                    var d = new Date(utcTime);
+                    this.innerHTML = utcTime.substring(0, 10) + " " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
+                }
+            });
+        });
 
-                </script>
-            }
+        function SwitchToQuestions() {
+            $(".wb-tabs").trigger({ type: "wb-select.wb-tabs", id: "tabQuestions" });
+        }
+
+        $("#btnCaseSubmitted, #btnCaseWithdrawn").click(function () {
+            $(this).closest("section").addClass("hidden");
+        });
+    </script>
+}
 

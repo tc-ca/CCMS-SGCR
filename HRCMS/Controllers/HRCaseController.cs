@@ -250,6 +250,7 @@ namespace HRCMS.Controllers
                 }
                 if (caseId != null)
                 {
+                    TempData["CaseSaved"] = "true";
                     return RedirectToAction("Update", new { id = caseId });
                 }
                 else
@@ -290,14 +291,21 @@ namespace HRCMS.Controllers
             else
             {
                 result = await _repository.UpdateHRCaseAsync(hrCase);
+                
             }
 
             if (result == null)
             {
                 ModelState.AddModelError("Error", "Error: Not able to submit.");
+                return View(hrCaseModel);
+            }
+            else
+            {
+                TempData["CaseSubmitted"] = "true";
+                return RedirectToAction("List", "hrcase", "tabOpenCases");
+
             }
 
-            return RedirectToAction("List");
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -310,8 +318,13 @@ namespace HRCMS.Controllers
             if (result == null)
             {
                 ModelState.AddModelError(string.Empty, "Error: Not able to withdraw.");
+                return View(hrCaseModel);
             }
-            return RedirectToAction("List");
+            else
+            {
+                TempData["CaseWithdrawn"] = "true";
+                return RedirectToAction("List", "hrcase", "tabClosedCases");
+            }
         }
 
         [HttpPost]
@@ -387,12 +400,16 @@ namespace HRCMS.Controllers
                 attachment.mimetype = newAttachment.File.ContentType;
                 attachment.documentbody = await newAttachment.File.ReadAsBase64StringAsync(ModelState, _fileSizeLimit);
 
-                await _annotationRepository.UploadAttatchmentAsync(attachment);
-                return RedirectToAction("Details", "HRCase", new { id = newAttachment.CaseId }, "tabAttachments");
-            }
-            else
-            {
+                var id = await _annotationRepository.UploadAttatchmentAsync(attachment);
+                if (id == null)
+                {
+                    ModelState.AddModelError(string.Empty, "Error: Unable to delete.");
 
+                }
+                else
+                {
+                    TempData["AttachmentUploaded"] = "true";
+                }
             }
             return RedirectToAction("Details", "HRCase", new { id = newAttachment.CaseId }, "tabAttachments");
         }

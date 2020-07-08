@@ -19,7 +19,14 @@
     }
 }
 <h1>@ViewData["Title"]</h1>
-
+@if ((string)TempData["CaseSaved"] == "true")
+{
+    <section class="alert alert-success">
+        <h2>@Localizer["Success"]</h2>
+        <p>@Localizer["Your case was saved successfully."]</p>
+        <button type="button" class="btn btn-success" id="btnCaseSaved">@Localizer["OK"]</button>
+    </section>
+}
 <div class="wb-tabs ignore-session">
     <div class="tabpanels">
         <details id="tabCaseInfo">
@@ -245,6 +252,10 @@
 
             $('#btnSubmitCase,#btnCancel').click(function () {
                 $('#divButtons, #divAlert').toggleClass("hidden");
+            });
+
+            $("#btnCaseSaved").click(function () {
+                $(this).closest("section").addClass("hidden");
             });
 
         });

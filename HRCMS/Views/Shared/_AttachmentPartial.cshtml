@@ -8,7 +8,16 @@
 <link rel="stylesheet" type="text/css" href="~/css/dragdrop.css">
 @model AnnotationModel
 <div class="wb-frmvld">
+   
     <form asp-action="UploadAttachment" enctype="multipart/form-data" method="post" id="js-upload-form" class="js-upload-form">
+        @if ((string)TempData["AttachmentUploaded"] == "true")
+        {
+            <section class="alert alert-success">
+                <h2>@Localizer["Success"]</h2>
+                <p>@Localizer["Your attachment was uploaded successfully."]</p>
+                <button type="button" class="btn btn-success" id="btnAttachmentUploaded">@Localizer["OK"]</button>
+            </section>
+        }
         <h2>
             @Localizer["Upload Attachment"]
         </h2>
@@ -61,6 +70,7 @@
         var forms = document.querySelectorAll('.js-upload-form');
         Array.prototype.forEach.call(forms, function (form) {
             var input = form.querySelector('input[type="file"]'),
+                btnAttachmentUploaded = form.querySelector('#btnAttachmentUploaded'),
                 divBox = form.querySelector('.box'),
                 label = form.querySelector('#lblForFile'),
                 subject = form.querySelector('#Subject'),
@@ -215,6 +225,7 @@
             input.addEventListener('focus', function () { input.classList.add('has-focus'); });
             input.addEventListener('blur', function () { input.classList.remove('has-focus'); });
 
+            btnAttachmentUploaded.addEventListener('click', function () { btnAttachmentUploaded.parentNode.hidden = true;})
         });
     }(document));
 </script>
