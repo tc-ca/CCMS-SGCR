@@ -38,12 +38,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{f4985d03-5915-4252-936c-c4e149160668}" showlabel="true" locklevel="0">
+                      <cell id="{0169bf61-27d1-4785-881d-1903cbcd5599}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="PRI" languagecode="1033" />
-                          <label description="PRI (fr)" languagecode="1036" />
                         </labels>
-                        <control id="hr_pri" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="hr_pri" disabled="false" />
+                        <control id="hr_pri" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="hr_pri" disabled="false" />
                       </cell>
                       <cell id="{6d59d846-1c72-9d26-898b-740656c1877e}" showlabel="true" locklevel="0">
                         <labels>
@@ -133,13 +132,6 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{ca1701b9-687b-9249-8749-ec90e1b6827b}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{18a7d328-d58c-5ede-5620-bbb0cac859c6}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
@@ -152,18 +144,18 @@
                           <label description="" languagecode="1033" />
                         </labels>
                       </cell>
-                      <cell id="{ee1157ba-b4bc-c148-483e-52e3b813d696}" showlabel="true" locklevel="0" rowspan="4">
-                        <labels>
-                          <label description="Resolution" languagecode="1033" />
-                        </labels>
-                        <control id="hr_resolution" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="hr_resolution" disabled="false" uniqueid="{b8dd6393-c533-99b4-6ee2-e0d65ec1a89c}" />
-                      </cell>
                     </row>
                     <row>
                       <cell id="{42056a9d-996a-3645-a1aa-36597a1a8516}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
+                      </cell>
+                      <cell id="{ee1157ba-b4bc-c148-483e-52e3b813d696}" showlabel="true" locklevel="0" rowspan="4">
+                        <labels>
+                          <label description="Resolution" languagecode="1033" />
+                        </labels>
+                        <control id="hr_resolution" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="hr_resolution" disabled="false" uniqueid="{b8dd6393-c533-99b4-6ee2-e0d65ec1a89c}" />
                       </cell>
                     </row>
                     <row>
@@ -175,6 +167,13 @@
                     </row>
                     <row>
                       <cell id="{647b87e7-5913-27e9-1d58-76e591089cbb}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell showlabel="true" locklevel="0" id="{a52e4279-1701-46ae-a523-33c45a4891ce}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>

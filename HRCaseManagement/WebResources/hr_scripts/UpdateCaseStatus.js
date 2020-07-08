@@ -9,7 +9,8 @@ function addStageOnChange(eContext) {
   
 function stageOnChange(eContext) {
     var formContext = eContext.getFormContext();
-    stageName = formContext.data.process.getActiveStage().getName();
+   var  stageName = formContext.data.process.getActiveStage().getName();
+
     if (stageName == "Assign") {
 
         formContext.getAttribute('hr_casestatus').setValue(315840000)

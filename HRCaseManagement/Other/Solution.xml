@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.1.0.19227" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.1.0.19842" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>HRCaseManagement</UniqueName>
     <LocalizedNames>
@@ -94,8 +94,10 @@
       <RootComponent type="20" id="{692b9cd4-25af-ea11-a812-000d3af357bf}" behavior="0" />
       <RootComponent type="20" id="{813a14bd-dd7f-ea11-a811-000d3af3b5be}" behavior="0" />
       <RootComponent type="20" id="{a30b54d9-ddac-ea11-a812-000d3af357bf}" behavior="0" />
+      <RootComponent type="29" id="{0cdb5334-94c0-ea11-a812-000d3af3b5be}" behavior="0" />
       <RootComponent type="29" id="{2250ad6c-d19e-ea11-a812-000d3af3b5be}" behavior="0" />
       <RootComponent type="29" id="{49cd9837-0a9b-ea11-a812-000d3af3b5be}" behavior="0" />
+      <RootComponent type="29" id="{a469231e-6cac-4661-bdd6-eb04d4b8d0d8}" behavior="0" />
       <RootComponent type="29" id="{a9433880-089b-ea11-a812-000d3af357bf}" behavior="0" />
       <RootComponent type="29" id="{bfcbf875-d078-ea11-a811-000d3af357bf}" behavior="0" />
       <RootComponent type="29" id="{ccefa9b5-a39a-ea11-a812-000d3af3b5be}" behavior="0" />
@@ -187,7 +189,7 @@
         <Dependent key="14" type="60" displayName="Information" parentDisplayName="User" id="{c0d7d7dd-afd0-4675-85fe-1cc5a48be6df}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="18" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.19227)" />
+        <Required key="18" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.19842)" />
         <Dependent key="19" type="60" displayName="Information" parentDisplayName="Question and Answers" id="{b33dd054-3c00-4a8c-888f-56061917c135}" />
       </MissingDependency>
       <MissingDependency>

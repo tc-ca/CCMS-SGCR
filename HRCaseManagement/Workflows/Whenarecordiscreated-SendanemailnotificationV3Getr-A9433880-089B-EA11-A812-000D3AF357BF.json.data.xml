@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{a9433880-089b-ea11-a812-000d3af357bf}" Name="Send email to the user when a question is asked" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <JsonFileName>/Workflows/Sendemailtotheuserwhenaquestionisasked-A9433880-089B-EA11-A812-000D3AF357BF.json</JsonFileName>
+<Workflow WorkflowId="{a9433880-089b-ea11-a812-000d3af357bf}" Name="When a record is created -&gt; Send an email notification (V3),Get record" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <JsonFileName>/Workflows/Whenarecordiscreated-SendanemailnotificationV3Getr-A9433880-089B-EA11-A812-000D3AF357BF.json</JsonFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>5</Category>
@@ -21,7 +21,7 @@
   <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
   <PrimaryEntity>none</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="Send email to the user when a question is asked" />
+    <LocalizedName languagecode="1033" description="When a record is created -&gt; Send an email notification (V3),Get record" />
     <LocalizedName languagecode="1036" description="Send email to the user when a question is asked (fr)" />
   </LocalizedNames>
 </Workflow>
