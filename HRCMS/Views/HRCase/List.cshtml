@@ -44,7 +44,7 @@
                             <strong>@string.Format(Localizer["You have {0} questions"].Value, Model.Questions.Count)</strong>
                         }
 
-                        <button type="button" onclick="SwitchToQuestions()" class="btn btn-default mrgn-lft-md"><span class="fa fa-envelope mrgn-rght-sm" aria-hidden="true"></span>View</button>
+                        <button type="button" onclick="SwitchToQuestions()" class="btn btn-default mrgn-lft-md"><span class="fa fa-envelope mrgn-rght-sm" aria-hidden="true"></span>@Localizer["View"]</button>
                     </div>
                 </div>
 
@@ -215,7 +215,7 @@
         <details id="tabQuestions">
             <summary>@Localizer["All Questions"]</summary>
             <div class="mrgn-bttm-md mrgn-tp-md pull-right">
-                <button type="button" class="btn btn-default" onclick="location.reload()"><span class="fa fa-sync mrgn-rght-sm"></span>Refresh list</button>
+                <button type="button" class="btn btn-default" onclick="location.reload()"><span class="fa fa-sync mrgn-rght-sm"></span>@Localizer["Refresh list"]</button>
             </div>
             <table class="table table-striped table-bordered" data-wb-tables='{ "ordering" : true, "aaSorting": [[1, "desc"]] }' id="tblQuestions">
                 <thead class="thead-light">

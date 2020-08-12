@@ -138,6 +138,9 @@
   <data name="Case Sub Type" xml:space="preserve">
     <value>Case Sub Type (fr)</value>
   </data>
+  <data name="Case Summary" xml:space="preserve">
+    <value>Case Summary</value>
+  </data>
   <data name="Case Type" xml:space="preserve">
     <value>Case Type (fr)</value>
   </data>
@@ -149,6 +152,9 @@
   </data>
   <data name="Created On" xml:space="preserve">
     <value>Created On (fr)</value>
+  </data>
+  <data name="Current question(s):" xml:space="preserve">
+    <value>Current question(s):</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Delete (fr)</value>
@@ -180,6 +186,9 @@
   <data name="Note Text" xml:space="preserve">
     <value>Note Text (fr)</value>
   </data>
+  <data name="Previously answered question(s):" xml:space="preserve">
+    <value>Previously answered question(s):</value>
+  </data>
   <data name="Questions and Answers" xml:space="preserve">
     <value>Questions and Answers (fr)</value>
   </data>
@@ -203,5 +212,8 @@
   </data>
   <data name="Withdraw" xml:space="preserve">
     <value>Withdraw (fr)</value>
+  </data>
+  <data name="Your response was submitted successfully." xml:space="preserve">
+    <value>Your response was submitted successfully.</value>
   </data>
 </root>

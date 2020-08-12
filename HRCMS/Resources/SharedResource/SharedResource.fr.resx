@@ -120,19 +120,7 @@
   <data name="&lt;b&gt;Hello&lt;/b&gt;&lt;i&gt; {0}&lt;/i&gt;" xml:space="preserve">
     <value>&lt;b&gt;Ola&lt;/b&gt;&lt;i&gt; {0}&lt;/i&gt;</value>
   </data>
-  <data name="Hello!" xml:space="preserve">
-    <value>Ola from Resources\SharedResource.fr.resx</value>
-  </data>
   <data name="required" xml:space="preserve">
     <value>required (fr)</value>
-  </data>
-  <data name="Shared Test 1" xml:space="preserve">
-    <value>Loc version of "Shared Test 1"</value>
-  </data>
-  <data name="Your application description page." xml:space="preserve">
-    <value>Votre page de description de l'application . app descript pg - Resources\SharedResource.fr.resx</value>
-  </data>
-  <data name="Your contact page." xml:space="preserve">
-    <value>Votre page de contact . contact page Resources\SharedResource.fr.resx</value>
   </data>
 </root>

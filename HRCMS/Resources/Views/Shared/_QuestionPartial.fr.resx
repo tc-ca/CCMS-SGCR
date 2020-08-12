@@ -117,64 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Add a new case" xml:space="preserve">
-    <value>Add a new case (fr)</value>
+  <data name="Please provide a resposne:" xml:space="preserve">
+    <value>Please provide a resposne:</value>
   </data>
-  <data name="All Questions" xml:space="preserve">
-    <value>All Questions</value>
+  <data name="Question" xml:space="preserve">
+    <value>Question</value>
   </data>
-  <data name="Case Number" xml:space="preserve">
-    <value>Case Number (fr)</value>
-  </data>
-  <data name="Case Status" xml:space="preserve">
-    <value>Case Status (fr)</value>
-  </data>
-  <data name="Case Sub-Type" xml:space="preserve">
-    <value>Case Sub-Type (fr)</value>
-  </data>
-  <data name="Case Type" xml:space="preserve">
-    <value>Case Type (fr)</value>
-  </data>
-  <data name="Closed Cases" xml:space="preserve">
-    <value>Closed Cases (fr)</value>
-  </data>
-  <data name="Created On" xml:space="preserve">
-    <value>Created On (fr)</value>
-  </data>
-  <data name="N/A" xml:space="preserve">
-    <value>N/A (fr)</value>
-  </data>
-  <data name="Open Cases" xml:space="preserve">
-    <value>Open Cases (fr)</value>
-  </data>
-  <data name="Please click the case number to view questions." xml:space="preserve">
-    <value>Please click the case number to view questions. (fr)</value>
-  </data>
-  <data name="Refresh List" xml:space="preserve">
-    <value>Refresh List (fr)</value>
-  </data>
-  <data name="Refresh list1" xml:space="preserve">
-    <value>Refresh list</value>
-  </data>
-  <data name="Reply" xml:space="preserve">
-    <value>Reply (fr)</value>
-  </data>
-  <data name="View" xml:space="preserve">
-    <value>View</value>
-  </data>
-  <data name="View My Caes" xml:space="preserve">
-    <value>View My Caes (fr)</value>
-  </data>
-  <data name="View My Cases" xml:space="preserve">
-    <value>View My Cases (fr)</value>
-  </data>
-  <data name="You have 1 question" xml:space="preserve">
-    <value>You have 1 question (fr)</value>
-  </data>
-  <data name="You have {0} questions" xml:space="preserve">
-    <value>You have {0} questions (fr)</value>
-  </data>
-  <data name="Your case withdrawn successfully." xml:space="preserve">
-    <value>Your case withdrawn successfully.</value>
+  <data name="Respond" xml:space="preserve">
+    <value>Respond</value>
   </data>
 </root>

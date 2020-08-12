@@ -120,6 +120,12 @@
   <data name="&lt;acronym title='Personal Record Identifier'&gt;PRI&lt;/acronym&gt;" xml:space="preserve">
     <value>&lt;acronym title='Personal Record Identifier(fr)'&gt;PRI(fr)&lt;/acronym&gt;</value>
   </data>
+  <data name="Are you sure you want to submit the case?" xml:space="preserve">
+    <value>Are you sure you want to submit the case?</value>
+  </data>
+  <data name="Attachment Description" xml:space="preserve">
+    <value>Attachment Description</value>
+  </data>
   <data name="Case Sub Type" xml:space="preserve">
     <value>Case Sub Type (fr)</value>
   </data>
@@ -132,8 +138,17 @@
   <data name="Description" xml:space="preserve">
     <value>Description (fr)</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>Email (fr)</value>
+  </data>
+  <data name="Employee Information" xml:space="preserve">
+    <value>Employee Information</value>
+  </data>
+  <data name="File Name" xml:space="preserve">
+    <value>File Name</value>
   </data>
   <data name="First Name" xml:space="preserve">
     <value>First Name (fr)</value>
@@ -143,5 +158,20 @@
   </data>
   <data name="Last Name" xml:space="preserve">
     <value>Last Name (fr)</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK (fr)</value>
+  </data>
+  <data name="Please make a selection" xml:space="preserve">
+    <value>Please make a selection</value>
+  </data>
+  <data name="Please provide the details about your inquiry" xml:space="preserve">
+    <value>Please provide the details about your inquiry</value>
+  </data>
+  <data name="Submit case" xml:space="preserve">
+    <value>Submit case</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success (fr)</value>
   </data>
 </root>
