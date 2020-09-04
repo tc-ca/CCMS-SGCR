@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="&lt;b&gt;Hello&lt;/b&gt;&lt;i&gt; {0}&lt;/i&gt;" xml:space="preserve">
-    <value>&lt;b&gt;Ola&lt;/b&gt;&lt;i&gt; {0}&lt;/i&gt;</value>
+    <value>&lt;b&gt;Hello&lt;/b&gt;&lt;i&gt; {0}&lt;/i&gt;</value>
   </data>
   <data name="required" xml:space="preserve">
     <value>required (fr)</value>

@@ -153,8 +153,8 @@
   <data name="First Name" xml:space="preserve">
     <value>First Name (fr)</value>
   </data>
-  <data name="HR Case" xml:space="preserve">
-    <value>HR Case (fr)</value>
+  <data name="Pay Case" xml:space="preserve">
+    <value>Pay Case (fr)</value>
   </data>
   <data name="Last Name" xml:space="preserve">
     <value>Last Name (fr)</value>
@@ -165,8 +165,8 @@
   <data name="Please make a selection" xml:space="preserve">
     <value>Please make a selection</value>
   </data>
-  <data name="Please provide the details about your inquiry" xml:space="preserve">
-    <value>Please provide the details about your inquiry</value>
+  <data name="Please provide the details of your inquiry" xml:space="preserve">
+    <value>Please provide the details of your inquiry</value>
   </data>
   <data name="Submit case" xml:space="preserve">
     <value>Submit case</value>

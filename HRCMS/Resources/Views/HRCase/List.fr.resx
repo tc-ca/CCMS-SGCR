@@ -162,8 +162,8 @@
   <data name="View" xml:space="preserve">
     <value>View</value>
   </data>
-  <data name="View My Caes" xml:space="preserve">
-    <value>View My Caes (fr)</value>
+  <data name="View My Cases" xml:space="preserve">
+    <value>View My Cases (fr)</value>
   </data>
   <data name="View My Cases" xml:space="preserve">
     <value>View My Cases (fr)</value>
@@ -174,7 +174,7 @@
   <data name="You have {0} questions" xml:space="preserve">
     <value>You have {0} questions (fr)</value>
   </data>
-  <data name="Your case withdrawn successfully." xml:space="preserve">
-    <value>Your case withdrawn successfully.</value>
+  <data name="Your case was withdrawn successfully." xml:space="preserve">
+    <value>Your case was withdrawn successfully.</value>
   </data>
 </root>

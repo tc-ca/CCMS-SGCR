@@ -16,7 +16,7 @@ namespace HRCMS.Controllers
             : base(modelAccessor)
         {
             //Set a the common title for everypage here
-            WebTemplateModel.HeaderTitle = "HR Case Management System";      
+            WebTemplateModel.HeaderTitle = "Pay Case Management System";      
             //Metatags
             WebTemplateModel.HTMLHeaderElements.Add("<meta charset='UTF-8'>");
             WebTemplateModel.HTMLHeaderElements.Add("<meta http-equiv='default-style' content='sample'>");

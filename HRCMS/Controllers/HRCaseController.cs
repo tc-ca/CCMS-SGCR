@@ -129,7 +129,7 @@ namespace HRCMS.Controllers
                 var hrCaseModel = await _repository.GetCaseAsync(id, WebTemplateModel.TwoLetterCultureLanguage);
 
                 //Match breakcrumb with title
-                string pageTitle = _localizer["HR Case"].Value + ": " + hrCaseModel.CaseNumber;
+                string pageTitle = _localizer["Pay Case"].Value + ": " + hrCaseModel.CaseNumber;
                 WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "", Title = pageTitle });
                 ViewBag.pageTitle = pageTitle;
 
@@ -199,7 +199,7 @@ namespace HRCMS.Controllers
                 hrCaseModel.CaseTypes = await _caseTypeRepository.GetAllCaseTypesAsync( WebTemplateModel.TwoLetterCultureLanguage);
 
                 //Match breakcrumb with title
-                string pageTitle = _localizer["HR Case"].Value + ": " + hrCaseModel.CaseNumber;
+                string pageTitle = _localizer["Pay Case"].Value + ": " + hrCaseModel.CaseNumber;
                 WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "", Title = pageTitle });
                 ViewBag.pageTitle = pageTitle;
 
