@@ -39,7 +39,7 @@
                 <summary>@Localizer["Case Summary"]</summary>
             }
             <div class="wb-frmvld">
-                <form asp-action="Save">
+                <form id="frmSave" asp-action="Save">
                     <p>
                         •	Provide a brief description of how the process works, any relevant timelines etc.
                         •	Explain why some fields (first name, last name, PRI) are prepopulated
@@ -249,7 +249,14 @@
                 $("#btnUpdateEmail").addClass("hidden");
             });
 
-            $('#btnSubmitCase,#btnCancel').click(function () {
+            $('#btnSubmitCase').click(function () {
+                $('#frmSave').validate();
+                if ($('#frmSave').valid()) {
+                    $('#divButtons, #divAlert').toggleClass("hidden");
+                }
+            });
+
+            $('#btnCancel').click(function () {
                 $('#divButtons, #divAlert').toggleClass("hidden");
             });
 
