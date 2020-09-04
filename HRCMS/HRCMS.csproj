@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>HRCMS</AssemblyName>
     <RootNamespace>HRCMS</RootNamespace>
+    <UserSecretsId>54d0e603-6445-4140-90c8-b44051b22342</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
