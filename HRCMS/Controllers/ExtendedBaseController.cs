@@ -16,7 +16,14 @@ namespace HRCMS.Controllers
             : base(modelAccessor)
         {
             //Set a the common title for everypage here
-            WebTemplateModel.HeaderTitle = "Pay Case Management System";      
+            if (WebTemplateModel.TwoLetterCultureLanguage == "en")
+            {
+                WebTemplateModel.HeaderTitle = "Compensation Case Management System";
+            }
+            else
+            {
+                WebTemplateModel.HeaderTitle = "Système de Gestion des cas de rémunération";
+            }
             //Metatags
             WebTemplateModel.HTMLHeaderElements.Add("<meta charset='UTF-8'>");
             WebTemplateModel.HTMLHeaderElements.Add("<meta http-equiv='default-style' content='sample'>");
@@ -37,7 +44,7 @@ namespace HRCMS.Controllers
 
             //WebTemplateModel.HTMLHeaderElements.Add("<link rel='stylesheet' type='text/css' href='/css/site.css'>");
             WebTemplateModel.HTMLHeaderElements.Add("<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf' crossorigin='anonymous'>");
-            WebTemplateModel.ApplicationTitle.Text = "HRCMS";
+            WebTemplateModel.ApplicationTitle.Text = "CCMS-SGCR";
             WebTemplateModel.ApplicationTitle.Href = "../hrcase/list";
 
 

@@ -69,7 +69,7 @@ namespace HRCMS.Controllers
                 WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["Home"] });
                 WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["View My Cases"] });
                 
-                var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync();
+                var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync(WebTemplateModel.TwoLetterCultureLanguage);
 
                 var pri = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.PrimarySid)?.Value;
 
@@ -143,7 +143,7 @@ namespace HRCMS.Controllers
                 }
 
                 //Get case status because 'Received by HR' here eq 'New Cases' in Dynamics
-                var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync();
+                var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync(WebTemplateModel.TwoLetterCultureLanguage);
                 hrCaseModel.CaseStatusText = caseStatuses.FirstOrDefault(t => t.Value == hrCaseModel.CaseStatusId)?.Text;
 
                 return View(hrCaseModel);
@@ -165,7 +165,7 @@ namespace HRCMS.Controllers
 
                 var caseTypes = await _caseTypeRepository.GetAllCaseTypesAsync( WebTemplateModel.TwoLetterCultureLanguage);
                 var caseSubTypes = await _caseTypeRepository.GetAllCaseSubTypesAsync( WebTemplateModel.TwoLetterCultureLanguage);
-                var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync( );
+                var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync(WebTemplateModel.TwoLetterCultureLanguage);
 
                 var caseModel = new HRCaseModel
                 {
@@ -213,7 +213,7 @@ namespace HRCMS.Controllers
                 {
                     hrCaseModel.CaseSubTypes = await _caseTypeRepository.GetAllCaseSubTypesAsync( WebTemplateModel.TwoLetterCultureLanguage); 
                 }
-                hrCaseModel.CaseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync(); ;
+                hrCaseModel.CaseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync(WebTemplateModel.TwoLetterCultureLanguage); ;
 
                 if (Int32.Parse(hrCaseModel.PRI) != Int32.Parse( User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.PrimarySid)?.Value))
                 {
@@ -260,7 +260,7 @@ namespace HRCMS.Controllers
             }
             var caseTypes = await _caseTypeRepository.GetAllCaseTypesAsync( WebTemplateModel.TwoLetterCultureLanguage);
             var caseSubTypes = await _caseTypeRepository.GetAllCaseSubTypesAsync( WebTemplateModel.TwoLetterCultureLanguage);
-            var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync( );
+            var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync(WebTemplateModel.TwoLetterCultureLanguage);
             hrCaseModel.CaseTypes = caseTypes;
             hrCaseModel.CaseSubTypes = caseSubTypes;
             hrCaseModel.CaseStatuses = caseStatuses;

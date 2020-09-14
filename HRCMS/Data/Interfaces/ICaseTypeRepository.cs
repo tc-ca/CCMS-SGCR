@@ -10,7 +10,7 @@ namespace HRCMS.Data
         Task<IEnumerable<SelectListItem>> GetAllCaseTypesAsync(string twoLetterCultureLanguage);
         Task<IEnumerable<SelectListItem>> GetAllCaseSubTypesAsync(string twoLetterCultureLanguage);
         Task<IEnumerable<SelectListItem>> GetCaseSubTypesAsync(string caseTypeId, string twoLetterCultureLanguage);
-        Task<IEnumerable<SelectListItem>> GetAllCaseStatusesAsync();
+        Task<IEnumerable<SelectListItem>> GetAllCaseStatusesAsync(string twoLetterCultureLanguage);
 
     }
 }

@@ -102,7 +102,7 @@ namespace HRCMS.Data
             return null;
         }
 
-        public async Task<IEnumerable<SelectListItem>> GetAllCaseStatusesAsync()
+        public async Task<IEnumerable<SelectListItem>> GetAllCaseStatusesAsync(string twoLetterCultureLanguage)
         {
             using (var client = DynamicsApiHelper.GetHttpClient(_appSettings))
             {
@@ -119,7 +119,14 @@ namespace HRCMS.Data
                         var caseStatuses = JObject.Parse(results)["Options"];
                         foreach (var sObject in caseStatuses)
                         {
-                            subTypeList.Add(new CaseStatus { Value = sObject["Value"].ToString(), Label = sObject["Label"]["UserLocalizedLabel"]["Label"].ToString() });
+                            if (twoLetterCultureLanguage == "en")
+                            {
+                                subTypeList.Add(new CaseStatus { Value = sObject["Value"].ToString(), Label = sObject["Label"]["LocalizedLabels"][0]["Label"].ToString() });
+                            }
+                            else
+                            {
+                                subTypeList.Add(new CaseStatus { Value = sObject["Value"].ToString(), Label = sObject["Label"]["LocalizedLabels"][1]["Label"].ToString() });
+                            }
                         }
                         //var subTypeList = JsonConvert.DeserializeObject<List<CaseStatus>>(JObject.Parse(results)["Options"].ToString());
                         return subTypeList.Select(n => new SelectListItem { Value = n.Value, Text = n.Label }).OrderBy(m => m.Text);

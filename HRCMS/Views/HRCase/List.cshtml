@@ -11,12 +11,12 @@
     ViewData["Title"] = @Localizer["View My Cases"];
 }
 
-<h1>View My Cases</h1>
+<h1>@Localizer["View My Cases"]</h1>
 @if ((string)TempData["CaseSubmitted"] == "true")
 {
     <section class="alert alert-success">
         <h2>@Localizer["Success"]</h2>
-        <p>@Localizer["Your case was submitted successfully."]</p>
+        <p>@Localizer["Your case was successfully submitted."]</p>
         <button type="button" class="btn btn-success" id="btnCaseSubmitted">@Localizer["OK"]</button>
     </section>
 }
@@ -24,7 +24,7 @@
 {
     <section class="alert alert-success">
         <h2>@Localizer["Success"]</h2>
-        <p>@Localizer["Your case was withdrawn successfully."]</p>
+        <p>@Localizer["Your case was successfully withdrawn."]</p>
         <button type="button" class="btn btn-success" id="btnCaseWithdrawn">@Localizer["OK"]</button>
     </section>
 }
@@ -60,7 +60,7 @@
 
             <div class="mrgn-bttm-md mrgn-tp-md">
                 <a asp-action="Create" class="btn btn-default"><span class="fa fa-plus mrgn-rght-sm"></span>@Localizer["Add a new case"]</a>
-                <div class="pull-right"><button type="button" class="btn btn-default" onclick="location.reload()"><span class="fa fa-sync mrgn-rght-sm"></span>Refresh list</button></div>
+                <div class="pull-right"><button type="button" class="btn btn-default" onclick="location.reload()"><span class="fa fa-sync mrgn-rght-sm"></span>@Localizer["Refresh list"]</button></div>
             </div>
             <table class="wb-tables table table-striped table-bordered" data-wb-tables='{ "ordering" : true, "aaSorting": [[0, "desc"]] }' id="tblOpenCases">
                 <thead class="thead-light">
@@ -102,9 +102,9 @@
                                 <td>
                                     @if (hrCase.CaseStatusId == "315840001")
                                     {
-                                        <p>
-                                            Received by Pay
-                                        </p>
+                                    <p>
+                                        @SharedLocalizer["Received by Pay"]
+                                    </p>
                                     }
                                     else
                                     {
@@ -136,7 +136,7 @@
             <summary>@Localizer["Closed Cases"]</summary>
             <div class="mrgn-bttm-md mrgn-tp-md">
                 <a asp-action="Create" class="btn btn-default"><span class="fa fa-plus mrgn-rght-sm"></span>@Localizer["Add a new case"]</a>
-                <div class="pull-right"><button type="button" class="btn btn-default" onclick="location.reload()"><span class="fa fa-sync mrgn-rght-sm"></span>Refresh list</button></div>
+                <div class="pull-right"><button type="button" class="btn btn-default" onclick="location.reload()"><span class="fa fa-sync mrgn-rght-sm"></span>@Localizer["Refresh list"]</button></div>
             </div>
             <table class="wb-tables table table-striped table-bordered" data-wb-tables='{ "ordering" : true, "aaSorting": [[0, "desc"]] }' id="tblClosedCases">
                 <thead class="thead-light">
@@ -178,9 +178,9 @@
                                 <td>
                                     @if (hrCase.CaseStatusId == "315840001")
                                     {
-                                        <p>
-                                            Received by Pay
-                                        </p>
+                                    <p>
+                                        @SharedLocalizer["Received by Pay"]
+                                    </p>
                                     }
                                     else
                                     {

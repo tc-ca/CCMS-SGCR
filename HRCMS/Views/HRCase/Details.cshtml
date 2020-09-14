@@ -27,7 +27,7 @@
                             <tr>
                                 <th>@Localizer["First Name"]</th>
                                 <th>@Localizer["Last Name"]</th>
-                                <th>@Localizer["E-Mail"]</th>
+                                <th>@Localizer["Email"]</th>
                                 <th>@Localizer["<acronym title='Personal Record Identifier'>PRI</acronym>"]</th>
                             </tr>
                         </thead>
@@ -62,10 +62,9 @@
                                 <td>
                                     @if (Model.CaseStatusId == "315840001")
                                     {
-                                        <p>
-
-                                            @Localizer["Received by Pay"].Value
-                                        </p>
+                                    <p>
+                                        @SharedLocalizer["Received by Pay"]
+                                    </p>
                                     }
                                     else
                                     {
@@ -131,7 +130,7 @@
                         {
                             <section class="alert alert-success">
                               <h2>@Localizer["Success"]</h2>
-                              <p>@Localizer["Your response was submitted successfully."]</p>
+                              <p>@Localizer["Your response was successfully submitted."]</p>
                               <button type="button" class="btn btn-success" id="btnQuestionAnswered">@Localizer["OK"]</button>
                             </section> 
                         }
@@ -220,14 +219,14 @@
 </div>
 @section CustomScripts {
     @*@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}*@
-    <script type="text/javascript">
+<script type="text/javascript">
         $(document).ready(function () {
 
         });
 
         $(document).on("wb-ready.wb-tabs", ".wb-tabs", function (event) {
             var textarea = $('textarea[maxlength]');
-            var text = ' characters remaining.';
+            var text = ' ' + '@SharedLocalizer["characters remaining."]';
 
 
             $.fn.getCharactersRemaining = function () {
@@ -300,6 +299,6 @@
 
 
 
-    </script>
+</script>
 }
 

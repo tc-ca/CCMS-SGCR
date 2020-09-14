@@ -118,27 +118,36 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Back to List" xml:space="preserve">
-    <value>Back to List (fr)</value>
+    <value>Retour à la liste</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancel (fr)</value>
+    <value>Annuler</value>
   </data>
   <data name="characters remaining." xml:space="preserve">
-    <value>characters remaining. (fr)</value>
+    <value>charactères restants.</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>Create (fr)</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Delete (fr)</value>
+    <value>Supprimer</value>
+  </data>
+  <data name="Received by Pay" xml:space="preserve">
+    <value>Reçus par la rémunération</value>
   </data>
   <data name="required" xml:space="preserve">
-    <value>required (fr)</value>
+    <value>requis</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Save (fr)</value>
   </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Soumettre</value>
+  </data>
+  <data name="View my cases" xml:space="preserve">
+    <value>Visualiser mes cas</value>
+  </data>
   <data name="Withdraw" xml:space="preserve">
-    <value>Withdraw (fr)</value>
+    <value>Retirer</value>
   </data>
 </root>
