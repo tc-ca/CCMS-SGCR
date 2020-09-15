@@ -211,13 +211,14 @@
                 var selectedCaseTypeId = $("#CaseType_TypeId").val();
                 var CaseSubTypeIdsSelect = $('#CaseSubType_SubTypeId');
                 CaseSubTypeIdsSelect.empty();
+                CaseSubTypeIdsSelect.attr('readonly', 'readonly');
                 if (selectedCaseTypeId != null && selectedCaseTypeId != '') {
                     $.getJSON('@Url.Action("GetCaseSubTypes")', { caseTypeId: selectedCaseTypeId }, function (CaseSubTypeIds) {
                         if (CaseSubTypeIds != null && !jQuery.isEmptyObject(CaseSubTypeIds)) {
                             CaseSubTypeIdsSelect.attr("readonly", "readonly");
                             CaseSubTypeIdsSelect.append($('<option/>', {
                                 value: "",
-                                text: '@Localizer["Please make a selection"].Value'
+                                text: '@Localizer["Please make a selection"]'
                             }));
                             $.each(CaseSubTypeIds, function (index, subtype) {
                                 CaseSubTypeIdsSelect.append($('<option/>', {
