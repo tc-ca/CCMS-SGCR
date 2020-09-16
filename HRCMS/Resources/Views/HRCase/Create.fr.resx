@@ -192,4 +192,7 @@
   <data name="Your case was successfully saved." xml:space="preserve">
     <value>Votre cas a été sauvegardé avec succès.</value>
   </data>
+  <data name="Inquiry" xml:space="preserve">
+    <value> Enquête</value>
+  </data>
 </root>

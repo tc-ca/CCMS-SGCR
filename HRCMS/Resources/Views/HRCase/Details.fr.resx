@@ -136,7 +136,7 @@
     <value>Annuler</value>
   </data>
   <data name="Case Details" xml:space="preserve">
-    <value>Case Details (fr)</value>
+    <value> Détails du cas</value>
   </data>
   <data name="Case Status" xml:space="preserve">
     <value>État du cas</value>
@@ -184,7 +184,7 @@
     <value>Général</value>
   </data>
   <data name="Inquiry" xml:space="preserve">
-    <value>Inquiry (fr)</value>
+    <value> Enquête</value>
   </data>
   <data name="Last Name" xml:space="preserve">
     <value>Nom de famille</value>
