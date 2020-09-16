@@ -15,7 +15,6 @@
 @if ((string)TempData["CaseSubmitted"] == "true")
 {
     <section class="alert alert-success">
-        <h2>@Localizer["Success"]</h2>
         <p>@Localizer["Your case was successfully submitted."]</p>
         <button type="button" class="btn btn-success" id="btnCaseSubmitted">@Localizer["OK"]</button>
     </section>
@@ -23,7 +22,6 @@
 @if ((string)TempData["CaseWithdrawn"] == "true")
 {
     <section class="alert alert-success">
-        <h2>@Localizer["Success"]</h2>
         <p>@Localizer["Your case was successfully withdrawn."]</p>
         <button type="button" class="btn btn-success" id="btnCaseWithdrawn">@Localizer["OK"]</button>
     </section>
