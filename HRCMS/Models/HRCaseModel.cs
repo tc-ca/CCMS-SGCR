@@ -17,7 +17,7 @@ namespace HRCMS.ViewModels
         public string CaseId { get; set; }
         public String CaseNumber { get; set; }
         [Required]
-        [StringLength(9)]
+        [StringLength(11)]
         public String PRI { get; set; }
         [Required]
         [StringLength(100)]
@@ -33,12 +33,15 @@ namespace HRCMS.ViewModels
         public string CaseStatusText { get; set; }
         public CaseTypeModel CaseType { get; set; }
         public CaseSubtypeModel CaseSubType { get; set; }
-        [StringLength(4000)]
+        [StringLength(1000)]
+        [Required]
         public String Description { get; set; }
         public String Resolution { get; set; }
         public DateTime DateReceived { get; set; }
         public DateTime DateCreated { get; set; }
         public List<QuestionModel> Questions { get; set; }
+        public List<QuestionModel> AnsweredQuestions { get; set; }
+        public List<QuestionModel> UnAnsweredQuestions { get; set; }
 
         public IEnumerable<SelectListItem> CaseStatuses { get; set; }
         public IEnumerable<SelectListItem> CaseTypes { get; set; }

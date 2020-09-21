@@ -11,7 +11,7 @@
     border-style: dashed;
     border-color: #ccc;
     line-height: 200px;
-    text-align: center
+    text-align: center;
 }
 
 .upload-drop-zone.drop {
@@ -41,12 +41,12 @@
         background-color: #fff;
     }
 
-.box__dragndrop,
+.box__dragendrop,
 .box__icon {
     display: none;
 }
 
-.box.has-advanced-upload .box__dragndrop {
+.box.has-advanced-upload .box__dragendrop {
     display: inline;
 }
 
@@ -82,6 +82,7 @@
     top: 50%;
     right: 0;
     left: 0;
+    text-align: center;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
 }
@@ -143,8 +144,8 @@
 
     .js .box__file + label {
         max-width: 80%;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        /*text-overflow: ellipsis;
+        white-space: nowrap;*/
         cursor: pointer;
         display: inline-block;
         overflow: hidden;

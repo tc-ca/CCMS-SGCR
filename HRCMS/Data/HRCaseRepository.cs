@@ -42,7 +42,7 @@ namespace HRCMS.Data
                 var orderby = $"$orderby=createdon%20desc";
                 var statusFilter = "[%27" + string.Join("%27,%27", statusList) + "%27]";
                 var select = $"$select=hr_lastname,hr_name,hr_casestatus,hr_firstname,hr_hrcaseid,createdon&$expand=hr_CaseType($select=hr_name,hr_nameen,hr_namefr),hr_CaseSubType($select=hr_name,hr_nameen,hr_namefr)";
-                var filter = $"$filter=hr_pri%20eq%20{pri}%20and%20Microsoft.Dynamics.CRM.In(PropertyName=%27hr_casestatus%27,PropertyValues={statusFilter})";
+                var filter = $"$filter=hr_pri%20eq%20%27{pri}%27%20and%20Microsoft.Dynamics.CRM.In(PropertyName=%27hr_casestatus%27,PropertyValues={statusFilter})";
                 var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}?{select}&{filter}&{orderby}");
 
                 if (response.IsSuccessStatusCode)
@@ -66,6 +66,10 @@ namespace HRCMS.Data
                         return hrCaseModels;
                     }
                 }
+                else
+                {
+                    //ModelState.AddModelError(string.Empty, "Unable to authenticate. Please check your user name");
+                }
             }
             return null;
         }
@@ -75,7 +79,8 @@ namespace HRCMS.Data
             using (var client = DynamicsApiHelper.GetHttpClient(_appSettings))
             {
                 var entityName = "hr_hrcases";
-                var select = $"$expand=hr_CaseType($select=hr_name,hr_nameen,hr_namefr),hr_CaseSubType($select=hr_name,hr_nameen,hr_namefr),hr_HRCase_hr_HRCase_hr_QuestionandAnswers($select=hr_questionandanswersid,hr_question,hr_answer,hr_read,hr_askedon,hr_answeredon)," +
+                var select = $"$expand=hr_CaseType($select=hr_name,hr_nameen,hr_namefr),hr_CaseSubType($select=hr_name,hr_nameen,hr_namefr)," +
+                    $"hr_HRCase_hr_HRCase_hr_QuestionandAnswers($select=hr_questionandanswersid,hr_question,hr_answer,hr_read,hr_askedon,hr_answeredon,hr_questionsequencenumber)," +
                     $"hr_hrcase_Annotations($select=_objectid_value,filename,subject,notetext,createdon,mimetype;$filter=isdocument%20eq%20true)";
                 var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}({caseId})?{select}");
 
@@ -95,10 +100,13 @@ namespace HRCMS.Data
                             if (hrCase.hr_CaseType != null) { hrCase.hr_CaseType.hr_name = hrCase.hr_CaseType.hr_namefr; }
                             if (hrCase.hr_CaseSubType != null) { hrCase.hr_CaseSubType.hr_name = hrCase.hr_CaseSubType.hr_namefr; }
                         }
-                        var hrCaseMode = _mapper.Map<HRCaseModel>(hrCase);
+                        var hrCaseModel = _mapper.Map<HRCaseModel>(hrCase);
 
-                        //hrCaseMode.Questions = _mapper.Map<List<QuestionModel>>(JObject.Parse(result)["hr_HRCase_hr_HRCase_hr_QuestionandAnswers"].ToArray());
-                        return hrCaseMode;
+                        hrCaseModel.UnAnsweredQuestions = hrCaseModel.Questions.Where(q => string.IsNullOrEmpty(q.DateAnswered)).OrderBy(q => q.DateAsked).ToList();
+                        hrCaseModel.AnsweredQuestions = hrCaseModel.Questions.Where(q => !string.IsNullOrEmpty(q.DateAnswered)).OrderBy(q => q.DateAsked).ToList();
+
+                        hrCaseModel.Attachments.Sort((x, y) => string.Compare(y.DateCreated, x.DateCreated));
+                        return hrCaseModel;
                     }
                 }
             }

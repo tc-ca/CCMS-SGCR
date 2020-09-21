@@ -5,101 +5,118 @@
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
+
 @model HRCMS.ViewModels.HRCaseModel
 
 @{
-    ViewData["Title"] = Localizer["HR Case"] + " " + Model.CaseNumber;
+    ViewData["Title"] = ViewBag.pageTitle;
 }
 
-    <h1>@Localizer["HR Case"]: @Model.CaseNumber</h1>
+<h1>@ViewData["Title"]</h1>
 <div class="row">
     <div class="col-md-12">
-
-        @*<div asp-validation-summary="All"> </div>*@
-        <div class="wb-tabs ignore-session">
+        <div class="wb-tabs">
             <div class="tabpanels">
 
                 <details id="tabGeneral">
-                    <summary>@Localizer["General"]</summary>
+                    <summary>@Localizer["Case Summary"]</summary>
+                    <h2>@Localizer["Employee Information"]</h2>
 
+                    <table class=" table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>@Localizer["First Name"]</th>
+                                <th>@Localizer["Last Name"]</th>
+                                <th>@Localizer["Email"]</th>
+                                <th>@Localizer["<acronym title='Personal Record Identifier'>PRI</acronym>"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Model.LastName</td>
+                                <td>@Model.FirstName</td>
+                                <td><a href="mailto:@Model.Email">@Model.Email</a></td>
+                                <td><div id="PRI">@Model.PRI</div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h2>
+                        @Localizer["Case Details"]
+                    </h2>
+                    <h3>
+                        @Localizer["Inquiry"]
+                    </h3>
+                    <p>
+                        @Model.Description
+                    </p>
+                    <table class=" table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>@Localizer["Case Status"]</th>
+                                <th>@Localizer["Case Type"]</th>
+                                <th>@Localizer["Case Sub-Type"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    @if (Model.CaseStatusId == "315840001")
+                                    {
+                                    <p>
+                                        @SharedLocalizer["Received by Pay"]
+                                    </p>
+                                    }
+                                    else
+                                    {
+                                        <p>
+                                            @Model.CaseStatusText
+                                        </p>
+                                    }
+                                </td>
+                                <td>@Model.CaseType.TypeName</td>
+                                <td>@Model.CaseSubType.SubTypeName</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    @if (Model.CaseStatusId == "315840004" || Model.CaseStatusId == "315840005") //the case is withdrew by Pay or closed
+                    {
+                        <h2>@Localizer["Resolution"]</h2>
+                        <p>@Html.Raw(@Model.Resolution)</p>
+                    }
                     <form asp-action="" method="post">
                         @Html.HiddenFor(m => m.CaseId)
-                        <div class="form-group">
-                               <strong>@Localizer["<acronym title='Personal Record Identifier'>PRI</acronym>"]</strong>
-                            <p>@Model.PRI</p>
-                        </div>
-                        <div class="form-group">
-                            <strong>@Localizer["Last Name"]</strong>
-                            <p>@Model.LastName</p>
-                        </div>
-                        <div class="form-group">
-                            <strong>@Localizer["First Name"]</strong>
-                            <p>@Model.FirstName</p>
-                        </div>
-                        <div class="form-group">
-                            <strong>@Localizer["Email"].Value</strong>
-                            <p><a href="mailto:@Model.Email">@Model.Email</a></p>
-                        </div>
-                        <div class="form-group">
-                            <strong>@Localizer["Case Status"].Value</strong>
-                            @if (Model.CaseStatusId == "315840001")
-                            {
-                        <p>
-                            
-                            @Localizer["Received by Pay"].Value
-                        </p>
-                            }
-                            else
-                            {
-                                <p>
-                                    @Model.CaseStatusText 
-                                </p>
-                            }
-                        </div>
-                        <div class="form-group">
-                            <strong>@Localizer["Case Type"].Value</strong>
-                            <p>@Model.CaseType.TypeName</p>
-                        </div>
-                        <div class="form-group">
-                            <strong>@Localizer["Case Sub-Type"].Value</strong>
-                            <p>@Model.CaseSubType.SubTypeName</p>
-                        </div>
-                        <div class="form-group">
-                            <strong>@Localizer["Description"].Value</strong>
-                            <p>@Model.Description</p>
-                        </div>
-                        @if (Model.CaseStatusId == "315840004" || Model.CaseStatusId == "315840005") //the case is withdrew by Pay or closed
-                        {
-                    <span class="font-weight-bolder">
-                        <strong>@Localizer["Resolution"].Value</strong>
-                    </span>
-                    <p>@Html.Raw(@Model.Resolution)</p>
-                        }
                         @if (Model.CaseStatusId == "315840002") //the case is new
                         {
-                            <div id="divAlert" class="alert alert-warning hidden">
+                            <div id="divDeleteAlert" class="alert alert-warning hidden">
                                 <p>@Localizer["Are you sure?"]</p>
-                                <div class="form-group">
-                                    <input type="submit" id="btnConfirm" asp-action="Delete" value='@Localizer["Confirm"]' class="btn btn-danger" />
-                                    <input type="button" id="btnCancel" value='@Localizer["Cancel"]' class="btn btn-default" />
+                                <div class="btn-group">
+                                    <input type="submit" id="btnConfirmDelete" asp-action="Delete" value='@Localizer["Confirm"]' class="btn btn-danger" />
+                                    <input type="button" id="btnCancelDelete" value='@Localizer["Cancel"]' class="btn btn-default" />
                                 </div>
                             </div>
-                            <div class="form-group" id="divButtons">
-                                <input type="submit" asp-action="Submit" value='@Localizer["Submit"]' class="btn btn-primary" />
-                                <a asp-action="Update" asp-route-id="@Model.CaseId" class="btn btn-default">@Localizer["Update"]</a>
-                                <input type="button" id="btnDelete" value='@Localizer["Delete"]' class="btn btn-warning" />
+                            <div id="divSubmitAlert" class="alert alert-warning hidden">
+                                <p>@Localizer["Are you sure?"]</p>
+                                <div class="btn-group">
+                                    <input type="submit" id="btnConfirmSubmit" asp-action="Submit" value='@Localizer["Confirm"]' class="btn btn-danger" />
+                                    <input type="button" id="btnCancelSubmit" value='@Localizer["Cancel"]' class="btn btn-default" />
+                                </div>
+                            </div>
+                            <div class="" id="divButtons">
+                                <a asp-action="Update" asp-route-id="@Model.CaseId" class="btn btn-primary">@Localizer["Update"]</a>
+                                <a id="btnDelete" class="btn btn-link">@Localizer["Delete"]</a>
+                                <div class="pull-right"><button id="btnSubmitCase" type="button" class="btn btn-success">@SharedLocalizer["Submit case"]</button></div>
                             </div>
                         }
                         else if (Model.CaseStatusId == "315840001" || Model.CaseStatusId == "315840000" || Model.CaseStatusId == "315840003") //withdraw
                         {
-                            <div id="divAlert" class="alert alert-warning hidden">
+                            <div id="divWithdrawAlert" class="alert alert-warning hidden">
                                 <p>@Localizer["Are you sure?"]</p>
                                 <div class="form-group">
-                                    <input type="submit" id="btnConfirm" asp-action="Withdraw" value="@Localizer["Confirm"]" class="btn btn-danger" />
-                                    <input type="button" id="btnCancel" value="@Localizer["Cancel"]" class="btn btn-default" />
+                                    <input type="submit" id="btnConfirmWithdraw" asp-action="Withdraw" value="@Localizer["Confirm"]" class="btn btn-danger" />
+                                    <input type="button" id="btnCancelWithdraw" value="@Localizer["Cancel"]" class="btn btn-default" />
                                 </div>
                             </div>
-                            <div class="form-group" id="divButtons">
+                            <div class="btn-group" id="divButtons">
                                 <input type="button" id="btnWithdraw" value="@Localizer["Withdraw"]" class="btn btn-primary" />
                             </div>
                         }
@@ -109,51 +126,33 @@
                 {
                     <details id="tabQuestions">
                         <summary>@Localizer["Questions and Answers"]</summary>
-
-                        <form id="formQuestionAnswers" asp-action="" method="post">
-
-                            @for (int i = 0; i < Model.Questions.Count; i++)
+                        @if ((string)TempData["QuestionAnswered"] == "true")
+                        {
+                            <section class="alert alert-success">
+                              <p>@Localizer["Your response was successfully submitted."]</p>
+                              <button type="button" class="btn btn-success" id="btnQuestionAnswered">@Localizer["OK"]</button>
+                            </section> 
+                        }
+                        @if (Model.UnAnsweredQuestions.Count > 0)
+                        {
+                            <h2>@Localizer["Current question(s):"]</h2>
+                            @for (int i = 0; i < Model.UnAnsweredQuestions.Count; i++)
                             {
-                                <section class="panel panel-default hght-inhrt">
-                                    @Html.HiddenFor(m => m.Questions[i].QuestionId)
-                                    @if (string.IsNullOrEmpty(Model.Questions[i].AnswerText))
-                                    {
-                                        <div class="alert alert-danger mrgn-bttm-0">
-                                            <label class="font-weight-bolder" for="Questions_@(i)__AnswerText">
-                                                @Model.Questions[i].QuestionText <span class="localDateTime">@Model.Questions[i].DateAsked</span>
-                                            </label>
-                                        </div>
-                                        <div class="panel-body">
-                                            @Html.TextAreaFor(m => m.Questions[i].AnswerText, 5, 200, new { @class = "form-control", @maxlength = "4000" })
-                                            @Html.ValidationMessageFor(m => m.Questions[i].AnswerText, "", htmlAttributes: new { @class = "text-danger" })
-                                        </div>
-                                    }
-                                    else
-                                    {
-                                        <div class="panel-heading">
-                                            <label class="font-weight-bolder">
-                                                @Model.Questions[i].QuestionText <span class="localDateTime">@Model.Questions[i].DateAsked</span>
-                                            </label>
-                                        </div>
-                                        <div class="panel-body">
-                                            <p><span class="localDateTime">@Model.Questions[i].DateAnswered</span></p>
-                                            <p>
-                                                @Model.Questions[i].AnswerText
-                                            </p>
-                                        </div>
-                                    }
-
-                                </section>
-
+                                @await Html.PartialAsync("_QuestionPartial", Model.UnAnsweredQuestions[i])
                             }
-
-
-                            <input type="submit" id="btnUpdateAnswers" class="btn btn-default hidden" asp-action="UpdateAnswers" value="@Localizer["Submit Answers"]" />
-                        </form>
+                        }
+                        @if (Model.AnsweredQuestions.Count > 0)
+                        {
+                            <h2>@Localizer["Previously answered question(s):"]</h2>
+                            @for (int i = 0; i < Model.AnsweredQuestions.Count; i++)
+                            {
+                                @await Html.PartialAsync("_QuestionPartial", Model.AnsweredQuestions[i])
+                            }
+                        }
                     </details>
                 }
 
-                <details id="tbAttachments">
+                <details id="tabAttachments">
                     <summary>@Localizer["Attachments"]</summary>
                     @await Html.PartialAsync("_AttachmentPartial", Model.NewAttachment)
                     <table class="table table-striped" data-wb-tables='{ "ordering" : true, "aaSorting": [[3, "desc"]] }' id="tblAttachments">
@@ -163,7 +162,7 @@
                                     @Localizer["Subject"]
                                 </th>
                                 <th scope="col">
-                                    @Localizer["Note Text"]
+                                    @Localizer["Attachment Description"]
                                 </th>
                                 <th scope="col">
                                     @Localizer["File Name"]
@@ -207,26 +206,26 @@
                     </table>
 
                 </details>
-            </div>
         </div>
-
     </div>
+
+</div>
 </div>
 
 
 <div>
-    <a asp-action="List">@Localizer["Back to List"]</a>
+    <a asp-action="List" class="btn btn-default"><span class="fa fa fa-caret-left mrgn-rght-sm"></span>@SharedLocalizer["View my cases"]</a>
 </div>
 @section CustomScripts {
     @*@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}*@
-    <script type="text/javascript">
+<script type="text/javascript">
         $(document).ready(function () {
 
         });
 
         $(document).on("wb-ready.wb-tabs", ".wb-tabs", function (event) {
             var textarea = $('textarea[maxlength]');
-            var text = ' characters remaining.';
+            var text = ' ' + '@SharedLocalizer["characters remaining."]';
 
 
             $.fn.getCharactersRemaining = function () {
@@ -253,8 +252,16 @@
                 });
             });
 
-            $('#btnWithdraw,#btnCancel, #btnDelete').click(function () {
-                $('#divButtons, #divAlert').toggleClass("hidden");
+            $('#btnWithdraw,#btnCancelWithdraw').click(function () {
+                $('#divButtons, #divWithdrawAlert').toggleClass("hidden");
+            });
+
+            $('#btnDelete,#btnCancelDelete').click(function () {
+                $('#divButtons, #divDeleteAlert').toggleClass("hidden");
+            });
+
+            $('#btnSubmitCase, #btnCancelSubmit').click(function () {
+                $('#divButtons, #divSubmitAlert').toggleClass("hidden");
             });
 
             var localDateTimes = $('.localDateTime');
@@ -262,17 +269,35 @@
                 var utcTime = this.innerHTML;
                 if (utcTime != null) {
                     var d = new Date(utcTime);
-                    this.innerHTML = "[" + utcTime.substring(0, 10) + " " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2) + "]";
+                    this.innerHTML = utcTime.substring(0, 10) + " " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
                 }
             });
 
-            //DragDropFile();
+            var missingZeros = 9 - $("#PRI").text().length;
+            for (var i = 0; i < missingZeros; i++) {
+                $("#PRI").text('0' + $("#PRI").text());
+            }
+            $("#PRI").text($("#PRI").text().replace(/(\d{3})\-?(\d{3})\-?(\d{3})/, '$1-$2-$3'));
+
+
+            //Hide and Show question form
+            $(".btnRespond").click(function () {
+                $(this).next('div').toggleClass('hidden');
+                $(this).toggleClass('hidden');
+            });
+            $(".btnCancelQuestionUpdate").click(function (event) {
+                $(this).closest('.panel-body').children('.btnRespond').toggleClass('hidden');
+                $(this).closest(".editForm").toggleClass('hidden');
+            });
+            $("#btnQuestionAnswered").click(function () {
+                $(this).closest("section").addClass("hidden");
+            });
 
 
         });
 
 
 
-    </script>
+</script>
 }
 

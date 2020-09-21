@@ -117,28 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Choose a file" xml:space="preserve">
-    <value>Choose a file (fr)</value>
+  <data name="Attachment Description" xml:space="preserve">
+    <value>Description de la pièce jointe</value>
   </data>
-  <data name="Input File" xml:space="preserve">
-    <value>Input File (fr)</value>
+  <data name="Choose a file" xml:space="preserve">
+    <value>Choisir un fichier</value>
   </data>
   <data name="Note Text" xml:space="preserve">
-    <value>Note Text (fr)</value>
+    <value>Noter le texte</value>
   </data>
-  <data name="or drage it here" xml:space="preserve">
-    <value>or drage it here (fr)</value>
+  <data name="OK" xml:space="preserve">
+    <value>Confirmer</value>
+  </data>
+  <data name="or drag it here" xml:space="preserve">
+    <value>ou faites-le glisser ici</value>
+  </data>
+  <data name="Please select an upload method below. You may only attach one file." xml:space="preserve">
+    <value>Sélectionnez une méthode de téléchargement ci-dessous.  Vous ne pouvez joindre qu’un seul fichier.</value>
   </data>
   <data name="Subject" xml:space="preserve">
-    <value>Subject (fr)</value>
+    <value>Sujet</value>
   </data>
   <data name="Upload Attachment" xml:space="preserve">
-    <value>Upload Attachment (fr)</value>
+    <value>Télécharger la pièce-jointe</value>
   </data>
   <data name="Upload File" xml:space="preserve">
-    <value>Upload File (fr)</value>
+    <value>Télécharger le fichier</value>
   </data>
   <data name="Uploading" xml:space="preserve">
-    <value>Uploading (fr)</value>
+    <value>Téléchargement</value>
+  </data>
+  <data name="Your attachment was uploaded successfully." xml:space="preserve">
+    <value>Votre pièce jointe a été téléchargée avec succès</value>
   </data>
 </root>

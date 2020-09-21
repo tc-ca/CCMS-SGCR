@@ -117,49 +117,73 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
   <data name="Add a new case" xml:space="preserve">
-    <value>Add a new case (fr)</value>
+    <value>Ajouter un nouveau cas</value>
+  </data>
+  <data name="All Questions" xml:space="preserve">
+    <value>Toutes les questions</value>
   </data>
   <data name="Case Number" xml:space="preserve">
-    <value>Case Number (fr)</value>
+    <value>Numéro du cas</value>
   </data>
   <data name="Case Status" xml:space="preserve">
-    <value>Case Status (fr)</value>
+    <value>État du cas</value>
   </data>
   <data name="Case Sub-Type" xml:space="preserve">
-    <value>Case Sub-Type (fr)</value>
+    <value>Sous-type de cas</value>
   </data>
   <data name="Case Type" xml:space="preserve">
-    <value>Case Type (fr)</value>
+    <value>Type de cas</value>
   </data>
   <data name="Closed Cases" xml:space="preserve">
-    <value>Closed Cases (fr)</value>
+    <value>Cas fermés</value>
   </data>
   <data name="Created On" xml:space="preserve">
-    <value>Created On (fr)</value>
+    <value>Créé le</value>
   </data>
   <data name="N/A" xml:space="preserve">
-    <value>N/A (fr)</value>
+    <value>N/A</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>Confirmer</value>
   </data>
   <data name="Open Cases" xml:space="preserve">
-    <value>Open Cases (fr)</value>
+    <value>Cas ouverts</value>
   </data>
   <data name="Please click the case number to view questions." xml:space="preserve">
-    <value>Please click the case number to view questions. (fr)</value>
+    <value>Veuillez cliquer sur le numéro du cas pour afficher les questions</value>
   </data>
-  <data name="Refresh List" xml:space="preserve">
-    <value>Refresh List (fr)</value>
+  <data name="Question asked on" xml:space="preserve">
+    <value> Question posée le</value>
+  </data>
+  <data name="Refresh list" xml:space="preserve">
+    <value>Actualiser la liste</value>
   </data>
   <data name="Reply" xml:space="preserve">
-    <value>Reply (fr)</value>
+    <value>Réponse</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success (fr)</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>Visualiser</value>
   </data>
   <data name="View My Cases" xml:space="preserve">
-    <value>View My Cases (fr)</value>
+    <value>Visualiser mes cas</value>
   </data>
   <data name="You have 1 question" xml:space="preserve">
-    <value>You have 1 question (fr)</value>
+    <value>Vous avez 1 question</value>
   </data>
   <data name="You have {0} questions" xml:space="preserve">
-    <value>You have {0} questions (fr)</value>
+    <value>Vous avez {0} questions </value>
+  </data>
+  <data name="Your case was successfully submitted." xml:space="preserve">
+    <value>Votre case a été soumise avec succès.</value>
+  </data>
+  <data name="Your case was successfully withdrawn" xml:space="preserve">
+    <value>Votre cas a été retiré avec succès</value>
   </data>
 </root>

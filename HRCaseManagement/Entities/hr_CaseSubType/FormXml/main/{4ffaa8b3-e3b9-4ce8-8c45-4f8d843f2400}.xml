@@ -27,7 +27,7 @@
                           <label description="Name" languagecode="1033" />
                           <label description="Name (fr)" languagecode="1036" />
                         </labels>
-                        <control id="hr_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hr_name" uniqueid="{1517c1e9-785a-a3b5-bba8-3cbd50c4eb2d}" disabled="false" />
+                        <control id="hr_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hr_name" uniqueid="{1517c1e9-785a-a3b5-bba8-3cbd50c4eb2d}" disabled="true" />
                       </cell>
                     </row>
                     <row>
@@ -105,7 +105,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

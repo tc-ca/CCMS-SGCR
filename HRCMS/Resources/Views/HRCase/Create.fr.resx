@@ -118,30 +118,81 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="&lt;acronym title='Personal Record Identifier'&gt;PRI&lt;/acronym&gt;" xml:space="preserve">
-    <value>&lt;acronym title='Personal Record Identifier(fr)'&gt;PRI(fr)&lt;/acronym&gt;</value>
+    <value>&lt;acronym title='Code d&amp;#39;identification de dossier personnel'&gt;CIDP&lt;/acronym&gt;</value>
+  </data>
+  <data name="Are you sure you want to submit the case?" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir soumettre le cas</value>
   </data>
   <data name="Case Sub Type" xml:space="preserve">
-    <value>Case Sub Type (fr)</value>
+    <value>Sous-type de cas</value>
   </data>
   <data name="Case Type" xml:space="preserve">
-    <value>Case Type (fr)</value>
+    <value>Type de cas</value>
   </data>
   <data name="Create New Case" xml:space="preserve">
-    <value>Create New Case (fr)</value>
+    <value>Créer un nouveau cas</value>
   </data>
   <data name="Description" xml:space="preserve">
-    <value>Description (fr)</value>
+    <value>Description</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Modifier</value>
   </data>
   <data name="Email" xml:space="preserve">
-    <value>Email (fr)</value>
+    <value>Courriel</value>
+  </data>
+  <data name="Employee Information" xml:space="preserve">
+    <value>Informations sur l'employé</value>
+  </data>
+  <data name="File Name" xml:space="preserve">
+    <value>Nom du fichier</value>
   </data>
   <data name="First Name" xml:space="preserve">
-    <value>First Name (fr)</value>
+    <value>Prénom</value>
   </data>
-  <data name="HR Case" xml:space="preserve">
-    <value>HR Case (fr)</value>
+  <data name="Pay Case" xml:space="preserve">
+    <value>Cas de paye</value>
   </data>
   <data name="Last Name" xml:space="preserve">
-    <value>Last Name (fr)</value>
+    <value>Nom de famille</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>Confirmer</value>
+  </data>
+  <data name="Please make a selection" xml:space="preserve">
+    <value>Veuillez faire une sélection</value>
+  </data>
+  <data name="Please provide the details of your inquiry" xml:space="preserve">
+    <value>Veuillez fournir les détails de votre enquête</value>
+  </data>
+  <data name="Submit case" xml:space="preserve">
+    <value>Soumettre le cas</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success (fr)</value>
+  </data>
+  <data name="Add a new case" xml:space="preserve">
+    <value>Ajouter un nouveau cas</value>
+  </data>
+  <data name="Case Summary" xml:space="preserve">
+    <value>Résumé du cas</value>
+  </data>
+  <data name="Attachment Description" xml:space="preserve">
+    <value>Description de la pièce jointe</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Mettre à jour</value>
+  </data>
+  <data name="View my cases" xml:space="preserve">
+    <value>Visualiser mes cas</value>
+  </data>
+  <data name="Your case was successfully saved." xml:space="preserve">
+    <value>Votre cas a été sauvegardé avec succès.</value>
+  </data>
+  <data name="Inquiry" xml:space="preserve">
+    <value> Enquête</value>
   </data>
 </root>

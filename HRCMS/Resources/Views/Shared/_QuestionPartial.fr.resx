@@ -117,124 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&lt;acronym title='Personal Record Identifier'&gt;PRI&lt;/acronym&gt;" xml:space="preserve">
-    <value>&lt;acronym title='Code d&amp;#39;identification de dossier personnel'&gt;CIDP&lt;/acronym&gt;</value>
+  <data name="Please provide a response:" xml:space="preserve">
+    <value>S’il vous plaît fournir une réponse</value>
   </data>
-  <data name="Are you sure?" xml:space="preserve">
-    <value>Êtes-vous certain?</value>
+  <data name="Question" xml:space="preserve">
+    <value>Question</value>
   </data>
-  <data name="Attachment Description" xml:space="preserve">
-    <value>Description de la pièce jointe</value>
-  </data>
-  <data name="Attachments" xml:space="preserve">
-    <value>Pièces jointes</value>
-  </data>
-  <data name="Back to List" xml:space="preserve">
-    <value>Retour à la liste</value>
-  </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Annuler</value>
-  </data>
-  <data name="Case Details" xml:space="preserve">
-    <value> Détails du cas</value>
-  </data>
-  <data name="Case Status" xml:space="preserve">
-    <value>État du cas</value>
-  </data>
-  <data name="Case Sub Type" xml:space="preserve">
-    <value>Sous-type de cas</value>
-  </data>
-  <data name="Case Summary" xml:space="preserve">
-    <value>Résumé du cas</value>
-  </data>
-  <data name="Case Type" xml:space="preserve">
-    <value>Type de cas</value>
-  </data>
-  <data name="Confirm" xml:space="preserve">
-    <value>Confirmer</value>
-  </data>
-  <data name="Create New Case" xml:space="preserve">
-    <value>Créer un nouveau cas</value>
-  </data>
-  <data name="Created On" xml:space="preserve">
-    <value>Créé le</value>
-  </data>
-  <data name="Current question(s):" xml:space="preserve">
-    <value>Question(s) actuelle(s):</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Supprimer</value>
-  </data>
-  <data name="Description" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="Email" xml:space="preserve">
-    <value>Courriel</value>
-  </data>
-  <data name="Employee Information" xml:space="preserve">
-    <value>Informations sur l'employé</value>
-  </data>
-  <data name="File Name" xml:space="preserve">
-    <value>Nom du fichier</value>
-  </data>
-  <data name="First Name" xml:space="preserve">
-    <value>Prénom</value>
-  </data>
-  <data name="General" xml:space="preserve">
-    <value>Général</value>
-  </data>
-  <data name="Inquiry" xml:space="preserve">
-    <value> Enquête</value>
-  </data>
-  <data name="Last Name" xml:space="preserve">
-    <value>Nom de famille</value>
-  </data>
-  <data name="N/A" xml:space="preserve">
-    <value>N/A</value>
-  </data>
-  <data name="Note Text" xml:space="preserve">
-    <value>Noter le texte</value>
-  </data>
-  <data name="OK" xml:space="preserve">
-    <value>Confirmer</value>
-  </data>
-  <data name="Pay Case" xml:space="preserve">
-    <value>Cas de paye</value>
-  </data>
-  <data name="Previously answered question(s):" xml:space="preserve">
-    <value>Question(s) précédemment répondue(s):</value>
-  </data>
-  <data name="Questions and Answers" xml:space="preserve">
-    <value>Questions et réponses</value>
-  </data>
-  <data name="Received by Pay" xml:space="preserve">
-    <value>Reçus par la rémunération</value>
-  </data>
-  <data name="Resolution" xml:space="preserve">
-    <value>Résolution</value>
-  </data>
-  <data name="Subject" xml:space="preserve">
-    <value>Sujet</value>
+  <data name="Respond" xml:space="preserve">
+    <value>Répondre</value>
   </data>
   <data name="Submit" xml:space="preserve">
     <value>Soumettre</value>
-  </data>
-  <data name="Submit Answers" xml:space="preserve">
-    <value>Soumettre des réponses</value>
-  </data>
-  <data name="Success" xml:space="preserve">
-    <value>Success (fr)</value>
-  </data>
-  <data name="Update" xml:space="preserve">
-    <value>Mettre à jour</value>
-  </data>
-  <data name="View my cases" xml:space="preserve">
-    <value>Visualiser mes cas</value>
-  </data>
-  <data name="Withdraw" xml:space="preserve">
-    <value>Retirer</value>
-  </data>
-  <data name="Your response was successfully submitted." xml:space="preserve">
-    <value>Votre réponse a été soumise avec succès</value>
   </data>
 </root>

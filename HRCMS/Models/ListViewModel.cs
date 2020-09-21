@@ -9,7 +9,8 @@ namespace HRCMS.ViewModels
 {
     public class ListViewModel
     {
-        public List<HRCaseModel> HrCases { get; set; }
+        public List<HRCaseModel> OpenCases { get; set; }
+        public List<HRCaseModel> ClosedCases { get; set; }
         public List<QuestionModel> Questions { get; set; }     
 
     }

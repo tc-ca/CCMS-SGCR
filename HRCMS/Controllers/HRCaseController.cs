@@ -67,34 +67,49 @@ namespace HRCMS.Controllers
             try            
             {
                 WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["Home"] });
-                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["Cases"] });
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["View My Cases"] });
+                
+                var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync(WebTemplateModel.TwoLetterCultureLanguage);
 
                 var pri = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.PrimarySid)?.Value;
-                
-                var statuses = Request.Cookies["caseList"];
 
-                if(statuses == null)
-                {
-                    statuses = "315840000|315840001|315840002|315840003"; //Default list to Open cases
-                }
-                else
-                {
-                    statuses = HttpUtility.UrlDecode(statuses);
-                }               
+                //var statuses = Request.Cookies["caseList"];
 
-                var hrCases = await _repository.GetAllCasesAsync(pri, statuses, WebTemplateModel.TwoLetterCultureLanguage);
+                //if(statuses == null)
+                //{
+                //    statuses = "315840000|315840001|315840002|315840003"; //Default list to Open cases
+                //}
+                //else
+                //{
+                //    statuses = HttpUtility.UrlDecode(statuses);
+                //}           
+
+                var openStatus = "315840000|315840001|315840002|315840003";
+                var closedStatus = "315840004|315840005|315840006";
+
+                var openCases = await _repository.GetAllCasesAsync(pri, openStatus, WebTemplateModel.TwoLetterCultureLanguage);
+                var closedCases = await _repository.GetAllCasesAsync(pri, closedStatus, WebTemplateModel.TwoLetterCultureLanguage);
+                var questions = await _questionRepository.GetAllUnAnsweredQuestionsAsync(pri);
 
                 //Get case status because 'Received by HR' here eq 'New Cases' in Dynamics
-                var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync();
-                foreach (var hrcase in hrCases)
+                if (openCases != null)
                 {
-                    hrcase.CaseStatusText = caseStatuses.FirstOrDefault(t => t.Value == hrcase.CaseStatusId)?.Text;
+                    foreach (var hrcase in openCases)
+                    {
+                        hrcase.CaseStatusText = caseStatuses.FirstOrDefault(t => t.Value == hrcase.CaseStatusId)?.Text;
+                    }
+                }
+                if (closedCases != null)
+                {
+                    foreach (var hrcase in closedCases)
+                    {
+                        hrcase.CaseStatusText = caseStatuses.FirstOrDefault(t => t.Value == hrcase.CaseStatusId)?.Text;
+                    }
                 }
 
-                var questionModels = await _questionRepository.GetAllUnAnsweredQuestionsAsync(pri);
-                ViewBag.Questions = questionModels;
+                var listModel = new ListViewModel() { OpenCases = openCases, ClosedCases = closedCases, Questions = questions };
 
-                return View(hrCases);
+                return View(listModel);
             }
             catch (Exception e)
             {
@@ -107,25 +122,29 @@ namespace HRCMS.Controllers
             try
             {
                 WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../List", Title = _localizer["Home"] });
-                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../List", Title = _localizer["Cases"] });
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../List", Title = _localizer["View My Cases"] });
+
 
 
                 var hrCaseModel = await _repository.GetCaseAsync(id, WebTemplateModel.TwoLetterCultureLanguage);
 
+                //Match breakcrumb with title
+                string pageTitle = _localizer["Pay Case"].Value + ": " + hrCaseModel.CaseNumber;
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "", Title = pageTitle });
+                ViewBag.pageTitle = pageTitle;
+
+
                 //var hrCaseModel = _mapper.Map<HRCaseModel>(result);
 
-                if(Int32.Parse(hrCaseModel.PRI)!= Int32.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.PrimarySid)?.Value))
+                if (Int32.Parse(hrCaseModel.PRI)!= Int32.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.PrimarySid)?.Value))
                 {
                     ModelState.AddModelError(string.Empty, "Unauthorized");
                     return RedirectToAction("List");
                 }
 
                 //Get case status because 'Received by HR' here eq 'New Cases' in Dynamics
-                var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync();
+                var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync(WebTemplateModel.TwoLetterCultureLanguage);
                 hrCaseModel.CaseStatusText = caseStatuses.FirstOrDefault(t => t.Value == hrCaseModel.CaseStatusId)?.Text;
-                hrCaseModel.Questions.Sort((x, y) => string.Compare(y.DateAsked, x.DateAsked));
-                hrCaseModel.Attachments.Sort((x, y) => string.Compare(y.DateCreated, x.DateCreated));
-
 
                 return View(hrCaseModel);
             }
@@ -141,13 +160,12 @@ namespace HRCMS.Controllers
             try
             {
                 WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["Home"] });
-                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["Cases"] });
-
-
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["View My Cases"] });
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "", Title = _localizer["Add a new case"] });
 
                 var caseTypes = await _caseTypeRepository.GetAllCaseTypesAsync( WebTemplateModel.TwoLetterCultureLanguage);
                 var caseSubTypes = await _caseTypeRepository.GetAllCaseSubTypesAsync( WebTemplateModel.TwoLetterCultureLanguage);
-                var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync( );
+                var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync(WebTemplateModel.TwoLetterCultureLanguage);
 
                 var caseModel = new HRCaseModel
                 {
@@ -172,13 +190,20 @@ namespace HRCMS.Controllers
         {
             try
             {
-                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["Home"] });
-                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../hrcase/List", Title = _localizer["Cases"] });
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../List", Title = _localizer["Home"] });
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "../List", Title = _localizer["View My Cases"] });
 
                 var result = await _repository.GetCaseAsync(id, WebTemplateModel.TwoLetterCultureLanguage);
                 var hrCaseModel = _mapper.Map<HRCaseModel>(result);
 
                 hrCaseModel.CaseTypes = await _caseTypeRepository.GetAllCaseTypesAsync( WebTemplateModel.TwoLetterCultureLanguage);
+
+                //Match breakcrumb with title
+                string pageTitle = _localizer["Pay Case"].Value + ": " + hrCaseModel.CaseNumber;
+                WebTemplateModel.Breadcrumbs.Add(new Breadcrumb { Href = "", Title = pageTitle });
+                ViewBag.pageTitle = pageTitle;
+
+
                 //Set Case subtype according to case type
                 if (!string.IsNullOrEmpty(hrCaseModel.CaseType.TypeId))
                 {
@@ -188,7 +213,7 @@ namespace HRCMS.Controllers
                 {
                     hrCaseModel.CaseSubTypes = await _caseTypeRepository.GetAllCaseSubTypesAsync( WebTemplateModel.TwoLetterCultureLanguage); 
                 }
-                hrCaseModel.CaseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync(); ;
+                hrCaseModel.CaseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync(WebTemplateModel.TwoLetterCultureLanguage); ;
 
                 if (Int32.Parse(hrCaseModel.PRI) != Int32.Parse( User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.PrimarySid)?.Value))
                 {
@@ -207,6 +232,8 @@ namespace HRCMS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Save(HRCaseModel hrCaseModel)
         {
+            hrCaseModel.PRI = hrCaseModel.PRI.Replace("-", "");
+
             if (ModelState.IsValid)
             {
                 //Call the API to save case
@@ -223,32 +250,62 @@ namespace HRCMS.Controllers
                 }
                 if (caseId != null)
                 {
-                    return RedirectToAction("Details", "HRCase", new { id = caseId });
+                    TempData["CaseSaved"] = "true";
+                    return RedirectToAction("Update", new { id = caseId });
                 }
                 else
                 {
-                    ModelState.AddModelError("Error", "Not able to connect to the database.");
+                    ModelState.AddModelError("Error", "Error: Not able to connect to the database.");
                 }
             }
             var caseTypes = await _caseTypeRepository.GetAllCaseTypesAsync( WebTemplateModel.TwoLetterCultureLanguage);
             var caseSubTypes = await _caseTypeRepository.GetAllCaseSubTypesAsync( WebTemplateModel.TwoLetterCultureLanguage);
-            var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync( );
+            var caseStatuses = await _caseTypeRepository.GetAllCaseStatusesAsync(WebTemplateModel.TwoLetterCultureLanguage);
             hrCaseModel.CaseTypes = caseTypes;
             hrCaseModel.CaseSubTypes = caseSubTypes;
             hrCaseModel.CaseStatuses = caseStatuses;
-            return View("Create", hrCaseModel);
+            return View(hrCaseModel);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Submit(HRCaseModel hrCaseModel)
         {
-            var hrCase = new HRCase { hr_hrcaseid = hrCaseModel.CaseId, hr_casestatus = "315840001" }; //Withdrown by client
-            var result = await _repository.UpdateHRCaseAsync(hrCase);
+            hrCaseModel.CaseStatusId = "315840001";
+
+            var hrCase = _mapper.Map<HRCase>(hrCaseModel);
+            string result=null;
+
+            if (string.IsNullOrEmpty(hrCaseModel.CaseId))
+            {
+                if (ModelState.IsValid)
+                {
+                    hrCase.hr_pri = hrCaseModel.PRI.Replace("-", "");
+                    result = await _repository.CreateHRCaseAsync(hrCase);
+                }
+                else
+                {
+                    ModelState.AddModelError("Error", "Error: Not able to submit.");
+                    return View();
+                }
+            }
+            else
+            {
+                result = await _repository.UpdateHRCaseAsync(hrCase);
+                
+            }
+
             if (result == null)
             {
-                ModelState.AddModelError(string.Empty, "Error: Not able to update.");
+                ModelState.AddModelError("Error", "Error: Not able to submit.");
+                return View(hrCaseModel);
             }
-            return RedirectToAction("List");
+            else
+            {
+                TempData["CaseSubmitted"] = "true";
+                return RedirectToAction("List", "hrcase", "tabOpenCases");
+
+            }
+
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -261,8 +318,13 @@ namespace HRCMS.Controllers
             if (result == null)
             {
                 ModelState.AddModelError(string.Empty, "Error: Not able to withdraw.");
+                return View(hrCaseModel);
             }
-            return RedirectToAction("List");
+            else
+            {
+                TempData["CaseWithdrawn"] = "true";
+                return RedirectToAction("List", "hrcase", "tabClosedCases");
+            }
         }
 
         [HttpPost]
@@ -281,23 +343,22 @@ namespace HRCMS.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> UpdateAnswers(HRCaseModel hrCaseModel)
+        public async Task<IActionResult> AnswerQuestion(QuestionModel questionModel, string caseId)
         {
 
             //Call the API to save case
-            var questions = hrCaseModel.Questions;
-            if (questions != null)
+            //var questions = hrCaseModel.Questions;
+            if (ModelState.IsValid)
             {
-                for (int i = 0; i < questions.Count; i++)
+                var ques = _mapper.Map<Question>(questionModel);
+                var result = await _questionRepository.UpdateAnswerAsync(ques);
+                if (result != null)
                 {
-                    if (!string.IsNullOrEmpty(questions[i].AnswerText))
-                    {
-                        var ques = _mapper.Map<Question>(questions[i]);
-                        await _questionRepository.UpdateAnswerAsync(ques);
-                    }
+                    TempData["QuestionAnswered"] = "true";
+                    return RedirectToAction("Details", "HRCase", new { id = caseId }, "tabQuestions");
                 }
+
             }
-            //return View(hrCaseModel);
 
             return RedirectToAction("List");
         }
@@ -339,43 +400,19 @@ namespace HRCMS.Controllers
                 attachment.mimetype = newAttachment.File.ContentType;
                 attachment.documentbody = await newAttachment.File.ReadAsBase64StringAsync(ModelState, _fileSizeLimit);
 
-                await _annotationRepository.UploadAttatchmentAsync(attachment);
-                return RedirectToAction("Details", "HRCase", new { id = newAttachment.CaseId }, "tbAttachments");
-            }
-            else
-            {
+                var id = await _annotationRepository.UploadAttatchmentAsync(attachment);
+                if (id == null)
+                {
+                    ModelState.AddModelError(string.Empty, "Error: Unable to delete.");
 
+                }
+                else
+                {
+                    TempData["AttachmentUploaded"] = "true";
+                }
             }
-            return RedirectToAction("Details", "HRCase", new { id = newAttachment.CaseId }, "tbAttachments");
+            return RedirectToAction("Details", "HRCase", new { id = newAttachment.CaseId }, "tabAttachments");
         }
-
-        [HttpGet]
-        public async Task<JsonResult> UploadAttachmentJS(string fileName, string fileType, string fileContent, string caseId, string subject, string noteText)
-        {
-            if (subject == null)
-            {
-                return null;
-            }
-            if (subject == noteText)
-            {
-                return null;
-            }
-            if (fileContent == null)
-            {
-                return null;
-            }
-
-
-            //var attachment = new Annotation();
-            //attachment._objectid_value = caseId;
-            //attachment.filename = file.;
-            //attachment.mimetype = newAttachment.File.ContentType;
-            //attachment.documentbody = await newAttachment.File.ReadAsBase64StringAsync(ModelState, _fileSizeLimit);
-
-            //await _annotationRepository.UploadAttatchmentAsync(attachment);
-            return null;
-        }
-
-
+     
     }
 }

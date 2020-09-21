@@ -55,8 +55,8 @@ namespace HRCMS.Controllers
             catch
             {
                 ModelState.AddModelError(string.Empty, "Unable to authenticate. Please check your user name");
+                return Redirect("http://tcapps.tc.gc.ca/Corp-Serv-Gen/3/ess_lse/Portal/Home");
             }
-            return View();
         }
 
         [HttpPost]
@@ -115,8 +115,8 @@ namespace HRCMS.Controllers
             WebTemplateModel.SplashPageInfo.FrenchHomeUrl = "/Home/index";
             WebTemplateModel.SplashPageInfo.EnglishTermsUrl = "http://www.canada.ca/en/transparency/terms.html";
             WebTemplateModel.SplashPageInfo.FrenchTermsUrl = "http://www.canada.ca/fr/transparence/avis.html";
-            WebTemplateModel.SplashPageInfo.EnglishName = "HR Case Management System";
-            WebTemplateModel.SplashPageInfo.FrenchName = "HR Case Management System (fr)";
+            WebTemplateModel.SplashPageInfo.EnglishName = "Pay Case Management System";
+            WebTemplateModel.SplashPageInfo.FrenchName = "Pay Case Management System (fr)";
 
             return View();
         }
