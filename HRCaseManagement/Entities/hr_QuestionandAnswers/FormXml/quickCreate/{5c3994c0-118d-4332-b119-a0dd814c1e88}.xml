@@ -10,7 +10,7 @@
         <tab id="{950ca979-b5d3-4904-a50d-5a9fcd7102a1}" name="tab_1" showlabel="false">
           <labels>
             <label description="Tab" languagecode="1033" />
-            <label description="Tab (fr)" languagecode="1036" />
+            <label description="Onglet" languagecode="1036" />
           </labels>
           <columns>
             <column width="33%">
@@ -44,7 +44,7 @@
                       <cell id="{6e61344c-3eac-5757-2b49-62217dd90963}" showlabel="true" locklevel="0" rowspan="5">
                         <labels>
                           <label description="Question" languagecode="1033" />
-                          <label description="Question (fr)" languagecode="1036" />
+                          <label description="Question" languagecode="1036" />
                         </labels>
                         <control id="hr_question" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="hr_question" disabled="false" />
                       </cell>
@@ -95,7 +95,7 @@
     <CanBeDeleted>1</CanBeDeleted>
     <LocalizedNames>
       <LocalizedName description="New Form" languagecode="1033" />
-      <LocalizedName description="New Form (fr)" languagecode="1036" />
+      <LocalizedName description="Nouveau formulaire" languagecode="1036" />
     </LocalizedNames>
   </systemform>
 </forms>

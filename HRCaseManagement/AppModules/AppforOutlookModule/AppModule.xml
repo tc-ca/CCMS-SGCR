@@ -4,6 +4,8 @@
   <IntroducedVersion>1.0</IntroducedVersion>
   <WebResourceId>01bd52d3-f7ca-e911-a83f-000d3a31270e</WebResourceId>
   <OptimizedFor></OptimizedFor>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
   <FormFactor>1</FormFactor>
   <ClientType>8</ClientType>
   <NavigationType>0</NavigationType>
@@ -35,7 +37,7 @@
   </AppModuleRoleMaps>
   <LocalizedNames>
     <LocalizedName description="Dynamics 365 App for Outlook" languagecode="1033" />
-    <LocalizedName description="Dynamics 365 App for Outlook" languagecode="1036" />
+    <LocalizedName description="Application Dynamics 365 pour Outlook" languagecode="1036" />
   </LocalizedNames>
   <Descriptions>
     <Description description="Provides access to Dynamics 365 App for Outlook for enabled users. Available only as an Outlook app. Contact your admin for set up details." languagecode="1033" />

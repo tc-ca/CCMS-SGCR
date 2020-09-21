@@ -21,5 +21,6 @@
   <PrimaryEntity>hr_QuestionandAnswers</PrimaryEntity>
   <LocalizedNames>
     <LocalizedName languagecode="1033" description="Set Question Sequence Number" />
+    <LocalizedName languagecode="1036" description="Définir le numéro de séquence de question" />
   </LocalizedNames>
 </Workflow>

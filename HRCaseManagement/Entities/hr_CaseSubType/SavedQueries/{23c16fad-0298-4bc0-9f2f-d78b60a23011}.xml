@@ -35,7 +35,7 @@
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <LocalizedNames>
       <LocalizedName description="Quick Find Active Case Sub-Types" languagecode="1033" />
-      <LocalizedName description="Quick Find Active Case Sub-Types (fr)" languagecode="1036" />
+      <LocalizedName description="Recherche rapide des sous-types de cas actifs" languagecode="1036" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

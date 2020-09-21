@@ -2,8 +2,362 @@
 <Entity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Name LocalizedName="Email Template" OriginalName="">Template</Name>
   <EntityInfo>
-    <entity Name="Template" unmodified="1">
-      <attributes />
+    <entity Name="Template">
+      <attributes>
+        <attribute PhysicalName="EntityImage">
+          <Type>image</Type>
+          <Name>entityimage</Name>
+          <LogicalName>entityimage</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>DenormalizedChild|PrimaryImage</DisplayMask>
+          <ImeMode>disabled</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>0</IsAuditEnabled>
+          <IsLogical>1</IsLogical>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>6.0.0.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>0</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>0</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>0</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <Format>jpeg</Format>
+          <MaxLength>9437328</MaxLength>
+          <displaynames>
+            <displayname description="Default Image" languagecode="1033" />
+            <displayname description="Image par défaut" languagecode="1036" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Shows the default image for the record." languagecode="1033" />
+            <Description description="Affiche l’image par défaut de l’enregistrement." languagecode="1036" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="IsPersonal">
+          <Type>bit</Type>
+          <Name>ispersonal</Name>
+          <LogicalName>ispersonal</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>5.0.0.0</IntroducedVersion>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>1</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <AppDefaultValue>1</AppDefaultValue>
+          <optionset Name="template_ispersonal">
+            <OptionSetType>bit</OptionSetType>
+            <IntroducedVersion>5.0.0.0</IntroducedVersion>
+            <displaynames>
+              <displayname description="Viewable By" languagecode="1033" />
+              <displayname description="Consultable par" languagecode="1036" />
+            </displaynames>
+            <Descriptions>
+              <Description description="Information about whether the template is personal or is available to all users." languagecode="1033" />
+              <Description description="Information indiquant si le modèle est personnel ou s'il est accessible à tous les utilisateurs." languagecode="1036" />
+            </Descriptions>
+            <options>
+              <option value="0">
+                <labels>
+                  <label description="Organization" languagecode="1033" />
+                  <label description="Organisation" languagecode="1036" />
+                </labels>
+              </option>
+              <option value="1">
+                <labels>
+                  <label description="Individual" languagecode="1033" />
+                  <label description="Individuel" languagecode="1036" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="Viewable By" languagecode="1033" />
+            <displayname description="Consultable par" languagecode="1036" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Information about whether the template is personal or is available to all users." languagecode="1033" />
+            <Description description="Information indiquant si le modèle est personnel ou s'il est accessible à tous les utilisateurs." languagecode="1036" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="IsRecommended">
+          <Type>bit</Type>
+          <Name>isrecommended</Name>
+          <LogicalName>isrecommended</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>0</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>0</ValidForCreateApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>8.2.0.0</IntroducedVersion>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <AppDefaultValue>0</AppDefaultValue>
+          <optionset Name="template_isrecommended">
+            <OptionSetType>bit</OptionSetType>
+            <IntroducedVersion>8.2.0.0</IntroducedVersion>
+            <displaynames>
+              <displayname description="Recommended" languagecode="1033" />
+              <displayname description="Recommandé" languagecode="1036" />
+            </displaynames>
+            <Descriptions>
+              <Description description="Shows if this template is recommended or not" languagecode="1033" />
+              <Description description="Indique si ce modèle est recommandé ou non" languagecode="1036" />
+            </Descriptions>
+            <options>
+              <option value="0">
+                <labels>
+                  <label description="No" languagecode="1033" />
+                  <label description="Non" languagecode="1036" />
+                </labels>
+              </option>
+              <option value="1">
+                <labels>
+                  <label description="Yes" languagecode="1033" />
+                  <label description="Oui" languagecode="1036" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="Recommended" languagecode="1033" />
+            <displayname description="Recommandé" languagecode="1036" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Indicates if a template is recommended by Dynamics 365." languagecode="1033" />
+            <Description description="Indique si un modèle est recommandé par Dynamics 365." languagecode="1036" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="TemplateTypeCode">
+          <Type>picklist</Type>
+          <Name>templatetypecode</Name>
+          <LogicalName>templatetypecode</LogicalName>
+          <RequiredLevel>systemrequired</RequiredLevel>
+          <DisplayMask>ObjectTypeCode|ValidForAdvancedFind|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>5.0.0.0</IntroducedVersion>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>1</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <optionset Name="template_templatetypecode">
+            <OptionSetType>picklist</OptionSetType>
+            <IntroducedVersion>5.0.0.0</IntroducedVersion>
+            <displaynames>
+              <displayname description="Template Type" languagecode="1033" />
+              <displayname description="Type de modèle" languagecode="1036" />
+            </displaynames>
+            <Descriptions>
+              <Description description="Type of email template." languagecode="1033" />
+              <Description description="Type de modèle de courrier électronique." languagecode="1036" />
+            </Descriptions>
+            <options>
+              <option value="1">
+                <labels>
+                  <label description="Account" languagecode="1033" />
+                  <label description="Compte" languagecode="1036" />
+                </labels>
+              </option>
+              <option value="2">
+                <labels>
+                  <label description="Contact" languagecode="1033" />
+                  <label description="Contact" languagecode="1036" />
+                </labels>
+              </option>
+              <option value="4700">
+                <labels>
+                  <label description="System Job" languagecode="1033" />
+                  <label description="Tâche système" languagecode="1036" />
+                </labels>
+              </option>
+              <option value="4">
+                <labels>
+                  <label description="Lead" languagecode="1033" />
+                  <label description="Prospect" languagecode="1036" />
+                </labels>
+                <Descriptions>
+                  <Description description="Prospect ou opportunité commerciale potentielle. Les prospects sont convertis en comptes, contacts ou opportunités lorsqu'ils sont « inclus ». Dans le cas contraire, ils sont supprimés ou archivés." languagecode="1036" />
+                </Descriptions>
+              </option>
+              <option value="4402">
+                <labels>
+                  <label description="Campaign Activity" languagecode="1033" />
+                  <label description="Activité de campagne" languagecode="1036" />
+                </labels>
+                <Descriptions>
+                  <Description description="Tâche effectuée, ou à effectuer, par l'utilisateur pour la planification ou l'exécution d'une campagne." languagecode="1036" />
+                </Descriptions>
+              </option>
+              <option value="112">
+                <labels>
+                  <label description="Case" languagecode="1033" />
+                  <label description="Incident" languagecode="1036" />
+                </labels>
+                <Descriptions>
+                  <Description description="Incident de requête de service associé à un contrat." languagecode="1036" />
+                </Descriptions>
+              </option>
+              <option value="1010">
+                <labels>
+                  <label description="Contract" languagecode="1033" />
+                  <label description="Contrat" languagecode="1036" />
+                </labels>
+                <Descriptions>
+                  <Description description="Accord sur la fourniture d'un service clientèle définie pour un nombre d'incidents ou pour une durée spécifique." languagecode="1036" />
+                </Descriptions>
+              </option>
+              <option value="4214">
+                <labels>
+                  <label description="Service Activity" languagecode="1033" />
+                  <label description="Activité de service" languagecode="1036" />
+                </labels>
+                <Descriptions>
+                  <Description description="Activité de l'organisation destinée à satisfaire les besoins de son client. Chaque activité de service comprend la date, l'heure, la durée et les ressources requises." languagecode="1036" />
+                </Descriptions>
+              </option>
+              <option value="3">
+                <labels>
+                  <label description="Opportunity" languagecode="1033" />
+                  <label description="Opportunité" languagecode="1036" />
+                </labels>
+                <Descriptions>
+                  <Description description="Événement potentiellement générateur de revenus (ou une vente à un compte) qui doit être suivi jusqu'à sa conclusion via un processus de vente." languagecode="1036" />
+                </Descriptions>
+              </option>
+              <option value="1084">
+                <labels>
+                  <label description="Quote" languagecode="1033" />
+                  <label description="Devis" languagecode="1036" />
+                </labels>
+                <Descriptions>
+                  <Description description="Offre formelle de produits et/ou de services, définie en fonction de prix spécifiques et de modalités de paiement correspondantes, envoyée à un prospect." languagecode="1036" />
+                </Descriptions>
+              </option>
+              <option value="1088">
+                <labels>
+                  <label description="Order" languagecode="1033" />
+                  <label description="Commande" languagecode="1036" />
+                </labels>
+                <Descriptions>
+                  <Description description="Devis ayant été accepté." languagecode="1036" />
+                </Descriptions>
+              </option>
+              <option value="1090">
+                <labels>
+                  <label description="Invoice" languagecode="1033" />
+                  <label description="Facture" languagecode="1036" />
+                </labels>
+                <Descriptions>
+                  <Description description="Commande qui a été facturée." languagecode="1036" />
+                </Descriptions>
+              </option>
+              <option value="8">
+                <labels>
+                  <label description="User" languagecode="1033" />
+                  <label description="Utilisateur" languagecode="1036" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="Template Type" languagecode="1033" />
+            <displayname description="Type de modèle" languagecode="1036" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Type of email template." languagecode="1033" />
+            <Description description="Type de modèle de courrier électronique." languagecode="1036" />
+          </Descriptions>
+        </attribute>
+      </attributes>
+      <EntitySetName>templates</EntitySetName>
+      <IsDuplicateCheckSupported>0</IsDuplicateCheckSupported>
+      <IsBusinessProcessEnabled>0</IsBusinessProcessEnabled>
+      <IsRequiredOffline>0</IsRequiredOffline>
+      <IsInteractionCentricEnabled>0</IsInteractionCentricEnabled>
+      <IsCollaboration>0</IsCollaboration>
+      <AutoRouteToOwnerQueue>0</AutoRouteToOwnerQueue>
+      <IsConnectionsEnabled>0</IsConnectionsEnabled>
+      <IsDocumentManagementEnabled>0</IsDocumentManagementEnabled>
+      <AutoCreateAccessTeams>0</AutoCreateAccessTeams>
+      <IsOneNoteIntegrationEnabled>0</IsOneNoteIntegrationEnabled>
+      <IsKnowledgeManagementEnabled>0</IsKnowledgeManagementEnabled>
+      <IsSLAEnabled>0</IsSLAEnabled>
+      <IsDocumentRecommendationsEnabled>0</IsDocumentRecommendationsEnabled>
+      <IsBPFEntity>0</IsBPFEntity>
+      <OwnershipTypeMask>UserOwned</OwnershipTypeMask>
+      <IsAuditEnabled>0</IsAuditEnabled>
+      <IsRetrieveAuditEnabled>0</IsRetrieveAuditEnabled>
+      <IsRetrieveMultipleAuditEnabled>0</IsRetrieveMultipleAuditEnabled>
+      <IsActivity>0</IsActivity>
+      <ActivityTypeMask></ActivityTypeMask>
+      <IsActivityParty>0</IsActivityParty>
+      <IsReplicated>1</IsReplicated>
+      <IsReplicationUserFiltered>1</IsReplicationUserFiltered>
+      <IsMailMergeEnabled>0</IsMailMergeEnabled>
+      <IsVisibleInMobile>0</IsVisibleInMobile>
+      <IsVisibleInMobileClient>1</IsVisibleInMobileClient>
+      <IsReadOnlyInMobileClient>0</IsReadOnlyInMobileClient>
+      <IsOfflineInMobileClient>0</IsOfflineInMobileClient>
+      <DaysSinceRecordLastModified>0</DaysSinceRecordLastModified>
+      <MobileOfflineFilters></MobileOfflineFilters>
+      <IsMapiGridEnabled>0</IsMapiGridEnabled>
+      <IsReadingPaneEnabled>1</IsReadingPaneEnabled>
+      <IsQuickCreateEnabled>0</IsQuickCreateEnabled>
+      <SyncToExternalSearchIndex>0</SyncToExternalSearchIndex>
+      <IntroducedVersion>5.0.0.0</IntroducedVersion>
+      <EnforceStateTransitions>0</EnforceStateTransitions>
+      <EntityHelpUrlEnabled>0</EntityHelpUrlEnabled>
+      <ChangeTrackingEnabled>0</ChangeTrackingEnabled>
+      <IsEnabledForExternalChannels>0</IsEnabledForExternalChannels>
+      <IsSolutionAware>1</IsSolutionAware>
     </entity>
   </EntityInfo>
   <FormXml />

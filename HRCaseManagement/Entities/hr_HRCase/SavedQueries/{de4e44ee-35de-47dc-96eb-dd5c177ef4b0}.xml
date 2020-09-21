@@ -30,8 +30,8 @@
     </fetchxml>
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="HR Case Lookup View" languagecode="1033" />
-      <LocalizedName description="HR Case Lookup View (fr)" languagecode="1036" />
+      <LocalizedName description="Pay Case Lookup View" languagecode="1033" />
+      <LocalizedName description="Vue de recherche de cas de paye" languagecode="1036" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

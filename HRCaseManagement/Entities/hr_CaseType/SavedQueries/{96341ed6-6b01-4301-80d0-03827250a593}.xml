@@ -32,7 +32,7 @@
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <LocalizedNames>
       <LocalizedName description="Inactive Case Types" languagecode="1033" />
-      <LocalizedName description="Inactive Case Types (fr)" languagecode="1036" />
+      <LocalizedName description="Types de cas inactifs" languagecode="1036" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

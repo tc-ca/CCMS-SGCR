@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Entity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Name LocalizedName="Question and Answers" OriginalName="Question and Answers">hr_QuestionandAnswers</Name>
+  <Name LocalizedName="Questions and Answers" OriginalName="Question and Answers">hr_QuestionandAnswers</Name>
   <EntityInfo>
     <entity Name="hr_QuestionandAnswers">
       <LocalizedNames>
-        <LocalizedName description="Question and Answers" languagecode="1033" />
-        <LocalizedName description="Question and Answers (fr)" languagecode="1036" />
+        <LocalizedName description="Questions and Answers" languagecode="1033" />
+        <LocalizedName description="Questions et réponses" languagecode="1036" />
       </LocalizedNames>
       <LocalizedCollectionNames>
-        <LocalizedCollectionName description="Question and Answers" languagecode="1033" />
-        <LocalizedCollectionName description="Question and Answers (fr)" languagecode="1036" />
+        <LocalizedCollectionName description="Questions and Answers" languagecode="1033" />
+        <LocalizedCollectionName description="Questions et réponses" languagecode="1036" />
       </LocalizedCollectionNames>
       <Descriptions>
         <Description description="" languagecode="1033" />
@@ -49,7 +49,7 @@
           <LookupTypes />
           <displaynames>
             <displayname description="Created By" languagecode="1033" />
-            <displayname description="Created By (fr)" languagecode="1036" />
+            <displayname description="Créé par" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the user who created the record." languagecode="1033" />
@@ -91,7 +91,7 @@
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Created On" languagecode="1033" />
-            <displayname description="Created On (fr)" languagecode="1036" />
+            <displayname description="Créé le" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Date and time when the record was created." languagecode="1033" />
@@ -174,7 +174,7 @@
           <Length>8000</Length>
           <displaynames>
             <displayname description="Answer" languagecode="1033" />
-            <displayname description="Answer (fr)" languagecode="1036" />
+            <displayname description="Réponse" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
@@ -215,7 +215,7 @@
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Answered On" languagecode="1033" />
-            <displayname description="Answered On (fr)" languagecode="1036" />
+            <displayname description="Répondu le " languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
@@ -256,7 +256,7 @@
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Asked On" languagecode="1033" />
-            <displayname description="Asked On (fr)" languagecode="1036" />
+            <displayname description="Demandé le" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
@@ -294,8 +294,8 @@
           <LookupStyle>single</LookupStyle>
           <LookupTypes />
           <displaynames>
-            <displayname description="HR Case" languagecode="1033" />
-            <displayname description="HR Case (fr)" languagecode="1036" />
+            <displayname description="Pay Case" languagecode="1033" />
+            <displayname description="Cas de paye" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
@@ -336,7 +336,7 @@
           <Length>8000</Length>
           <displaynames>
             <displayname description="Question" languagecode="1033" />
-            <displayname description="Question (fr)" languagecode="1036" />
+            <displayname description="Question" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
@@ -416,7 +416,7 @@
           <Length>200</Length>
           <displaynames>
             <displayname description="Question Number" languagecode="1033" />
-            <displayname description="Question Number (fr)" languagecode="1036" />
+            <displayname description="Numéro de la question" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Required name field" languagecode="1033" />
@@ -500,7 +500,7 @@
             <IsCustomizable>1</IsCustomizable>
             <displaynames>
               <displayname description="Local Enumeration" languagecode="1033" />
-              <displayname description="Local Enumeration (fr)" languagecode="1036" />
+              <displayname description="Énumération locale" languagecode="1036" />
             </displaynames>
             <Descriptions>
               <Description description="" languagecode="1033" />
@@ -509,20 +509,20 @@
               <option value="1">
                 <labels>
                   <label description="Yes" languagecode="1033" />
-                  <label description="Yes (fr)" languagecode="1036" />
+                  <label description="Oui" languagecode="1036" />
                 </labels>
               </option>
               <option value="0">
                 <labels>
                   <label description="No" languagecode="1033" />
-                  <label description="No (fr)" languagecode="1036" />
+                  <label description="Non" languagecode="1036" />
                 </labels>
               </option>
             </options>
           </optionset>
           <displaynames>
             <displayname description="Read" languagecode="1033" />
-            <displayname description="Read (fr)" languagecode="1036" />
+            <displayname description="Lire" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
@@ -567,7 +567,7 @@
           </displaynames>
           <Descriptions>
             <Description description="Sequence number of the import that created this record." languagecode="1033" />
-            <Description description="Sequence number of the import that created this record. (fr)" languagecode="1036" />
+            <Description description="numéro de séquence de l’importation qui a créé ce dossier" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ModifiedBy">
@@ -604,7 +604,7 @@
           <LookupTypes />
           <displaynames>
             <displayname description="Modified By" languagecode="1033" />
-            <displayname description="Modified By (fr)" languagecode="1036" />
+            <displayname description="Modifié par" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the user who modified the record." languagecode="1033" />
@@ -646,7 +646,7 @@
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Modified On" languagecode="1033" />
-            <displayname description="Modified On (fr)" languagecode="1036" />
+            <displayname description="Modifié le" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Date and time when the record was modified." languagecode="1033" />
@@ -773,7 +773,7 @@
           </LookupTypes>
           <displaynames>
             <displayname description="Owner" languagecode="1033" />
-            <displayname description="Owner (fr)" languagecode="1036" />
+            <displayname description="Propriétaire" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Owner Id" languagecode="1033" />
@@ -938,7 +938,7 @@
             <IsCustomizable>1</IsCustomizable>
             <displaynames>
               <displayname description="Status" languagecode="1033" />
-              <displayname description="Status (fr)" languagecode="1036" />
+              <displayname description="Statut" languagecode="1036" />
             </displaynames>
             <Descriptions>
               <Description description="Status of the Question and Answers" languagecode="1033" />
@@ -948,20 +948,20 @@
               <state value="0" defaultstatus="1" invariantname="Active">
                 <labels>
                   <label description="Active" languagecode="1033" />
-                  <label description="Active (fr)" languagecode="1036" />
+                  <label description="Actif" languagecode="1036" />
                 </labels>
               </state>
               <state value="1" defaultstatus="2" invariantname="Inactive">
                 <labels>
                   <label description="Inactive" languagecode="1033" />
-                  <label description="Inactive (fr)" languagecode="1036" />
+                  <label description="Inactif" languagecode="1036" />
                 </labels>
               </state>
             </states>
           </optionset>
           <displaynames>
             <displayname description="Status" languagecode="1033" />
-            <displayname description="Status (fr)" languagecode="1036" />
+            <displayname description="Statut" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Status of the Question and Answers" languagecode="1033" />
@@ -1014,13 +1014,13 @@
               <status value="1" state="0">
                 <labels>
                   <label description="Active" languagecode="1033" />
-                  <label description="Active (fr)" languagecode="1036" />
+                  <label description="Actif" languagecode="1036" />
                 </labels>
               </status>
               <status value="2" state="1">
                 <labels>
                   <label description="Inactive" languagecode="1033" />
-                  <label description="Inactive (fr)" languagecode="1036" />
+                  <label description="Inactif" languagecode="1036" />
                 </labels>
               </status>
             </statuses>
@@ -1126,6 +1126,7 @@
       <AutoRouteToOwnerQueue>0</AutoRouteToOwnerQueue>
       <IsConnectionsEnabled>0</IsConnectionsEnabled>
       <IsDocumentManagementEnabled>0</IsDocumentManagementEnabled>
+      <AutoCreateAccessTeams>0</AutoCreateAccessTeams>
       <IsOneNoteIntegrationEnabled>0</IsOneNoteIntegrationEnabled>
       <IsKnowledgeManagementEnabled>0</IsKnowledgeManagementEnabled>
       <IsSLAEnabled>0</IsSLAEnabled>

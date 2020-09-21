@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Dashboard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <LocalizedNames>
-    <LocalizedName description="HR Dashboard" languagecode="1033" />
-    <LocalizedName description="HR Dashboard (fr)" languagecode="1036" />
+    <LocalizedName description="Pay Dashboard" languagecode="1033" />
+    <LocalizedName description="Tableau de bord de la rémunération" languagecode="1036" />
   </LocalizedNames>
   <FormId>{e934c16b-617a-ea11-a811-000d3af3b5be}</FormId>
-  <IsCustomizable>1</IsCustomizable>
+  <IsCustomizable>0</IsCustomizable>
   <IsDefault>0</IsDefault>
   <FormXml>
     <forms type="dashboard">
@@ -14,7 +14,7 @@
           <tab showlabel="false" verticallayout="true" id="{e236d2f8-5e08-45cc-9013-fd832f73a809}">
             <labels>
               <label description="Tab" languagecode="1033" />
-              <label description="Tab (fr)" languagecode="1036" />
+              <label description="Onglet" languagecode="1036" />
             </labels>
             <columns>
               <column width="100%">
@@ -29,7 +29,7 @@
                         <cell colspan="2" rowspan="9" showlabel="false" id="{9937e6db-de5a-4891-9916-2d8996be57d7}" auto="false">
                           <labels>
                             <label description="My Cases" languagecode="1033" />
-                            <label description="My Cases (fr)" languagecode="1036" />
+                            <label description="Mes cas" languagecode="1036" />
                           </labels>
                           <control id="Componentd1eb27b" uniqueid="{19233a6d-1e58-d083-21e6-037e0a5a5e79}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                             <parameters>
@@ -54,7 +54,7 @@
                         <cell colspan="2" rowspan="9" showlabel="false" id="{43437ea7-4767-472b-a75e-f6e53dce1e5c}" auto="false">
                           <labels>
                             <label description="Cases with Unread Answers" languagecode="1033" />
-                            <label description="Cases with Unread Answers (fr)" languagecode="1036" />
+                            <label description="Cas avec des réponses non lues" languagecode="1036" />
                           </labels>
                           <control id="Componentc198053" uniqueid="{477174db-d24d-cb04-bc03-28c4ce39bbab}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                             <parameters>
@@ -88,18 +88,18 @@
                       <row>
                         <cell colspan="2" rowspan="9" showlabel="false" id="{79146695-d771-496c-8eb4-faae1f465e5b}" auto="false">
                           <labels>
-                            <label description="HR Cases" languagecode="1033" />
-                            <label description="HR Cases (fr)" languagecode="1036" />
+                            <label description="Pay Cases" languagecode="1033" />
+                            <label description="Cas de paye" languagecode="1036" />
                           </labels>
                           <control id="Componentede7350" uniqueid="{b20102c3-008b-1262-612b-c1514c947b73}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                             <parameters>
                               <TargetEntityType>hr_hrcase</TargetEntityType>
                               <ChartGridMode>Chart</ChartGridMode>
                               <EnableQuickFind>false</EnableQuickFind>
-                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableViewPicker>true</EnableViewPicker>
                               <EnableJumpBar>false</EnableJumpBar>
-                              <RecordsPerPage>7</RecordsPerPage>
-                              <HeaderColorCode />
+                              <RecordsPerPage>9</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
                               <ViewId>{C631DB7E-707B-464A-843E-4121F8DAF5DF}</ViewId>
                               <IsUserView>false</IsUserView>
                               <ViewIds />
@@ -113,18 +113,18 @@
                         </cell>
                         <cell colspan="2" rowspan="9" showlabel="false" id="{2aed49a4-5249-4709-b633-bf9130c02ab6}" auto="false">
                           <labels>
-                            <label description="HR Cases" languagecode="1033" />
-                            <label description="HR Cases (fr)" languagecode="1036" />
+                            <label description="Pay Cases" languagecode="1033" />
+                            <label description="Cas de paye" languagecode="1036" />
                           </labels>
                           <control id="Componenta47f730" uniqueid="{ba70355d-b3dc-cb79-0d8e-cdd14add23be}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                             <parameters>
                               <TargetEntityType>hr_hrcase</TargetEntityType>
                               <ChartGridMode>Chart</ChartGridMode>
                               <EnableQuickFind>false</EnableQuickFind>
-                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableViewPicker>true</EnableViewPicker>
                               <EnableJumpBar>false</EnableJumpBar>
-                              <RecordsPerPage>7</RecordsPerPage>
-                              <HeaderColorCode />
+                              <RecordsPerPage>9</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
                               <ViewId>{C631DB7E-707B-464A-843E-4121F8DAF5DF}</ViewId>
                               <IsUserView>false</IsUserView>
                               <ViewIds />
@@ -145,6 +145,175 @@
                       <row />
                       <row />
                       <row />
+                      <row>
+                        <cell id="{57bbc940-2992-b200-d45e-05dc1be8484b}" showlabel="false" colspan="2" auto="false" rowspan="12">
+                          <labels>
+                            <label description="Pay Cases" languagecode="1033" />
+                            <label description="Cas de paye" languagecode="1036" />
+                          </labels>
+                          <control id="Component3280693" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{b31310ee-d254-ce94-5375-337511d4b8bb}">
+                            <parameters>
+                              <ViewId>{BDD3E7A1-2FF8-EA11-A815-000D3AF357BF}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName />
+                              <TargetEntityType>hr_hrcase</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>true</EnableQuickFind>
+                              <EnableViewPicker>true</EnableViewPicker>
+                              <ViewIds>{BDD3E7A1-2FF8-EA11-A815-000D3AF357BF}</ViewIds>
+                              <EnableJumpBar>true</EnableJumpBar>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <VisualizationId>{BDE02EB6-617A-EA11-A811-000D3AF3B5BE}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>8</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell id="{e527de56-c6ee-aeac-e392-d227624ab513}" showlabel="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                        <cell id="{cde0d333-9852-2e40-132b-41e46c3c667e}" showlabel="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                      </row>
+                      <row>
+                        <cell id="{484d53b7-5da5-ae1b-b86b-690536021b03}" showlabel="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                        <cell id="{45ab8e37-a108-6ea5-2812-292d85e957c0}" showlabel="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                      </row>
+                      <row>
+                        <cell id="{0156a010-8b6a-1b6a-7358-6cd8e593ec44}" showlabel="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                        <cell id="{12a94a47-2897-8e96-465b-da3098ce2879}" showlabel="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                      </row>
+                      <row>
+                        <cell id="{657ac41d-12c4-b674-ed68-974500369833}" showlabel="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                        <cell id="{139ae05c-3d49-3268-3ab9-dced4243e8e2}" showlabel="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                      </row>
+                      <row>
+                        <cell id="{9cdb5b75-577a-6304-1bc0-9d93c0b81e37}" showlabel="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                        <cell id="{0dc75d32-100a-d4cb-8b6a-1c7c14609ee2}" showlabel="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                      </row>
+                      <row>
+                        <cell id="{0a7cea12-7b2d-d628-d013-adeb80240704}" showlabel="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                        <cell id="{0390b689-5982-ee6b-8887-82755dcda2c7}" showlabel="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                      </row>
+                      <row>
+                        <cell id="{1a982086-18b7-4976-483b-e5c887ac4c58}" showlabel="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                        <cell id="{73dc1cad-529a-5944-94b1-9e7ec13750c2}" showlabel="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                      </row>
+                      <row>
+                        <cell id="{7e502471-c962-5447-27a6-1685309dad51}" showlabel="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                        <cell id="{c01d4144-2e58-180a-8bd6-c4d73a79bc39}" showlabel="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                      </row>
+                      <row>
+                        <cell id="{05eeb0d2-28e3-e67e-ba81-8e5c3ac6737e}" showlabel="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                        <cell id="{324506ea-c25d-544c-aa8b-25c2ab59047b}" showlabel="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                      </row>
+                      <row>
+                        <cell id="{133944a5-9d9b-7007-7a65-e6e4e6b9556b}" showlabel="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                        <cell id="{a0c1ea9c-81c7-9656-4c4b-1bed6666d3cb}" showlabel="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                      </row>
+                      <row>
+                        <cell id="{2848871d-e306-554a-2063-261c7d25ab60}" showlabel="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                        <cell id="{58547d5c-5921-3251-c3c0-1c4bb858c32c}" showlabel="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                      </row>
+                      <row>
+                        <cell id="{292395aa-b8ac-947b-650a-4d9bba95e628}" showlabel="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                        <cell id="{58bd8cca-d88d-41a2-da05-5213395e9344}" showlabel="false">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                      </row>
                     </rows>
                   </section>
                 </sections>
@@ -153,6 +322,12 @@
           </tab>
         </tabs>
         <controlDescriptions />
+        <DisplayConditions FallbackForm="true">
+          <Role Id="{C5B36BC8-79DE-EA11-A813-000D3AF357BF}" />
+          <Role Id="{058D6621-2DAF-EA11-A812-000D3AF3B5BE}" />
+          <Role Id="{A30B54D9-DDAC-EA11-A812-000D3AF357BF}" />
+          <Role Id="{68946A7B-3BDE-EA11-A813-000D3AF3B5BE}" />
+        </DisplayConditions>
       </form>
     </forms>
   </FormXml>
