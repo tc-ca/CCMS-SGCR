@@ -17,6 +17,13 @@
   <AppModules />
   <EntityDataProviders />
   <connectionreferences>
+    <connectionreference connectionreferencelogicalname="hr_sharedexcelonlinebusiness_b5f00">
+      <connectionreferencedisplayname>Excel Online (Business)</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_excelonlinebusiness</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
     <connectionreference connectionreferencelogicalname="hr_sharedcommondataservice_3b875">
       <connectionreferencedisplayname>Common Data Service</connectionreferencedisplayname>
       <connectorid>/providers/Microsoft.PowerApps/apis/shared_commondataservice</connectorid>
