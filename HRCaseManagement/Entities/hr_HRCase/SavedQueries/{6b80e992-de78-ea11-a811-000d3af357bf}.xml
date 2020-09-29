@@ -33,14 +33,17 @@
           <attribute name="hr_lastname" />
           <attribute name="hr_casetype" />
           <attribute name="ownerid" />
-          <filter type="and">
-            <condition attribute="statecode" operator="eq" value="0" />
-            <condition attribute="ownerid" operator="eq-userid" />
-          </filter>
           <attribute name="hr_casesubtype" />
           <order attribute="createdon" descending="true" />
           <attribute name="hr_priority" />
           <attribute name="hr_hrcaseid" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+            <condition attribute="ownerid" operator="eq-userid" />
+            <filter type="and">
+              <condition attribute="hr_casestatus" operator="eq" value="315840000" />
+            </filter>
+          </filter>
         </entity>
       </fetch>
     </fetchxml>

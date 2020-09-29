@@ -111,15 +111,15 @@
                       </cell>
                       <cell id="{ee1157ba-b4bc-c148-483e-52e3b813d696}" showlabel="true" locklevel="0" rowspan="6" colspan="1">
                         <labels>
-                          <label description="Resolution" languagecode="1033" />
-                          <label description="Résolution" languagecode="1036" />
+                          <label description="Reason/Resolution" languagecode="1033" />
+                          <label description="Raison/Résolution" languagecode="1036" />
                         </labels>
                         <control id="hr_resolution" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="hr_resolution" disabled="false" uniqueid="{b8dd6393-c533-99b4-6ee2-e0d65ec1a89c}" />
                       </cell>
                     </row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
+                    <row />
+                    <row />
+                    <row />
                     <row />
                     <row />
                   </rows>
@@ -246,20 +246,20 @@
                         </control>
                       </cell>
                     </row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
                   </rows>
                 </section>
               </sections>
@@ -307,7 +307,7 @@
         </rows>
       </header>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

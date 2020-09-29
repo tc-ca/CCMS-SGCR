@@ -762,8 +762,8 @@
           <Format></Format>
           <MaxLength>2000</MaxLength>
           <displaynames>
-            <displayname description="Resolution" languagecode="1033" />
-            <displayname description="Résolution" languagecode="1036" />
+            <displayname description="Reason/Resolution" languagecode="1033" />
+            <displayname description="Raison/Résolution" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
