@@ -59,6 +59,7 @@
     <RolePrivilege name="prvReadCustomization" level="Global" />
     <RolePrivilege name="prvReadEmailTemplate" level="Global" />
     <RolePrivilege name="prvReadEntity" level="Global" />
+    <RolePrivilege name="prvReadEntityMap" level="Global" />
     <RolePrivilege name="prvReadExchangeSyncIdMapping" level="Basic" />
     <RolePrivilege name="prvReadHierarchyRule" level="Global" />
     <RolePrivilege name="prvReadhr_CaseSubType" level="Local" />

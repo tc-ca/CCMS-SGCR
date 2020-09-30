@@ -34,7 +34,7 @@
                           <label description="Case Status" languagecode="1033" />
                           <label description="État du cas" languagecode="1036" />
                         </labels>
-                        <control id="hr_casestatus" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="hr_casestatus" disabled="false" />
+                        <control id="hr_casestatus" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="hr_casestatus" disabled="false" uniqueid="{e0976e45-1980-ad7e-0415-bcba2e0621eb}" />
                       </cell>
                     </row>
                     <row>
@@ -111,15 +111,15 @@
                       </cell>
                       <cell id="{ee1157ba-b4bc-c148-483e-52e3b813d696}" showlabel="true" locklevel="0" rowspan="6" colspan="1">
                         <labels>
-                          <label description="Resolution" languagecode="1033" />
-                          <label description="Résolution" languagecode="1036" />
+                          <label description="Reason/Resolution" languagecode="1033" />
+                          <label description="Raison/Résolution" languagecode="1036" />
                         </labels>
                         <control id="hr_resolution" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="hr_resolution" disabled="false" uniqueid="{b8dd6393-c533-99b4-6ee2-e0d65ec1a89c}" />
                       </cell>
                     </row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
+                    <row />
+                    <row />
+                    <row />
                     <row />
                     <row />
                   </rows>
@@ -246,20 +246,20 @@
                         </control>
                       </cell>
                     </row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
                   </rows>
                 </section>
               </sections>
@@ -383,14 +383,11 @@
       </footer>
       <formLibraries>
         <Library name="hr_scripts/FilterHRStatus.js" libraryUniqueId="{09796d8b-2d30-527e-e7b6-c1b2091e2110}" />
-        <Library name="hr_scripts/ToggleDisplayBPF.js" libraryUniqueId="{b286ac3a-41be-28c6-1cb0-684b1364ae90}" />
-        <Library name="hr_scripts/UpdateCaseStatus.js" libraryUniqueId="{8453973a-1b53-1e75-cd67-541c6812dce8}" />
       </formLibraries>
       <events>
         <event name="onload" application="false" active="false">
           <Handlers>
-            <Handler functionName="FilterHRStatus" libraryName="hr_scripts/FilterHRStatus.js" handlerUniqueId="{b553c997-59ea-c52c-9864-1334532906ea}" enabled="false" parameters="'hr_casestatus', 315840002" passExecutionContext="true" />
-            <Handler functionName="addStageOnChange" libraryName="hr_scripts/UpdateCaseStatus.js" handlerUniqueId="{6296934a-b55d-122d-bc50-0b6835dd03a9}" enabled="true" parameters="" passExecutionContext="true" />
+            <Handler functionName="FilterHRStatus" libraryName="hr_scripts/FilterHRStatus.js" handlerUniqueId="{b553c997-59ea-c52c-9864-1334532906ea}" enabled="true" parameters="'hr_casestatus', 315840002" passExecutionContext="true" />
           </Handlers>
         </event>
       </events>

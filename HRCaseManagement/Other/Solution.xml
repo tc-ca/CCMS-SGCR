@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.1.0.23155" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.1.0.23459" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>HRCaseManagement</UniqueName>
     <LocalizedNames>
@@ -100,6 +100,7 @@
       <RootComponent type="29" id="{ddd26e68-118b-ea11-a811-000d3af3b5be}" behavior="0" />
       <RootComponent type="29" id="{f531fc06-354e-4ccd-a19b-cba151a417d2}" behavior="0" />
       <RootComponent type="29" id="{f83ba787-d778-ea11-a811-000d3af3b5be}" behavior="0" />
+      <RootComponent type="29" id="{fe239eeb-95fe-ea11-a813-000d3af3b5be}" behavior="0" />
       <RootComponent type="29" id="{fef9e0c1-22fc-ea11-a813-000d3af3b5be}" behavior="0" />
       <RootComponent type="36" id="{7a2f9c81-54aa-ea11-a812-000d3af357bf}" behavior="0" />
       <RootComponent type="60" id="{18860761-8b68-4cbc-9561-7c2848c409b1}" behavior="0" />
@@ -130,7 +131,7 @@
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>
-        <Required key="0" type="1" schemaName="bot" displayName="Chatbot" solution="PowerVirtualAgents (1.1.2.118)" />
+        <Required key="0" type="1" schemaName="msdyn_wallsavedqueryusersettings" displayName="Filter" solution="ActivityFeedsCore (9.0.0.0003)" />
         <Dependent key="1" type="1" schemaName="systemuser" displayName="User" />
       </MissingDependency>
       <MissingDependency>
@@ -138,11 +139,11 @@
         <Dependent key="1" type="1" schemaName="systemuser" displayName="User" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="3" type="1" schemaName="msdyn_wallsavedqueryusersettings" displayName="Filter" solution="ActivityFeedsCore (9.0.0.0002)" />
+        <Required key="3" type="1" schemaName="msfp_survey" displayName="Customer Voice survey" solution="MicrosoftFormsPro (2.0.0.8)" />
         <Dependent key="1" type="1" schemaName="systemuser" displayName="User" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="4" type="1" schemaName="msfp_survey" displayName="Customer Voice survey" solution="MicrosoftFormsPro (2.0.0.8)" />
+        <Required key="4" type="1" schemaName="bot" displayName="Chatbot" solution="PowerVirtualAgents (1.1.2.118)" />
         <Dependent key="1" type="1" schemaName="systemuser" displayName="User" />
       </MissingDependency>
       <MissingDependency>
@@ -186,11 +187,11 @@
         <Dependent key="15" type="60" displayName="Information" parentDisplayName="User" id="{c0d7d7dd-afd0-4675-85fe-1cc5a48be6df}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="16" type="61" schemaName="msdyn_/ActivityFeeds.Form.js" displayName="msdyn_/ActivityFeeds.Form.js" solution="ActivityFeedsCore (9.0.0.0002)" />
+        <Required key="16" type="61" schemaName="msdyn_/ActivityFeeds.Form.js" displayName="msdyn_/ActivityFeeds.Form.js" solution="ActivityFeedsCore (9.0.0.0003)" />
         <Dependent key="15" type="60" displayName="Information" parentDisplayName="User" id="{c0d7d7dd-afd0-4675-85fe-1cc5a48be6df}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="17" type="61" schemaName="msdyn_/RecordWall.htm" displayName="msdyn_/RecordWall.htm" solution="ActivityFeedsCore (9.0.0.0002)" />
+        <Required key="17" type="61" schemaName="msdyn_/RecordWall.htm" displayName="msdyn_/RecordWall.htm" solution="ActivityFeedsCore (9.0.0.0003)" />
         <Dependent key="15" type="60" displayName="Information" parentDisplayName="User" id="{c0d7d7dd-afd0-4675-85fe-1cc5a48be6df}" />
       </MissingDependency>
       <MissingDependency>
