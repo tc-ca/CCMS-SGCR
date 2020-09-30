@@ -210,8 +210,8 @@
   <data name="Received by Pay" xml:space="preserve">
     <value>Reçus par la rémunération</value>
   </data>
-  <data name="Resolution" xml:space="preserve">
-    <value>Résolution</value>
+  <data name="Reason/Resolution" xml:space="preserve">
+    <value>Raison/Résolution</value>
   </data>
   <data name="Subject" xml:space="preserve">
     <value>Sujet</value>

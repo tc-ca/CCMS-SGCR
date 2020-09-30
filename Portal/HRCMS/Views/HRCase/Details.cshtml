@@ -80,7 +80,7 @@
                     </table>
                     @if (Model.CaseStatusId == "315840004" || Model.CaseStatusId == "315840005") //the case is withdrew by Pay or closed
                     {
-                        <h2>@Localizer["Resolution"]</h2>
+                        <h2>@Localizer["Reason/Resolution"]</h2>
                         <p>@Html.Raw(@Model.Resolution)</p>
                     }
                     <form asp-action="" method="post">

@@ -12,6 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Home\Login.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Controllers\HRCaseController.cs~RF164b639d.TMP" />
   </ItemGroup>
 
