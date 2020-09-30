@@ -131,7 +131,7 @@
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>
-        <Required key="0" type="1" schemaName="bot" displayName="Chatbot" solution="PowerVirtualAgents (1.1.2.118)" />
+        <Required key="0" type="1" schemaName="msdyn_wallsavedqueryusersettings" displayName="Filter" solution="ActivityFeedsCore (9.0.0.0003)" />
         <Dependent key="1" type="1" schemaName="systemuser" displayName="User" />
       </MissingDependency>
       <MissingDependency>
@@ -139,11 +139,11 @@
         <Dependent key="1" type="1" schemaName="systemuser" displayName="User" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="3" type="1" schemaName="msdyn_wallsavedqueryusersettings" displayName="Filter" solution="ActivityFeedsCore (9.0.0.0003)" />
+        <Required key="3" type="1" schemaName="msfp_survey" displayName="Customer Voice survey" solution="MicrosoftFormsPro (2.0.0.8)" />
         <Dependent key="1" type="1" schemaName="systemuser" displayName="User" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="4" type="1" schemaName="msfp_survey" displayName="Customer Voice survey" solution="MicrosoftFormsPro (2.0.0.8)" />
+        <Required key="4" type="1" schemaName="bot" displayName="Chatbot" solution="PowerVirtualAgents (1.1.2.118)" />
         <Dependent key="1" type="1" schemaName="systemuser" displayName="User" />
       </MissingDependency>
       <MissingDependency>
@@ -172,27 +172,27 @@
       </MissingDependency>
       <MissingDependency>
         <Required key="12" type="2" schemaName="siteid" displayName="Site" parentSchemaName="systemuser" parentDisplayName="User" solution="msdynce_Service (9.0.5.56)" />
-        <Dependent key="13" type="60" displayName="Information" parentDisplayName="User" id="{c0d7d7dd-afd0-4675-85fe-1cc5a48be6df}" />
+        <Dependent key="13" type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="14" type="2" schemaName="territoryid" displayName="Territory" parentSchemaName="systemuser" parentDisplayName="User" solution="msdynce_AppCommon (9.0.4.0066)" />
-        <Dependent key="13" type="60" displayName="Information" parentDisplayName="User" id="{c0d7d7dd-afd0-4675-85fe-1cc5a48be6df}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="15" type="61" schemaName="msdyn_/ActivityFeeds.Form.js" displayName="msdyn_/ActivityFeeds.Form.js" solution="ActivityFeedsCore (9.0.0.0003)" />
-        <Dependent key="13" type="60" displayName="Information" parentDisplayName="User" id="{c0d7d7dd-afd0-4675-85fe-1cc5a48be6df}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required key="16" type="61" schemaName="msdyn_/RecordWall.htm" displayName="msdyn_/RecordWall.htm" solution="ActivityFeedsCore (9.0.0.0003)" />
-        <Dependent key="13" type="60" displayName="Information" parentDisplayName="User" id="{c0d7d7dd-afd0-4675-85fe-1cc5a48be6df}" />
+        <Dependent key="13" type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="12" type="2" schemaName="siteid" displayName="Site" parentSchemaName="systemuser" parentDisplayName="User" solution="msdynce_Service (9.0.5.56)" />
-        <Dependent key="17" type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
+        <Dependent key="15" type="60" displayName="Information" parentDisplayName="User" id="{c0d7d7dd-afd0-4675-85fe-1cc5a48be6df}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="14" type="2" schemaName="territoryid" displayName="Territory" parentSchemaName="systemuser" parentDisplayName="User" solution="msdynce_AppCommon (9.0.4.0066)" />
-        <Dependent key="17" type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
+        <Dependent key="15" type="60" displayName="Information" parentDisplayName="User" id="{c0d7d7dd-afd0-4675-85fe-1cc5a48be6df}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="16" type="61" schemaName="msdyn_/ActivityFeeds.Form.js" displayName="msdyn_/ActivityFeeds.Form.js" solution="ActivityFeedsCore (9.0.0.0003)" />
+        <Dependent key="15" type="60" displayName="Information" parentDisplayName="User" id="{c0d7d7dd-afd0-4675-85fe-1cc5a48be6df}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="17" type="61" schemaName="msdyn_/RecordWall.htm" displayName="msdyn_/RecordWall.htm" solution="ActivityFeedsCore (9.0.0.0003)" />
+        <Dependent key="15" type="60" displayName="Information" parentDisplayName="User" id="{c0d7d7dd-afd0-4675-85fe-1cc5a48be6df}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="8" type="60" displayName="App for Outlook Dashboard" solution="AppforOutlook (1.2.13.0)" id="{95f2e667-95c3-e611-80d6-00155db7dbc8}" />

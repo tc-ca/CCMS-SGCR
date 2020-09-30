@@ -13,19 +13,19 @@
     <Description description="" languagecode="1033" />
   </Descriptions>
   <options>
-    <option value="315840000" ExternalValue="" Color="">
+    <option value="315840001" ExternalValue="" Color="">
       <labels>
-        <label description="Assigned" languagecode="1033" />
-        <label description="Assigné" languagecode="1036" />
+        <label description="New Case" languagecode="1033" />
+        <label description="Nouveau cas" languagecode="1036" />
       </labels>
       <Descriptions>
         <Description description="" languagecode="1033" />
       </Descriptions>
     </option>
-    <option value="315840004" ExternalValue="" Color="#0000ff">
+    <option value="315840000" ExternalValue="" Color="">
       <labels>
-        <label description="Completed/closed" languagecode="1033" />
-        <label description="Terminé/Fermé" languagecode="1036" />
+        <label description="Assigned" languagecode="1033" />
+        <label description="Assigné" languagecode="1036" />
       </labels>
       <Descriptions>
         <Description description="" languagecode="1033" />
@@ -40,10 +40,10 @@
         <Description description="" languagecode="1033" />
       </Descriptions>
     </option>
-    <option value="315840001" ExternalValue="" Color="">
+    <option value="315840004" ExternalValue="" Color="#0000ff">
       <labels>
-        <label description="New Case" languagecode="1033" />
-        <label description="Nouveau cas" languagecode="1036" />
+        <label description="Closed" languagecode="1033" />
+        <label description="Terminé/Fermé" languagecode="1036" />
       </labels>
       <Descriptions>
         <Description description="" languagecode="1033" />
@@ -58,19 +58,19 @@
         <Description description="" languagecode="1033" />
       </Descriptions>
     </option>
-    <option value="315840006" ExternalValue="" Color="#0000ff">
+    <option value="315840005" ExternalValue="" Color="#0000ff">
       <labels>
-        <label description="Withdrawn - by client" languagecode="1033" />
-        <label description="Retiré - par le client" languagecode="1036" />
+        <label description="Withdrawn - by Pay" languagecode="1033" />
+        <label description="Retiré - par la rémunération" languagecode="1036" />
       </labels>
       <Descriptions>
         <Description description="" languagecode="1033" />
       </Descriptions>
     </option>
-    <option value="315840005" ExternalValue="" Color="#0000ff">
+    <option value="315840006" ExternalValue="" Color="#0000ff">
       <labels>
-        <label description="Withdrawn - by Pay" languagecode="1033" />
-        <label description="Retiré - par la rémunération" languagecode="1036" />
+        <label description="Withdrawn - by client" languagecode="1033" />
+        <label description="Retiré - par le client" languagecode="1036" />
       </labels>
       <Descriptions>
         <Description description="" languagecode="1033" />

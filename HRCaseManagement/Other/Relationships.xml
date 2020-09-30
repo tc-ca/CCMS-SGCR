@@ -16,6 +16,7 @@
   <EntityRelationship Name="lk_hr_hrcase_modifiedby" />
   <EntityRelationship Name="lk_hr_questionandanswers_createdby" />
   <EntityRelationship Name="lk_hr_questionandanswers_modifiedby" />
+  <EntityRelationship Name="msdyn_appconfiguration_systemuser" />
   <EntityRelationship Name="owner_hr_casesubtype" />
   <EntityRelationship Name="owner_hr_casetype" />
   <EntityRelationship Name="owner_hr_hrcase" />
