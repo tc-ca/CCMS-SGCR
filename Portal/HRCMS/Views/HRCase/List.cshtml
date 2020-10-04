@@ -98,7 +98,7 @@
                                     {@hrCase.CaseSubType.SubTypeName}
                                 </td>
                                 <td>
-                                    @if (hrCase.CaseStatusId == "315840001")
+                                    @if (hrCase.CaseStatusId == "315840001") //new case
                                     {
                                     <p>
                                         @SharedLocalizer["Received by Pay"]
@@ -112,7 +112,14 @@
                                     }
                                 </td>
                                 <td>
-                                    @hrCase.DateCreated.ToString("yyyy-MM-dd")
+                                    @if (hrCase.CaseStatusId == "315840002") //saved
+                                    {
+                                        @hrCase.DateCreated.ToString("yyyy-MM-dd")
+                                    }
+                                    else
+                                    {
+                                        @hrCase.DateReceived.ToString("yyyy-MM-dd")
+                                    }
                                 </td>
                             </tr>
                         }
@@ -194,7 +201,7 @@
                                         @hrCase.LastName
                                     </td>*@
                                 <td>
-                                    @hrCase.DateCreated.ToString("yyyy-MM-dd")
+                                    @hrCase.DateReceived.ToString("yyyy-MM-dd")
                                 </td>
                             </tr>
                         }
