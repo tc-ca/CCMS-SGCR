@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{fef9e0c1-22fc-ea11-a813-000d3af3b5be}" Name="backup Confirmation of receipt of request from User" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <JsonFileName>/Workflows/backupConfirmationofreceiptofrequestfromUser-FEF9E0C1-22FC-EA11-A813-000D3AF3B5BE.json</JsonFileName>
+<Workflow WorkflowId="{fef9e0c1-22fc-ea11-a813-000d3af3b5be}" Name="Confirmation of receipt of request from User" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <JsonFileName>/Workflows/ConfirmationofreceiptofrequestfromUser-FEF9E0C1-22FC-EA11-A813-000D3AF3B5BE.json</JsonFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>5</Category>
@@ -21,6 +21,6 @@
   <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
   <PrimaryEntity>none</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="backup Confirmation of receipt of request from User" />
+    <LocalizedName languagecode="1033" description="Confirmation of receipt of request from User" />
   </LocalizedNames>
 </Workflow>
