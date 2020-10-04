@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.1.0.23459" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.1.0.23740" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>HRCaseManagement</UniqueName>
     <LocalizedNames>
@@ -91,6 +91,7 @@
       <RootComponent type="20" id="{68946a7b-3bde-ea11-a813-000d3af3b5be}" behavior="0" />
       <RootComponent type="20" id="{a30b54d9-ddac-ea11-a812-000d3af357bf}" behavior="0" />
       <RootComponent type="20" id="{c5b36bc8-79de-ea11-a813-000d3af357bf}" behavior="0" />
+      <RootComponent type="29" id="{224a36ac-4406-eb11-a813-000d3af3b5be}" behavior="0" />
       <RootComponent type="29" id="{331848d4-da78-ea11-a811-000d3af357bf}" behavior="0" />
       <RootComponent type="29" id="{58f1d7cc-59fc-ea11-a813-000d3af3b5be}" behavior="0" />
       <RootComponent type="29" id="{64cbdbff-55fc-ea11-a813-000d3af357bf}" behavior="0" />
@@ -143,7 +144,7 @@
         <Dependent key="1" type="1" schemaName="systemuser" displayName="User" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="4" type="1" schemaName="bot" displayName="Chatbot" solution="PowerVirtualAgents (1.1.2.118)" />
+        <Required key="4" type="1" schemaName="bot" displayName="Chatbot" solution="PowerVirtualAgents (1.1.2.164)" />
         <Dependent key="1" type="1" schemaName="systemuser" displayName="User" />
       </MissingDependency>
       <MissingDependency>
