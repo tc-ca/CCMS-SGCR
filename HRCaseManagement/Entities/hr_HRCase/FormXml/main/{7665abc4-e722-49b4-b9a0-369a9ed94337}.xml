@@ -82,7 +82,7 @@
                           <label description="Date Received" languagecode="1033" />
                           <label description="Date de réception" languagecode="1036" />
                         </labels>
-                        <control id="hr_datereceived" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="hr_datereceived" disabled="false" />
+                        <control id="hr_datereceived" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="hr_datereceived" disabled="true" uniqueid="{d3886ad1-818c-1e48-cb65-bdc302109a6b}" />
                       </cell>
                     </row>
                     <row>
@@ -171,14 +171,23 @@
                           <label description="Created By" languagecode="1033" />
                           <label description="Créé par" languagecode="1036" />
                         </labels>
-                        <control id="createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdby" disabled="false" />
+                        <control id="createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdby" disabled="true" uniqueid="{562b85a3-0a30-8b73-28e0-96dd88cd31b3}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{E88CA999-0B16-4AE9-B6A9-9EDC840D42D8}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
                       </cell>
-                      <cell id="{913ffb8b-af0d-4096-98ca-0a75c1ed1faf}" showlabel="true" locklevel="0">
+                      <cell id="{e042bc39-09ba-eba0-b749-0b23c4047b24}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Created On" languagecode="1033" />
                           <label description="Créé le" languagecode="1036" />
                         </labels>
-                        <control id="createdon" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="false" />
+                        <control id="createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="true" uniqueid="{3a624209-2e6b-2e32-bdd9-7958cb51e9a1}" />
                       </cell>
                     </row>
                     <row>
@@ -187,14 +196,36 @@
                           <label description="Modified By" languagecode="1033" />
                           <label description="Modifié par" languagecode="1036" />
                         </labels>
-                        <control id="modifiedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="modifiedby" disabled="false" />
+                        <control id="modifiedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="modifiedby" disabled="true" uniqueid="{e4849473-a6d8-62de-b4e3-9185234689ec}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{E88CA999-0B16-4AE9-B6A9-9EDC840D42D8}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
                       </cell>
                       <cell id="{9c6420ad-14e7-482f-93d2-71de0ea04add}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Modified On" languagecode="1033" />
                           <label description="Modifié le" languagecode="1036" />
                         </labels>
-                        <control id="modifiedon" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="modifiedon" disabled="false" />
+                        <control id="modifiedon" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="modifiedon" disabled="true" uniqueid="{2e666979-726e-b38c-3369-d12232d063a7}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{787ea438-621d-2be7-d054-670415eb2dc2}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{59a78bd4-843b-5bb1-8d3c-66267129e20b}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Closed On" languagecode="1033" />
+                        </labels>
+                        <control id="hr_closedon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="hr_closedon" disabled="true" uniqueid="{1816e5c5-d33c-bd02-b779-be34089bdd73}" />
                       </cell>
                     </row>
                   </rows>
@@ -387,7 +418,12 @@
       <events>
         <event name="onload" application="false" active="false">
           <Handlers>
-            <Handler functionName="FilterHRStatus" libraryName="hr_scripts/FilterHRStatus.js" handlerUniqueId="{b553c997-59ea-c52c-9864-1334532906ea}" enabled="true" parameters="'hr_casestatus', 315840002" passExecutionContext="true" />
+            <Handler functionName="CCMS.HRCase.FilterHRStatus" libraryName="hr_scripts/FilterHRStatus.js" handlerUniqueId="{b553c997-59ea-c52c-9864-1334532906ea}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onsave" application="false" active="false">
+          <Handlers>
+            <Handler functionName="CCMS.HRCase.ShowCloseCaseConfirmation" libraryName="hr_scripts/FilterHRStatus.js" handlerUniqueId="{4d999e56-145c-0b6b-524a-1dee3e70ce22}" enabled="true" parameters="" passExecutionContext="true" />
           </Handlers>
         </event>
       </events>

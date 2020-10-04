@@ -17,7 +17,7 @@
           <cell name="hr_casestatus" width="100" />
           <cell name="hr_firstname" width="100" />
           <cell name="hr_lastname" width="100" />
-          <cell name="createdon" width="125" />
+          <cell name="hr_datereceived" width="100" />
         </row>
       </grid>
     </layoutxml>
@@ -26,7 +26,6 @@
       <fetch version="1.0" mapping="logical">
         <entity name="hr_hrcase">
           <attribute name="hr_name" />
-          <attribute name="createdon" />
           <attribute name="hr_casestatus" />
           <attribute name="hr_firstname" />
           <attribute name="hr_lastname" />
@@ -38,7 +37,8 @@
             <condition attribute="statecode" operator="eq" value="0" />
             <condition attribute="hr_casestatus" operator="eq" value="315840001" />
           </filter>
-          <order attribute="createdon" descending="true" />
+          <attribute name="hr_datereceived" />
+          <order attribute="hr_name" descending="true" />
         </entity>
       </fetch>
     </fetchxml>

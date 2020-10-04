@@ -18,7 +18,7 @@
           <cell name="hr_casestatus" width="100" imageproviderfunctionname="" imageproviderwebresource="$webresource:hr_ViewJS.js" />
           <cell name="hr_firstname" width="100" />
           <cell name="hr_lastname" width="100" />
-          <cell name="createdon" width="125" />
+          <cell name="hr_datereceived" width="100" />
         </row>
       </grid>
     </layoutxml>
@@ -27,7 +27,6 @@
       <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
         <entity name="hr_hrcase">
           <attribute name="hr_name" />
-          <attribute name="createdon" />
           <attribute name="hr_casestatus" />
           <attribute name="hr_firstname" />
           <attribute name="hr_lastname" />
@@ -35,7 +34,6 @@
           <attribute name="ownerid" />
           <attribute name="hr_casesubtype" />
           <attribute name="hr_priority" />
-          <order attribute="createdon" descending="true" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
             <condition attribute="hr_casestatus" operator="in">
@@ -46,6 +44,8 @@
             <condition attribute="hr_priority" operator="eq" value="1" />
           </filter>
           <attribute name="hr_hrcaseid" />
+          <attribute name="hr_datereceived" />
+          <order attribute="hr_name" descending="true" />
         </entity>
       </fetch>
     </fetchxml>
