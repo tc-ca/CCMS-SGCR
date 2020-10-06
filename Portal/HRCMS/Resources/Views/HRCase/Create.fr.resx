@@ -195,4 +195,7 @@
   <data name="Inquiry" xml:space="preserve">
     <value> Enquête</value>
   </data>
+  <data name="New Case" xml:space="preserve">
+    <value>Nouveau cas</value>
+  </data>
 </root>
