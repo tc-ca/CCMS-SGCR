@@ -28,17 +28,16 @@ namespace CCMS.HRCase {
     var globalContext = Xrm.Utility.getGlobalContext();
     var confirmStrings = {
       text: "Are you sure you want to close this case?",
-      title: "Close case confirmation",
+      title: "",
     };
     if (globalContext.userSettings.languageId == 1036) {
-      confirmStrings.text = "Are you sure you want to close this case? (fr)";
-      confirmStrings.title = "Close case confirmation (fr)";
+      confirmStrings.text = "Êtes-vous certain(e) de vouloir fermer ce cas?";
+      confirmStrings.title = "";
     }
     var confirmOptions = { height: 200, width: 450 };
     Xrm.Navigation.openConfirmDialog(confirmStrings, confirmOptions).then(
       function (success) {
         if (success.confirmed) {
-          console.log("Dialog closed using OK button.");
           closedonField.setValue(new Date());
           Form.data.save();
         } else {
