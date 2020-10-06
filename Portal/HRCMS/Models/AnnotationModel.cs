@@ -21,6 +21,7 @@ namespace HRCMS.ViewModels
         public bool IsDocument { get; set; }
         public String DocumentBody { get; set; }
         public string DateCreated { get; set; }
+        public string DateSubmitted { get; set; }
         public DateTime DateModified { get; set; }
         [Required]
         public IFormFile File { get; set; }

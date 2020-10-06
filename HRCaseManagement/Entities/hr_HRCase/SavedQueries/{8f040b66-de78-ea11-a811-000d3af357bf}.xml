@@ -18,7 +18,7 @@
           <cell name="hr_casestatus" width="100" />
           <cell name="hr_firstname" width="100" />
           <cell name="hr_lastname" width="100" />
-          <cell name="createdon" width="125" />
+          <cell name="hr_datereceived" width="100" />
         </row>
       </grid>
     </layoutxml>
@@ -27,14 +27,12 @@
       <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
         <entity name="hr_hrcase">
           <attribute name="hr_name" />
-          <attribute name="createdon" />
           <attribute name="hr_casestatus" />
           <attribute name="hr_firstname" />
           <attribute name="hr_lastname" />
           <attribute name="hr_casetype" />
           <attribute name="ownerid" />
           <attribute name="hr_casesubtype" />
-          <order attribute="createdon" descending="true" />
           <attribute name="hr_priority" />
           <attribute name="hr_hrcaseid" />
           <filter type="and">
@@ -46,6 +44,8 @@
             </condition>
             <condition attribute="ownerid" operator="eq" value="{76fc09f0-517f-ea11-a811-000d3af3b5be}" uiname="Pay CMS" uitype="systemuser" />
           </filter>
+          <attribute name="hr_datereceived" />
+          <order attribute="hr_name" descending="true" />
         </entity>
       </fetch>
     </fetchxml>

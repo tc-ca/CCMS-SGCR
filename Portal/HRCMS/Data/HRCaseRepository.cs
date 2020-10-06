@@ -41,7 +41,7 @@ namespace HRCMS.Data
                 var statusList = statuses.Split("|");
                 var orderby = $"$orderby=createdon%20desc";
                 var statusFilter = "[%27" + string.Join("%27,%27", statusList) + "%27]";
-                var select = $"$select=hr_lastname,hr_name,hr_casestatus,hr_firstname,hr_hrcaseid,createdon&$expand=hr_CaseType($select=hr_name,hr_nameen,hr_namefr),hr_CaseSubType($select=hr_name,hr_nameen,hr_namefr)";
+                var select = $"$select=hr_lastname,hr_name,hr_casestatus,hr_firstname,hr_hrcaseid,createdon,hr_datereceived&$expand=hr_CaseType($select=hr_name,hr_nameen,hr_namefr),hr_CaseSubType($select=hr_name,hr_nameen,hr_namefr)";
                 var filter = $"$filter=hr_pri%20eq%20%27{pri}%27%20and%20Microsoft.Dynamics.CRM.In(PropertyName=%27hr_casestatus%27,PropertyValues={statusFilter})";
                 var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{entityName}?{select}&{filter}&{orderby}");
 
@@ -128,7 +128,7 @@ namespace HRCMS.Data
                     jCase.hr_email = hrCase.hr_email;
                     jCase.hr_casestatus = hrCase.hr_casestatus; 
                     jCase.hr_description = hrCase.hr_description;
-                    jCase.hr_datereceived = DateTime.Now;
+                    //jCase.hr_datereceived = DateTime.Now;
                     if (hrCase.hr_CaseType.hr_casetypeid != null)
                     {
                         jCase["hr_CaseType@odata.bind"] = $"/hr_casetypes({hrCase.hr_CaseType.hr_casetypeid})";
