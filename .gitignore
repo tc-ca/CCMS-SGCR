@@ -9,8 +9,6 @@
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
-appSettings.json
-appSettings.Development.json
 
 # Build results
 [Dd]ebug/
@@ -45,6 +43,8 @@ dlldata.c
 # DNX
 project.lock.json
 artifacts/
+appSettings.json
+appSettings.Development.json
 
 *_i.c
 *_p.c
