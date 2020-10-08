@@ -39,12 +39,9 @@
             }
             <div class="wb-frmvld">
                 <form id="frmSave" asp-action="Save">
-                    <p>
-                        •	Provide a brief description of how the process works, any relevant timelines etc.
-                        •	Explain why some fields (first name, last name, PRI) are prepopulated
-                        •	Provide some guidance on the email address and what can be used
-                        •	Explain the difference between "saving" and "submitting" a case
-                    </p>
+                    <div class="alert alert-info">
+                        @Localizer["PageInstruction"]                        
+                    </div>
                     <h2>@Localizer["Employee Information"]</h2>
                     @Html.HiddenFor(m => m.CaseId)
                     <div class="">

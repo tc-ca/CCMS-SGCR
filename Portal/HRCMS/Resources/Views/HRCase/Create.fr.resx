@@ -198,4 +198,7 @@
   <data name="New Case" xml:space="preserve">
     <value>Nouveau cas</value>
   </data>
+  <data name="PageInstruction" xml:space="preserve">
+    <value>Note: Vous devez sauvegarder avant de soumettre si vous souhaitez ajouter une pièce jointe à votre cas. Une fois votre demande soumise, elle ne peut plus être modifiée.</value>
+  </data>
 </root>

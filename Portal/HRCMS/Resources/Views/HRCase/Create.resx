@@ -117,37 +117,88 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Back to List" xml:space="preserve">
-    <value>Retour à la liste</value>
+  <data name="&lt;acronym title='Personal Record Identifier'&gt;PRI&lt;/acronym&gt;" xml:space="preserve">
+    <value>&lt;acronym title='Personal Record Identifier'&gt;PRI&lt;/acronym&gt;</value>
+  </data>
+  <data name="Add a new case" xml:space="preserve">
+    <value>Add a new case</value>
+  </data>
+  <data name="Are you sure you want to submit the case?" xml:space="preserve">
+    <value>Are you sure you want to submit the case?</value>
+  </data>
+  <data name="Attachment Description" xml:space="preserve">
+    <value>Attachment Description</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Annuler</value>
+    <value>Cancel</value>
   </data>
-  <data name="characters remaining." xml:space="preserve">
-    <value>charactères restants.</value>
+  <data name="Case Sub Type" xml:space="preserve">
+    <value>Case Sub Type</value>
   </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Supprimer</value>
+  <data name="Case Summary" xml:space="preserve">
+    <value>Case Summary</value>
   </data>
-  <data name="Received by Pay" xml:space="preserve">
-    <value>Reçus par la rémunération</value>
+  <data name="Case Type" xml:space="preserve">
+    <value>Case Type</value>
   </data>
-  <data name="required" xml:space="preserve">
-    <value>requis</value>
+  <data name="Create New Case" xml:space="preserve">
+    <value>Create New Case</value>
   </data>
-  <data name="Save" xml:space="preserve">
-    <value> Sauvegardé</value>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
   </data>
-  <data name="Submit" xml:space="preserve">
-    <value>Soumettre</value>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Employee Information" xml:space="preserve">
+    <value>Employee Information</value>
+  </data>
+  <data name="File Name" xml:space="preserve">
+    <value>File Name</value>
+  </data>
+  <data name="First Name" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="Inquiry" xml:space="preserve">
+    <value>Inquiry</value>
+  </data>
+  <data name="Last Name" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="New Case" xml:space="preserve">
+    <value>New Case</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="PageInstruction" xml:space="preserve">
+    <value>Note: you must save before submitting if you would like to add an attachment to your case.  Once your request is submitted, it can no longer be modified.</value>
+  </data>
+  <data name="Pay Case" xml:space="preserve">
+    <value>Pay Case</value>
+  </data>
+  <data name="Please make a selection" xml:space="preserve">
+    <value>Please make a selection</value>
+  </data>
+  <data name="Please provide the details of your inquiry" xml:space="preserve">
+    <value>Please provide the details of your inquiry</value>
   </data>
   <data name="Submit case" xml:space="preserve">
-    <value>Soumettre le cas</value>
+    <value>Submit case</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
   </data>
   <data name="View my cases" xml:space="preserve">
-    <value>Visualiser mes cas</value>
+    <value>View my cases</value>
   </data>
-  <data name="Withdraw" xml:space="preserve">
-    <value>Retirer</value>
+  <data name="Your case was successfully saved." xml:space="preserve">
+    <value>Your case was successfully saved.</value>
   </data>
 </root>
