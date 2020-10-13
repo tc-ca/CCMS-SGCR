@@ -32,9 +32,9 @@ namespace HRCMS.Data
       
         public async Task<User> GetUserAsync(string userId)
         {
-//#if DEBUG
-            //return new User { userId = "xiaowe", pri = "012345678", firstName = "Weiguang", lastName = "Xiao", email = "weiguang.xiao@034gc.onmicrosoft.com", appToken = "PhoenixForm" };
-//#else
+#if DEBUG
+            return new User { userId = "xiaowe", pri = "085757934", firstName = "Weiguang", lastName = "Xiao", email = "weiguang.xiao@034gc.onmicrosoft.com", appToken = "PhoenixForm" };
+#else
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Add("Cookie", _appSettings.Cookie);
@@ -54,7 +54,7 @@ namespace HRCMS.Data
                     }
                 }
             }
-//#endif
+#endif
             return null;
         }
 

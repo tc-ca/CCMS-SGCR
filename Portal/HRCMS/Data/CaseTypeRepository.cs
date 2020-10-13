@@ -110,7 +110,7 @@ namespace HRCMS.Data
             using (var client = DynamicsApiHelper.GetHttpClient(_appSettings))
             {
                 var optionSetName = "GlobalOptionSetDefinitions";
-                var optionSetId = "15c4b439-a473-ea11-a811-000d3af357bf";
+                var optionSetId = "Name='hr_casestatus'";
                 var response = await client.GetAsync($"{_appSettings.ResourceUrl}/api/data/v{_appSettings.ApiVersion}/{optionSetName}({optionSetId})");
 
                 if (response.IsSuccessStatusCode)
