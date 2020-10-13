@@ -39,9 +39,9 @@
             }
             <div class="wb-frmvld">
                 <form id="frmSave" asp-action="Save">
-                    <div class="alert alert-info">
+                    <section class="alert alert-info">
                         @Localizer["PageInstruction"]                        
-                    </div>
+                    </section>
                     <h2>@Localizer["Employee Information"]</h2>
                     @Html.HiddenFor(m => m.CaseId)
                     <div class="">

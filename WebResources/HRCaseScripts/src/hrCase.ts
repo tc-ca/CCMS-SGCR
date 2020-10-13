@@ -17,7 +17,7 @@ namespace CCMS.HRCase {
     var closedonField = Form.getAttribute("hr_closedon");
 
     //When case status is set to closed
-    if (statusfield.getValue() != hr_casestatus.Closed) {
+    if (statusfield.getValue() != hr_casestatus.Closed && statusfield.getValue() != hr_casestatus.WithdrawnbyPay) {
       return;
     }
 

@@ -14,6 +14,7 @@ using GoC.WebTemplate.Components.Core.Services;
 using GoC.WebTemplate.Components.Entities;
 using GoC.WebTemplate.CoreMVC.Controllers;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
 
 namespace HRCMS.Controllers
 {
@@ -22,12 +23,14 @@ namespace HRCMS.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IUserRepository _userRepository;
+        private readonly HrApi _portalSettings;
 
 
-        public HomeController(ILogger<HomeController> logger, IUserRepository userRepository, ModelAccessor modelAccessor) : base(modelAccessor)
+        public HomeController(ILogger<HomeController> logger, IUserRepository userRepository, IOptions<HrApi> settings, ModelAccessor modelAccessor) : base(modelAccessor)
         {
             _logger = logger;
             _userRepository = userRepository;
+            _portalSettings = settings.Value;
         }
 
         //public IActionResult Index()
@@ -55,7 +58,7 @@ namespace HRCMS.Controllers
             catch
             {
                 ModelState.AddModelError(string.Empty, "Unable to authenticate. Please check your user name");
-                return Redirect("http://tcapps.tc.gc.ca/Corp-Serv-Gen/3/ess_lse/Portal/Home");
+                return Redirect(_portalSettings.PortalUrl);
             }
         }
 
