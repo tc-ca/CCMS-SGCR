@@ -41,7 +41,14 @@ namespace HRCMS.Controllers
         {
             try
             {
-                var user = await _userRepository.GetUserAsync(id);
+                User user=null;
+                var counter = 0;
+                while(user == null && counter<3)
+                {
+                    user= await _userRepository.GetUserAsync(id);
+                    counter = counter + 1;
+                }
+                
                 var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
                 identity.AddClaim(new Claim(ClaimTypes.PrimarySid, user.pri));
                 identity.AddClaim(new Claim(ClaimTypes.GivenName, user.firstName));
@@ -107,6 +114,7 @@ namespace HRCMS.Controllers
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        [AllowAnonymous]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

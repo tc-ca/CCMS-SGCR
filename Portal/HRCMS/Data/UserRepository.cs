@@ -28,10 +28,11 @@ namespace HRCMS.Data
             _appSettings = settings.Value;
         }
 
-       
-      
+
+        [ResponseCache(NoStore = true)]
         public async Task<User> GetUserAsync(string userId)
         {
+            //userId = "HU5FMXJLMW1DR9X";
 #if DEBUG
             return new User { userId = "xiaowe", pri = "085757934", firstName = "Weiguang", lastName = "Xiao", email = "weiguang.xiao@034gc.onmicrosoft.com", appToken = "PhoenixForm" };
 #else
@@ -52,6 +53,10 @@ namespace HRCMS.Data
                         var user = JsonConvert.DeserializeObject<User>(result);
                         return user;
                     }
+                }
+                else
+                {
+                    _logger.LogDebug("Failed to authenticate from HR Portal");
                 }
             }
 #endif

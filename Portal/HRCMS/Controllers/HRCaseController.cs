@@ -113,6 +113,7 @@ namespace HRCMS.Controllers
             }
             catch (Exception e)
             {
+                _logger.LogDebug("Failed to retrieve case list");
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
             }
         }
@@ -150,6 +151,7 @@ namespace HRCMS.Controllers
             }
             catch (Exception e)
             {
+                _logger.LogDebug("Failed to retrieve case detail");
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
             }
         }
@@ -182,6 +184,7 @@ namespace HRCMS.Controllers
             }
             catch (Exception e)
             {
+                _logger.LogDebug("Failed to create a case");
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
             }
         }
@@ -225,6 +228,7 @@ namespace HRCMS.Controllers
             }
             catch (Exception e)
             {
+                _logger.LogDebug("Failed to update a case");
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
             }
         }

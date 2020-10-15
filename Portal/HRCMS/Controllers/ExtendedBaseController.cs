@@ -58,7 +58,7 @@ namespace HRCMS.Controllers
             //};
 
             WebTemplateModel.Settings.ShowPreContent = false;
-            WebTemplateModel.HTMLBodyElements.Add("<script src='/js/site.js'></script>");
+            //WebTemplateModel.HTMLBodyElements.Add("<script src='/js/site.js'></script>");
 
         }
 
