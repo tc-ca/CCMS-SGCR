@@ -29,6 +29,7 @@
     <RolePrivilege name="prvCreatehr_QuestionandAnswers" level="Local" />
     <RolePrivilege name="prvCreateNote" level="Local" />
     <RolePrivilege name="prvCreatePersonalDocumentTemplate" level="Global" />
+    <RolePrivilege name="prvCreateQuery" level="Global" />
     <RolePrivilege name="prvCreateRelationship" level="Global" />
     <RolePrivilege name="prvCreateSharePointData" level="Global" />
     <RolePrivilege name="prvCreateUserEntityUISettings" level="Basic" />
@@ -66,6 +67,7 @@
     <RolePrivilege name="prvReadInteractionForEmail" level="Global" />
     <RolePrivilege name="prvReadNote" level="Local" />
     <RolePrivilege name="prvReadOptionSet" level="Global" />
+    <RolePrivilege name="prvReadOrganization" level="Global" />
     <RolePrivilege name="prvReadPersonalDocumentTemplate" level="Global" />
     <RolePrivilege name="prvReadPluginAssembly" level="Global" />
     <RolePrivilege name="prvReadPluginType" level="Global" />
@@ -104,6 +106,7 @@
     <RolePrivilege name="prvWritehr_QuestionandAnswers" level="Local" />
     <RolePrivilege name="prvWriteNote" level="Local" />
     <RolePrivilege name="prvWritePersonalDocumentTemplate" level="Global" />
+    <RolePrivilege name="prvWriteQuery" level="Global" />
     <RolePrivilege name="prvWriteSharePointData" level="Global" />
     <RolePrivilege name="prvWriteUserEntityUISettings" level="Basic" />
     <RolePrivilege name="prvWriteUserForm" level="Basic" />
