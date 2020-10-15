@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Role id="{c5b36bc8-79de-ea11-a813-000d3af357bf}" name="HRCMS Administrator" isinherited="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Role id="{c5b36bc8-79de-ea11-a813-000d3af357bf}" name="Compensation Administrator" isinherited="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <IsCustomizable>1</IsCustomizable>
   <RolePrivileges>
     <RolePrivilege name="prvActivateBusinessProcessFlow" level="Global" />
