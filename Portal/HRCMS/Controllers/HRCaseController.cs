@@ -394,7 +394,7 @@ namespace HRCMS.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UploadAttachment(AnnotationModel newAttachment)
+        public async Task<bool> UploadAttachment(AnnotationModel newAttachment)
         {
             if (ModelState.IsValid)
             {
@@ -415,7 +415,9 @@ namespace HRCMS.Controllers
                     TempData["AttachmentUploaded"] = "true";
                 }
             }
-            return RedirectToAction("Details", "HRCase", new { id = newAttachment.CaseId }, "tabAttachments");
+            return true;
+            //return RedirectToAction("Details", "HRCase", new { id = newAttachment.CaseId }, "tabAttachments");
+
         }
      
     }

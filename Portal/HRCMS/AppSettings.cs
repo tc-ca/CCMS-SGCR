@@ -13,6 +13,7 @@ namespace HRCMS
         public string TenantId { get; set; }
         public string ClientSecret { get; set; }
         public string AuthContextUrl { get; set; }
+        public string AppUserId { get; set; }
     }
 
     public class HrApi
