@@ -394,7 +394,22 @@ namespace HRCMS.Controllers
         }
 
         [HttpPost]
-        public async Task<bool> UploadAttachment(AnnotationModel newAttachment)
+        public async Task<IActionResult> UploadAttachment(AnnotationModel newAttachment)
+        {
+            bool uploaded = await UploadAttachmentDragDrop(newAttachment);
+            if (uploaded)
+            {
+                return RedirectToAction("Details", "HRCase", new { id = newAttachment.CaseId }, "tabAttachments");
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
+        [HttpPost]
+        public async Task<bool> UploadAttachmentDragDrop(AnnotationModel newAttachment)
         {
             if (ModelState.IsValid)
             {
@@ -413,12 +428,11 @@ namespace HRCMS.Controllers
                 else
                 {
                     TempData["AttachmentUploaded"] = "true";
+                    return true;
                 }
             }
-            return true;
-            //return RedirectToAction("Details", "HRCase", new { id = newAttachment.CaseId }, "tabAttachments");
-
+            return false;
         }
-     
+
     }
 }
