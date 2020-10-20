@@ -3,6 +3,18 @@
   <Name LocalizedName="Email Template" OriginalName="">Template</Name>
   <EntityInfo>
     <entity Name="Template">
+      <LocalizedNames>
+        <LocalizedName description="Email Template" languagecode="1033" />
+        <LocalizedName description="Modèle de courrier électronique" languagecode="1036" />
+      </LocalizedNames>
+      <LocalizedCollectionNames>
+        <LocalizedCollectionName description="Email Templates" languagecode="1033" />
+        <LocalizedCollectionName description="Modèles de courr. électr." languagecode="1036" />
+      </LocalizedCollectionNames>
+      <Descriptions>
+        <Description description="Template for an email message that contains the standard attributes of an email message." languagecode="1033" />
+        <Description description="Modèle de message électronique contenant les attributs standard d'un message électronique." languagecode="1036" />
+      </Descriptions>
       <attributes>
         <attribute PhysicalName="EntityImage">
           <Type>image</Type>
@@ -74,8 +86,8 @@
             <OptionSetType>bit</OptionSetType>
             <IntroducedVersion>5.0.0.0</IntroducedVersion>
             <displaynames>
-              <displayname description="Viewable By" languagecode="1033" />
               <displayname description="Consultable par" languagecode="1036" />
+              <displayname description="Viewable By" languagecode="1033" />
             </displaynames>
             <Descriptions>
               <Description description="Information about whether the template is personal or is available to all users." languagecode="1033" />
@@ -133,8 +145,8 @@
             <OptionSetType>bit</OptionSetType>
             <IntroducedVersion>8.2.0.0</IntroducedVersion>
             <displaynames>
-              <displayname description="Recommended" languagecode="1033" />
               <displayname description="Recommandé" languagecode="1036" />
+              <displayname description="Recommended" languagecode="1033" />
             </displaynames>
             <Descriptions>
               <Description description="Shows if this template is recommended or not" languagecode="1033" />
@@ -143,14 +155,14 @@
             <options>
               <option value="0">
                 <labels>
-                  <label description="No" languagecode="1033" />
                   <label description="Non" languagecode="1036" />
+                  <label description="No" languagecode="1033" />
                 </labels>
               </option>
               <option value="1">
                 <labels>
-                  <label description="Yes" languagecode="1033" />
                   <label description="Oui" languagecode="1036" />
+                  <label description="Yes" languagecode="1033" />
                 </labels>
               </option>
             </options>
@@ -192,8 +204,8 @@
             <OptionSetType>picklist</OptionSetType>
             <IntroducedVersion>5.0.0.0</IntroducedVersion>
             <displaynames>
-              <displayname description="Template Type" languagecode="1033" />
               <displayname description="Type de modèle" languagecode="1036" />
+              <displayname description="Template Type" languagecode="1033" />
             </displaynames>
             <Descriptions>
               <Description description="Type of email template." languagecode="1033" />
@@ -225,6 +237,7 @@
                 </labels>
                 <Descriptions>
                   <Description description="Prospect ou opportunité commerciale potentielle. Les prospects sont convertis en comptes, contacts ou opportunités lorsqu'ils sont « inclus ». Dans le cas contraire, ils sont supprimés ou archivés." languagecode="1036" />
+                  <Description description="Prospect ou opportunité commerciale potentielle. Les prospects sont convertis en comptes, contacts ou opportunités lorsqu'ils sont « inclus ». Dans le cas contraire, ils sont supprimés ou archivés." languagecode="1033" />
                 </Descriptions>
               </option>
               <option value="4402">
@@ -234,6 +247,7 @@
                 </labels>
                 <Descriptions>
                   <Description description="Tâche effectuée, ou à effectuer, par l'utilisateur pour la planification ou l'exécution d'une campagne." languagecode="1036" />
+                  <Description description="Tâche effectuée, ou à effectuer, par l'utilisateur pour la planification ou l'exécution d'une campagne." languagecode="1033" />
                 </Descriptions>
               </option>
               <option value="112">
@@ -243,6 +257,7 @@
                 </labels>
                 <Descriptions>
                   <Description description="Incident de requête de service associé à un contrat." languagecode="1036" />
+                  <Description description="Incident de requête de service associé à un contrat." languagecode="1033" />
                 </Descriptions>
               </option>
               <option value="1010">
@@ -252,6 +267,7 @@
                 </labels>
                 <Descriptions>
                   <Description description="Accord sur la fourniture d'un service clientèle définie pour un nombre d'incidents ou pour une durée spécifique." languagecode="1036" />
+                  <Description description="Accord sur la fourniture d'un service clientèle définie pour un nombre d'incidents ou pour une durée spécifique." languagecode="1033" />
                 </Descriptions>
               </option>
               <option value="4214">
@@ -261,6 +277,7 @@
                 </labels>
                 <Descriptions>
                   <Description description="Activité de l'organisation destinée à satisfaire les besoins de son client. Chaque activité de service comprend la date, l'heure, la durée et les ressources requises." languagecode="1036" />
+                  <Description description="Activité de l'organisation destinée à satisfaire les besoins de son client. Chaque activité de service comprend la date, l'heure, la durée et les ressources requises." languagecode="1033" />
                 </Descriptions>
               </option>
               <option value="3">
@@ -270,6 +287,7 @@
                 </labels>
                 <Descriptions>
                   <Description description="Événement potentiellement générateur de revenus (ou une vente à un compte) qui doit être suivi jusqu'à sa conclusion via un processus de vente." languagecode="1036" />
+                  <Description description="Événement potentiellement générateur de revenus (ou une vente à un compte) qui doit être suivi jusqu'à sa conclusion via un processus de vente." languagecode="1033" />
                 </Descriptions>
               </option>
               <option value="1084">
@@ -279,6 +297,7 @@
                 </labels>
                 <Descriptions>
                   <Description description="Offre formelle de produits et/ou de services, définie en fonction de prix spécifiques et de modalités de paiement correspondantes, envoyée à un prospect." languagecode="1036" />
+                  <Description description="Offre formelle de produits et/ou de services, définie en fonction de prix spécifiques et de modalités de paiement correspondantes, envoyée à un prospect." languagecode="1033" />
                 </Descriptions>
               </option>
               <option value="1088">
@@ -288,6 +307,7 @@
                 </labels>
                 <Descriptions>
                   <Description description="Devis ayant été accepté." languagecode="1036" />
+                  <Description description="Devis ayant été accepté." languagecode="1033" />
                 </Descriptions>
               </option>
               <option value="1090">
@@ -297,6 +317,7 @@
                 </labels>
                 <Descriptions>
                   <Description description="Commande qui a été facturée." languagecode="1036" />
+                  <Description description="Commande qui a été facturée." languagecode="1033" />
                 </Descriptions>
               </option>
               <option value="8">
