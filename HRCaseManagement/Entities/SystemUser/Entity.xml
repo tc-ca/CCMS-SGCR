@@ -3,6 +3,18 @@
   <Name LocalizedName="User" OriginalName="">SystemUser</Name>
   <EntityInfo>
     <entity Name="SystemUser">
+      <LocalizedNames>
+        <LocalizedName description="User" languagecode="1033" />
+        <LocalizedName description="Utilisateur" languagecode="1036" />
+      </LocalizedNames>
+      <LocalizedCollectionNames>
+        <LocalizedCollectionName description="Users" languagecode="1033" />
+        <LocalizedCollectionName description="Utilisateurs" languagecode="1036" />
+      </LocalizedCollectionNames>
+      <Descriptions>
+        <Description description="Person with access to the Microsoft CRM system and who owns objects in the Microsoft CRM database." languagecode="1033" />
+        <Description description="Personne ayant accès au système Microsoft CRM et qui possède des objets dans la base de données Microsoft CRM." languagecode="1036" />
+      </Descriptions>
       <attributes>
         <attribute PhysicalName="AccessMode">
           <Type>picklist</Type>
@@ -54,8 +66,8 @@
               </option>
               <option value="2">
                 <labels>
-                  <label description="Read" languagecode="1033" />
                   <label description="Lecture" languagecode="1036" />
+                  <label description="Read" languagecode="1033" />
                 </labels>
               </option>
               <option value="3">
@@ -385,8 +397,8 @@
             <OptionSetType>bit</OptionSetType>
             <IntroducedVersion>5.0.0.0</IntroducedVersion>
             <displaynames>
-              <displayname description="Status" languagecode="1033" />
               <displayname description="Statut" languagecode="1036" />
+              <displayname description="Status" languagecode="1033" />
             </displaynames>
             <Descriptions>
               <Description description="Information about whether the user is enabled." languagecode="1033" />
@@ -508,14 +520,14 @@
             <options>
               <option value="0">
                 <labels>
-                  <label description="No" languagecode="1033" />
                   <label description="Non" languagecode="1036" />
+                  <label description="No" languagecode="1033" />
                 </labels>
               </option>
               <option value="1">
                 <labels>
-                  <label description="Yes" languagecode="1033" />
                   <label description="Oui" languagecode="1036" />
+                  <label description="Yes" languagecode="1033" />
                 </labels>
               </option>
             </options>
@@ -556,6 +568,9 @@
           <optionset Name="systemuser_isuserlicensed">
             <OptionSetType>bit</OptionSetType>
             <IntroducedVersion>5.0.0.0</IntroducedVersion>
+            <displaynames>
+              <displayname description="systemuser_isuserlicensed" languagecode="1033" />
+            </displaynames>
             <Descriptions>
               <Description description="Information about whether the user is licensed or not." languagecode="1033" />
               <Description description="Informations indiquant si une licence est accordée ou non à l’utilisateur." languagecode="1036" />
@@ -563,14 +578,14 @@
             <options>
               <option value="0">
                 <labels>
-                  <label description="No" languagecode="1033" />
                   <label description="Non" languagecode="1036" />
+                  <label description="No" languagecode="1033" />
                 </labels>
               </option>
               <option value="1">
                 <labels>
-                  <label description="Yes" languagecode="1033" />
                   <label description="Oui" languagecode="1036" />
+                  <label description="Yes" languagecode="1033" />
                 </labels>
               </option>
             </options>
@@ -676,14 +691,14 @@
             <options>
               <option value="0">
                 <labels>
-                  <label description="No" languagecode="1033" />
                   <label description="Non" languagecode="1036" />
+                  <label description="No" languagecode="1033" />
                 </labels>
               </option>
               <option value="1">
                 <labels>
-                  <label description="Yes" languagecode="1033" />
                   <label description="Oui" languagecode="1036" />
+                  <label description="Yes" languagecode="1033" />
                 </labels>
               </option>
             </options>
