@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PluginAssembly FullName="Core.Localization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=270ec4ec01352598" PluginAssemblyId="05ca4ded-ef5b-4e2d-b20c-5e817529fd36" CustomizationLevel="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <IsolationMode>2</IsolationMode>
+  <SourceType>0</SourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FileName>/PluginAssemblies/CoreLocalization-05CA4DED-EF5B-4E2D-B20C-5E817529FD36/CoreLocalization.dll</FileName>
+  <PluginTypes>
+    <PluginType AssemblyQualifiedName="Core.Localization.Connection, Core.Localization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=270ec4ec01352598" PluginTypeId="057d4f2f-997a-448b-8591-1a1432f44aff" Name="Core.Localization.Connection">
+      <FriendlyName>9e5e6cb8-e714-4a49-8df6-60395539a068</FriendlyName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Core.Localization.Create, Core.Localization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=270ec4ec01352598" PluginTypeId="1caa78fb-0130-40c9-ae77-b663f6bdaf73" Name="Core.Localization.Create">
+      <FriendlyName>f3457800-63d0-474a-81c3-8b4e451f2a73</FriendlyName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Core.Localization.Retrieve, Core.Localization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=270ec4ec01352598" PluginTypeId="7225d349-689e-40e7-baf9-b5ec16aec0ff" Name="Core.Localization.Retrieve">
+      <FriendlyName>3389f4ba-6050-49c2-bfe1-59c5c591f4da</FriendlyName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Core.Localization.RetrieveMultiple, Core.Localization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=270ec4ec01352598" PluginTypeId="bc089d7a-4f87-441d-a062-4b88ddf49944" Name="Core.Localization.RetrieveMultiple">
+      <FriendlyName>a1446d1b-7ca4-4144-8138-94c08365f216</FriendlyName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Core.Localization.Update, Core.Localization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=270ec4ec01352598" PluginTypeId="e693b3a2-7038-419e-852e-7de5d8aa0139" Name="Core.Localization.Update">
+      <FriendlyName>10ed734c-b573-455f-bb04-6f8374bff185</FriendlyName>
+    </PluginType>
+  </PluginTypes>
+</PluginAssembly>
