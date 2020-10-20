@@ -129,6 +129,9 @@
   <data name="Attachment Description" xml:space="preserve">
     <value>Attachment Description</value>
   </data>
+  <data name="Attachments" xml:space="preserve">
+    <value>Attachments</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>

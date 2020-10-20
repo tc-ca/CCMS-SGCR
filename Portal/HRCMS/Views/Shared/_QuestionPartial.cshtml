@@ -16,7 +16,7 @@
                     <h2 class="panel-title"> @Localizer["Question"]&nbsp;@Model.QuestionSequenceNumber</h2>
                 </div>
                 <div class="panel-body">
-                    <strong>Question posted on <span class="localDateTime">@Model.DateAsked</span></strong>
+                    <strong>@Localizer["Question posted on"] <span class="localDateTime">@Model.DateAsked</span></strong>
                     <p>
                         @Model.QuestionText
                     </p>
@@ -66,11 +66,11 @@ else
             <h2 class="panel-title"> @Localizer["Question"]&nbsp;@Model.QuestionSequenceNumber</h2>
         </div>
         <div class="panel-body">
-            <strong>Question posted on <span class="localDateTime">@Model.DateAsked</span></strong>
+            <strong>@Localizer["Question posted on"] <span class="localDateTime">@Model.DateAsked</span></strong>
             <p>
                 @Model.QuestionText
             </p>
-            <strong>Question answered on <span class="localDateTime">@Model.DateAnswered</span></strong>
+            <strong>@Localizer["Question answered on"] <span class="localDateTime">@Model.DateAnswered</span></strong>
             <p>
                 @Model.AnswerText
             </p>

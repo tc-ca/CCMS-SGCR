@@ -123,6 +123,12 @@
   <data name="Question" xml:space="preserve">
     <value>Question</value>
   </data>
+  <data name="Question answered on" xml:space="preserve">
+    <value>Question répondue le</value>
+  </data>
+  <data name="Question posted on" xml:space="preserve">
+    <value>Question publiée le</value>
+  </data>
   <data name="Respond" xml:space="preserve">
     <value>Répondre</value>
   </data>

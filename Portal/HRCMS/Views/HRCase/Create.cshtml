@@ -115,7 +115,7 @@
         @if (!String.IsNullOrEmpty(Model.CaseNumber))
         {
     <details id="tabAttachments">
-        <summary>@Localizer["Attachment"]</summary>
+        <summary>@Localizer["Attachments"]</summary>
         @await Html.PartialAsync("_AttachmentPartial", Model.NewAttachment)
         <table class="table table-striped" data-wb-tables='{ "ordering" : true, "aaSorting": [[3, "desc"]] }' id="tblAttachments">
             <thead class="thead-light">

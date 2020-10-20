@@ -205,4 +205,7 @@
   &lt;li&gt;Vous devez sauvegarder avant de soumettre si vous souhaitez ajouter une pièce jointe à votre cas. Une fois votre demande soumise, elle ne peut plus être modifiée.&lt;/li&gt;
 &lt;/ul&gt;</value>
   </data>
+  <data name="Attachments" xml:space="preserve">
+    <value>Pièces jointes</value>
+  </data>
 </root>

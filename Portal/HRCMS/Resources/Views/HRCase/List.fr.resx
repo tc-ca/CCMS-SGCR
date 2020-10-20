@@ -181,7 +181,7 @@
     <value>Vous avez {0} questions </value>
   </data>
   <data name="Your case was successfully submitted." xml:space="preserve">
-    <value>Votre case a été soumise avec succès.</value>
+    <value>Votre cas a été soumis avec succès.</value>
   </data>
   <data name="Your case was successfully withdrawn." xml:space="preserve">
     <value>Votre cas a été retiré avec succès.</value>
