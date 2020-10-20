@@ -14,14 +14,12 @@ namespace CCMS.HRCase {
     Form = <Form.hr_hrcase.Main.Information>eContext.getFormContext();
     var statusfield = Form.getAttribute("hr_casestatus");
     var resolutionField = Form.getAttribute("hr_resolution");
-    var closedonField = Form.getAttribute("hr_closedon");
 
     //When case status is set to closed
-    if (statusfield.getValue() != hr_casestatus.Closed && statusfield.getValue() != hr_casestatus.WithdrawnbyPay) {
-      return;
-    }
-
-    if (closedonField.getValue() != null) {
+    if (
+      statusfield.getValue() != hr_casestatus.Closed &&
+      statusfield.getValue() != hr_casestatus.WithdrawnbyPay
+    ) {
       return;
     }
 
@@ -30,15 +28,33 @@ namespace CCMS.HRCase {
       text: "Are you sure you want to close this case?",
       title: "",
     };
-    if (globalContext.userSettings.languageId == 1036) {
-      confirmStrings.text = "Êtes-vous certain(e) de vouloir fermer ce cas?";
-      confirmStrings.title = "";
+
+    if (statusfield.getValue() == hr_casestatus.Closed) {
+      if (globalContext.userSettings.languageId == 1036) {
+        confirmStrings = {
+          text: "Êtes-vous certain(e) de vouloir fermer ce cas?",
+          title: "",
+        };
+      }
+    } else if (statusfield.getValue() == hr_casestatus.WithdrawnbyPay) {
+      if (globalContext.userSettings.languageId == 1033) {
+        confirmStrings = {
+          text: "Are you sure you want to withdraw this case?",
+          title: "",
+        };
+      }
+      else{
+        confirmStrings = {
+          text: "Etes-vous sûr de vouloir retirer ce cas?",
+          title: "",
+        };
+      }
     }
+
     var confirmOptions = { height: 200, width: 450 };
     Xrm.Navigation.openConfirmDialog(confirmStrings, confirmOptions).then(
       function (success) {
         if (success.confirmed) {
-          closedonField.setValue(new Date());
           Form.data.save();
         } else {
           //do nothing
