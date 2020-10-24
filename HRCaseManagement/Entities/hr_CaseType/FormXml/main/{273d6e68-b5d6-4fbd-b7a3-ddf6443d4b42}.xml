@@ -10,7 +10,7 @@
         <tab verticallayout="true" id="{3336c289-731f-4bad-b0a6-893e2ce80c2a}" IsUserDefined="1">
           <labels>
             <label description="General" languagecode="1033" />
-            <label description="General (fr)" languagecode="1036" />
+            <label description="Général" languagecode="1036" />
           </labels>
           <columns>
             <column width="100%">
@@ -18,14 +18,14 @@
                 <section showlabel="false" showbar="false" IsUserDefined="0" id="{5d03db09-caf3-4112-8bd4-6a9599fbc9e5}">
                   <labels>
                     <label description="General" languagecode="1033" />
-                    <label description="General (fr)" languagecode="1036" />
+                    <label description="Général" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
                       <cell id="{df8b3436-a3fc-4cc2-9769-92fb036cbbf8}" showlabel="true" locklevel="0" visible="false">
                         <labels>
                           <label description="Name" languagecode="1033" />
-                          <label description="Name (fr)" languagecode="1036" />
+                          <label description="Nom" languagecode="1036" />
                         </labels>
                         <control id="hr_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hr_name" uniqueid="{9d179cd7-d72c-4931-cbec-ed243b9db840}" disabled="true" />
                       </cell>
@@ -33,7 +33,8 @@
                     <row>
                       <cell id="{89537ea7-d6ad-6c42-d217-64b0a9084a1e}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="NameEn" languagecode="1033" />
+                          <label description="Name (English)" languagecode="1033" />
+                          <label description="Nom (anglais)" languagecode="1036" />
                         </labels>
                         <control id="hr_nameen" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hr_nameen" disabled="false" />
                       </cell>
@@ -41,7 +42,8 @@
                     <row>
                       <cell id="{dba6452c-47d7-11b6-6b5b-6033b156eaa3}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="NameFr" languagecode="1033" />
+                          <label description="Name (French)" languagecode="1033" />
+                          <label description="Nom (français)" languagecode="1036" />
                         </labels>
                         <control id="hr_namefr" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hr_namefr" disabled="false" />
                       </cell>
@@ -50,7 +52,7 @@
                       <cell id="{6ffc5f9f-17dc-4f79-8a35-fb7798d718a1}" showlabel="true" locklevel="1" visible="false">
                         <labels>
                           <label description="Owner" languagecode="1033" />
-                          <label description="Owner (fr)" languagecode="1036" />
+                          <label description="Propriétaire" languagecode="1036" />
                         </labels>
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" uniqueid="{c0b1aa6d-3bd2-9d02-382c-8780c99622de}" disabled="false">
                           <parameters>
@@ -58,6 +60,15 @@
                             <DisableMru>false</DisableMru>
                           </parameters>
                         </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{642f4dcf-0721-43a9-a20e-6404c41d0601}" locklevel="0">
+                        <labels>
+                          <label description="Sort Order" languagecode="1033" />
+                          <label description="Ordre" languagecode="1036" />
+                        </labels>
+                        <control id="hr_sortorder" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="hr_sortorder" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -163,7 +174,7 @@
     <CanBeDeleted>1</CanBeDeleted>
     <LocalizedNames>
       <LocalizedName description="Information" languagecode="1033" />
-      <LocalizedName description="Information (fr)" languagecode="1036" />
+      <LocalizedName description="Informations" languagecode="1036" />
     </LocalizedNames>
     <Descriptions>
       <Description description="A form for this entity." languagecode="1033" />

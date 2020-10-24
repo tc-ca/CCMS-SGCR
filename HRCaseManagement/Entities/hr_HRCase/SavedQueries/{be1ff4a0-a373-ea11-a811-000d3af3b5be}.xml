@@ -21,12 +21,12 @@
     </fetchxml>
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="My HR Cases" languagecode="1033" />
-      <LocalizedName description="My HR Cases (fr)" languagecode="1036" />
+      <LocalizedName description="My Pay Cases" languagecode="1033" />
+      <LocalizedName description="Mes cas de paye" languagecode="1036" />
     </LocalizedNames>
     <Descriptions>
-      <Description description="Active HR Cases owned by me" languagecode="1033" />
-      <Description description="Active HR Cases owned by me (fr)" languagecode="1036" />
+      <Description description="Active Pay Cases owned by me" languagecode="1033" />
+      <Description description="Cas de paye actifs qui m'appartiennent" languagecode="1036" />
     </Descriptions>
   </savedquery>
 </savedqueries>

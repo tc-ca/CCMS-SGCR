@@ -45,8 +45,8 @@
     </fetchxml>
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Quick Find Active HR Cases" languagecode="1033" />
-      <LocalizedName description="Quick Find Active HR Cases (fr)" languagecode="1036" />
+      <LocalizedName description="Quick Find Active Pay Cases" languagecode="1033" />
+      <LocalizedName description="Recherche rapide des cas de paye actifs" languagecode="1036" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

@@ -17,7 +17,7 @@
           <cell name="hr_casestatus" width="135" />
           <cell name="hr_firstname" width="112" />
           <cell name="hr_lastname" width="112" />
-          <cell name="createdon" width="125" />
+          <cell name="hr_datereceived" width="100" />
         </row>
       </grid>
     </layoutxml>
@@ -26,7 +26,6 @@
       <fetch version="1.0" mapping="logical">
         <entity name="hr_hrcase">
           <attribute name="hr_name" />
-          <attribute name="createdon" />
           <attribute name="hr_casetype" />
           <attribute name="hr_casesubtype" />
           <attribute name="hr_casestatus" />
@@ -41,14 +40,15 @@
           </filter>
           <attribute name="ownerid" />
           <attribute name="hr_hrcaseid" />
-          <order attribute="createdon" descending="true" />
+          <attribute name="hr_datereceived" />
+          <order attribute="hr_name" descending="true" />
         </entity>
       </fetch>
     </fetchxml>
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Inactive HR Cases" languagecode="1033" />
-      <LocalizedName description="Inactive HR Cases (fr)" languagecode="1036" />
+      <LocalizedName description="Inactive Pay Cases" languagecode="1033" />
+      <LocalizedName description="Cas de paye inactifs" languagecode="1036" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

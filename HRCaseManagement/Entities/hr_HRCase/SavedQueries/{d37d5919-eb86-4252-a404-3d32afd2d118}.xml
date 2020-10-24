@@ -31,8 +31,8 @@
     </fetchxml>
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="HR Case Associated View" languagecode="1033" />
-      <LocalizedName description="HR Case Associated View (fr)" languagecode="1036" />
+      <LocalizedName description="Pay Case Associated View" languagecode="1033" />
+      <LocalizedName description="Vue associée au cas de paye" languagecode="1036" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

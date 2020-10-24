@@ -4,43 +4,65 @@
   <SiteMap IntroducedVersion="7.0.0.0">
     <Area Id="New_Area" ResourceId="SitemapDesigner.NewArea" DescriptionResourceId="SitemapDesigner.NewArea" ShowGroups="true" IntroducedVersion="7.0.0.0">
       <Titles>
-        <Title LCID="1033" Title="Phoenix Cases" />
-        <Title LCID="1036" Title="Phoenix Cases (fr)" />
+        <Title LCID="1036" Title="Cas de paye" />
+        <Title LCID="1033" Title="Pay Cases" />
       </Titles>
       <Group Id="NewGroup_02ed4891" ResourceId="SitemapDesigner.NewGroup" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
         <Titles>
           <Title LCID="1033" Title="Cases" />
-          <Title LCID="1036" Title="Cases (fr)" />
+          <Title LCID="1036" Title="Cas" />
         </Titles>
         <SubArea Id="NewSubArea_e8f44652" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="hr_hrcase" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
           <Titles>
-            <Title LCID="1033" Title="Phoenix Cases" />
-            <Title LCID="1036" Title="Phoenix Cases (fr)" />
+            <Title LCID="1036" Title="Cas de paye" />
+            <Title LCID="1033" Title="Pay Cases" />
           </Titles>
         </SubArea>
         <SubArea Id="NewSubArea_acf23f46" ResourceId="Homepage_Dashboards" DescriptionResourceId="Dashboards_Description" Icon="/_imgs/imagestrips/transparent_spacer.gif" Url="/workplace/home_dashboards.aspx" DefaultDashboard="e934c16b-617a-ea11-a811-000d3af3b5be" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
           <Titles>
-            <Title LCID="1033" Title="HR Dashboard" />
-            <Title LCID="1036" Title="HR Dashboard (fr)" />
+            <Title LCID="1036" Title="Tableau de bord de la rémunération" />
+            <Title LCID="1033" Title="Pay Dashboard" />
           </Titles>
         </SubArea>
       </Group>
       <Group Id="New_Group" ResourceId="SitemapDesigner.NewGroup" DescriptionResourceId="SitemapDesigner.NewGroup" IntroducedVersion="7.0.0.0" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
         <Titles>
           <Title LCID="1033" Title="Admin" />
+          <Title LCID="1036" Title="Admin" />
         </Titles>
-        <SubArea Id="New_SubArea" Icon="/_imgs/imagestrips/transparent_spacer.gif" IntroducedVersion="7.0.0.0" Entity="hr_casetype" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="NewSubArea_2933d797" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="hr_casesubtype" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="NewSubArea_79ad302e" ResourceId="SitemapDesigner.NewSubArea" Url="https://hrcms-dev-tcd365.crm3.dynamics.com/main.aspx?etc=2010&amp;pagetype=entitylist&amp;forceClassic=1#257475665" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
+        <SubArea Id="New_SubArea" Icon="/_imgs/imagestrips/transparent_spacer.gif" IntroducedVersion="7.0.0.0" Entity="hr_casetype" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
           <Titles>
-            <Title LCID="1033" Title="Email Templates" />
+            <Title LCID="1033" Title="Case Types" />
+            <Title LCID="1036" Title="Types de cas" />
           </Titles>
+          <Privilege Entity="hr_casetype" Privilege="Create" />
+        </SubArea>
+        <SubArea Id="NewSubArea_2933d797" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="hr_casesubtype" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
+          <Titles>
+            <Title LCID="1033" Title="Case Sub-Types" />
+            <Title LCID="1036" Title="Sous-types de cas" />
+          </Titles>
+          <Privilege Entity="hr_casesubtype" Privilege="Create" />
+        </SubArea>
+        <SubArea Id="NewSubArea_0d7306b6" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="systemuser" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
+          <Titles>
+            <Title LCID="1033" Title="Users" />
+            <Title LCID="1036" Title="Utilisateurs" />
+          </Titles>
+          <Privilege Entity="team" Privilege="AppendTo,Append" />
+        </SubArea>
+        <SubArea Id="NewSubArea_7c236f47" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="team" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
+          <Titles>
+            <Title LCID="1033" Title="Teams" />
+            <Title LCID="1036" Title="Équipes" />
+          </Titles>
+          <Privilege Entity="team" Privilege="Append,AppendTo" />
         </SubArea>
       </Group>
     </Area>
   </SiteMap>
   <LocalizedNames>
-    <LocalizedName description="HR Case Management" languagecode="1033" />
-    <LocalizedName description="HR Case Management (fr)" languagecode="1036" />
+    <LocalizedName description="Compensation Case Management" languagecode="1033" />
+    <LocalizedName description="Gestion des cas de rémunération" languagecode="1036" />
   </LocalizedNames>
 </AppModuleSiteMap>

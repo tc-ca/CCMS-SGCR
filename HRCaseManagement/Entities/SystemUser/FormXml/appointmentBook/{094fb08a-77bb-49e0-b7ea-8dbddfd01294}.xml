@@ -5,7 +5,7 @@
     <IntroducedVersion>5.0.0.0</IntroducedVersion>
     <FormPresentation>0</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form hasmargin="false">
+    <form>
       <tabs showlabels="false">
         <tab name="general" verticallayout="true" id="{0EC9D3AA-F779-4E99-B76E-8B33239037D6}" IsUserDefined="0">
           <labels>

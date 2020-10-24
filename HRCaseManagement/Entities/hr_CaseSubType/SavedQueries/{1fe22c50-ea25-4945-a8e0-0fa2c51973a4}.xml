@@ -31,7 +31,7 @@
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <LocalizedNames>
       <LocalizedName description="Case Sub-Type Lookup View" languagecode="1033" />
-      <LocalizedName description="Case Sub-Type Lookup View (fr)" languagecode="1036" />
+      <LocalizedName description="Vue de recherche de sous-type de cas" languagecode="1036" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

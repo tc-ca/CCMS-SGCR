@@ -1,0 +1,53 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@using System.Globalization;
+@using Microsoft.AspNetCore.Localization;
+
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+@model HRCMS.ViewModels.UserModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<h1 class="display-4">Welcome</h1>
+
+<div class="row">
+    <div class="wb-frmvld">
+
+        <form asp-action="Login">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                    <label asp-for="@Model.FirstName" class="required"><span class="field-name">@Localizer["First Name"]</span> <strong class="required">(@SharedLocalizer["required"])</strong></label>
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @maxlength = "250", @required = "required" })
+            </div>
+            <div class="form-group">
+                    <label asp-for="@Model.LastName" class="required"><span class="field-name">@Localizer["Last Name"]</span> <strong class="required">(@SharedLocalizer["required"])</strong></label>
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control ", @maxlength = "250", @required = "required" })
+            </div>
+            <div class="form-group">
+                    <label asp-for="@Model.PRI" class="required"><span class="field-name">@Localizer["<acronym title='Personal Record Identifier'>PRI</acronym>"]</span> <strong class="required">(@SharedLocalizer["required"])</strong></label>
+                    @Html.TextBoxFor(m => m.PRI, new { @class = "form-control", @maxlength = "9", @required = "required", @rangelength = "[9,9]", @digits="true" })
+            </div>
+            <div class="form-group">
+                    <label asp-for="@Model.Email" class="required"><span class="field-name">@Localizer["Email"].Value</span> <strong class="required">(@SharedLocalizer["required"])</strong></label>
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control ", @maxlength = "250", @required = "required", @size="50" })
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@section CustomScripts{
+    @*<script type="text/javascript">
+            window.onload = function () {
+                var defTop = document.getElementById("def-top");
+                alert(defTop);
+                defTop.outerHTML = wet.builder.top({ "cdnEnv": "prod", "search": true, "lngLinks": [{ "href": "?GoCTemplateCulture=fr-CA", "lang": "fr", "text": "Français" }], "topSecMenu": false, "siteMenu": false });
+            };
+        </script>*@
+
+}

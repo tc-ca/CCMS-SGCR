@@ -54,14 +54,14 @@
                 <section name="CardDetails" showlabel="false" showbar="false" columns="1" id="{cb178e12-6e3b-4add-a665-f41978720e05}" IsUserDefined="0">
                   <labels>
                     <label description="Details" languagecode="1033" />
-                    <label description="Details (fr)" languagecode="1036" />
+                    <label description="Détails" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
                       <cell id="{a89a37db-c33e-4b37-b846-2d5257d841a4}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Name" languagecode="1033" />
-                          <label description="Name (fr)" languagecode="1036" />
+                          <label description="Nom" languagecode="1036" />
                         </labels>
                         <control id="hr_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hr_name" disabled="false" />
                       </cell>
@@ -78,14 +78,14 @@
                       <cell id="{ca594c4a-3694-4a49-b198-bd40edeaf4d9}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Owner" languagecode="1033" />
-                          <label description="Owner (fr)" languagecode="1036" />
+                          <label description="Propriétaire" languagecode="1036" />
                         </labels>
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
                       </cell>
                       <cell id="{954f8779-15dd-4b4a-b479-87fe116c163a}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Created On" languagecode="1033" />
-                          <label description="Created On (fr)" languagecode="1036" />
+                          <label description="Créé le" languagecode="1036" />
                         </labels>
                         <control id="createdon" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdon" disabled="false" />
                       </cell>
@@ -112,7 +112,7 @@
     <CanBeDeleted>1</CanBeDeleted>
     <LocalizedNames>
       <LocalizedName description="Information" languagecode="1033" />
-      <LocalizedName description="Information (fr)" languagecode="1036" />
+      <LocalizedName description="Informations" languagecode="1036" />
     </LocalizedNames>
     <Descriptions>
       <Description description="A card form for this entity." languagecode="1033" />
