@@ -1,6 +1,7 @@
 namespace CCMS.HRCase {
   var Form: Form.hr_hrcase.Main.Information;
-
+  var saveInProgress=false;
+  
   export function FilterHRStatus(eContext: Xrm.ExecutionContext<any, any>) {
     Form = <Form.hr_hrcase.Main.Information>eContext.getFormContext();
 
@@ -51,15 +52,22 @@ namespace CCMS.HRCase {
       }
     }
 
-    var confirmOptions = { height: 200, width: 450 };
-    Xrm.Navigation.openConfirmDialog(confirmStrings, confirmOptions).then(
+    if (!saveInProgress){
+      saveInProgress=true;
+      eContext.getEventArgs().preventDefault();     
+      var confirmOptions = { height: 200, width: 450 };
+      Xrm.Navigation.openConfirmDialog(confirmStrings, confirmOptions).then(
       function (success) {
         if (success.confirmed) {
-          Form.data.save();
-        } else {
+          //Do nothing
+          Form.data.save().then(() => {saveInProgress=false;});
+        } 
+        else {
           //do nothing
+          saveInProgress=false;
         }
       }
     );
+    }
   }
 }
