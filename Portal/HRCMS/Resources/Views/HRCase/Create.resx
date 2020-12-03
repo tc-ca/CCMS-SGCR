@@ -180,7 +180,7 @@
   <data name="PageInstruction" xml:space="preserve">
     <value>&lt;h2&gt;IMPORTANT:&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;Inquiries related to Disability Insurance and to Sick leave are to be sent to &lt;a href="mailto:TC.DisabiityInsurance-Gestiondincapacite.TC@tc.gc.ca"&gt;TC.DisabiityInsurance-Gestiondincapacite.TC@tc.gc.ca&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Inquiries related to Disability Insurance and to Sick leave are to be sent to &lt;a href="mailto:TC.DisabilityInsurance-Gestiondincapacite.TC@tc.gc.ca"&gt;TC.DisabilityInsurance-Gestiondincapacite.TC@tc.gc.ca&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;You must save before submitting if you would like to add an attachment to your case. Once your request is submitted, it can no longer be modified.&lt;/li&gt;
 &lt;/ul&gt;</value>
   </data>
@@ -192,15 +192,6 @@
   </data>
   <data name="Please provide the details of your inquiry" xml:space="preserve">
     <value>Please provide the details of your inquiry</value>
-  </data>
-  <data name="String" xml:space="preserve">
-    <value>IMPORTANT:</value>
-  </data>
-  <data name="String1" xml:space="preserve">
-    <value>Inquiries related to Disability Insurance and to Sick leave are to be sent to TC.DisabiityInsurance-Gestiondincapacite.TC@tc.gc.ca</value>
-  </data>
-  <data name="String2" xml:space="preserve">
-    <value>You must save before submitting if you would like to add an attachment to your case. Once your request is submitted, it can no longer be modified.</value>
   </data>
   <data name="Submit case" xml:space="preserve">
     <value>Submit case</value>
