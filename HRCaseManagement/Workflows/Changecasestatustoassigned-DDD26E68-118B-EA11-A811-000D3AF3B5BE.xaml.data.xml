@@ -23,10 +23,8 @@
   <PrimaryEntity>hr_HRCase</PrimaryEntity>
   <LocalizedNames>
     <LocalizedName languagecode="1033" description="Change case status to assigned" />
-    <LocalizedName languagecode="1036" description="Modifier l’état du cas à assigné" />
   </LocalizedNames>
   <Descriptions>
     <Description languagecode="1033" description="Click to add description" />
-    <Description languagecode="1036" description="Cliquez pour ajouter une description" />
   </Descriptions>
 </Workflow>

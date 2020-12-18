@@ -32,7 +32,6 @@
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <LocalizedNames>
       <LocalizedName description="Inactive Question and Answers" languagecode="1033" />
-      <LocalizedName description="Inactive Question and Answers (fr)" languagecode="1036" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

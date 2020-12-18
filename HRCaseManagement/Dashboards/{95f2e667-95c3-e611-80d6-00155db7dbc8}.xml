@@ -2,7 +2,6 @@
 <Dashboard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <LocalizedNames>
     <LocalizedName description="App for Outlook Dashboard" languagecode="1033" />
-    <LocalizedName description="Application pour tableau de bord Outlook " languagecode="1036" />
   </LocalizedNames>
   <FormId>{95f2e667-95c3-e611-80d6-00155db7dbc8}</FormId>
   <IsDefault>0</IsDefault>
@@ -13,7 +12,6 @@
           <tab showlabel="false" verticallayout="true" id="{9325DCB6-26F7-4066-BE97-4B2FFE62C04D}">
             <labels>
               <label description="Tab" languagecode="1033" />
-              <label description="Onglet" languagecode="1036" />
             </labels>
             <columns>
               <column width="100%">

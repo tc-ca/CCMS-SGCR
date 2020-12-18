@@ -54,7 +54,6 @@
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <LocalizedNames>
       <LocalizedName description="Active Pay Cases - Assigned to Me" languagecode="1033" />
-      <LocalizedName description="Cas de paye actifs - assignés à moi" languagecode="1036" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

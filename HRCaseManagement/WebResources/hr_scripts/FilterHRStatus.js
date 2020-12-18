@@ -4,6 +4,7 @@ var CCMS;
     var HRCase;
     (function (HRCase) {
         var Form;
+        var saveInProgress = false;
         function FilterHRStatus(eContext) {
             Form = eContext.getFormContext();
             var control = Form.getControl("header_hr_casestatus");
@@ -46,15 +47,21 @@ var CCMS;
                     };
                 }
             }
-            var confirmOptions = { height: 200, width: 450 };
-            Xrm.Navigation.openConfirmDialog(confirmStrings, confirmOptions).then(function (success) {
-                if (success.confirmed) {
-                    Form.data.save();
-                }
-                else {
-                    //do nothing
-                }
-            });
+            if (!saveInProgress) {
+                saveInProgress = true;
+                eContext.getEventArgs().preventDefault();
+                var confirmOptions = { height: 200, width: 450 };
+                Xrm.Navigation.openConfirmDialog(confirmStrings, confirmOptions).then(function (success) {
+                    if (success.confirmed) {
+                        //Do nothing
+                        Form.data.save().then(function () { saveInProgress = false; });
+                    }
+                    else {
+                        //do nothing
+                        saveInProgress = false;
+                    }
+                });
+            }
         }
         HRCase.ShowCloseCaseConfirmation = ShowCloseCaseConfirmation;
     })(HRCase = CCMS.HRCase || (CCMS.HRCase = {}));

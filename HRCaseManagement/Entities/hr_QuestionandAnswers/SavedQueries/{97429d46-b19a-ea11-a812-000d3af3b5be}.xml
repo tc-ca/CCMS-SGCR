@@ -40,7 +40,6 @@
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <LocalizedNames>
       <LocalizedName description="Unread Answers" languagecode="1033" />
-      <LocalizedName description="Réponses non lues" languagecode="1036" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

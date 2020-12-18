@@ -17,7 +17,6 @@
                 <section name="ColorStrip" showlabel="false" showbar="false" columns="1" IsUserDefined="0" id="{60885053-2d9f-4de5-9ca7-17534e3429cf}">
                   <labels>
                     <label description="ColorStrip" languagecode="1033" />
-                    <label description="ColorStrip (fr)" languagecode="1036" />
                   </labels>
                 </section>
               </sections>
@@ -27,14 +26,12 @@
                 <section name="CardHeader" showlabel="false" showbar="false" columns="111" id="{e41e88cb-4659-4308-b433-75d3930575fb}" IsUserDefined="0">
                   <labels>
                     <label description="Header" languagecode="1033" />
-                    <label description="Header (fr)" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
                       <cell id="{8c07d87a-92ff-405b-9196-5fee6644bdb9}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Status Reason" languagecode="1033" />
-                          <label description="Status Reason (fr)" languagecode="1036" />
                         </labels>
                         <control id="statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" datafieldname="statuscode" disabled="false" />
                       </cell>
@@ -54,14 +51,12 @@
                 <section name="CardDetails" showlabel="false" showbar="false" columns="1" id="{cb178e12-6e3b-4add-a665-f41978720e05}" IsUserDefined="0">
                   <labels>
                     <label description="Details" languagecode="1033" />
-                    <label description="Détails" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
                       <cell id="{a89a37db-c33e-4b37-b846-2d5257d841a4}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Name" languagecode="1033" />
-                          <label description="Nom" languagecode="1036" />
                         </labels>
                         <control id="hr_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hr_name" disabled="false" />
                       </cell>
@@ -71,21 +66,18 @@
                 <section name="CardFooter" showlabel="false" columns="1111" showbar="false" id="{249cd386-d038-44b1-bf61-91246d792517}" IsUserDefined="0">
                   <labels>
                     <label description="Footer" languagecode="1033" />
-                    <label description="Footer (fr)" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
                       <cell id="{ca594c4a-3694-4a49-b198-bd40edeaf4d9}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Owner" languagecode="1033" />
-                          <label description="Propriétaire" languagecode="1036" />
                         </labels>
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
                       </cell>
                       <cell id="{954f8779-15dd-4b4a-b479-87fe116c163a}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Created On" languagecode="1033" />
-                          <label description="Créé le" languagecode="1036" />
                         </labels>
                         <control id="createdon" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdon" disabled="false" />
                       </cell>
@@ -112,11 +104,9 @@
     <CanBeDeleted>1</CanBeDeleted>
     <LocalizedNames>
       <LocalizedName description="Information" languagecode="1033" />
-      <LocalizedName description="Informations" languagecode="1036" />
     </LocalizedNames>
     <Descriptions>
       <Description description="A card form for this entity." languagecode="1033" />
-      <Description description="A card form for this entity. (fr)" languagecode="1036" />
     </Descriptions>
   </systemform>
 </forms>

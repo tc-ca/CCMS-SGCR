@@ -22,11 +22,9 @@
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <LocalizedNames>
       <LocalizedName description="My Question and Answers" languagecode="1033" />
-      <LocalizedName description="My Question and Answers (fr)" languagecode="1036" />
     </LocalizedNames>
     <Descriptions>
       <Description description="Active Question and Answers owned by me" languagecode="1033" />
-      <Description description="Active Question and Answers owned by me (fr)" languagecode="1036" />
     </Descriptions>
   </savedquery>
 </savedqueries>

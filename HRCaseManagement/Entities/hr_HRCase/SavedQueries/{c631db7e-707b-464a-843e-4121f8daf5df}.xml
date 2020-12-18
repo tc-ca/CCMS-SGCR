@@ -51,7 +51,6 @@
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <LocalizedNames>
       <LocalizedName description="All Active Pay Cases" languagecode="1033" />
-      <LocalizedName description="Tous les cas de paye actifs" languagecode="1036" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

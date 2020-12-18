@@ -22,11 +22,9 @@
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <LocalizedNames>
       <LocalizedName description="My Case Sub-Types" languagecode="1033" />
-      <LocalizedName description="Mes sous-types de cas" languagecode="1036" />
     </LocalizedNames>
     <Descriptions>
       <Description description="Active Case Sub-Types owned by me" languagecode="1033" />
-      <Description description="Sous-types de cas actifs qui m’appartiennent" languagecode="1036" />
     </Descriptions>
   </savedquery>
 </savedqueries>

@@ -22,11 +22,9 @@
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <LocalizedNames>
       <LocalizedName description="My Pay Cases" languagecode="1033" />
-      <LocalizedName description="Mes cas de paye" languagecode="1036" />
     </LocalizedNames>
     <Descriptions>
       <Description description="Active Pay Cases owned by me" languagecode="1033" />
-      <Description description="Cas de paye actifs qui m'appartiennent" languagecode="1036" />
     </Descriptions>
   </savedquery>
 </savedqueries>

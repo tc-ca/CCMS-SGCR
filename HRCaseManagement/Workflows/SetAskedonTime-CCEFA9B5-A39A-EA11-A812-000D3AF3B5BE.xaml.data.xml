@@ -23,10 +23,8 @@
   <PrimaryEntity>hr_QuestionandAnswers</PrimaryEntity>
   <LocalizedNames>
     <LocalizedName languagecode="1033" description="Set Asked on Time" />
-    <LocalizedName languagecode="1036" description="Indiquer l'heure demandée" />
   </LocalizedNames>
   <Descriptions>
     <Description languagecode="1033" description="Click to add description" />
-    <Description languagecode="1036" description="Cliquez pour ajouter une description" />
   </Descriptions>
 </Workflow>
