@@ -17,14 +17,12 @@
                 <section showlabel="false" showbar="false" IsUserDefined="0" id="{85ff2c46-8487-4b97-8881-fd10de553371}">
                   <labels>
                     <label description="GENERAL" languagecode="1033" />
-                    <label description="Général" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
                       <cell id="{4cc8afea-5482-49f6-9ab2-383f20cefde9}">
                         <labels>
                           <label description="Name" languagecode="1033" />
-                          <label description="Nom" languagecode="1036" />
                         </labels>
                         <control id="hr_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hr_name" />
                       </cell>
@@ -33,7 +31,6 @@
                       <cell id="{4de89366-12c5-478e-b9e3-7b6cc6d09bd2}">
                         <labels>
                           <label description="Owner" languagecode="1033" />
-                          <label description="Propriétaire" languagecode="1036" />
                         </labels>
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
                       </cell>
@@ -50,7 +47,6 @@
     <CanBeDeleted>1</CanBeDeleted>
     <LocalizedNames>
       <LocalizedName description="Information" languagecode="1033" />
-      <LocalizedName description="Informations" languagecode="1036" />
     </LocalizedNames>
   </systemform>
 </forms>

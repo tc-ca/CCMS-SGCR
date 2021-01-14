@@ -24,6 +24,5 @@
   <PrimaryEntity>hr_HRCase</PrimaryEntity>
   <LocalizedNames>
     <LocalizedName languagecode="1033" description="Set Name on Pay Case" />
-    <LocalizedName languagecode="1036" description="Définir le nom du cas de paye" />
   </LocalizedNames>
 </Workflow>

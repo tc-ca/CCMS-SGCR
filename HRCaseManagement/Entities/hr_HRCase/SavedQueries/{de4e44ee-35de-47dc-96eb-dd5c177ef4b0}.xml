@@ -31,7 +31,6 @@
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <LocalizedNames>
       <LocalizedName description="Pay Case Lookup View" languagecode="1033" />
-      <LocalizedName description="Vue de recherche de cas de paye" languagecode="1036" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

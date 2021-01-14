@@ -10,7 +10,6 @@
         <tab verticallayout="true" id="{7d4460e6-cab3-4730-aefc-babe4140f509}" IsUserDefined="1">
           <labels>
             <label description="General" languagecode="1033" />
-            <label description="Général" languagecode="1036" />
           </labels>
           <columns>
             <column width="100%">
@@ -18,14 +17,12 @@
                 <section showlabel="false" showbar="false" IsUserDefined="0" id="{93f43248-f177-4c63-8eb9-f23e05415ff8}" name="{93f43248-f177-4c63-8eb9-f23e05415ff8}" columns="1" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
                     <label description="General" languagecode="1033" />
-                    <label description="Général" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
                       <cell id="{3a881b4f-10f0-4507-94c2-a03aba11847a}" showlabel="true" locklevel="0" rowspan="5">
                         <labels>
                           <label description="Question" languagecode="1033" />
-                          <label description="Question" languagecode="1036" />
                         </labels>
                         <control id="hr_question" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="hr_question" disabled="false" />
                       </cell>
@@ -38,7 +35,6 @@
                       <cell id="{ca01c6c4-f1a6-4d5d-be51-63349b54c0df}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Asked On" languagecode="1033" />
-                          <label description="Demandé le" languagecode="1036" />
                         </labels>
                         <control id="hr_askedon" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="hr_askedon" disabled="true" />
                       </cell>
@@ -47,7 +43,6 @@
                       <cell id="{9e6bb650-da4b-b477-b258-ecca151a08dd}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Created By" languagecode="1033" />
-                          <label description="Créé par" languagecode="1036" />
                         </labels>
                         <control id="createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdby" disabled="false" />
                       </cell>
@@ -56,7 +51,6 @@
                       <cell id="{d52ee54a-3c52-47cc-b43f-0e7d9a5aa7fd}" showlabel="true" locklevel="0" rowspan="5">
                         <labels>
                           <label description="Answer" languagecode="1033" />
-                          <label description="Réponse" languagecode="1036" />
                         </labels>
                         <control id="hr_answer" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="hr_answer" disabled="true" />
                       </cell>
@@ -69,7 +63,6 @@
                       <cell id="{8a944638-d55c-4ed6-a432-7a60798b0b6a}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Answered On" languagecode="1033" />
-                          <label description="Répondu le " languagecode="1036" />
                         </labels>
                         <control id="hr_answeredon" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="hr_answeredon" disabled="true" />
                       </cell>
@@ -78,7 +71,6 @@
                       <cell showlabel="true" locklevel="0" id="{27e78ca0-f7c8-4bba-89a3-694c42438c5c}">
                         <labels>
                           <label description="Read" languagecode="1033" />
-                          <label description="Lire" languagecode="1036" />
                         </labels>
                         <control id="hr_read" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="hr_read" disabled="false" uniqueid="{0a679014-20d4-4fb7-8c1f-a88d8f090f74}" />
                       </cell>
@@ -192,11 +184,9 @@
     <CanBeDeleted>1</CanBeDeleted>
     <LocalizedNames>
       <LocalizedName description="Information" languagecode="1033" />
-      <LocalizedName description="Informations" languagecode="1036" />
     </LocalizedNames>
     <Descriptions>
       <Description description="A form for this entity." languagecode="1033" />
-      <Description description="A form for this entity. (fr)" languagecode="1036" />
     </Descriptions>
   </systemform>
 </forms>

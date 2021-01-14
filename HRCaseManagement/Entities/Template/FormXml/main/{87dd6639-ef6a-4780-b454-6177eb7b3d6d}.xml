@@ -13,7 +13,6 @@
             <cell id="{652001b7-713b-4043-9bbb-710cb7192e77}">
               <labels>
                 <label description="Owner" languagecode="1033" />
-                <label description="Propriétaire" languagecode="1036" />
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
             </cell>
@@ -24,7 +23,6 @@
         <tab name="Template" id="{7f59d58b-96ad-4458-9488-51f6a1659ccb}" IsUserDefined="0" locklevel="0" showlabel="false" expanded="true">
           <labels>
             <label description="Template" languagecode="1033" />
-            <label description="Modèle" languagecode="1036" />
           </labels>
           <columns>
             <column width="100%">
@@ -32,14 +30,12 @@
                 <section name="Details" showlabel="true" showbar="false" locklevel="0" id="{bbe1d5d3-dc69-4aa2-a606-e2f8fee6b3ee}" IsUserDefined="0" labelid="{c95d4108-e274-43f2-a779-074b14609116}">
                   <labels>
                     <label description="Details" languagecode="1033" />
-                    <label description="Détails" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
                       <cell auto="false" showlabel="true" locklevel="0" rowspan="1" id="{3b6a19e1-b8ba-4533-a09a-e2468ae3eb08}" labelid="{fc43ffe2-a9da-4ef7-a4f1-13a2cb48d861}">
                         <labels>
                           <label description="Name" languagecode="1033" />
-                          <label description="Nom" languagecode="1036" />
                         </labels>
                         <control id="title" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="title" disabled="false" />
                       </cell>
@@ -48,7 +44,6 @@
                       <cell auto="false" showlabel="true" locklevel="0" rowspan="1" id="{1eba5a83-1130-49e9-80bc-a3a578533992}" labelid="{fca42542-53b2-460a-b5a5-f1cc5f77a6c0}">
                         <labels>
                           <label description="Permission level" languagecode="1033" />
-                          <label description="Niveau d’autorisation" languagecode="1036" />
                         </labels>
                         <control id="permissionLevelId" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="ispersonal" disabled="false" />
                       </cell>
@@ -57,7 +52,6 @@
                       <cell auto="false" showlabel="true" locklevel="0" rowspan="1" id="{b8a9ced5-f8b5-428a-87a8-767f598d97b1}" labelid="{1a6a4fdd-846a-4567-bee8-3423f9b12edb}">
                         <labels>
                           <label description="Category" languagecode="1033" />
-                          <label description="Catégorie" languagecode="1036" />
                         </labels>
                         <control id="category" classid="{f9a8a302-114e-466a-b582-6771b2ae0d92}" datafieldname="templatetypecode" uniqueid="{8d233c0d-2056-4ae6-880f-c6078f88caf3}" disabled="true" />
                       </cell>
@@ -66,7 +60,6 @@
                       <cell auto="false" showlabel="true" locklevel="0" rowspan="1" id="{479ab952-db62-4100-b613-e82f4e4d4ac1}" labelid="{6005cf7c-29a3-470e-ab65-df99d66e9f5e}">
                         <labels>
                           <label description="Language" languagecode="1033" />
-                          <label description="Langue" languagecode="1036" />
                         </labels>
                         <control id="language" classid="{671A9387-CA5A-4d1e-8AB7-06E39DDCF6B5}" datafieldname="languagecode" disabled="false" />
                       </cell>
@@ -75,7 +68,6 @@
                       <cell auto="false" showlabel="true" locklevel="0" rowspan="1" id="{89738e08-9e7f-4f43-b252-dcee77a1ebf9}" labelid="{8c6363ff-c5f8-41b6-9e4c-fb524e522366}">
                         <labels>
                           <label description="Description" languagecode="1033" />
-                          <label description="Description" languagecode="1036" />
                         </labels>
                         <control id="description" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="description" disabled="false" />
                       </cell>
@@ -85,14 +77,12 @@
                 <section name="Template editor" showlabel="true" showbar="false" locklevel="0" id="{d9052f7a-1e36-4ea0-b539-0ce3d2e2eb26}" IsUserDefined="0" layout="varwidth" columns="11" height="auto" labelid="{8621663c-077d-475f-917e-c52aafcf66a3}" labelwidth="115">
                   <labels>
                     <label description="Template editor" languagecode="1033" />
-                    <label description="Éditeur de modèles" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
                       <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="2" id="{5fdff573-3507-4acc-9d90-200166b05d57}" labelid="{2e8902a8-4ed2-405e-acc1-680d378e1bfe}">
                         <labels>
                           <label description="Subject" languagecode="1033" />
-                          <label description="Objet" languagecode="1036" />
                         </labels>
                         <control id="subjectsafehtml" datafieldname="subjectsafehtml" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" disabled="false" uniqueid="{47f7ac96-2393-4153-8e39-d35a288dc1ac}"></control>
                       </cell>
@@ -101,7 +91,6 @@
                       <cell colspan="2" rowspan="12" showlabel="false" auto="true" id="{e8cf9632-a433-4609-a24e-37a49b41cda6}" labelid="{3278aecd-8d2e-46a4-8f83-062e0f118500}">
                         <labels>
                           <label description="Attachment" languagecode="1033" />
-                          <label description="Pièce jointe" languagecode="1036" />
                         </labels>
                         <control id="attachmentsGrid" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{47e2b665-5582-4861-87dd-c19a71e77289}">
                           <parameters>
@@ -139,7 +128,6 @@
                       <cell colspan="2" showlabel="false" rowspan="12" id="{54217e94-1bcf-4505-82e7-806f8d771adb}" labelid="{634ed83b-ba88-4a52-a322-3391cbf29a14}" locklevel="0">
                         <labels>
                           <label description="Safe HTML of email template" languagecode="1033" />
-                          <label description="Contenu HTML sécurisé du modèle d’e-mail" languagecode="1036" />
                         </labels>
                         <control id="safehtml" classid="{6F3FB987-393B-4d2d-859F-9D0F0349B6AD}" datafieldname="safehtml" disabled="false" />
                       </cell>
@@ -307,7 +295,6 @@
     </form>
     <LocalizedNames>
       <LocalizedName description="Template" languagecode="1033" />
-      <LocalizedName description="Modèle" languagecode="1036" />
     </LocalizedNames>
     <Descriptions>
       <Description description="Default UCI Template Form." languagecode="1033" />

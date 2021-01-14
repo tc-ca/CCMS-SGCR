@@ -2,7 +2,6 @@
 <Dashboard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <LocalizedNames>
     <LocalizedName description="Pay Dashboard" languagecode="1033" />
-    <LocalizedName description="Tableau de bord de la rémunération" languagecode="1036" />
   </LocalizedNames>
   <FormId>{e934c16b-617a-ea11-a811-000d3af3b5be}</FormId>
   <IsCustomizable>0</IsCustomizable>
@@ -14,7 +13,6 @@
           <tab showlabel="false" verticallayout="true" id="{e236d2f8-5e08-45cc-9013-fd832f73a809}">
             <labels>
               <label description="Tab" languagecode="1033" />
-              <label description="Onglet" languagecode="1036" />
             </labels>
             <columns>
               <column width="100%">
@@ -22,14 +20,12 @@
                   <section showlabel="false" showbar="false" columns="1111" id="{33dae92b-da1c-491f-8800-5ff20fba58b5}">
                     <labels>
                       <label description="Section" languagecode="1033" />
-                      <label description="Section (fr)" languagecode="1036" />
                     </labels>
                     <rows>
                       <row>
                         <cell colspan="2" rowspan="9" showlabel="false" id="{9937e6db-de5a-4891-9916-2d8996be57d7}" auto="false">
                           <labels>
                             <label description="My Cases" languagecode="1033" />
-                            <label description="Mes cas" languagecode="1036" />
                           </labels>
                           <control id="Componentd1eb27b" uniqueid="{19233a6d-1e58-d083-21e6-037e0a5a5e79}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                             <parameters>
@@ -54,7 +50,6 @@
                         <cell colspan="2" rowspan="9" showlabel="false" id="{43437ea7-4767-472b-a75e-f6e53dce1e5c}" auto="false">
                           <labels>
                             <label description="Cases with Unread Answers" languagecode="1033" />
-                            <label description="Cas avec des réponses non lues" languagecode="1036" />
                           </labels>
                           <control id="Componentc198053" uniqueid="{477174db-d24d-cb04-bc03-28c4ce39bbab}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                             <parameters>
@@ -89,7 +84,6 @@
                         <cell colspan="2" rowspan="9" showlabel="false" id="{79146695-d771-496c-8eb4-faae1f465e5b}" auto="false">
                           <labels>
                             <label description="Pay Cases" languagecode="1033" />
-                            <label description="Cas de paye" languagecode="1036" />
                           </labels>
                           <control id="Componentede7350" uniqueid="{b20102c3-008b-1262-612b-c1514c947b73}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                             <parameters>
@@ -114,7 +108,6 @@
                         <cell colspan="2" rowspan="9" showlabel="false" id="{2aed49a4-5249-4709-b633-bf9130c02ab6}" auto="false">
                           <labels>
                             <label description="Pay Cases" languagecode="1033" />
-                            <label description="Cas de paye" languagecode="1036" />
                           </labels>
                           <control id="Componenta47f730" uniqueid="{ba70355d-b3dc-cb79-0d8e-cdd14add23be}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                             <parameters>
@@ -149,7 +142,6 @@
                         <cell id="{57bbc940-2992-b200-d45e-05dc1be8484b}" showlabel="false" colspan="2" auto="false" rowspan="12">
                           <labels>
                             <label description="Pay Cases" languagecode="1033" />
-                            <label description="Cas de paye" languagecode="1036" />
                           </labels>
                           <control id="Component3280693" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{b31310ee-d254-ce94-5375-337511d4b8bb}">
                             <parameters>

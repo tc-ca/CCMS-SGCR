@@ -43,7 +43,6 @@
   <isdefault>0</isdefault>
   <LocalizedNames>
     <LocalizedName description="Case Type by Case Type" languagecode="1033" />
-    <LocalizedName description="Type de cas par type de cas" languagecode="1036" />
   </LocalizedNames>
   <IsCustomizable>1</IsCustomizable>
   <IntroducedVersion>1.0.0.0</IntroducedVersion>

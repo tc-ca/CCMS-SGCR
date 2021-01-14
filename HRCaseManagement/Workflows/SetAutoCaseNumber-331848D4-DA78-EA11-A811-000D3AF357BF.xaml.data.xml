@@ -23,10 +23,8 @@
   <PrimaryEntity>hr_HRCase</PrimaryEntity>
   <LocalizedNames>
     <LocalizedName languagecode="1033" description="Set Auto Case Number" />
-    <LocalizedName languagecode="1036" description="Copy of New business rule (fr)" />
   </LocalizedNames>
   <Descriptions>
     <Description languagecode="1033" description="Click to add description" />
-    <Description languagecode="1036" description="Cliquez pour ajouter une description" />
   </Descriptions>
 </Workflow>

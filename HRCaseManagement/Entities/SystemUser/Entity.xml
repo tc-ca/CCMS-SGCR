@@ -5,15 +5,12 @@
     <entity Name="SystemUser">
       <LocalizedNames>
         <LocalizedName description="User" languagecode="1033" />
-        <LocalizedName description="Utilisateur" languagecode="1036" />
       </LocalizedNames>
       <LocalizedCollectionNames>
         <LocalizedCollectionName description="Users" languagecode="1033" />
-        <LocalizedCollectionName description="Utilisateurs" languagecode="1036" />
       </LocalizedCollectionNames>
       <Descriptions>
         <Description description="Person with access to the Microsoft CRM system and who owns objects in the Microsoft CRM database." languagecode="1033" />
-        <Description description="Personne ayant accès au système Microsoft CRM et qui possède des objets dans la base de données Microsoft CRM." languagecode="1036" />
       </Descriptions>
       <attributes>
         <attribute PhysicalName="AccessMode">
@@ -45,328 +42,48 @@
             <IntroducedVersion>5.0.0.0</IntroducedVersion>
             <displaynames>
               <displayname description="Access Mode" languagecode="1033" />
-              <displayname description="Mode d'accès" languagecode="1036" />
             </displaynames>
             <Descriptions>
               <Description description="Type of user." languagecode="1033" />
-              <Description description="Type d'utilisateur." languagecode="1036" />
             </Descriptions>
             <options>
               <option value="0">
                 <labels>
                   <label description="Read-Write" languagecode="1033" />
-                  <label description="Lecture-écriture" languagecode="1036" />
                 </labels>
               </option>
               <option value="1">
                 <labels>
                   <label description="Administrative" languagecode="1033" />
-                  <label description="Administrateur" languagecode="1036" />
                 </labels>
               </option>
               <option value="2">
                 <labels>
-                  <label description="Lecture" languagecode="1036" />
                   <label description="Read" languagecode="1033" />
                 </labels>
               </option>
               <option value="3">
                 <labels>
                   <label description="Support User" languagecode="1033" />
-                  <label description="Utilisateur de support" languagecode="1036" />
                 </labels>
               </option>
               <option value="4">
                 <labels>
                   <label description="Non-interactive" languagecode="1033" />
-                  <label description="Non interactif" languagecode="1036" />
                 </labels>
               </option>
               <option value="5">
                 <labels>
                   <label description="Delegated Admin" languagecode="1033" />
-                  <label description="Administrateur délégué" languagecode="1036" />
                 </labels>
               </option>
             </options>
           </optionset>
           <displaynames>
             <displayname description="Access Mode" languagecode="1033" />
-            <displayname description="Mode d'accès" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Type of user." languagecode="1033" />
-            <Description description="Type d'utilisateur." languagecode="1036" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="Address1_AddressTypeCode">
-          <Type>picklist</Type>
-          <Name>address1_addresstypecode</Name>
-          <LogicalName>address1_addresstypecode</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>0</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsLogical>1</IsLogical>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>5.0.0.0</IntroducedVersion>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>1</AppDefaultValue>
-          <optionset Name="systemuser_address1_addresstypecode">
-            <OptionSetType>picklist</OptionSetType>
-            <IntroducedVersion>5.0.0.0</IntroducedVersion>
-            <displaynames>
-              <displayname description="Address 1: Address Type" languagecode="1033" />
-              <displayname description="Adresse 1 : Type d'adresse" languagecode="1036" />
-            </displaynames>
-            <Descriptions>
-              <Description description="Type of address for address 1, such as billing, shipping, or primary address." languagecode="1033" />
-              <Description description="Type de l'adresse 1, tel que l'adresse de facturation, l'adresse d'expédition ou l'adresse principale." languagecode="1036" />
-            </Descriptions>
-            <options>
-              <option value="1">
-                <labels>
-                  <label description="Default Value" languagecode="1033" />
-                  <label description="Valeur par défaut" languagecode="1036" />
-                </labels>
-              </option>
-            </options>
-          </optionset>
-          <displaynames>
-            <displayname description="Address 1: Address Type" languagecode="1033" />
-            <displayname description="Adresse 1 : Type d'adresse" languagecode="1036" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Type of address for address 1, such as billing, shipping, or primary address." languagecode="1033" />
-            <Description description="Type de l'adresse 1, tel que l'adresse de facturation, l'adresse d'expédition ou l'adresse principale." languagecode="1036" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="Address1_ShippingMethodCode">
-          <Type>picklist</Type>
-          <Name>address1_shippingmethodcode</Name>
-          <LogicalName>address1_shippingmethodcode</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>0</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsLogical>1</IsLogical>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>5.0.0.0</IntroducedVersion>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>1</AppDefaultValue>
-          <optionset Name="systemuser_address1_shippingmethodcode">
-            <OptionSetType>picklist</OptionSetType>
-            <IntroducedVersion>5.0.0.0</IntroducedVersion>
-            <displaynames>
-              <displayname description="Address 1: Shipping Method " languagecode="1033" />
-              <displayname description="Adresse 1 : Mode de livraison " languagecode="1036" />
-            </displaynames>
-            <Descriptions>
-              <Description description="Method of shipment for address 1." languagecode="1033" />
-              <Description description="Mode de livraison de l'adresse 1." languagecode="1036" />
-            </Descriptions>
-            <options>
-              <option value="1">
-                <labels>
-                  <label description="Default Value" languagecode="1033" />
-                  <label description="Valeur par défaut" languagecode="1036" />
-                </labels>
-              </option>
-            </options>
-          </optionset>
-          <displaynames>
-            <displayname description="Address 1: Shipping Method" languagecode="1033" />
-            <displayname description="Adresse 1 : Mode de livraison" languagecode="1036" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Method of shipment for address 1." languagecode="1033" />
-            <Description description="Mode de livraison de l'adresse 1." languagecode="1036" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="DefaultFiltersPopulated">
-          <Type>bit</Type>
-          <Name>defaultfilterspopulated</Name>
-          <LogicalName>defaultfilterspopulated</LogicalName>
-          <RequiredLevel>systemrequired</RequiredLevel>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>0</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>0</ValidForCreateApi>
-          <IsCustomField>0</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>5.0.0.0</IntroducedVersion>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <optionset Name="systemuser_defaultfilterspopulated">
-            <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>5.0.0.0</IntroducedVersion>
-            <Descriptions>
-              <Description description="Indicates if default outlook filters have been populated." languagecode="1033" />
-              <Description description="Indique si les filtres par défaut ont été renseignés." languagecode="1036" />
-            </Descriptions>
-            <options>
-              <option value="0">
-                <labels>
-                  <label description="No" languagecode="1033" />
-                  <label description="Non" languagecode="1036" />
-                </labels>
-              </option>
-              <option value="1">
-                <labels>
-                  <label description="Yes" languagecode="1033" />
-                  <label description="Oui" languagecode="1036" />
-                </labels>
-              </option>
-            </options>
-          </optionset>
-          <displaynames>
-            <displayname description="Default Filters Populated" languagecode="1033" />
-            <displayname description="Filtres par défaut renseignés" languagecode="1036" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Indicates if default outlook filters have been populated." languagecode="1033" />
-            <Description description="Indique si les filtres par défaut ont été renseignés." languagecode="1036" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="DisplayInServiceViews">
-          <Type>bit</Type>
-          <Name>displayinserviceviews</Name>
-          <LogicalName>displayinserviceviews</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>0</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>5.0.0.0</IntroducedVersion>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
-          <optionset Name="systemuser_displayinserviceviews">
-            <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>5.0.0.0</IntroducedVersion>
-            <displaynames>
-              <displayname description="Display in Service Views" languagecode="1033" />
-              <displayname description="Afficher dans les vues Service" languagecode="1036" />
-            </displaynames>
-            <Descriptions>
-              <Description description="Whether to display the user in service views." languagecode="1033" />
-              <Description description="Information indiquant si l'utilisateur doit être affiché dans les vues de services." languagecode="1036" />
-            </Descriptions>
-            <options>
-              <option value="0">
-                <labels>
-                  <label description="No" languagecode="1033" />
-                  <label description="Non" languagecode="1036" />
-                </labels>
-              </option>
-              <option value="1">
-                <labels>
-                  <label description="Yes" languagecode="1033" />
-                  <label description="Oui" languagecode="1036" />
-                </labels>
-              </option>
-            </options>
-          </optionset>
-          <displaynames>
-            <displayname description="Display in Service Views" languagecode="1033" />
-            <displayname description="Afficher dans les vues Service" languagecode="1036" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Whether to display the user in service views." languagecode="1033" />
-            <Description description="Information indiquant si l'utilisateur doit être affiché dans les vues de services." languagecode="1036" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="IsActiveDirectoryUser">
-          <Type>bit</Type>
-          <Name>isactivedirectoryuser</Name>
-          <LogicalName>isactivedirectoryuser</LogicalName>
-          <RequiredLevel>systemrequired</RequiredLevel>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>0</ValidForUpdateApi>
-          <ValidForCreateApi>0</ValidForCreateApi>
-          <IsCustomField>0</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>5.0.0.0</IntroducedVersion>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>1</AppDefaultValue>
-          <optionset Name="systemuser_isactivedirectoryuser">
-            <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>5.0.0.0</IntroducedVersion>
-            <Descriptions>
-              <Description description="Information about whether the user is an AD user." languagecode="1033" />
-              <Description description="Indique si l'utilisateur est un utilisateur AD." languagecode="1036" />
-            </Descriptions>
-            <options>
-              <option value="0">
-                <labels>
-                  <label description="No" languagecode="1033" />
-                  <label description="Non" languagecode="1036" />
-                </labels>
-              </option>
-              <option value="1">
-                <labels>
-                  <label description="Yes" languagecode="1033" />
-                  <label description="Oui" languagecode="1036" />
-                </labels>
-              </option>
-            </options>
-          </optionset>
-          <displaynames>
-            <displayname description="Is Active Directory User" languagecode="1033" />
-            <displayname description="Utilisateur Active Directory" languagecode="1036" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Information about whether the user is an AD user." languagecode="1033" />
-            <Description description="Indique si l'utilisateur est un utilisateur AD." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="IsDisabled">
@@ -397,89 +114,29 @@
             <OptionSetType>bit</OptionSetType>
             <IntroducedVersion>5.0.0.0</IntroducedVersion>
             <displaynames>
-              <displayname description="Statut" languagecode="1036" />
               <displayname description="Status" languagecode="1033" />
             </displaynames>
             <Descriptions>
               <Description description="Information about whether the user is enabled." languagecode="1033" />
-              <Description description="Information indiquant si l'utilisateur est activé." languagecode="1036" />
             </Descriptions>
             <options>
               <option value="0">
                 <labels>
                   <label description="Enabled" languagecode="1033" />
-                  <label description="Activée" languagecode="1036" />
                 </labels>
               </option>
               <option value="1">
                 <labels>
                   <label description="Disabled" languagecode="1033" />
-                  <label description="Désactivé" languagecode="1036" />
                 </labels>
               </option>
             </options>
           </optionset>
           <displaynames>
             <displayname description="Status" languagecode="1033" />
-            <displayname description="Statut" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Information about whether the user is enabled." languagecode="1033" />
-            <Description description="Information indiquant si l'utilisateur est activé." languagecode="1036" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="IsEmailAddressApprovedByO365Admin">
-          <Type>bit</Type>
-          <Name>isemailaddressapprovedbyo365admin</Name>
-          <LogicalName>isemailaddressapprovedbyo365admin</LogicalName>
-          <RequiredLevel>systemrequired</RequiredLevel>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>0</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>0</ValidForCreateApi>
-          <IsCustomField>0</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>6.0.0.0</IntroducedVersion>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
-          <optionset Name="systemuser_isemailaddressapprovedbyo365admin">
-            <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>6.0.0.0</IntroducedVersion>
-            <displaynames>
-              <displayname description="Is Mailbox approved by O365 Admin" languagecode="1033" />
-              <displayname description="La boîte aux lettres est-elle approuvée par l'administrateur d'O365 ?" languagecode="1036" />
-            </displaynames>
-            <options>
-              <option value="0">
-                <labels>
-                  <label description="No" languagecode="1033" />
-                  <label description="Non" languagecode="1036" />
-                </labels>
-              </option>
-              <option value="1">
-                <labels>
-                  <label description="Yes" languagecode="1033" />
-                  <label description="Oui" languagecode="1036" />
-                </labels>
-              </option>
-            </options>
-          </optionset>
-          <displaynames>
-            <displayname description="Email Address O365 Admin Approval Status" languagecode="1033" />
-            <displayname description="Statut de l'approbation de l'adresse de messagerie par l'administrateur d'O365" languagecode="1036" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Shows the status of approval of the email address by O365 Admin." languagecode="1033" />
-            <Description description="Affiche le statut de l'approbation de l'adresse de messagerie par l'administrateur d'O365." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="IsIntegrationUser">
@@ -511,22 +168,18 @@
             <IntroducedVersion>5.0.0.0</IntroducedVersion>
             <displaynames>
               <displayname description="Integration user mode" languagecode="1033" />
-              <displayname description="Mode utilisateur de l’intégration" languagecode="1036" />
             </displaynames>
             <Descriptions>
               <Description description="Check if user is an integration user." languagecode="1033" />
-              <Description description="Vérifie si l’utilisateur est un utilisateur de l’intégration." languagecode="1036" />
             </Descriptions>
             <options>
               <option value="0">
                 <labels>
-                  <label description="Non" languagecode="1036" />
                   <label description="No" languagecode="1033" />
                 </labels>
               </option>
               <option value="1">
                 <labels>
-                  <label description="Oui" languagecode="1036" />
                   <label description="Yes" languagecode="1033" />
                 </labels>
               </option>
@@ -534,11 +187,9 @@
           </optionset>
           <displaynames>
             <displayname description="Integration user mode" languagecode="1033" />
-            <displayname description="Mode utilisateur de l’intégration" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Check if user is an integration user." languagecode="1033" />
-            <Description description="Vérifie si l’utilisateur est un utilisateur de l’intégration." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="IsLicensed">
@@ -573,18 +224,15 @@
             </displaynames>
             <Descriptions>
               <Description description="Information about whether the user is licensed or not." languagecode="1033" />
-              <Description description="Informations indiquant si une licence est accordée ou non à l’utilisateur." languagecode="1036" />
             </Descriptions>
             <options>
               <option value="0">
                 <labels>
-                  <label description="Non" languagecode="1036" />
                   <label description="No" languagecode="1033" />
                 </labels>
               </option>
               <option value="1">
                 <labels>
-                  <label description="Oui" languagecode="1036" />
                   <label description="Yes" languagecode="1033" />
                 </labels>
               </option>
@@ -592,65 +240,9 @@
           </optionset>
           <displaynames>
             <displayname description="User Licensed" languagecode="1033" />
-            <displayname description="Utilisateur avec licence" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Information about whether the user is licensed." languagecode="1033" />
-            <Description description="Informations indiquant si une licence est accordée à l’utilisateur." languagecode="1036" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="IsSyncWithDirectory">
-          <Type>bit</Type>
-          <Name>issyncwithdirectory</Name>
-          <LogicalName>issyncwithdirectory</LogicalName>
-          <RequiredLevel>systemrequired</RequiredLevel>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>0</IsCustomField>
-          <IsAuditEnabled>0</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>5.0.0.0</IntroducedVersion>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
-          <optionset Name="systemuser_isusersynced">
-            <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>5.0.0.0</IntroducedVersion>
-            <Descriptions>
-              <Description description="Information about whether the user is synced or not." languagecode="1033" />
-              <Description description="Informations sur la synchronisation ou non de l'utilisateur." languagecode="1036" />
-            </Descriptions>
-            <options>
-              <option value="0">
-                <labels>
-                  <label description="No" languagecode="1033" />
-                  <label description="Non" languagecode="1036" />
-                </labels>
-              </option>
-              <option value="1">
-                <labels>
-                  <label description="Yes" languagecode="1033" />
-                  <label description="Oui" languagecode="1036" />
-                </labels>
-              </option>
-            </options>
-          </optionset>
-          <displaynames>
-            <displayname description="User Synced" languagecode="1033" />
-            <displayname description="Utilisateur synchronisé" languagecode="1036" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Information about whether the user is synced with the directory." languagecode="1033" />
-            <Description description="Informations sur la synchronisation ou non de l'utilisateur avec le répertoire." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="SetupUser">
@@ -682,22 +274,18 @@
             <IntroducedVersion>5.0.0.0</IntroducedVersion>
             <displaynames>
               <displayname description="Restricted Access Mode" languagecode="1033" />
-              <displayname description="Mode d'accès restreint" languagecode="1036" />
             </displaynames>
             <Descriptions>
               <Description description="Check if user is a setup user." languagecode="1033" />
-              <Description description="Vérifiez si l'utilisateur est un utilisateur d'installation." languagecode="1036" />
             </Descriptions>
             <options>
               <option value="0">
                 <labels>
-                  <label description="Non" languagecode="1036" />
                   <label description="No" languagecode="1033" />
                 </labels>
               </option>
               <option value="1">
                 <labels>
-                  <label description="Oui" languagecode="1036" />
                   <label description="Yes" languagecode="1033" />
                 </labels>
               </option>
@@ -705,11 +293,9 @@
           </optionset>
           <displaynames>
             <displayname description="Restricted Access Mode" languagecode="1033" />
-            <displayname description="Mode d'accès restreint" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Check if user is a setup user." languagecode="1033" />
-            <Description description="Vérifiez si l'utilisateur est un utilisateur d'installation." languagecode="1036" />
           </Descriptions>
         </attribute>
       </attributes>
@@ -769,7 +355,6 @@
   <Strings>
     <Strings ResourceKey="Error_Message_0x80046203">
       <String languagecode="1033" Comment="">This field map is invalid. A valid field map must meet these requirements:       - The data type must match.       - The length of the target field cannot be shorter than the source field.       - The format should match.       - The target field must not be used in another mapping.       - The source field must be visible on the entity form.       - The target field must be a field a user can enter data into.       - Address ID values cannot be mapped.</String>
-      <String languagecode="1036" Comment="">Ce mappage de champ n'est pas valide. Un mappage est valide avec ces conditions :       - Le type de données doit correspondre.       - La longueur du champ cible ne doit pas être inférieure à celle du champ source.       - Le format doit correspondre.       - Le champ cible ne doit pas être utilisé dans un autre mappage.       - Le champ source est visible dans le formulaire d'entité.       - Le champ cible est un champ dans lequel un utilisateur peut entrer des données.       - Les valeurs d'ID d'adresse ne peuvent pas être mappées.</String>
     </Strings>
   </Strings>
 </Entity>
