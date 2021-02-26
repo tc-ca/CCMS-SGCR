@@ -21,12 +21,14 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
+
 - task: VSBuild@1
   inputs:
-    solution: '$(solution)'
+    solution: '**\*.sln'
     msbuildArgs: '/p:DeployOnBuild=true  /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:PublishBaseUrl="$(build.artifactStagingDirectory)\\"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    clean: true
 
 - task: VSTest@2
   inputs:
