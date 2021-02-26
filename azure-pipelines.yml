@@ -24,8 +24,8 @@ steps:
 
 - task: VSBuild@1
   inputs:
-    solution: '**\*.sln'
-    msbuildArgs: '/p:DeployOnBuild=true  /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:PublishBaseUrl="$(build.artifactStagingDirectory)\\"'
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
     clean: true
