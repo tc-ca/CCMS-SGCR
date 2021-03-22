@@ -25,7 +25,7 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:PublishBaseUrl="$(build.artifactstagingdirectory)\\" /p:SkipInvalidConfigurations=true /p:UseWPP_CopyWebApplication=true /p:PipelineDependsOnBuild=false'
+    msbuildArgs: '/p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish  /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:PublishBaseUrl=$(Build.ArtifactStagingDirectory)\\ /p:SkipInvalidConfigurations=true /p:UseWPP_CopyWebApplication=true /p:PipelineDependsOnBuild=false'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
     clean: true
