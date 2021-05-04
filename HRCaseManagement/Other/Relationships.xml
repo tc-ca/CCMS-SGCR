@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <EntityRelationship Name="adx_webrole_systemuser" />
   <EntityRelationship Name="business_unit_hr_casesubtype" />
   <EntityRelationship Name="business_unit_hr_casetype" />
   <EntityRelationship Name="business_unit_hr_hrcase" />
@@ -17,6 +18,10 @@
   <EntityRelationship Name="lk_hr_questionandanswers_createdby" />
   <EntityRelationship Name="lk_hr_questionandanswers_modifiedby" />
   <EntityRelationship Name="msdyn_appconfiguration_systemuser" />
+  <EntityRelationship Name="msdyn_flow_actionapprovalmodelrelationship_systemuser" />
+  <EntityRelationship Name="msdyn_flow_awaitallactionmodelrelationship_user" />
+  <EntityRelationship Name="msdyn_flow_awaitallmodelrelationship_systemuser" />
+  <EntityRelationship Name="msdyn_flow_basicapprovalmodelrelationship_systemuser" />
   <EntityRelationship Name="owner_hr_casesubtype" />
   <EntityRelationship Name="owner_hr_casetype" />
   <EntityRelationship Name="owner_hr_hrcase" />

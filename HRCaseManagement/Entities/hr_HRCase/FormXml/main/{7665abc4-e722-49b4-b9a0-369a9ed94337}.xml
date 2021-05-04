@@ -38,7 +38,7 @@
                         <labels>
                           <label description="PRI" languagecode="1033" />
                         </labels>
-                        <control id="hr_pri" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="hr_pri" disabled="false" uniqueid="{731ebc79-6d9a-74e2-cd24-45139242abdd}" />
+                        <control id="hr_pri" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="hr_pri" disabled="false" uniqueid="{731ebc79-6d9a-74e2-cd24-45139242abdd}" />
                       </cell>
                       <cell id="{c8d4a5b3-411e-50a4-9e40-7ad068186e87}" showlabel="true" locklevel="0">
                         <labels>
@@ -357,19 +357,44 @@
               <datafieldname>hr_resolution</datafieldname>
             </parameters>
           </customControl>
-          <customControl formFactor="0" name="andz_Andz.TinyMCEComponent">
+          <customControl formFactor="0" name="MscrmControls.RichTextEditor.RichTextEditorControl">
             <parameters>
-              <textField>hr_resolution</textField>
+              <value>hr_resolution</value>
             </parameters>
           </customControl>
-          <customControl formFactor="1" name="andz_Andz.TinyMCEComponent">
+          <customControl formFactor="1" name="MscrmControls.RichTextEditor.RichTextEditorControl">
             <parameters>
-              <textField>hr_resolution</textField>
+              <value>hr_resolution</value>
             </parameters>
           </customControl>
-          <customControl formFactor="2" name="andz_Andz.TinyMCEComponent">
+          <customControl formFactor="2" name="MscrmControls.RichTextEditor.RichTextEditorControl">
             <parameters>
-              <textField>hr_resolution</textField>
+              <value>hr_resolution</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{731ebc79-6d9a-74e2-cd24-45139242abdd}">
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>hr_pri</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.InputMask.InputMaskControl">
+            <parameters>
+              <value>hr_pri</value>
+              <mask static="true" type="SingleLine.Text">000-000-000</mask>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.InputMask.InputMaskControl">
+            <parameters>
+              <value>hr_pri</value>
+              <mask static="true" type="SingleLine.Text">000-000-000</mask>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.InputMask.InputMaskControl">
+            <parameters>
+              <value>hr_pri</value>
+              <mask static="true" type="SingleLine.Text">000-000-000</mask>
             </parameters>
           </customControl>
         </controlDescription>
