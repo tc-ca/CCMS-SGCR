@@ -23,6 +23,7 @@
                       <cell id="{df8b3436-a3fc-4cc2-9769-92fb036cbbf8}" showlabel="true" locklevel="0" visible="false">
                         <labels>
                           <label description="Name" languagecode="1033" />
+                          <label description="Unique identifier for the user that owns the record. (fr)" languagecode="1036" />
                         </labels>
                         <control id="hr_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hr_name" uniqueid="{9d179cd7-d72c-4931-cbec-ed243b9db840}" disabled="true" />
                       </cell>
@@ -31,6 +32,7 @@
                       <cell id="{89537ea7-d6ad-6c42-d217-64b0a9084a1e}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Name (English)" languagecode="1033" />
+                          <label description="Nom (anglais)" languagecode="1036" />
                         </labels>
                         <control id="hr_nameen" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hr_nameen" disabled="false" />
                       </cell>
@@ -39,6 +41,7 @@
                       <cell id="{dba6452c-47d7-11b6-6b5b-6033b156eaa3}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Name (French)" languagecode="1033" />
+                          <label description="Nom (français)" languagecode="1036" />
                         </labels>
                         <control id="hr_namefr" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hr_namefr" disabled="false" />
                       </cell>
@@ -47,6 +50,7 @@
                       <cell id="{6ffc5f9f-17dc-4f79-8a35-fb7798d718a1}" showlabel="true" locklevel="1" visible="false">
                         <labels>
                           <label description="Owner" languagecode="1033" />
+                          <label description="Propriétaire" languagecode="1036" />
                         </labels>
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" uniqueid="{c0b1aa6d-3bd2-9d02-382c-8780c99622de}" disabled="false">
                           <parameters>
@@ -68,6 +72,7 @@
                       <cell showlabel="false" locklevel="0" id="{41f0b405-98c9-4491-bc21-fb91c1a00c90}" rowspan="1" colspan="1">
                         <labels>
                           <label description="New SG control 1586424865511" languagecode="1033" />
+                          <label description="Sous-types de cas" languagecode="1036" />
                         </labels>
                         <control id="Subgrid_1" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -166,9 +171,11 @@
     <CanBeDeleted>1</CanBeDeleted>
     <LocalizedNames>
       <LocalizedName description="Information" languagecode="1033" />
+      <LocalizedName description="Informations" languagecode="1036" />
     </LocalizedNames>
     <Descriptions>
       <Description description="A form for this entity." languagecode="1033" />
+      <Description description="A form for this entity. (fr)" languagecode="1036" />
     </Descriptions>
   </systemform>
 </forms>

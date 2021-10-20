@@ -29,6 +29,7 @@
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <LocalizedNames>
       <LocalizedName description="Case Type Advanced Find View" languagecode="1033" />
+      <LocalizedName description="Vue de recherche avancée de sous-type de cas " languagecode="1036" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>
