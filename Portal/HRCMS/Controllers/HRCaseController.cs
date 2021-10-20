@@ -246,6 +246,8 @@ namespace HRCMS.Controllers
                 string caseId;
                 if (string.IsNullOrEmpty(hrCaseModel.CaseId))
                 {
+                    hrCase.hr_pri = hrCaseModel.PRI.Replace("-", "");
+                    hrCase.hr_region = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.StateOrProvince)?.Value;
                     caseId = await _repository.CreateHRCaseAsync(hrCase);
                 }
                 else
@@ -284,6 +286,7 @@ namespace HRCMS.Controllers
                 if (ModelState.IsValid)
                 {
                     hrCase.hr_pri = hrCaseModel.PRI.Replace("-", "");
+                    hrCase.hr_region = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.StateOrProvince)?.Value;
                     result = await _repository.CreateHRCaseAsync(hrCase);
                 }
                 else

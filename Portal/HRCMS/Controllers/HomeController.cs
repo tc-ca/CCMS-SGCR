@@ -55,6 +55,7 @@ namespace HRCMS.Controllers
                 identity.AddClaim(new Claim(ClaimTypes.Surname, user.lastName));
                 identity.AddClaim(new Claim(ClaimTypes.Email, user.email));
                 identity.AddClaim(new Claim(ClaimTypes.Name, $"{user.firstName} {user.lastName}"));
+                identity.AddClaim(new Claim(ClaimTypes.StateOrProvince, $"{user.regionEng}::{user.regionFra}"));
                 identity.AddClaim(new Claim(ClaimTypes.Role, "User"));
                 var principal = new ClaimsPrincipal(identity);
 
@@ -65,7 +66,7 @@ namespace HRCMS.Controllers
             catch
             {
                 ModelState.AddModelError(string.Empty, "Unable to authenticate. Please check your user name");
-                return Redirect(_portalSettings.PortalUrl);
+                return RedirectToAction("Home", "Index");
             }
         }
 

@@ -32,18 +32,17 @@ namespace HRCMS.Data
         [ResponseCache(NoStore = true)]
         public async Task<User> GetUserAsync(string userId)
         {
-            //userId = "HU5FMXJLMW1DR9X";
-#if DEBUG
-            return new User { userId = "xiaowe", pri = "085757934", firstName = "Weiguang", lastName = "Xiao", email = "weiguang.xiao@034gc.onmicrosoft.com", appToken = "PhoenixForm" };
-#else
-            using (var client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Add("Cookie", _appSettings.Cookie);
-               
-                //var content = new StringContent(JsonConvert.SerializeObject(new User { userId = userId, appToken = _appSettings.appToken }), Encoding.UTF8, "application/json");
+            var apiSubUrl = "/api/userinfo/";
 
-                var content = new StringContent($"{{ dbSessionId : \"{userId}\", appToken : \"{_appSettings.appToken}\" }}", Encoding.UTF8, "application/json");
-                var response = await client.PostAsync($"{_appSettings.ResourceUrl}", content);
+#if DEBUG
+            userId = "xiaowe";
+            apiSubUrl = "/api/userinfoById/";
+            //return new User { userId = "xiaowe", pri = "085757934", firstName = "Weiguang", lastName = "Xiao", email = "weiguang.xiao@034gc.onmicrosoft.com", appToken = "PhoenixForm" };
+#endif
+            using (var client = HRAuthApiHelper.GetHttpClient(_appSettings))
+            {
+
+                var response = await client.GetAsync(_appSettings.ResourceUrl+ apiSubUrl + userId);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -59,7 +58,6 @@ namespace HRCMS.Data
                     _logger.LogDebug("Failed to authenticate from HR Portal");
                 }
             }
-#endif
             return null;
         }
 

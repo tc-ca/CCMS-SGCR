@@ -141,7 +141,7 @@
   <data name="Case Status" xml:space="preserve">
     <value>État du cas</value>
   </data>
-  <data name="Case Sub Type" xml:space="preserve">
+  <data name="Case Sub-Type" xml:space="preserve">
     <value>Sous-type de cas</value>
   </data>
   <data name="Case Summary" xml:space="preserve">

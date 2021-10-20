@@ -10,8 +10,6 @@
   <ClientType>4</ClientType>
   <NavigationType>0</NavigationType>
   <AppModuleComponents>
-    <AppModuleComponent type="62" schemaName="hr_HRCaseManagement" />
-    <AppModuleComponent type="60" id="{e934c16b-617a-ea11-a811-000d3af3b5be}" />
     <AppModuleComponent type="1" schemaName="incident" />
     <AppModuleComponent type="1" schemaName="hr_casesubtype" />
     <AppModuleComponent type="1" schemaName="hr_casetype" />
@@ -21,6 +19,8 @@
     <AppModuleComponent type="1" schemaName="hr_questionandanswers" />
     <AppModuleComponent type="1" schemaName="team" />
     <AppModuleComponent type="1" schemaName="systemuser" />
+    <AppModuleComponent type="60" id="{e934c16b-617a-ea11-a811-000d3af3b5be}" />
+    <AppModuleComponent type="62" schemaName="hr_HRCaseManagement" />
   </AppModuleComponents>
   <AppModuleRoleMaps>
     <Role id="{058d6621-2daf-ea11-a812-000d3af3b5be}" />

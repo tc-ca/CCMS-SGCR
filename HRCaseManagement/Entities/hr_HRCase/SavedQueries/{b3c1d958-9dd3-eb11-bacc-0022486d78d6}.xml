@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{b3c1d958-9dd3-eb11-bacc-0022486d78d6}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="hr_name" select="1" icon="1" preview="1">
+        <row name="result" id="hr_hrcaseid">
+          <cell name="hr_name" width="128" />
+          <cell name="ownerid" width="148" />
+          <cell name="hr_priority" width="100" imageproviderfunctionname="highlightPriority" imageproviderwebresource="$webresource:hr_ViewJS.js" />
+          <cell name="hr_casetype" width="155" />
+          <cell name="hr_casesubtype" width="155" />
+          <cell name="hr_casestatus" width="100" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="hr_firstname" width="100" />
+          <cell name="hr_lastname" width="100" />
+          <cell name="hr_datereceived" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="hr_hrcase">
+          <attribute name="hr_name" />
+          <attribute name="hr_casestatus" />
+          <attribute name="hr_firstname" />
+          <attribute name="hr_lastname" />
+          <attribute name="hr_casetype" />
+          <attribute name="ownerid" />
+          <attribute name="hr_casesubtype" />
+          <attribute name="hr_priority" />
+          <attribute name="hr_hrcaseid" />
+          <attribute name="hr_datereceived" />
+          <order attribute="hr_name" descending="true" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.2.1.8</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="All Pay Cases" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

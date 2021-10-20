@@ -285,6 +285,11 @@
                   <label description="User" languagecode="1033" />
                 </labels>
               </option>
+              <option value="9700">
+                <labels>
+                  <label description="Entitlement" languagecode="1033" />
+                </labels>
+              </option>
             </options>
           </optionset>
           <displaynames>
@@ -338,6 +343,5 @@
       <IsSolutionAware>1</IsSolutionAware>
     </entity>
   </EntityInfo>
-  <FormXml />
   <RibbonDiffXml />
 </Entity>

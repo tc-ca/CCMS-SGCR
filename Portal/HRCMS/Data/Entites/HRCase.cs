@@ -13,6 +13,7 @@ namespace HRCMS.Data
         public string hr_firstname { get; set; }
         public string hr_pri { get; set; }
         public string hr_email { get; set; }
+        public string hr_region { get; set; }
         public string _hr_casetype_value { get; set; }
         public CaseType hr_CaseType { get; set; }
         public string _hr_casesubtype_value { get; set; }
