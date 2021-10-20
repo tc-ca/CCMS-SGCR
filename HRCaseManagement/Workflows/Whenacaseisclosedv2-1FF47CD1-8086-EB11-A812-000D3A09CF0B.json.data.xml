@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{58f1d7cc-59fc-ea11-a813-000d3af3b5be}" Name="When a case is closed" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <JsonFileName>/Workflows/Whenacaseisclosed-58F1D7CC-59FC-EA11-A813-000D3AF3B5BE.json</JsonFileName>
+<Workflow WorkflowId="{1ff47cd1-8086-eb11-a812-000d3a09cf0b}" Name="When a case is closed v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <JsonFileName>/Workflows/Whenacaseisclosedv2-1FF47CD1-8086-EB11-A812-000D3A09CF0B.json</JsonFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>5</Category>
@@ -11,15 +11,16 @@
   <TriggerOnDelete>0</TriggerOnDelete>
   <AsyncAutodelete>0</AsyncAutodelete>
   <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
-  <StateCode>0</StateCode>
-  <StatusCode>1</StatusCode>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
   <RunAs>1</RunAs>
   <IsTransacted>1</IsTransacted>
-  <IntroducedVersion>1.0.0.2</IntroducedVersion>
+  <IntroducedVersion>1.2.1.7</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
   <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
   <PrimaryEntity>none</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="When a case is closed" />
+    <LocalizedName languagecode="1033" description="When a case is closed v2" />
   </LocalizedNames>
 </Workflow>
