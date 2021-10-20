@@ -127,8 +127,10 @@ namespace HRCMS.Data
                     jCase.hr_firstname = hrCase.hr_firstname;
                     jCase.hr_pri = hrCase.hr_pri;
                     jCase.hr_email = hrCase.hr_email;
+                    jCase.hr_region = hrCase.hr_region;
                     jCase.hr_casestatus = hrCase.hr_casestatus; 
                     jCase.hr_description = hrCase.hr_description;
+                    
                     //jCase.hr_datereceived = DateTime.Now;
                     if (hrCase.hr_CaseType.hr_casetypeid != null)
                     {

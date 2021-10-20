@@ -19,8 +19,9 @@ namespace HRCMS
     public class HrApi
     {
         public string ResourceUrl { get; set; }
-        public string Cookie { get; set; }
-        public string appToken { get; set; }
-        public string PortalUrl { get; set; }
+        public string AuthContextUrl { get; set; }
+        public string ClientId { get; set; }
+        public string ClientSecret { get; set; }
+        public string Scope { get; set; }
     }
 }

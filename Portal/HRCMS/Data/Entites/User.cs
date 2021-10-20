@@ -12,7 +12,8 @@ namespace HRCMS.Data
         public string lastName { get; set; }
         public string pri { get; set; }
         public string email { get; set; }
-        public string Cookie { get; set; }
-        public string appToken { get; set; }
+        public string regionCode { get; set; }
+        public string regionEng { get; set; }
+        public string regionFra { get; set; }
     }
 }
