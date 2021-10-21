@@ -8,7 +8,7 @@
     <Descriptions>
       <Description description="Upgrade of Compensation Case Management" languagecode="1033" />
     </Descriptions>
-    <Version>1.3.0.0</Version>
+    <Version>1.3.0.1</Version>
     <Managed>0</Managed>
     <Publisher>
       <UniqueName>HRCaseManagmentSystem</UniqueName>
