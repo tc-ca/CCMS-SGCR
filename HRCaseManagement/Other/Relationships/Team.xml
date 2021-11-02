@@ -16,6 +16,7 @@
     <RelationshipDescription>
       <Descriptions>
         <Description description="Unique identifier for the team that owns the record." languagecode="1033" />
+        <Description description="Unique identifier for the team that owns the record. (fr)" languagecode="1036" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
@@ -35,6 +36,7 @@
     <RelationshipDescription>
       <Descriptions>
         <Description description="Unique identifier for the team that owns the record." languagecode="1033" />
+        <Description description="Unique identifier for the team that owns the record. (fr)" languagecode="1036" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
@@ -73,6 +75,7 @@
     <RelationshipDescription>
       <Descriptions>
         <Description description="Unique identifier for the team that owns the record." languagecode="1033" />
+        <Description description="Unique identifier for the team that owns the record. (fr)" languagecode="1036" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>

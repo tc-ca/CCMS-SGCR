@@ -32,6 +32,7 @@
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <LocalizedNames>
       <LocalizedName description="Question and Answers Associated View" languagecode="1033" />
+      <LocalizedName description="Question and Answers Associated View (fr)" languagecode="1036" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

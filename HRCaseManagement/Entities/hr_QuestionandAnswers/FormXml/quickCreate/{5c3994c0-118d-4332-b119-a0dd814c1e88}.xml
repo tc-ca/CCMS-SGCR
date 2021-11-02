@@ -90,6 +90,7 @@
     <CanBeDeleted>1</CanBeDeleted>
     <LocalizedNames>
       <LocalizedName description="New Form" languagecode="1033" />
+      <LocalizedName description="Nouveau formulaire" languagecode="1036" />
     </LocalizedNames>
   </systemform>
 </forms>
