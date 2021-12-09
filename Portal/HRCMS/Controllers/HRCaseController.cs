@@ -15,18 +15,11 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using GoC.WebTemplate.Components.Entities;
-using GoC.WebTemplate.CoreMVC.Controllers;
 using System.Net;
-using System.Reflection.Metadata;
-using System.Text.Encodings.Web;
-using System.Web;
-using System.IO;
-using System.Text;
 using System.Net.Mime;
 using HRCMS.Utility;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Localization;
-using Microsoft.AspNetCore.Mvc.Localization;
 
 namespace HRCMS.Controllers
 {

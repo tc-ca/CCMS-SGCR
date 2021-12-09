@@ -11,8 +11,6 @@ using Microsoft.Extensions.Options;
 using System.Text;
 using System.Net.Http;
 using System.Linq;
-using System.Text.Encodings.Web;
-using System.Web;
 
 namespace HRCMS.Data
 {

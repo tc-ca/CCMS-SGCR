@@ -34,6 +34,12 @@ namespace HRCMS.Data
         {
             var apiSubUrl = "/api/userinfo/";
 
+            if (_appSettings.AuthContextUrl.ToLower().Contains("tcappstest"))
+            {
+                userId = "xiaowe";
+                apiSubUrl = "/api/userinfoById/";
+            }
+
 #if DEBUG
             userId = "xiaowe";
             apiSubUrl = "/api/userinfoById/";
