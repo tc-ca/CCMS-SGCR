@@ -66,7 +66,7 @@ namespace HRCMS.Controllers
             catch
             {
                 ModelState.AddModelError(string.Empty, "Unable to authenticate. Please check your user name");
-                return RedirectToAction("Home", "Index");
+                return RedirectToAction("Error", "Home");
             }
         }
 

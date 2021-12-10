@@ -36,7 +36,7 @@ namespace HRCMS.Data
 
             if (_appSettings.AuthContextUrl.ToLower().Contains("tcappstest"))
             {
-                userId = "xiaowe";
+                userId = "ROBIJAN";
                 apiSubUrl = "/api/userinfoById/";
             }
 
