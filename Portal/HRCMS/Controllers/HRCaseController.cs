@@ -263,7 +263,15 @@ namespace HRCMS.Controllers
             hrCaseModel.CaseTypes = caseTypes;
             hrCaseModel.CaseSubTypes = caseSubTypes;
             hrCaseModel.CaseStatuses = caseStatuses;
-            return View(hrCaseModel);
+
+            if(hrCaseModel.CaseId != null)
+            {
+                return View("details", hrCaseModel);
+            }
+            else
+            {
+                return View("create", hrCaseModel);
+            }
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -297,7 +305,14 @@ namespace HRCMS.Controllers
             if (result == null)
             {
                 ModelState.AddModelError("Error", "Error: Not able to submit.");
-                return View(hrCaseModel);
+                if (hrCaseModel.CaseId != null)
+                {
+                    return View("details", hrCaseModel);
+                }
+                else
+                {
+                    return View("create", hrCaseModel);
+                }
             }
             else
             {
