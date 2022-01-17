@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using AutoMapper;
+using log4net;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
@@ -11,12 +13,10 @@ using System.Threading.Tasks;
 
 namespace HRCMS.Data
 {
-    public class CaseTypeRepository : ICaseTypeRepository
+    public class CaseTypeRepository : BaseRepository, ICaseTypeRepository
     {
-        private readonly Dynamics _appSettings;
-        public CaseTypeRepository(IOptions<Dynamics> settings)
+        public CaseTypeRepository(IMapper mapper, IOptions<Dynamics> settings, ILog logger) : base(mapper, settings, logger)
         {
-            _appSettings = settings.Value;
         }
         //[OutputCache(Duration = 60)]
         public async Task<IEnumerable<SelectListItem>> GetAllCaseTypesAsync(string twoLetterCultureLanguage)

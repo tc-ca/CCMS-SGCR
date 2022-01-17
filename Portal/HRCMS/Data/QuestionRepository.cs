@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System;
@@ -11,19 +10,14 @@ using Microsoft.Extensions.Options;
 using System.Text;
 using System.Net.Http;
 using System.Linq;
+using log4net;
 
 namespace HRCMS.Data
 {
-    public class QuestionRepository : IQuestionRepository
+    public class QuestionRepository : BaseRepository, IQuestionRepository
     {
-        private readonly ILogger<QuestionRepository> _logger;
-        private readonly Dynamics _appSettings;
-        private readonly IMapper _mapper;
-
-        public QuestionRepository(IMapper mapper, IOptions<Dynamics> settings)
+        public QuestionRepository(IMapper mapper, IOptions<Dynamics> settings, ILog logger) : base(mapper, settings, logger)
         {
-            _mapper = mapper;
-            _appSettings = settings.Value;
         }
 
         public async Task<List<QuestionModel>> GetAllUnAnsweredQuestionsAsync(string pri)

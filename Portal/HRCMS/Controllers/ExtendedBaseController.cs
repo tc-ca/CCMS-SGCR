@@ -5,16 +5,19 @@ using GoC.WebTemplate.CoreMVC.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using log4net;
 
 namespace HRCMS.Controllers
 {
     public class ExtendedBaseController : WebTemplateBaseController
     {
-        //public string UserName = "Mr. Fancy Pants";
+        protected readonly ILog _logger;
 
-        public ExtendedBaseController(ModelAccessor modelAccessor)
+        public ExtendedBaseController(ModelAccessor modelAccessor, ILog logger)
             : base(modelAccessor)
         {
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+
             //Set a the common title for everypage here
             if (WebTemplateModel.TwoLetterCultureLanguage == "en")
             {

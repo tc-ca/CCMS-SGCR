@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Routing;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
@@ -20,6 +19,7 @@ using System.Net.Mime;
 using HRCMS.Utility;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Localization;
+using log4net;
 
 namespace HRCMS.Controllers
 {
@@ -33,14 +33,14 @@ namespace HRCMS.Controllers
         private readonly IUserRepository _userRepository;
         private readonly LinkGenerator _linkGenerator;
         private readonly Dynamics _appSettings;
-        private readonly ILogger<HomeController> _logger;
         private readonly IMapper _mapper;
         private readonly long _fileSizeLimit;
         private readonly IStringLocalizer<HRCaseController> _localizer;
 
         public HRCaseController(IHRCaseRepository repository, ICaseTypeRepository caseTypeRepository, IUserRepository userRepository, IQuestionRepository questionRepository, IAnnotationRepository annotationRepository
             , IMapper mapper
-            , LinkGenerator linkGenerator,  IOptions<Dynamics> settings, ModelAccessor modelAccessor, IConfiguration config, IStringLocalizer<HRCaseController> localizer) : base(modelAccessor)
+            , LinkGenerator linkGenerator,  IOptions<Dynamics> settings, ModelAccessor modelAccessor, IConfiguration config, IStringLocalizer<HRCaseController> localizer,
+            ILog logger) : base(modelAccessor, logger)
         {
             _repository = repository;
             _caseTypeRepository = caseTypeRepository;
@@ -106,7 +106,7 @@ namespace HRCMS.Controllers
             }
             catch (Exception e)
             {
-                _logger.LogDebug("Failed to retrieve case list");
+                _logger.Error("Failed to retrieve case list");
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
             }
         }
@@ -144,7 +144,7 @@ namespace HRCMS.Controllers
             }
             catch (Exception e)
             {
-                _logger.LogDebug("Failed to retrieve case detail");
+                _logger.Error("Failed to retrieve case detail");
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
             }
         }
@@ -177,7 +177,7 @@ namespace HRCMS.Controllers
             }
             catch (Exception e)
             {
-                _logger.LogDebug("Failed to create a case");
+                _logger.Error("Failed to create a case");
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
             }
         }
@@ -221,7 +221,7 @@ namespace HRCMS.Controllers
             }
             catch (Exception e)
             {
-                _logger.LogDebug("Failed to update a case");
+                _logger.Error("Failed to update a case");
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
             }
         }

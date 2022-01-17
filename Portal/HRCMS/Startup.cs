@@ -15,6 +15,7 @@ using HRCMS.ViewModels;
 using Microsoft.AspNetCore.Mvc.Razor;
 using System.Globalization;
 using System.Collections.Generic;
+using log4net;
 
 namespace HRCMS
 {
@@ -57,6 +58,8 @@ namespace HRCMS
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
+
+            services.AddSingleton(LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType));
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IHRCaseRepository, HRCaseRepository>();

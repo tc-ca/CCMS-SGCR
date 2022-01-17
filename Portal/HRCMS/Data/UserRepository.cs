@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System;
@@ -11,21 +10,17 @@ using Microsoft.Extensions.Options;
 using System.Net.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
+using log4net;
 
 namespace HRCMS.Data
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : BaseRepository, IUserRepository
     {
-        private readonly ILogger<HRCaseRepository> _logger;
-        private readonly ICaseTypeRepository _caseTypeRepository;
-        private readonly HrApi _appSettings;
-        private readonly IMapper _mapper;
+        private readonly HrApi _authSettings;
                
-        public UserRepository(ICaseTypeRepository caseTypeRepository, IMapper mapper, IOptions<HrApi> settings)
+        public UserRepository(IMapper mapper, IOptions<HrApi> authSettings, IOptions<Dynamics> settings, ILog logger): base(mapper, settings, logger)
         {
-            _caseTypeRepository = caseTypeRepository;
-            _mapper = mapper;
-            _appSettings = settings.Value;
+            _authSettings = authSettings.Value;
         }
 
 
@@ -35,14 +30,14 @@ namespace HRCMS.Data
             var apiSubUrl = "/api/userinfo/";
 
 #if DEBUG
-            userId = "xiaowe";
-            apiSubUrl = "/api/userinfoById/";
+            //userId = "36CVVQFSN2SYVAG";
+            //apiSubUrl = "/api/userinfoById/";
             //return new User { userId = "xiaowe", pri = "085757934", firstName = "Weiguang", lastName = "Xiao", email = "weiguang.xiao@034gc.onmicrosoft.com", appToken = "PhoenixForm" };
 #endif
-            using (var client = HRAuthApiHelper.GetHttpClient(_appSettings))
+            using (var client = HRAuthApiHelper.GetHttpClient(_authSettings))
             {
 
-                var response = await client.GetAsync(_appSettings.ResourceUrl+ apiSubUrl + userId);
+                var response = await client.GetAsync(_authSettings.ResourceUrl+ apiSubUrl + userId);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -55,7 +50,7 @@ namespace HRCMS.Data
                 }
                 else
                 {
-                    _logger.LogDebug("Failed to authenticate from HR Portal");
+                    _logger.Error($"Authentication Fail! - Token:{userId}");
                 }
             }
             return null;
