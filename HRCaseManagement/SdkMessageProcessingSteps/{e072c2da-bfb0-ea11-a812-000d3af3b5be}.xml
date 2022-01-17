@@ -5,7 +5,8 @@
   <PluginTypeId>bc089d7a-4f87-441d-a062-4b88ddf49944</PluginTypeId>
   <PrimaryEntity>hr_hrcase</PrimaryEntity>
   <AsyncAutoDelete>0</AsyncAutoDelete>
-  <Configuration>&lt;Settings&gt; &lt;Items&gt; &lt;Item&gt; &lt;Field&gt;hr_casetype&lt;/Field&gt;&lt;/Item&gt;&lt;Item&gt;&lt;Field&gt;hr_casesubtype&lt;/Field&gt;&lt;/Item&gt; &lt;/Items&gt;
+  <Configuration>&lt;Settings&gt; &lt;Items&gt; &lt;Item&gt; &lt;Field&gt;hr_casetype&lt;/Field&gt;&lt;/Item&gt; &lt;Item&gt;&lt;Field&gt;hr_casesubtype&lt;/Field&gt;&lt;/Item&gt; 
+&lt;Item&gt;&lt;Field&gt;hr_region&lt;/Field&gt;&lt;/Item&gt;&lt;/Items&gt;
  &lt;/Settings&gt;</Configuration>
   <Description>Core.Localization.RetrieveMultiple: RetrieveMultiple of hr_hrcase</Description>
   <FilteringAttributes></FilteringAttributes>

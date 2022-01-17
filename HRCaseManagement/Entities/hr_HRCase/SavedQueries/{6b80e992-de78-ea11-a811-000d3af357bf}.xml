@@ -11,6 +11,7 @@
       <grid name="resultset" jump="hr_name" select="1" icon="1" preview="1">
         <row name="result" id="hr_hrcaseid">
           <cell name="hr_name" width="132" />
+          <cell name="hr_region" width="100" />
           <cell name="ownerid" width="148" />
           <cell name="hr_priority" width="100" imageproviderfunctionname="highlightPriority" imageproviderwebresource="$webresource:hr_ViewJS.js" />
           <cell name="hr_casetype" width="100" />
@@ -48,6 +49,7 @@
           </filter>
           <attribute name="hr_datereceived" />
           <order attribute="hr_name" descending="true" />
+          <attribute name="hr_region" />
         </entity>
       </fetch>
     </fetchxml>

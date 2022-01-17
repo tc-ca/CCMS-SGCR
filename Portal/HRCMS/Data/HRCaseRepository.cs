@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System;
@@ -11,26 +10,19 @@ using Microsoft.Extensions.Options;
 using System.Text;
 using System.Net.Http;
 using System.Linq;
-using System.Text.Encodings.Web;
-using System.Web;
+using log4net;
 
 namespace HRCMS.Data
 {
-    public class HRCaseRepository : IHRCaseRepository
+    public class HRCaseRepository : BaseRepository, IHRCaseRepository
     {
-        private readonly ILogger<HRCaseRepository> _logger;
-        private readonly Dynamics _appSettings;
-        private readonly IMapper _mapper;
-
         public void Add<T>(T entity) where T : class
         {
             throw new NotImplementedException();
         }
 
-        public HRCaseRepository(IMapper mapper, IOptions<Dynamics> settings)
+        public HRCaseRepository(IMapper mapper, IOptions<Dynamics> settings, ILog logger) : base(mapper, settings, logger)
         {
-            _mapper = mapper;
-            _appSettings = settings.Value;
         }
 
         public async Task<List<HRCaseModel>> GetAllCasesAsync(string pri, string statuses, string twoLetterCultureLanguage)

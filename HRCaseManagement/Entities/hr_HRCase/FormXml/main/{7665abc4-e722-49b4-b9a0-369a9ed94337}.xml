@@ -34,11 +34,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{0169bf61-27d1-4785-881d-1903cbcd5599}" showlabel="true" locklevel="0" colspan="1">
+                      <cell id="{a6e6524f-4885-41ce-876d-f90bedff6b19}" locklevel="1" colspan="1" rowspan="1">
                         <labels>
-                          <label description="PRI" languagecode="1033" />
+                          <label description="Region" languagecode="1033" />
                         </labels>
-                        <control id="hr_pri" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="hr_pri" disabled="false" uniqueid="{731ebc79-6d9a-74e2-cd24-45139242abdd}" />
+                        <control id="hr_region" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="hr_region" disabled="true" />
                       </cell>
                       <cell id="{c8d4a5b3-411e-50a4-9e40-7ad068186e87}" showlabel="true" locklevel="0">
                         <labels>
@@ -60,11 +60,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{26ae4358-5a52-a77e-b1aa-62a6e281e558}" showlabel="true" locklevel="0" colspan="1">
+                      <cell id="{0169bf61-27d1-4785-881d-1903cbcd5599}" showlabel="true" locklevel="0" colspan="1">
                         <labels>
-                          <label description="First Name" languagecode="1033" />
+                          <label description="PRI" languagecode="1033" />
                         </labels>
-                        <control id="hr_firstname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hr_firstname" disabled="false" uniqueid="{4ce423ba-1be2-8410-eb39-a201b9307104}" />
+                        <control id="hr_pri" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="hr_pri" disabled="false" uniqueid="{731ebc79-6d9a-74e2-cd24-45139242abdd}" />
                       </cell>
                       <cell id="{3ab24b98-16cc-6398-66ca-180769d0909b}" showlabel="true" locklevel="0">
                         <labels>
@@ -86,11 +86,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{5d5178e0-e150-6ecb-6e4e-7b8add803864}" showlabel="true" locklevel="0" colspan="1">
+                      <cell id="{26ae4358-5a52-a77e-b1aa-62a6e281e558}" showlabel="true" locklevel="0" colspan="1">
                         <labels>
-                          <label description="Last Name" languagecode="1033" />
+                          <label description="First Name" languagecode="1033" />
                         </labels>
-                        <control id="hr_lastname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hr_lastname" disabled="false" uniqueid="{800cce4b-288b-ee10-d62b-ac3b7768ca14}" />
+                        <control id="hr_firstname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hr_firstname" disabled="false" uniqueid="{4ce423ba-1be2-8410-eb39-a201b9307104}" />
                       </cell>
                       <cell id="{3208ed96-b57b-b294-6b73-57a017612e64}" showlabel="true" locklevel="0">
                         <labels>
@@ -100,11 +100,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{917ca16b-40e6-7cd3-889d-86db2b1bc064}" showlabel="true" locklevel="0" colspan="1">
+                      <cell id="{5d5178e0-e150-6ecb-6e4e-7b8add803864}" showlabel="true" locklevel="0" colspan="1">
                         <labels>
-                          <label description="Email" languagecode="1033" />
+                          <label description="Last Name" languagecode="1033" />
                         </labels>
-                        <control id="hr_email" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hr_email" disabled="false" uniqueid="{5706416b-a833-24c3-e9bc-21e42719068a}" />
+                        <control id="hr_lastname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hr_lastname" disabled="false" uniqueid="{800cce4b-288b-ee10-d62b-ac3b7768ca14}" />
                       </cell>
                       <cell id="{e2e08566-00d1-2788-025e-458bb308ab7a}" showlabel="true" locklevel="0">
                         <labels>
@@ -114,11 +114,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{1882aac2-9d4a-aa1b-d665-92723961878e}" showlabel="true" locklevel="0" rowspan="6" colspan="1">
+                      <cell id="{917ca16b-40e6-7cd3-889d-86db2b1bc064}" showlabel="true" locklevel="0" colspan="1">
                         <labels>
-                          <label description="Description" languagecode="1033" />
+                          <label description="Email" languagecode="1033" />
                         </labels>
-                        <control id="hr_description" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="hr_description" disabled="false" uniqueid="{e029a805-b417-a9de-ca03-16e2cb5b08b7}" />
+                        <control id="hr_email" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="hr_email" disabled="false" uniqueid="{5706416b-a833-24c3-e9bc-21e42719068a}" />
                       </cell>
                       <cell id="{ee1157ba-b4bc-c148-483e-52e3b813d696}" showlabel="true" locklevel="0" rowspan="6" colspan="1">
                         <labels>
@@ -127,11 +127,25 @@
                         <control id="hr_resolution" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="hr_resolution" disabled="false" uniqueid="{b8dd6393-c533-99b4-6ee2-e0d65ec1a89c}" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{1882aac2-9d4a-aa1b-d665-92723961878e}" showlabel="true" locklevel="0" rowspan="6" colspan="1">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                        </labels>
+                        <control id="hr_description" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="hr_description" disabled="false" uniqueid="{e029a805-b417-a9de-ca03-16e2cb5b08b7}" />
+                      </cell>
+                    </row>
                     <row />
                     <row />
                     <row />
                     <row />
-                    <row />
+                    <row>
+                      <cell locklevel="0" id="{a1193f09-caa5-4a24-a205-fdd4bd4926ff}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
                   </rows>
                 </section>
                 <section name="null_section_4" id="95fadd58-808b-4a2d-955a-65b07c5b63b1" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
@@ -143,6 +157,7 @@
                       <cell id="{a09861da-9e90-2dc3-0737-e407a0d383b7}" showlabel="false" colspan="1" auto="false" rowspan="1">
                         <labels>
                           <label description="Questions and Answers (Pay Case)" languagecode="1033" />
+                          <label description="Questions et réponses" languagecode="1036" />
                         </labels>
                         <control id="QASubgrid" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{44489840-67b5-2084-11ac-68078a4222ee}">
                           <parameters>
@@ -321,7 +336,7 @@
         </rows>
       </header>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

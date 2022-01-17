@@ -2,6 +2,7 @@
 <Dashboard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <LocalizedNames>
     <LocalizedName description="Pay Dashboard" languagecode="1033" />
+    <LocalizedName description="Tableau de bord de la rémunération" languagecode="1036" />
   </LocalizedNames>
   <FormId>{e934c16b-617a-ea11-a811-000d3af3b5be}</FormId>
   <IsCustomizable>0</IsCustomizable>
@@ -50,6 +51,7 @@
                         <cell colspan="2" rowspan="9" showlabel="false" id="{43437ea7-4767-472b-a75e-f6e53dce1e5c}" auto="false">
                           <labels>
                             <label description="Cases with Unread Answers" languagecode="1033" />
+                            <label description="Questions et réponses" languagecode="1036" />
                           </labels>
                           <control id="Componentc198053" uniqueid="{477174db-d24d-cb04-bc03-28c4ce39bbab}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                             <parameters>

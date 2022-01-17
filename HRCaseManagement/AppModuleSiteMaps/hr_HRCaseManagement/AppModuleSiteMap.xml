@@ -67,5 +67,6 @@
   </SiteMap>
   <LocalizedNames>
     <LocalizedName description="Compensation Case Management" languagecode="1033" />
+    <LocalizedName description="Gestion des cas de rémunération" languagecode="1036" />
   </LocalizedNames>
 </AppModuleSiteMap>

@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System;
@@ -11,19 +10,14 @@ using Microsoft.Extensions.Options;
 using System.Text;
 using System.Net.Http;
 using System.Linq;
+using log4net;
 
 namespace HRCMS.Data
 {
-    public class AnnotationRepository : IAnnotationRepository
+    public class AnnotationRepository : BaseRepository, IAnnotationRepository
     {
-        private readonly ILogger<AnnotationRepository> _logger;
-        private readonly Dynamics _appSettings;
-        private readonly IMapper _mapper;
-
-        public AnnotationRepository(IMapper mapper, IOptions<Dynamics> settings)
+        public AnnotationRepository(IMapper mapper, IOptions<Dynamics> settings, ILog logger): base(mapper, settings, logger)
         {
-            _mapper = mapper;
-            _appSettings = settings.Value;
         }       
 
         public async Task<AnnotationModel> GetAnnotationAsync(string annotationId)

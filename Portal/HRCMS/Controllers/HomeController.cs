@@ -5,30 +5,24 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
 using System.Diagnostics;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using GoC.WebTemplate.Components.Core.Services;
-using GoC.WebTemplate.Components.Entities;
-using GoC.WebTemplate.CoreMVC.Controllers;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
+using log4net;
 
 namespace HRCMS.Controllers
 {
     [AllowAnonymous]
     public class HomeController : ExtendedBaseController
     {
-        private readonly ILogger<HomeController> _logger;
         private readonly IUserRepository _userRepository;
         private readonly HrApi _portalSettings;
 
 
-        public HomeController(ILogger<HomeController> logger, IUserRepository userRepository, IOptions<HrApi> settings, ModelAccessor modelAccessor) : base(modelAccessor)
+        public HomeController(IUserRepository userRepository, IOptions<HrApi> settings, ModelAccessor modelAccessor, ILog logger) : base(modelAccessor, logger)
         {
-            _logger = logger;
             _userRepository = userRepository;
             _portalSettings = settings.Value;
         }
@@ -41,32 +35,35 @@ namespace HRCMS.Controllers
         {
             try
             {
-                User user=null;
-                var counter = 0;
-                while(user == null && counter<3)
-                {
-                    user= await _userRepository.GetUserAsync(id);
-                    counter = counter + 1;
-                }
                 
-                var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
-                identity.AddClaim(new Claim(ClaimTypes.PrimarySid, user.pri));
-                identity.AddClaim(new Claim(ClaimTypes.GivenName, user.firstName));
-                identity.AddClaim(new Claim(ClaimTypes.Surname, user.lastName));
-                identity.AddClaim(new Claim(ClaimTypes.Email, user.email));
-                identity.AddClaim(new Claim(ClaimTypes.Name, $"{user.firstName} {user.lastName}"));
-                identity.AddClaim(new Claim(ClaimTypes.StateOrProvince, $"{user.regionEng}::{user.regionFra}"));
-                identity.AddClaim(new Claim(ClaimTypes.Role, "User"));
-                var principal = new ClaimsPrincipal(identity);
+                User user = await _userRepository.GetUserAsync(id);
 
-                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+                if (user != null)
+                {
+                    var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
+                    identity.AddClaim(new Claim(ClaimTypes.PrimarySid, user.pri));
+                    identity.AddClaim(new Claim(ClaimTypes.GivenName, user.firstName));
+                    identity.AddClaim(new Claim(ClaimTypes.Surname, user.lastName));
+                    identity.AddClaim(new Claim(ClaimTypes.Email, user.email));
+                    identity.AddClaim(new Claim(ClaimTypes.Name, $"{user.firstName} {user.lastName}"));
+                    identity.AddClaim(new Claim(ClaimTypes.StateOrProvince, $"{user.regionEng}::{user.regionFra}"));
+                    identity.AddClaim(new Claim(ClaimTypes.Role, "User"));
+                    var principal = new ClaimsPrincipal(identity);
 
-                return RedirectToAction("List", "HRCase");
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+                    return RedirectToAction("List", "HRCase");
+                }
+                else
+                {
+                    _logger.Error($"Authentication Fail! - Token:{id}|{Request.Headers["User-Agent"]}");
+                    return RedirectToAction("Error", "Home");
+                }
             }
             catch
             {
-                ModelState.AddModelError(string.Empty, "Unable to authenticate. Please check your user name");
-                return RedirectToAction("Home", "Index");
+                _logger.Error($"Authentication Fail! - Token:{id}|{Request.Headers["User-Agent"]}");
+                return RedirectToAction("Error", "Home");
             }
         }
 
@@ -97,18 +94,7 @@ namespace HRCMS.Controllers
                 return RedirectToAction("Index");
             }
         }
-
-        [AllowAnonymous]
-        public async Task<IActionResult> Logout()
-        {
-            _logger.LogInformation("User {Name} logged out at {Time}.",
-                User.Identity.Name, DateTime.UtcNow);
-
-            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-
-            return RedirectToAction("Index");
-        }
-
+               
         public IActionResult Privacy()
         {
             return View();
