@@ -10,7 +10,8 @@
   <ClientType>4</ClientType>
   <NavigationType>0</NavigationType>
   <AppModuleComponents>
-    <AppModuleComponent type="1" schemaName="incident" />
+    <AppModuleComponent type="62" schemaName="hr_HRCaseManagement" />
+    <AppModuleComponent type="60" id="{e934c16b-617a-ea11-a811-000d3af3b5be}" />
     <AppModuleComponent type="1" schemaName="hr_casesubtype" />
     <AppModuleComponent type="1" schemaName="hr_casetype" />
     <AppModuleComponent type="1" schemaName="template" />
@@ -19,10 +20,11 @@
     <AppModuleComponent type="1" schemaName="hr_questionandanswers" />
     <AppModuleComponent type="1" schemaName="team" />
     <AppModuleComponent type="1" schemaName="systemuser" />
-    <AppModuleComponent type="60" id="{e934c16b-617a-ea11-a811-000d3af3b5be}" />
-    <AppModuleComponent type="62" schemaName="hr_HRCaseManagement" />
+    <AppModuleComponent type="60" id="{88b1110e-6eb6-ec11-983e-000d3a09c603}" />
+    <AppModuleComponent type="26" id="{7cfaa4e9-6fb6-ec11-983e-000d3a09c603}" />
   </AppModuleComponents>
   <AppModuleRoleMaps>
+    <Role id="{c5b36bc8-79de-ea11-a813-000d3af357bf}" />
     <Role id="{058d6621-2daf-ea11-a812-000d3af3b5be}" />
     <Role id="{a30b54d9-ddac-ea11-a812-000d3af357bf}" />
     <Role id="{68946a7b-3bde-ea11-a813-000d3af3b5be}" />
