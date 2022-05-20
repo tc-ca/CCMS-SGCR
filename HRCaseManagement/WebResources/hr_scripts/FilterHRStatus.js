@@ -5,6 +5,18 @@ var CCMS;
     (function (HRCase) {
         var Form;
         var saveInProgress = false;
+        function FilterOwnerList(eContext) {
+            Form = eContext.getFormContext();
+            if (Form.ui.getFormType() == 1 || Form.ui.getFormType() == 2) {
+                var ownerControl = Form.getControl("header_ownerid");
+                if (ownerControl.getEntityTypes().length > 1) {
+                    ownerControl.setEntityTypes(['systemuser']);
+                    var defaultViewId = '7cfaa4e9-6fb6-ec11-983e-000d3a09c603';
+                    ownerControl.setDefaultView(defaultViewId);
+                }
+            }
+        }
+        HRCase.FilterOwnerList = FilterOwnerList;
         function FilterHRStatus(eContext) {
             Form = eContext.getFormContext();
             var control = Form.getControl("header_hr_casestatus");

@@ -442,6 +442,7 @@
         <event name="onload" application="false" active="false">
           <Handlers>
             <Handler functionName="CCMS.HRCase.FilterHRStatus" libraryName="hr_scripts/FilterHRStatus.js" handlerUniqueId="{b553c997-59ea-c52c-9864-1334532906ea}" enabled="true" parameters="" passExecutionContext="true" />
+            <Handler functionName="CCMS.HRCase.FilterOwnerList" libraryName="hr_scripts/FilterHRStatus.js" handlerUniqueId="{67ac9449-6718-4572-96ad-842743fe000b}" enabled="true" parameters="" passExecutionContext="true" />
           </Handlers>
         </event>
         <event name="onsave" application="false" active="false">

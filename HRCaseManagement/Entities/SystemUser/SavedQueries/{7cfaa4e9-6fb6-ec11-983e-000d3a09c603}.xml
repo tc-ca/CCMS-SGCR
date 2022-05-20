@@ -17,11 +17,18 @@
     </layoutxml>
     <querytype>0</querytype>
     <fetchxml>
-      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
         <entity name="systemuser">
           <attribute name="fullname" />
           <attribute name="systemuserid" />
           <attribute name="internalemailaddress" />
+          <link-entity name="teammembership" intersect="true" visible="false" from="systemuserid" to="systemuserid">
+            <link-entity name="team" alias="ab" from="teamid" to="teamid">
+              <filter type="and">
+                <condition attribute="name" operator="eq" value="Compensation Advisor" />
+              </filter>
+            </link-entity>
+          </link-entity>
         </entity>
       </fetch>
     </fetchxml>
