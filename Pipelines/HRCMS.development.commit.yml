@@ -7,7 +7,7 @@ trigger:
 - none
 
 pool:
-  vmImage: 'vs2017-win2016'
+  vmImage: 'Self-Hosted'
 
 steps:
 - checkout: self
