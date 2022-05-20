@@ -6,8 +6,7 @@
 trigger:
 - none
 
-pool:
-  vmImage: 'Self-Hosted'
+pool: 'Self-Hosted DotNet4X'
 
 steps:
 - checkout: self
