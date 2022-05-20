@@ -1,6 +1,18 @@
 namespace CCMS.HRCase {
   var Form: Form.hr_hrcase.Main.Information;
   var saveInProgress=false;
+
+  export function FilterOwnerList(eContext: Xrm.ExecutionContext<any, any>){
+    Form = <Form.hr_hrcase.Main.Information>eContext.getFormContext();
+    if(Form.ui.getFormType()==1||Form.ui.getFormType()==2){
+      var ownerControl = Form.getControl("header_ownerid");
+      if(ownerControl.getEntityTypes().length>1){
+        ownerControl.setEntityTypes(['systemuser']);
+        var defaultViewId='7cfaa4e9-6fb6-ec11-983e-000d3a09c603';
+        ownerControl.setDefaultView(defaultViewId);
+      }
+    }
+  }
   
   export function FilterHRStatus(eContext: Xrm.ExecutionContext<any, any>) {
     Form = <Form.hr_hrcase.Main.Information>eContext.getFormContext();
