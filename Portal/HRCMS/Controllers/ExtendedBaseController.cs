@@ -32,7 +32,7 @@ namespace HRCMS.Controllers
             WebTemplateModel.HTMLHeaderElements.Add("<meta http-equiv='default-style' content='sample'>");
 
             //Date Modifiied
-            WebTemplateModel.DateModified = new DateTime(2020, 04, 21);
+            WebTemplateModel.DateModified = new DateTime(2024, 03, 20);
 
             //Version Identifier
             WebTemplateModel.VersionIdentifier = Assembly.GetEntryAssembly().GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion;
